@@ -1,3 +1,5 @@
+#/bin/bash #-*- sh -*-
+
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
@@ -6,20 +8,14 @@ if [[ $- != *i* ]]; then
         return
 fi
 
+CONFIG_DIR="$HOME/.home-config"
+
 #using bash
 #set prompt='%{\033[1;34m%}[%! %n@%m %c]$%{\033[0;0m%} '
         
 #setenv RUBYLIB ${HOME}/usr/lib:${HOME}/usr/lib/ruby:${HOME}/bin/ruby-1.8.0/ext/socket
 
-# Define some colors first:
-red='\e[0;31m' ; RED='\e[1;31m'
-green='\e[0;32m'
-GREEN='\e[1;32m'
-blue='\e[0;34m'
-BLUE='\e[1;34m'
-cyan='\e[0;36m'
-CYAN='\e[1;36m'
-NC='\e[0m' # No Color
+source $CONFIG_DIR/color-bash
 
 #PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
 PS1="\[$red\][\! \u@\h \w]$\[$NC\] "
@@ -81,8 +77,6 @@ export HISTFILESIZE=1000 # Size of historyfile
 alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
 alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
 alias vi=vim
-
-CONFIG_DIR="clgc-config"
 
 #setenv ACE_ROOT /home/cec/class/cs342/ACE_wrappers
 #setenv LD_LIBRARY_PATH ${ACE_ROOT}/ace:/home/cec/class/cs342/lib
