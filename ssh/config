@@ -1,0 +1,29 @@
+ForwardAgent yes
+Compression yes
+ForwardX11 yes
+
+Host phaseshift.wuh*
+User comstocl
+
+Host clarion.*
+User cc1
+
+Host hilton.*
+User cc1
+
+Host hive.*
+User cc1
+
+Host tom.cse.wustl.edu
+User cc1
+
+Host siesta.cse.wustl.edu
+User cc1
+
+Host bedlam.cse.wustl.edu
+User cc1
+
+Host *.arl.wustl.edu 
+User comstocl 
+
+
