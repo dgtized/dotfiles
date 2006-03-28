@@ -86,9 +86,6 @@ export LD_LIBRARY_PATH=$HOME/usr/lib
 export LDFLAGS=-L$HOME/usr/lib
 export CFLAGS=$CPPFLAGS
 if [ -f /etc/gentoo-release ]; then
-    #export JAVA_HOME=/opt/blackdown-jdk-1.4.2.01
-    #export JAVAC=/opt/blackdown-jdk-1.4.2.01/bin/javac
-
     source $CONFIG_DIR/bashrc-gentoo
     export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
     alias eth0='sudo /etc/init.d/net.eth0'

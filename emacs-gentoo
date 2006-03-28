@@ -1,3 +1,5 @@
+;; Please be -*- emacs-lisp -*-
+
 (when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
   (load "/usr/share/emacs/site-lisp/site-gentoo"))
 
@@ -12,8 +14,8 @@
 (setq file-name-coding-system 'utf-8)
 (set-selection-coding-system 'compound-text-with-extensions)
 
-(global-set-key "\C-c7" 'ucs-insert)
-  ;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
+;; remove vc peskiness while editing .emacs file
+(setq vc-follow-symlinks nil)
 
 (setq line-number-mode t)
 (setq column-number-mode t)
@@ -214,6 +216,7 @@
 (global-set-key [(control tab)] 'crs-bury-buffer)
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
 (global-set-key "\C-cc" 'compile)
+(global-set-key [f5] 'compile)
 (global-set-key "\C-cm" 
                 (lambda () (interactive) 
                   (switch-to-buffer "Makefile") 
@@ -222,6 +225,11 @@
 
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
+  ;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
+(global-set-key "\C-c7" 'ucs-insert)
+
+(global-set-key [f6] 'svn-status)
+(global-set-key "\C-c1" 'svn-status)
 
 (setq iswitchb-case nil) ; completions are case sensitive.
 (if (fboundp 'iswitchb-default-keybindings)
@@ -239,7 +247,7 @@
 (setq tramp-default-method "ssh")
 
 (set-frame-width (selected-frame) 140)
-(set-frame-height (selected-frame) 80)
+(set-frame-height (selected-frame) 70)
 
 (server-start)
 
@@ -256,7 +264,8 @@
   "compile itself if ~/.emacs"
   (interactive)
   (require 'bytecomp)
-  (if (string= (buffer-file-name) (expand-file-name (concat default-directory ".emacs")))
+  (if (string= (buffer-file-name) 
+	       (expand-file-name (concat default-directory ".emacs")))
       (byte-compile-file (buffer-file-name))))
 
 (add-hook 'after-save-hook 'autocompile)
