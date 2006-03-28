@@ -19,17 +19,17 @@ function main () {
     echo "CONFIG_DIR=$CONFIG_DIR" > site-config
     echo "CONFIG_NAME=$CONFIG_NAME" >> site-config
     
-    ln -sfv bashrc ~/.bashrc
-    ln -sfv emacs-${CONFIG_NAME} ~/.emacs
-    ln -sfv vimrc ~/.vimrc
+    ln -sfv ${CONFIG_DIR}/bashrc ~/.bashrc
+    ln -sfv ${CONFIG_DIR}/emacs-${CONFIG_NAME} ~/.emacs
+    ln -sfv ${CONFIG_DIR}/vimrc ~/.vimrc
     
-    ln -sfv irbrc ~/.irbrc
-    ln -sfv inputrc ~/.inputrc
-    ln -sfv screenrc ~/.screenrc
+    ln -sfv ${CONFIG_DIR}/irbrc ~/.irbrc
+    ln -sfv ${CONFIG_DIR}/inputrc ~/.inputrc
+    ln -sfv ${CONFIG_DIR}/screenrc ~/.screenrc
 
     if [[ $CONFIG_NAME == "cec" ]]; then
-	ln -sfv .cshrc.mine cshrc.mine
-	ln -sfv pinerc .pinerc
+	ln -sfv ${CONFIG_DIR}/cshrc.mine ~/.cshrc.mine
+	ln -sfv ${CONFIG_DIR}/pinerc ~/.pinerc
     fi
     
     # ssh related config
