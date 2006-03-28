@@ -4,8 +4,8 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]]; then
-        # Shell is non-interactive.  Be done now
-        return
+    # Shell is non-interactive.  Be done now
+    return
 fi
 
 source $HOME/.home-config/site-config
@@ -93,18 +93,18 @@ export CFLAGS=$CPPFLAGS
 source $CONFIG_DIR/bashrc-$CONFIG_NAME
 
 case $CONFIG_NAME in 
-gentoo )
-    export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
-    alias eth0='sudo /etc/init.d/net.eth0'
-    alias eth1='sudo /etc/init.d/net.eth1'
-    alias shutdown='sudo /sbin/shutdown'
-    alias iwconfig='sudo /sbin/iwconfig eth1'
-    alias esync='sudo esync'
-    alias emerge='sudo emerge'
-    alias synjeff='ssh -f -N -L 24800:jeff.arl.wustl.edu:24800 comstocl@jeff.arl.wustl.edu && synergyc localhost'
-    ;;
-cec )
-    ;;
+    gentoo ) 
+	export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
+	alias eth0='sudo /etc/init.d/net.eth0'
+	alias eth1='sudo /etc/init.d/net.eth1'
+	alias shutdown='sudo /sbin/shutdown'
+	alias iwconfig='sudo /sbin/iwconfig eth1'
+	alias esync='sudo esync'
+	alias emerge='sudo emerge'
+	alias synjeff='ssh -f -N -L 24800:jeff.arl.wustl.edu:24800 comstocl@jeff.arl.wustl.edu && synergyc localhost'
+	;;
+    cec )
+	;;
 esac
 
 export HOSTFILE=$CONFIG_DIR/hosts
@@ -130,8 +130,10 @@ fi
 unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
-    keychain id_rsa id_dsa
-    . ~/.keychain/$HOSTNAME-sh
+    if which keychain > /dev/null 2>&1; then
+	keychain id_rsa id_dsa
+	source ~/.keychain/$HOSTNAME-sh
+    fi
 fi
 
 # gets called every time need to fix for once it's set
@@ -139,4 +141,4 @@ fi
 #    xmodmap $CONFIG_DIR/xmodmap 
 #fi
 
-xset b off
+xset b off > /dev/null 2>&1
