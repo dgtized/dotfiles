@@ -8,7 +8,8 @@ if [[ $- != *i* ]]; then
         return
 fi
 
-CONFIG_DIR="$HOME/.home-config"
+source $HOME/.home-config/site-config
+#CONFIG_DIR="$HOME/.home-config"
 
 #using bash
 #set prompt='%{\033[1;34m%}[%! %n@%m %c]$%{\033[0;0m%} '
@@ -91,7 +92,7 @@ export CFLAGS=$CPPFLAGS
 
 source $CONFIG_DIR/bashrc-$CONFIG_NAME
 
-case $CONFIG_NAME
+case $CONFIG_NAME in 
 gentoo )
     export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
     alias eth0='sudo /etc/init.d/net.eth0'

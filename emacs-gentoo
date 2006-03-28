@@ -1,8 +1,8 @@
 ;; Please be -*- emacs-lisp -*-
-
+ 
 (when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
   (load "/usr/share/emacs/site-lisp/site-gentoo"))
-
+ 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq default-buffer-file-coding-system 'utf-8)
