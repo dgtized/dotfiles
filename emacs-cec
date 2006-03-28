@@ -1,3 +1,5 @@
+;; Please be -*- emacs-lisp -*-
+
 (defmacro when-emacs-version (vers &rest body)
   `(when (equal emacs-major-version ,vers)
     ,@body))
@@ -495,9 +497,9 @@
 	  ;;	  (desktop-read))
 ))
 
-(add-to-list 'auto-mode-alist '("\\.rsp\\'" . rsp-mode))
-(autoload 'rsp-mode "RSP" "Major mode for editing RSP code" t)
-(require 'rsp-mode) 
+;; (add-to-list 'auto-mode-alist '("\\.rsp\\'" . rsp-mode))
+;; (autoload 'rsp-mode "RSP" "Major mode for editing RSP code" t)
+;; (require 'rsp-mode) 
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -507,11 +509,6 @@
 ;(set-cursor-color "light blue")
 ;(set-mouse-color "light blue")
 ;(set-border-color "light grey")
-
-(custom-set-faces
-  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
- )
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!

@@ -41,6 +41,11 @@
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
 
+;; make the backup gods obey ME! no more ~ sprinkles all over the place
+(setq version-control nil)
+(add-to-list 'backup-directory-alist
+	     (cons "." "~/.emacs.d/backups/"))
+
 (require 'compile)
 ;
 ; ruby mode
@@ -234,7 +239,7 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
-(setq iswitchb-case nil) ; completions are case sensitive.
+; (setq iswitchb-case nil) ; completions are case sensitive.
 (if (fboundp 'iswitchb-default-keybindings)
     (iswitchb-default-keybindings)
   (iswitchb-mode))
@@ -252,7 +257,10 @@
 (set-frame-width (selected-frame) 140)
 (set-frame-height (selected-frame) 70)
 
-(server-start)
+; (server-start)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
