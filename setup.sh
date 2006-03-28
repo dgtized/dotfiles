@@ -8,33 +8,29 @@ if [[ $BASH_ARGC != 1 ]]; then
 	exit
     fi
 else
-    if [[ $1 == "clean" ]]; then
-	rm -rfv bash-completion-latest.tar.gz bash-completion *~	
-	exit
-    fi
     CONFIG_NAME=$1
 fi
 
 CONFIG_DIR=`dirname $0`
 
-if [[ -d $CONFIG_DIR ]]; then
-    pushd . > /dev/null 2>&1
-    cd $CONFIG_DIR
+function main () {
+    echo "* running setup.sh from $CONFIG_DIR"
 
     echo "CONFIG_DIR=$CONFIG_DIR" > site-config
     echo "CONFIG_NAME=$CONFIG_NAME" >> site-config
     
-    echo "* running setup.sh from $CONFIG_DIR"
+    ln -sfv bashrc ~/.bashrc
+    ln -sfv emacs-${CONFIG_NAME} ~/.emacs
+    ln -sfv vimrc ~/.vimrc
     
-    source $CONFIG_DIR/color-bash
-    
-    ln -sfv ${CONFIG_DIR}/bashrc ~/.bashrc
-    ln -sfv ${CONFIG_DIR}/emacs-${CONFIG_NAME} ~/.emacs
-    ln -sfv ${CONFIG_DIR}/vimrc ~/.vimrc
-    
-    ln -sfv ${CONFIG_DIR}/irbrc ~/.irbrc
-    ln -sfv ${CONFIG_DIR}/inputrc ~/.inputrc
-    ln -sfv ${CONFIG_DIR}/screenrc ~/.screenrc
+    ln -sfv irbrc ~/.irbrc
+    ln -sfv inputrc ~/.inputrc
+    ln -sfv screenrc ~/.screenrc
+
+    if [[ $CONFIG_NAME == "cec" ]]; then
+	ln -sfv .cshrc.mine cshrc.mine
+	ln -sfv pinerc .pinerc
+    fi
     
     # ssh related config
     mkdir -vp ~/.ssh
@@ -46,11 +42,27 @@ if [[ -d $CONFIG_DIR ]]; then
 	if wget -N http://www.caliban.org/files/bash/bash-completion-latest.tar.gz; then
 	    tar xzf bash-completion-latest.tar.gz    
 	fi
+    fi    
+}
+
+if [[ -d $CONFIG_DIR ]]; then
+    pushd . > /dev/null 2>&1
+    cd $CONFIG_DIR
+
+    if [[ $1 == "clean" ]]; then
+	echo "Cleaning..."
+	rm -rfv bash-completion-latest.tar.gz bash_completion site-config *~ *#	
+	popd > /dev/null 2>&1	
+	exit
     fi
+
+    source color-bash    
+
+    main # now that we know everything will get cleaned up
 
     echo 
     echo "Site Config for `hostname`-$1:"
     cat site-config
-    
-    popd > /dev/null 2>&1
+
+    popd > /dev/null 2>&1    
 fi

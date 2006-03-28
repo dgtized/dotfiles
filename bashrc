@@ -122,9 +122,9 @@ if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then
     if [ -f $CONFIG_DIR/bash_completion/bash_completion ]; then # interactive shell
 	export BASH_COMPLETION=$CONFIG_DIR/bash_completion
 	. $CONFIG_DIR/bash_completion/bash_completion
-    else if [ -f /etc/bash_completion]; then
+    elif [ -f /etc/bash_completion]; then
 	. /etc/bash_completion
-    fi ; fi
+    fi 
 fi
 unset bash bmajor bminor
 
