@@ -69,10 +69,11 @@ else
 fi
 #LESSEDIT="%E ?lt+%lt. %f" 
 #LESSCHARDEF="8bcccbcc13b.4b95.33b."
-export HISTSIZE=1000 # Long history
-export HISTFILESIZE=1000 # Size of historyfile
-#HISTCONTROL=ignoredups # Ignore duplicates
-#HISTIGNORE='&:d:ls:lm:lm *'# Ignore stuff
+
+set HISTSIZE=1000 # Long history
+set HISTFILESIZE=500 # Size of historyfile
+set HISTCONTROL="ignoredups:erasedups" # Ignore duplicates
+set HISTIGNORE='&:ls:mutt:[bf]g:exit'# Ignore stuff
 
 alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
 alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
@@ -102,15 +103,16 @@ else
     export BASH_COMPLETION=$HOME/bin/bash_completion
 fi
 
+export HOSTFILE=$CONFIG_DIR/hosts
+
 export OUTPUT_OPTION=""
-export EDITOR=emacsclient
-#export EDITOR=vim
+#export EDITOR=emacsclient
+export EDITOR=vim
 
 export CVS_RSH=ssh
 export CVSROOT=:ext:cc1@bedlam.cse.wustl.edu:/export/cvs
 
-#shopt -s cdable_vars cdspell checkwinsize cmdhist histappend hostcomplete huponexit
-shopt -s extglob cdspell checkwinsize hitverify hostcomplete >& /dev/null
+shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then  
@@ -122,9 +124,15 @@ if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then
    fi
 fi
 unset bash bmajor bminor
+
 if [[ `uname` != "SunOS" ]]; then
     keychain id_rsa id_dsa
     . ~/.keychain/$HOSTNAME-sh
 fi
+
+# gets called every time need to fix for once it's set
+#if [[! -f ~/.xmodmap ]]; then
+#    xmodmap $CONFIG_DIR/xmodmap 
+#fi
 
 xset b off

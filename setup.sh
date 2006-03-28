@@ -12,6 +12,7 @@ ln -sfv ${CONFIG_DIR}/emacs-${CONFIG_NAME} ~/.emacs
 ln -sfv ${CONFIG_DIR}/vimrc ~/.vimrc
 
 ln -sfv ${CONFIG_DIR}/irbrc ~/.irbrc
+ln -sfv ${CONFIG_DIR}/inputrc ~/.inputrc
 ln -sfv ${CONFIG_DIR}/screenrc ~/.screenrc
 
 # ssh related config
