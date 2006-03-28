@@ -1,4 +1,4 @@
-#-*- sh -*-
+#/bin/bash #-*- sh -*-
 
 # from /etc/skel/.bashrc: 
 
@@ -19,3 +19,5 @@ case $TERM in
 		;;
 esac
 
+#export JAVA_HOME=/opt/blackdown-jdk-1.4.2.01
+#export JAVAC=/opt/blackdown-jdk-1.4.2.01/bin/javac

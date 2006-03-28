@@ -60,6 +60,8 @@ alias tree='tree -Csu' # nice alternative to 'ls'
 alias more='less'
 export PAGER=less
 export LESSCHARSET='utf-8'
+#export LESSCHARSET='latin1'
+
 #export LESS='-i -M -F -R -w'
 if [ -f /usr/bin/src-hilite-lesspipe.sh ]; then
 	export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
@@ -86,8 +88,11 @@ export CPPFLAGS=-I$HOME/usr/include
 export LD_LIBRARY_PATH=$HOME/usr/lib    
 export LDFLAGS=-L$HOME/usr/lib
 export CFLAGS=$CPPFLAGS
-if [ -f /etc/gentoo-release ]; then
-    source $CONFIG_DIR/bashrc-gentoo
+
+source $CONFIG_DIR/bashrc-$CONFIG_NAME
+
+case $CONFIG_NAME
+gentoo )
     export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
     alias eth0='sudo /etc/init.d/net.eth0'
     alias eth1='sudo /etc/init.d/net.eth1'
@@ -96,12 +101,10 @@ if [ -f /etc/gentoo-release ]; then
     alias esync='sudo esync'
     alias emerge='sudo emerge'
     alias synjeff='ssh -f -N -L 24800:jeff.arl.wustl.edu:24800 comstocl@jeff.arl.wustl.edu && synergyc localhost'
-else
-    export JAVA_HOME=/usr/java/jdk1.5.0_01/
-    export JAVAC=/usr/java/jdk1.5.0_01/bin/javac
-    export PATH=$HOME/usr/bin:${PATH}:/usr/java/j2sdk1.4.2_01/bin
-    export BASH_COMPLETION=$HOME/bin/bash_completion
-fi
+    ;;
+cec )
+    ;;
+esac
 
 export HOSTFILE=$CONFIG_DIR/hosts
 
@@ -116,12 +119,12 @@ shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/nu
 
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then  
-   if [ -f $HOME/bin/bash_completion/bash_completion ]; then # interactive shell
-     . $HOME/bin/bash_completion/bash_completion
-   else if [ -f /etc/bash_completion]; then
-     . /etc/bash_completion
-        fi 
-   fi
+    if [ -f $CONFIG_DIR/bash_completion/bash_completion ]; then # interactive shell
+	export BASH_COMPLETION=$CONFIG_DIR/bash_completion
+	. $CONFIG_DIR/bash_completion/bash_completion
+    else if [ -f /etc/bash_completion]; then
+	. /etc/bash_completion
+    fi ; fi
 fi
 unset bash bmajor bminor
 
