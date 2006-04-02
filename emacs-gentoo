@@ -1,7 +1,54 @@
 ;; Please be -*- emacs-lisp -*-
- 
-(when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
-  (load "/usr/share/emacs/site-lisp/site-gentoo"))
+
+;;; ispell-aspell site-lisp configuration
+
+(setq ispell-program-name "aspell")
+
+;;; auctex site-lisp configuration
+
+(require 'tex-site)
+
+;;; elib site-lisp configuration
+
+(setq load-path (cons "/usr/share/emacs/site-lisp/elib" load-path))
+
+;;; mmm-mode site-lisp configuration
+
+(setq load-path (cons "/usr/share/emacs/site-lisp/mmm-mode" load-path))
+(require 'mmm-auto)
+
+;;; Ruby-mode site-lisp configuration
+
+(setq load-path (cons "/usr/share/emacs/site-lisp/ruby-mode" load-path))
+
+(autoload 'ruby-mode "ruby-mode" "Major mode to edit ruby files." t)
+(setq auto-mode-alist
+  (append '(("\\.rb$" . ruby-mode)) auto-mode-alist))
+
+(setq interpreter-mode-alist
+  (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
+
+;;; cedet site-lisp configuration
+; (load "/usr/share/emacs/site-lisp/cedet/common/cedet")
+
+;; preview-latex gentoo site configuration
+
+(add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+(autoload 'LaTeX-preview-setup "preview")
+
+;;; JDE site-lisp configuration
+; (setq load-path (cons "/usr/share/emacs/site-lisp/jde/lisp" load-path))
+;(autoload 'jde-mode "jde" "Java Development Environment Emacs" t)
+;(setq auto-mode-alist (cons '("\\.java$" . jde-mode) auto-mode-alist))
+
+;;; svn site-lisp configuration
+
+(setq load-path (cons "/usr/share/emacs/site-lisp/subversion" load-path))
+(add-to-list 'vc-handled-backends 'SVN)
+(require 'psvn)
+
+;; (when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
+;;  (load "/usr/share/emacs/site-lisp/site-gentoo"))
  
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -26,10 +73,7 @@
 ;;(setq next-line-extends-end-of-buffer nil)
 ;;(setq debug-on-error t)
 (fset 'yes-or-no-p 'y-or-n-p)
-;(temp-buffer-resize-mode t)         ; Size the tempbuffer according to contents.
 (resize-minibuffer-mode)            ; Size the minibuffer according to contents.
-;(setq display-time-day-and-date t)
-;(display-time)
 
 ;Enable opposite bracket/paranthesis highlighting
 (require 'paren)
@@ -47,6 +91,7 @@
 	     (cons "." "~/.emacs.d/backups/"))
 
 (require 'compile)
+
 ;
 ; ruby mode
 ; 
@@ -131,8 +176,6 @@
                       (setq indent-tabs-mode nil)
                       (local-set-key "\C-cc" 'compile))))
 
-;; java
-
 ;; ISWITCH
 
 ; necessary support function for buffer burial
@@ -206,34 +249,34 @@
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
-(setq cperl-hairy t)
 
-(defun global-trim ()
-  "Trim all trailing whitespace in the current buffer."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t]+$" nil t)
-      (replace-match "" t t))))
+(defun my-cperl-mode-hook ()      
+  (setq cperl-hairy t)
+  (define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
+)
+
+(add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
 ;; KEYBINDINGS
 
+(global-set-key [f11] 'redraw-display)
+
 (global-set-key [(control tab)] 'crs-bury-buffer)
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
-(global-set-key "\C-cc" 'compile)
-(global-set-key [f5] 'compile)
-(global-set-key "\C-cm" 
+(global-set-key "\C-cc" 'compile)	
+(global-set-key [f5] 'compile)		
+(global-set-key "\C-cm" 		
                 (lambda () (interactive) 
                   (switch-to-buffer "Makefile") 
-                  (compile "make -k"))) 
-(global-set-key "\C-xp" (lambda () (interactive) (other-window -1)))
+                  (compile "make -k")))	
+(global-set-key "\C-xp" (lambda () (interactive) (other-window -1))) 
 
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
   ;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key "\C-c7" 'ucs-insert)
 
-(global-set-key [f6] 'svn-status)
+; (global-set-key [f6] 'svn-status)
 (global-set-key "\C-c1" 'svn-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -270,6 +313,45 @@
  '(compilation-window-height 10)
  '(quack-programs (quote ("mzscheme -M eopl" "bigloo" "csi" "csi -hygienic" "gosh" "gsi" "guile" "kawa" "mit-scheme" "mred -z" "mzscheme" "mzscheme -M errortrace" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(quack-tabs-are-evil-p t))
+
+(defun global-trim ()
+  "Trim all trailing whitespace in the current buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t]+$" nil t)
+      (replace-match "" t t))))
+
+;show ascii table
+(defun ascii-table ()
+  "Print the ascii table. Based on a defun by Alex Schroeder <asc@bsiag.com>"
+  (interactive)
+  (switch-to-buffer "*ASCII*")
+  (erase-buffer)
+  (insert (format "ASCII characters up to number %d.\n" 254))
+  (let ((i 0))
+    (while (< i 254)
+      (setq i (+ i 1))
+      (insert (format "%4d %c\n" i i))))
+  (beginning-of-buffer))
+
+;insert date into buffer
+(defun insert-date ()
+  "Insert date at point."
+  (interactive)
+  (insert (format-time-string "%a %b %e, %Y %l:%M %p")))
+
+;convert a buffer from dos ^M end of lines to unix end of lines
+(defun dos2unix ()
+  (interactive)
+    (goto-char (point-min))
+      (while (search-forward "\r" nil t) (replace-match "")))
+
+;vice versa
+(defun unix2dos ()
+  (interactive)
+    (goto-char (point-min))
+      (while (search-forward "\n" nil t) (replace-match "\r\n"))) 
 
 (defun autocompile nil
   "compile itself if ~/.emacs"
