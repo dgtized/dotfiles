@@ -76,7 +76,7 @@ fi
 set HISTSIZE=1000 # Long history
 set HISTFILESIZE=500 # Size of historyfile
 set HISTCONTROL="ignoredups:erasedups" # Ignore duplicates
-set HISTIGNORE='&:ls:mutt:[bf]g:exit'# Ignore stuff
+set HISTIGNORE='&:[bf]g:exit'# Ignore stuff
 
 alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
 alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
