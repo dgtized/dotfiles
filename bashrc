@@ -107,6 +107,9 @@ case $CONFIG_NAME in
 	;;
     cec )
 	;;
+    dreamhost )
+    	export PATH=${HOME}/usr/bin:${PATH}
+    	;;
 esac
 
 export HOSTFILE=$CONFIG_DIR/hosts
