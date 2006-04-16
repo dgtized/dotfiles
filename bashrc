@@ -90,7 +90,9 @@ export LD_LIBRARY_PATH=$HOME/usr/lib
 export LDFLAGS=-L$HOME/usr/lib
 export CFLAGS=$CPPFLAGS
 
-source $CONFIG_DIR/bashrc-$CONFIG_NAME
+if [ -f $CONFIG_DIR/bashrc-$CONFIG_NAME ]; then
+	source $CONFIG_DIR/bashrc-$CONFIG_NAME
+fi
 
 case $CONFIG_NAME in 
     gentoo ) 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [[ $BASH_ARGC != 1 ]]; then
+if [[ $# -ne 1 ]]; then
+    echo "count: $# - "
     if [ -f /etc/gentoo-release ]; then
 	CONFIG_NAME="gentoo"
     else
@@ -16,8 +17,8 @@ CONFIG_DIR=`dirname $0`
 function main () {
     echo "* running setup.sh from $CONFIG_DIR"
 
-    echo "CONFIG_DIR=$CONFIG_DIR" > site-config
-    echo "CONFIG_NAME=$CONFIG_NAME" >> site-config
+    echo "export CONFIG_DIR=$CONFIG_DIR" > site-config
+    echo "export CONFIG_NAME=$CONFIG_NAME" >> site-config
     
     ln -sfv ${CONFIG_DIR}/bashrc ~/.bashrc
     ln -sfv ${CONFIG_DIR}/emacs-${CONFIG_NAME} ~/.emacs
