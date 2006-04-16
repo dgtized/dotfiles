@@ -84,6 +84,8 @@ alias vi=vim
 
 #setenv ACE_ROOT /home/cec/class/cs342/ACE_wrappers
 #setenv LD_LIBRARY_PATH ${ACE_ROOT}/ace:/home/cec/class/cs342/lib
+
+export PATH=${HOME}/usr/bin:${PATH}
 export CLASSPATH=.
 export CPPFLAGS=-I$HOME/usr/include
 export LD_LIBRARY_PATH=$HOME/usr/lib    
@@ -96,7 +98,7 @@ fi
 
 case $CONFIG_NAME in 
     gentoo ) 
-	export PATH=${HOME}/usr/bin:${PATH}:/usr/sbin:/sbin
+	export PATH=${PATH}:/usr/sbin:/sbin
 	alias eth0='sudo /etc/init.d/net.eth0'
 	alias eth1='sudo /etc/init.d/net.eth1'
 	alias shutdown='sudo /sbin/shutdown'
@@ -108,7 +110,6 @@ case $CONFIG_NAME in
     cec )
 	;;
     dreamhost )
-    	export PATH=${HOME}/usr/bin:${PATH}
     	;;
 esac
 
