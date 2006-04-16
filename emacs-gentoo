@@ -12,6 +12,11 @@
 
 (setq load-path (cons "/usr/share/emacs/site-lisp/elib" load-path))
 
+;;; htmlize site-lisp configuration
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/htmlize")
+(require 'htmlize)
+
 ;;; mmm-mode site-lisp configuration
 
 (setq load-path (cons "/usr/share/emacs/site-lisp/mmm-mode" load-path))
@@ -299,6 +304,7 @@
 
 (set-frame-width (selected-frame) 140)
 (set-frame-height (selected-frame) 70)
+(set-frame-font "fixed")
 
 ; (server-start)
 
@@ -314,14 +320,6 @@
  '(quack-programs (quote ("mzscheme -M eopl" "bigloo" "csi" "csi -hygienic" "gosh" "gsi" "guile" "kawa" "mit-scheme" "mred -z" "mzscheme" "mzscheme -M errortrace" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(quack-tabs-are-evil-p t))
 
-(defun global-trim ()
-  "Trim all trailing whitespace in the current buffer."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t]+$" nil t)
-      (replace-match "" t t))))
-
 ;show ascii table
 (defun ascii-table ()
   "Print the ascii table. Based on a defun by Alex Schroeder <asc@bsiag.com>"
@@ -334,6 +332,8 @@
       (setq i (+ i 1))
       (insert (format "%4d %c\n" i i))))
   (beginning-of-buffer))
+
+
 
 ;insert date into buffer
 (defun insert-date ()
