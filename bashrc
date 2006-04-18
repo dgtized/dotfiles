@@ -8,8 +8,7 @@ if [[ $- != *i* ]]; then
     return
 fi
 
-source $HOME/.home-config/site-config
-#CONFIG_DIR="$HOME/.home-config"
+source $HOME/.site-config
 
 #using bash
 #set prompt='%{\033[1;34m%}[%! %n@%m %c]$%{\033[0;0m%} '
