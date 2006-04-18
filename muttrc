@@ -1,0 +1,5 @@
+set folder=~/mail
+set move=no
+set charset=utf-8
+# set charset=ios8859-1
+set send_charset="us-ascii:iso8859-1:utf-8"
