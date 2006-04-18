@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [[ $# -ne 1 ]]; then
-    echo "count: $# - "
     if [ -f /etc/gentoo-release ]; then
 	CONFIG_NAME="gentoo"
     else
@@ -19,6 +18,7 @@ function main () {
 
     echo "export CONFIG_DIR=$CONFIG_DIR" > site-config
     echo "export CONFIG_NAME=$CONFIG_NAME" >> site-config
+    ln -sfv ${CONFIG_DIR}/site-config ~/.site-config
     
     ln -sfv ${CONFIG_DIR}/bashrc ~/.bashrc
     ln -sfv ${CONFIG_DIR}/emacs-${CONFIG_NAME} ~/.emacs
@@ -28,13 +28,15 @@ function main () {
     ln -sfv ${CONFIG_DIR}/inputrc ~/.inputrc
     ln -sfv ${CONFIG_DIR}/screenrc ~/.screenrc
 
+    ln -sfv ${CONFIG_DIR}/pinerc ~/.pinerc
+    ln -sfv ${CONFIG_DIR}/muttrc ~/.muttrc
+    
     if [[ $CONFIG_NAME == "cec" ]]; then
 	ln -sfv ${CONFIG_DIR}/cshrc.mine ~/.cshrc.mine
-	ln -sfv ${CONFIG_DIR}/pinerc ~/.pinerc
     fi
     
     # ssh related config
-    mkdir -vp ~/.ssh
+    mkdir -pv ~/.ssh
     ln -sfv ${CONFIG_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ${CONFIG_DIR}/ssh/config ~/.ssh/config
     
@@ -62,7 +64,7 @@ if [[ -d $CONFIG_DIR ]]; then
     main # now that we know everything will get cleaned up
 
     echo 
-    echo "Site Config for `hostname`-$1:"
+    echo "Site Config for `hostname`-${CONFIG_NAME}:"
     cat site-config
 
     popd > /dev/null 2>&1    
