@@ -2,9 +2,6 @@ ForwardAgent yes
 Compression yes
 ForwardX11 yes
 
-Host phaseshift.wuh*
-User comstocl
-
 Host clarion.*
 User cc1
 
@@ -26,4 +23,11 @@ User cc1
 Host *.arl.wustl.edu 
 User comstocl 
 
+Host dgtized.net
+User comstocl
 
+Host *.dgtized.net
+User comstocl
+
+Host acm.wustl.edu
+User comstocl
