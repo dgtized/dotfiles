@@ -39,6 +39,7 @@ function main () {
     mkdir -pv ~/.ssh
     ln -sfv ${CONFIG_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ${CONFIG_DIR}/ssh/config ~/.ssh/config
+    chmod -v 700 ~/.ssh 
     
     # lets get some bash completion if we don't have it
     if [[ $CONFIG_NAME != "gentoo" ]]; then

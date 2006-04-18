@@ -1,3 +1,4 @@
+Host *
 ForwardAgent yes
 Compression yes
 ForwardX11 yes
