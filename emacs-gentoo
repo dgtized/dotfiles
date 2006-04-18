@@ -1,62 +1,17 @@
 ;; Please be -*- emacs-lisp -*-
 
-;;; ispell-aspell site-lisp configuration
+(defvar config-dir (getenv "CONFIG_DIR") "shell config directory")
+(defvar config-name (getenv "CONFIG_NAME") "shell config name")
 
-(setq ispell-program-name "aspell")
+(add-to-list 'load-path (concat config-dir "/site-lisp"))
 
-;;; auctex site-lisp configuration
+(require 'clgc-site-gentoo)
+(require 'clgc-functions)
 
-(require 'tex-site)
-
-;;; elib site-lisp configuration
-
-(setq load-path (cons "/usr/share/emacs/site-lisp/elib" load-path))
-
-;;; htmlize site-lisp configuration
-
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/htmlize")
-(require 'htmlize)
-
-;;; mmm-mode site-lisp configuration
-
-(setq load-path (cons "/usr/share/emacs/site-lisp/mmm-mode" load-path))
-(require 'mmm-auto)
-
-;;; Ruby-mode site-lisp configuration
-
-(setq load-path (cons "/usr/share/emacs/site-lisp/ruby-mode" load-path))
-
-(autoload 'ruby-mode "ruby-mode" "Major mode to edit ruby files." t)
-(setq auto-mode-alist
-  (append '(("\\.rb$" . ruby-mode)) auto-mode-alist))
-
-(setq interpreter-mode-alist
-  (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
-
-;;; cedet site-lisp configuration
-; (load "/usr/share/emacs/site-lisp/cedet/common/cedet")
-
-;; preview-latex gentoo site configuration
-
-(add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
-(autoload 'LaTeX-preview-setup "preview")
-
-;;; JDE site-lisp configuration
-; (setq load-path (cons "/usr/share/emacs/site-lisp/jde/lisp" load-path))
-;(autoload 'jde-mode "jde" "Java Development Environment Emacs" t)
-;(setq auto-mode-alist (cons '("\\.java$" . jde-mode) auto-mode-alist))
-
-;;; svn site-lisp configuration
-
-(setq load-path (cons "/usr/share/emacs/site-lisp/subversion" load-path))
-(add-to-list 'vc-handled-backends 'SVN)
-(require 'psvn)
-
-;; (when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
-;;  (load "/usr/share/emacs/site-lisp/site-gentoo"))
+(set-frame-width (selected-frame) 140)
+(set-frame-height (selected-frame) 70)
+(set-frame-font "fixed")
  
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
 (setq default-buffer-file-coding-system 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -66,19 +21,26 @@
 (setq file-name-coding-system 'utf-8)
 (set-selection-coding-system 'compound-text-with-extensions)
 
-;; remove vc peskiness while editing .emacs file
-(setq vc-follow-symlinks nil)
-
 (setq line-number-mode t)
 (setq column-number-mode t)
 (setq auto-fill-default t)
+(setq c-basic-offset 2)
 (setq-default indent-tabs-mode t) ; default save as tabs mode
 (setq visible-bell t)
-;;(setq require-final-newline t)
-;;(setq next-line-extends-end-of-buffer nil)
-;;(setq debug-on-error t)
+(setq require-final-newline t)
+(setq debug-on-error t)
 (fset 'yes-or-no-p 'y-or-n-p)
-(resize-minibuffer-mode)            ; Size the minibuffer according to contents.
+(resize-minibuffer-mode)           ; Size the minibuffer according to contents.
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+;; remove vc peskiness while editing .emacs file
+(setq vc-follow-symlinks nil)
+
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+(setq tramp-default-method "ssh")
 
 ;Enable opposite bracket/paranthesis highlighting
 (require 'paren)
@@ -90,12 +52,35 @@
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
 
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+; (setq iswitchb-case nil) ; completions are case sensitive.
+(if (fboundp 'iswitchb-default-keybindings)
+    (iswitchb-default-keybindings)
+  (iswitchb-mode))
+
+; Turn off Emacs 21 toolbar
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+(if (load "mwheel" t)
+    (mwheel-install))
+
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (add-to-list 'backup-directory-alist
 	     (cons "." "~/.emacs.d/backups/"))
 
 (require 'compile)
+(setq compilation-ask-about-save nil)
+(setq compilation-read-command t)
+(setq compilation-window-height 10)
+
+;
+; Scheme Mode
+;
+
+(require 'quack)
 
 ;
 ; ruby mode
@@ -129,7 +114,7 @@
   (inf-ruby-keys)
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
   (if (require 'ruby-electric)
-      (ruby-electric-mode))
+      (call-if-fbound ruby-electric-mode))
   (abbrev-mode 1)
   (define-key ruby-mode-map "\C-m" 'ruby-reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
@@ -142,81 +127,52 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
 ;; eRuby
 (require 'mmm-mode)
 (require 'mmm-auto)
 (setq mmm-global-mode 'maybe)
-;(setq mmm-submode-decoration-level 0)
-;(set-face-background 'mmm-output-submode-face  "LightGrey")
-;(set-face-background 'mmm-code-submode-face    "MediumSlateBlue")
-;(set-face-background 'mmm-comment-submode-face "DarkOliveGreen")
+;;(setq mmm-submode-decoration-level 0)
+;;(set-face-background 'mmm-output-submode-face  "LightGrey")
+;;(set-face-background 'mmm-code-submode-face    "MediumSlateBlue")
+;;(set-face-background 'mmm-comment-submode-face "DarkOliveGreen")
 (mmm-add-classes
  '((eruby
     :submode ruby-mode
     :match-face (("<%#" . mmm-comment-submode-face)
 		 ("<%=" . mmm-output-submode-face)
-		 ("<%"  . mmm-code-submode-face))
+		       ("<%"  . mmm-code-submode-face))
     :front "<%[#=]?"
     :back  "-?%>"
     :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-             (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-             (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
+	     (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+	     (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
     )))
 (add-hook 'html-mode-hook
-          (lambda ()
-            (setq mmm-classes '(erb-code))
-            (mmm-mode-on)))
+	  (lambda ()
+	    (setq mmm-classes '(erb-code))
+	    (mmm-mode-on)))
 (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
+
+;; Perl Stuff (for the horrible times when I can't use ruby)
+(defalias 'perl-mode 'cperl-mode)
+(defun my-cperl-mode-hook ()      
+  (setq cperl-hairy t)
+  (define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
+)
+
+(add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
 ;;
 ;; set c/c++ indent width and compile modes
 ;;
-(setq c-basic-offset 2)
-(add-hook 'c-mode-hook 
-          (function (lambda ()
-                      (c-set-style "K&R")
-                      (setq indent-tabs-mode nil)
-                      (local-set-key "\C-cc" 'compile))))
+(defun my-c-mode-hook ()
+  (c-set-style "K&R")
+  (local-set-key "\C-cc" 'compile)
+)
+(add-hook 'c-mode-hook 'my-c-mode-hook)
 
 ;; ISWITCH
-
-; necessary support function for buffer burial
-(defun crs-delete-these (delete-these from-this-list)
-  "Delete DELETE-THESE FROM-THIS-LIST."
-  (cond
-   ((car delete-these)
-    (if (member (car delete-these) from-this-list)
-	(crs-delete-these (cdr delete-these) (delete (car delete-these)
-                                                     from-this-list))
-      (crs-delete-these (cdr delete-these) from-this-list)))
-   (t from-this-list)))
-
-(defun crs-hated-buffers ()
-  "List of buffers I never want to see, converted from names to buffers."
-  (delete nil
-	  (append
-	   (mapcar 'get-buffer crs-hated-buffers)
-	   (mapcar (lambda (this-buffer)
-		     (if (string-match "^ " (buffer-name this-buffer))
-			 this-buffer))
-		   (buffer-list)))))
-
-; I'm sick of switching buffers only to find KILL right in front of me
-(defun crs-bury-buffer (&optional n)
-  (interactive)
-  (unless n
-    (setq n 1))
-  (let ((my-buffer-list (crs-delete-these (crs-hated-buffers)
-					  (buffer-list (selected-frame)))))
-    (switch-to-buffer
-     (if (< n 0)
-	 (nth (+ (length my-buffer-list) n)
-	      my-buffer-list)
-       (bury-buffer)
-       (nth n my-buffer-list)))))
 
 ; this is the list of buffers I never want to see
 (defvar crs-hated-buffers
@@ -229,38 +185,27 @@
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
         ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
 
-
 (setq auto-mode-alist
       (append 
        '(
-	 ("\\.C$"         . c++-mode)
-	 ("\\.cc$"        . c++-mode)
-	 ("\\.[ch]xx|pp$" . c++-mode)
-	 ;;("\\.h$"     . c++-mode)
-	 ("\\.hh$"        . c++-mode)
+	 ("\\.C$"          . c++-mode)
+	 ("\\.cc$"         . c++-mode)
+	 ("\\.[ch]xx|pp$"  . c++-mode)
+	 ;;("\\.h$"      . c++-mode)
+	 ("\\.hh$"         . c++-mode)
          ;; C Bindings
-	 ("\\.c$"         . c-mode)
-	 ("\\.h$"         . c++-mode)
+	 ("\\.c$"          . c-mode)
+	 ("\\.h$"          . c++-mode)
          
-         ("\\.awk"        . awk-mode)
+         ("\\.awk"         . awk-mode)
          
          ;; Ruby Bindings
-	 ("\\.ruby$"      . ruby-mode)
+	 ("\\.rb$"         . ruby-mode)
+	 ("\\.ruby$"       . ruby-mode)
 	 ("\\[Rr]akefile$" . ruby-mode)
-	 ("\\.gem$"       . ruby-mode)
-	 ("\\.gemspec$"   . ruby-mode)
+	 ("\\.gem$"        . ruby-mode)
+	 ("\\.gemspec$"    . ruby-mode)
 	 ) auto-mode-alist))
-
-
-;; Perl Stuff (for the horrible times when I can't use ruby)
-(defalias 'perl-mode 'cperl-mode)
-
-(defun my-cperl-mode-hook ()      
-  (setq cperl-hairy t)
-  (define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
-)
-
-(add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
 ;; KEYBINDINGS
 
@@ -270,88 +215,33 @@
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
 (global-set-key "\C-cc" 'compile)	
 (global-set-key [f5] 'compile)		
-(global-set-key "\C-cm" 		
-                (lambda () (interactive) 
-                  (switch-to-buffer "Makefile") 
-                  (compile "make -k")))	
+;;(global-set-key "\C-cm" 		
+;;                (lambda () (interactive) 
+;;                  (switch-to-buffer "Makefile") 
+;;                  (compile "make -k")))	
 (global-set-key "\C-xp" (lambda () (interactive) (other-window -1))) 
 
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
-  ;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
+;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key "\C-c7" 'ucs-insert)
 
-; (global-set-key [f6] 'svn-status)
+;; (global-set-key [f6] 'svn-status)
 (global-set-key "\C-c1" 'svn-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
-; (setq iswitchb-case nil) ; completions are case sensitive.
-(if (fboundp 'iswitchb-default-keybindings)
-    (iswitchb-default-keybindings)
-  (iswitchb-mode))
-
-
-; Turn off Emacs 21 toolbar
-(if (fboundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-
-(if (load "mwheel" t)
-    (mwheel-install))
-
-(setq tramp-default-method "ssh")
-
-(set-frame-width (selected-frame) 140)
-(set-frame-height (selected-frame) 70)
-(set-frame-font "fixed")
-
 ; (server-start)
-
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
- '(compilation-ask-about-save nil)
- '(compilation-read-command t)
- '(compilation-window-height 10)
- '(quack-programs (quote ("mzscheme -M eopl" "bigloo" "csi" "csi -hygienic" "gosh" "gsi" "guile" "kawa" "mit-scheme" "mred -z" "mzscheme" "mzscheme -M errortrace" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
- '(quack-tabs-are-evil-p t))
-
-;show ascii table
-(defun ascii-table ()
-  "Print the ascii table. Based on a defun by Alex Schroeder <asc@bsiag.com>"
-  (interactive)
-  (switch-to-buffer "*ASCII*")
-  (erase-buffer)
-  (insert (format "ASCII characters up to number %d.\n" 254))
-  (let ((i 0))
-    (while (< i 254)
-      (setq i (+ i 1))
-      (insert (format "%4d %c\n" i i))))
-  (beginning-of-buffer))
-
-
-
-;insert date into buffer
-(defun insert-date ()
-  "Insert date at point."
-  (interactive)
-  (insert (format-time-string "%a %b %e, %Y %l:%M %p")))
-
-;convert a buffer from dos ^M end of lines to unix end of lines
-(defun dos2unix ()
-  (interactive)
-    (goto-char (point-min))
-      (while (search-forward "\r" nil t) (replace-match "")))
-
-;vice versa
-(defun unix2dos ()
-  (interactive)
-    (goto-char (point-min))
-      (while (search-forward "\n" nil t) (replace-match "\r\n"))) 
+ '(quack-programs 
+   '("mzscheme" "mzscheme -M errortrace" "mzscheme -M eopl" "mred -z" 
+     "guile" "mit-scheme" "scheme" "scheme48"))
+ '(quack-tabs-are-evil-p t)
+)
 
 (defun autocompile nil
   "compile itself if ~/.emacs"
