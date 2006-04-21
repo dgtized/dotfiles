@@ -234,6 +234,24 @@
 
 ; (server-start)
 
+;; from http://www.ntu.edu.sg/home5/pg04878518/EmacsTools.html
+
+;; (require 'session)
+;; (add-hook 'after-init-hook 'session-initialize)
+
+;; (require 'ido)
+;; (ido-mode t)
+
+;; make highlight standard /etc files
+(require 'generic)
+(require 'generic-x)
+
+;; it eats up some screen space but let's play with it for a while
+(require 'tabbar)
+(tabbar-mode)
+
+;; http://repose.cx/conf/.elisp/
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
