@@ -136,7 +136,7 @@ unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
     if which keychain > /dev/null 2>&1; then
-	keychain id_rsa id_dsa
+	keychain -Q -q id_rsa id_dsa
 	source ~/.keychain/$HOSTNAME-sh
     fi
 fi
