@@ -1,12 +1,12 @@
 #!/usr/bin/ruby
 # put this as ~/.irbrc and you shall have commandline completion
 
-history_file = "~/.irb.hist"
-max_history_size = 100
+HISTFILE = "~/.irb.hist"
+MAXHISTSIZE = 100
 
 begin
   if defined? Readline::HISTORY
-    histfile = File::expand_path( history_file )
+    histfile = File::expand_path( HISTFILE )
     if File::exists?( histfile )
       lines = IO::readlines( histfile ).collect {|line| line.chomp}
       puts "Read %d saved history commands from %s." %
@@ -19,12 +19,38 @@ begin
     
     Kernel::at_exit {
       lines = Readline::HISTORY.to_a.reverse.uniq.reverse
-      lines = lines[ -max_history_size, max_history_size] if lines.nitems > max_history_size
+      lines = lines[ -MAXHISTSIZE, MAXHISTSIZE ] if lines.nitems > MAXHISTSIZE
       $stderr.puts "Saving %d history lines to %s." %
         [ lines.length, histfile ] if $VERBOSE || $DEBUG
       File::open( histfile, File::WRONLY|File::CREAT|File::TRUNC ) {|ofh|
         lines.each {|line| ofh.puts line }
       }
+    }
+  end
+end
+
+class Object
+  # Clone fails on numbers, but they're immutable anyway
+  def megaClone
+    begin self.clone; rescue; self; end
+  end
+end
+
+class MethodFinder
+
+  # Find all methods on [anObject] which, when called with [args] return [expectedResult]
+  def self.find( anObject, expectedResult, *args )
+    anObject.methods.select { |name| anObject.method(name).arity == args.size }.
+                     select { |name| begin anObject.megaClone.method( name ).call(*args) == expectedResult; 
+                                     rescue; end }	
+  end
+
+  # Pretty-prints the results of the previous method
+  def self.show( anObject, expectedResult, *args )
+    find( anObject, expectedResult, *args ).each { |name|
+      print "#{anObject.inspect}.#{name}" 
+      print "(" + args.map { |o| o.inspect }.join(", ") + ")" unless args.empty?
+      puts " == #{expectedResult.inspect}" 
     }
   end
 end
@@ -37,3 +63,5 @@ class Object
     methods - Object.new.methods
   end
 end
+
+require 'yaml'
