@@ -1,3 +1,5 @@
+;; Please be -*- emacs-lisp -*-
+
 (defmacro when-emacs-version (vers &rest body)
   `(when (equal emacs-major-version ,vers)
     ,@body))
@@ -26,19 +28,15 @@
 (setq next-line-extends-end-of-buffer nil)
 (setq debug-on-error t)
 (fset 'yes-or-no-p 'y-or-n-p)
-;(temp-buffer-resize-mode t)         ; Size the tempbuffer according to contents.
 (resize-minibuffer-mode)            ; Size the minibuffer according to contents.
-(setq display-time-day-and-date t)
-(display-time)
 
 (defvar home-ntemacs t)
-(unbound-defvar cec-ntemacs nil)
 (unbound-defvar home-ntemacs nil)
 
 (defvar platform-home-path
-  (concat (if cec-ntemacs "h:"
-            (if home-ntemacs "c:"
-              (getenv "HOME")))))
+  (concat (if home-ntemacs 
+	      "c:"
+	    (getenv "HOME"))))
 
 (defvar site-path   (concat platform-home-path ".emacs.d/site-lisp/"))
 (defvar cedet-path  (concat site-path "cedet/"))
@@ -67,18 +65,11 @@
 (load-file (concat cedet-path "common/cedet.el"))
 ;(semantic-load-enable-code-helpers)
 ;;(require 'overlay-fix)
-;;;
-;;; Backup files in one spot
-;;;
-(setq backup-directory-alist nil)
-(setq backup-directory-alist
-      (cons (cons "\\.*$" backup-path)
-            backup-directory-alist))
 
-; all backups (*~ files) are in the hidden directory /.emacs.d/.emacs-backup
-;(require 'backup-dir)
-;(setq bkup-backup-directory-info
-;      '((t backup-path full-path prepend-name search-upward)))
+;; make the backup gods obey ME! no more ~ sprinkles all over the place
+(setq version-control nil)
+(add-to-list 'backup-directory-alist
+	     (cons "." backup-path))
 
 ;Enable opposite bracket/paranthesis highlighting
 (require 'paren)

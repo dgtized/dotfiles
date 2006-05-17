@@ -58,6 +58,10 @@ if [[ -d $DOTC_DIR ]]; then
 	rm -rfv bash-completion-latest.tar.gz bash_completion site-config *~ *#	
 	popd > /dev/null 2>&1	
 	exit
+    elif [[ $1 == "up" || $1 == "update" ]]; then
+        echo "Updating Configuration..."
+        svn update
+        source site-config
     fi
 
     source color-bash    
