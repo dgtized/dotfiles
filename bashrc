@@ -15,7 +15,7 @@ source $HOME/.site-config
         
 #setenv RUBYLIB ${HOME}/usr/lib:${HOME}/usr/lib/ruby:${HOME}/bin/ruby-1.8.0/ext/socket
 
-source $CONFIG_DIR/color-bash
+source $DOTC_DIR/color-bash
 
 #PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
 PS1="\[$red\][\! \u@\h \w]$\[$NC\] "
@@ -91,11 +91,11 @@ export LD_LIBRARY_PATH=$HOME/usr/lib
 export LDFLAGS=-L$HOME/usr/lib
 export CFLAGS=$CPPFLAGS
 
-if [ -f $CONFIG_DIR/bashrc-$CONFIG_NAME ]; then
-	source $CONFIG_DIR/bashrc-$CONFIG_NAME
+if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
+	source $DOTC_DIR/bashrc-$DOTC_NAME
 fi
 
-case $CONFIG_NAME in 
+case $DOTC_NAME in 
     gentoo ) 
 	export PATH=${PATH}:/usr/sbin:/sbin
 	alias eth0='sudo /etc/init.d/net.eth0'
@@ -112,7 +112,7 @@ case $CONFIG_NAME in
     	;;
 esac
 
-export HOSTFILE=$CONFIG_DIR/hosts
+export HOSTFILE=$DOTC_DIR/hosts
 
 export OUTPUT_OPTION=""
 #export EDITOR=emacsclient
@@ -125,9 +125,9 @@ shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/nu
 
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then  
-    if [ -f $CONFIG_DIR/bash_completion/bash_completion ]; then # interactive shell
-	export BASH_COMPLETION=$CONFIG_DIR/bash_completion
-	. $CONFIG_DIR/bash_completion/bash_completion
+    if [ -f $DOTC_DIR/bash_completion/bash_completion ]; then # interactive shell
+	export BASH_COMPLETION=$DOTC_DIR/bash_completion
+	. $DOTC_DIR/bash_completion/bash_completion
     elif [ -f /etc/bash_completion]; then
 	. /etc/bash_completion
     fi 
@@ -143,7 +143,7 @@ fi
 
 # gets called every time need to fix for once it's set
 #if [[! -f ~/.xmodmap ]]; then
-#    xmodmap $CONFIG_DIR/xmodmap 
+#    xmodmap $DOTC_DIR/xmodmap 
 #fi
 
 xset b off > /dev/null 2>&1

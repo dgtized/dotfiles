@@ -1,9 +1,9 @@
 ;; Please be -*- emacs-lisp -*-
 
-(defvar config-dir (getenv "CONFIG_DIR") "shell config directory")
-(defvar config-name (getenv "CONFIG_NAME") "shell config name")
+(defvar dotc-dir (getenv "DOTC_DIR") "shell config directory")
+(defvar dotc-name (getenv "DOTC_NAME") "shell config name")
 
-(add-to-list 'load-path (concat config-dir "/site-lisp"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 
 (require 'clgc-site-gentoo)
 (require 'clgc-functions)
