@@ -110,6 +110,8 @@ case $DOTC_NAME in
 	;;
     dreamhost )
     	;;
+    bio )
+	;;
 esac
 
 export HOSTFILE=$DOTC_DIR/hosts

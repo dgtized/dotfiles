@@ -1,0 +1,4 @@
+export LPDEST=truth
+export PATH=${HOME}/pcr_pipeline/expr_analysis:${HOME}/pcr_pipeline/primer_design:${HOME}/pcr_pipeline/lib:${PATH}
+
+export BIOEXP=/bio/exp/mgc/cc1
