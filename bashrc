@@ -91,10 +91,12 @@ export LD_LIBRARY_PATH=$HOME/usr/lib
 export LDFLAGS=-L$HOME/usr/lib
 export CFLAGS=$CPPFLAGS
 
+export CVS_RSH=ssh
+#export CVSROOT=:ext:cc1@bedlam.cse.wustl.edu:/export/cvs
+
 if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
 	source $DOTC_DIR/bashrc-$DOTC_NAME
 fi
-
 case $DOTC_NAME in 
     gentoo ) 
 	export PATH=${PATH}:/usr/sbin:/sbin
@@ -120,8 +122,6 @@ export OUTPUT_OPTION=""
 #export EDITOR=emacsclient
 export EDITOR=vim
 
-export CVS_RSH=ssh
-export CVSROOT=:ext:cc1@bedlam.cse.wustl.edu:/export/cvs
 
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 
