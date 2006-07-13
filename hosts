@@ -1,8 +1,14 @@
 # generic hosts info for machines dealt with
 
+24.217.198.219 requiem
+
 128.252.19.7   acm.wustl.edu
 128.252.19.34  acm2.wustl.edu
 64.111.108.81  dgtized.net
+
+# bio
+128.252.234.125 ardor.wustl.edu
+128.252.234.126 zest.wustl.edu
 
 # saic
 128.252.153.69 cynic.arl.wustl.edu
@@ -13,7 +19,7 @@
 128.252.21.14  hive.cec.wustl.edu
 128.252.21.3   clarion.cec.wustl.edu
 128.252.21.4   hilton.cec.wustl.edu
-# the cec insects
+# and insects...
 172.16.2.1  chigger.int.cec.wustl.edu
 172.16.2.2  scarab.int.cec.wustl.edu
 172.16.2.3  fruitfly.int.cec.wustl.edu
