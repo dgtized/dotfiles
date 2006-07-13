@@ -3,13 +3,7 @@ ForwardAgent yes
 Compression yes
 ForwardX11 yes
 
-Host clarion.*
-User cc1
-
-Host hilton.*
-User cc1
-
-Host hive.*
+Host *.cec.wustl.edu
 User cc1
 
 Host tom.cse.wustl.edu
@@ -32,3 +26,13 @@ User comstocl
 
 Host acm.wustl.edu
 User comstocl
+
+Host *.bl.cse.wustl.edu
+User cc1
+
+Host ardor.wustl.edu
+User cc1
+
+Host zest.wustl.edu
+User cc1
+

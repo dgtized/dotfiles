@@ -233,6 +233,10 @@
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 (global-set-key "\C-cg" 'goto-line)
 
+(global-set-key "\C-cw" 'whitespace-cleanup)
+(global-set-key "\C-cq" 'indent-region)
+(global-set-key "\C-cu" 'comment-region)
+
 ; (server-start)
 
 ;; from http://www.ntu.edu.sg/home5/pg04878518/EmacsTools.html

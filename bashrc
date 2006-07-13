@@ -56,6 +56,8 @@ alias lt='ls -ltr'              # sort by date
 alias lm='ls -al |more'         # pipe through 'more'
 alias tree='tree -Csu' # nice alternative to 'ls'
 
+alias grep='grep --color=auto'
+
 # tailoring 'less'
 alias more='less'
 export PAGER=less
@@ -138,7 +140,7 @@ unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
     if which keychain > /dev/null 2>&1; then
-	keychain -Q -q id_rsa id_dsa
+	keychain --ignore-missing -Q -q id_rsa id_dsa
 	source ~/.keychain/$HOSTNAME-sh
     fi
 fi
