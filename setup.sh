@@ -25,6 +25,7 @@ function main () {
     ln -sfv ${DOTC_DIR}/vimrc ~/.vimrc
     
     ln -sfv ${DOTC_DIR}/irbrc ~/.irbrc
+    ln -sfv ${DOTC_DIR}/toprc ~/.toprc
     ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
     ln -sfv ${DOTC_DIR}/screenrc ~/.screenrc
 
