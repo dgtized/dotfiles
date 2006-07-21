@@ -1,5 +1,14 @@
 ;; Please be -*- emacs-lisp -*-
 
+(save-excursion
+  (let ((site-config-buf (find-file-noselect "~/.site-config")))
+    (switch-to-buffer site-config-buf)
+    (beginning-of-buffer)
+    (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+      (setenv (match-string 1) (match-string 2)))
+    (kill-buffer site-config-buf)
+    ))
+
 (defvar dotc-dir (getenv "DOTC_DIR") "shell config directory")
 (defvar dotc-name (getenv "DOTC_NAME") "shell config name")
 
@@ -177,7 +186,7 @@
 
 ;; Outline Mode
 ; Outline-minor-mode key map
-(defvar 'cm-map);
+(defvar cm-map);
 (define-prefix-command 'cm-map nil "Outline-")
 ; HIDE
 (define-key cm-map "q" 'hide-sublevels)    ; Hide everything but the top-level headings
