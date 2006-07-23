@@ -99,8 +99,6 @@
 ; ruby mode
 ; 
 
-(autoload 'ruby-mode "ruby-mode" nil t)
-
 (defun ruby-eval-buffer () (interactive)
    "Evaluate the buffer with ruby."
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
@@ -135,8 +133,8 @@
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
-(setq interpreter-mode-alist 
-      (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
+(autoload 'ruby-mode "ruby-mode" nil t)
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode) t)
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
@@ -169,6 +167,8 @@
       (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
       (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
       ))
+
+(autoload 'css-mode "css-mode")
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
@@ -216,6 +216,7 @@
 	 ("\\.h$"          . c++-mode)
          
          ("\\.awk"         . awk-mode)
+	 ("\\.css"         . css-mode)
          
          ;; Ruby Bindings
 	 ("\\.rb$"         . ruby-mode)
@@ -290,9 +291,9 @@
   (interactive)
   (require 'bytecomp)
   (if (string= (buffer-file-name) 
-	       (expand-file-name (concat default-directory ".emacs")))
+	       (expand-file-name "~/.emacs"))	  
       (byte-compile-file (buffer-file-name))))
-
+ 
 (add-hook 'after-save-hook 'autocompile)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.

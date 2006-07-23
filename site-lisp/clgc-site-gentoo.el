@@ -1,4 +1,3 @@
-
 ;;; ispell-aspell site-lisp configuration
 
 (setq ispell-program-name "aspell")
@@ -13,24 +12,15 @@
 
 ;;; htmlize site-lisp configuration
 
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/htmlize")
-(require 'htmlize)
+(if (file-directory-p "/usr/share/emacs/site-lisp/htmlize") 
+    (progn
+      (add-to-list 'load-path "/usr/share/emacs/site-lisp/htmlize")
+      (require 'htmlize)))
 
 ;;; mmm-mode site-lisp configuration
 
 (setq load-path (cons "/usr/share/emacs/site-lisp/mmm-mode" load-path))
 (require 'mmm-auto)
-
-;;; Ruby-mode site-lisp configuration
-
-(setq load-path (cons "/usr/share/emacs/site-lisp/ruby-mode" load-path))
-
-(autoload 'ruby-mode "ruby-mode" "Major mode to edit ruby files." t)
-(setq auto-mode-alist
-  (append '(("\\.rb$" . ruby-mode)) auto-mode-alist))
-
-(setq interpreter-mode-alist
-  (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
 
 ;;; cedet site-lisp configuration
 ; (load "/usr/share/emacs/site-lisp/cedet/common/cedet")
@@ -53,5 +43,7 @@
 
 ;; (when (file-exists-p "/usr/share/emacs/site-lisp/site-gentoo.el")
 ;;  (load "/usr/share/emacs/site-lisp/site-gentoo"))
+
+(message "Loaded gentoo specific libs -- site-gentoo")
 
 (provide 'clgc-site-gentoo)
