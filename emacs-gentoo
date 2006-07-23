@@ -18,9 +18,11 @@
     (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
-(set-frame-width (selected-frame) 140)
-(set-frame-height (selected-frame) 70)
-(set-frame-font "fixed")
+(if window-system
+    (progn
+      (set-frame-width (selected-frame) 140)
+      (set-frame-height (selected-frame) 70)
+      (set-frame-font "fixed")))
  
 (setq default-buffer-file-coding-system 'utf-8
       file-name-coding-system 'utf-8      
@@ -40,7 +42,7 @@
       debug-on-error t)
 (setq-default indent-tabs-mode t) ; default save as tabs mode
 (fset 'yes-or-no-p 'y-or-n-p)
-(resize-minibuffer-mode)           ; Size the minibuffer according to contents.
+;(resize-minibuffer-mode)           ; Size the minibuffer according to contents.
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -90,8 +92,8 @@
 ;
 ; Scheme Mode
 ;
-
-(require 'quack)
+(autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
+(autoload 'run-scheme "quack" "Quack scheme editing mode" t)
 
 ;
 ; ruby mode
@@ -269,8 +271,8 @@
 (require 'page-ext)
 
 ;; it eats up some screen space but let's play with it for a while
-(require 'tabbar)
-(tabbar-mode)
+;(require 'tabbar)
+;(tabbar-mode)
 
 ;; http://repose.cx/conf/.elisp/
 
