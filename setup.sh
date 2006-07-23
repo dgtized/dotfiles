@@ -8,7 +8,12 @@ function main () {
     ln -sfv ${DOTC_DIR}/site-config ~/.site-config
     
     ln -sfv ${DOTC_DIR}/bashrc ~/.bashrc
-    ln -sfv ${DOTC_DIR}/emacs-${DOTC_NAME} ~/.emacs
+    if [[ -e ${DOTC_DIR}/emacs-${DOTC_NAME} ]]; then
+    	ln -sfv ${DOTC_DIR}/emacs-${DOTC_NAME} ~/.emacs
+    else
+	ln -sfv ${DOTC_DIR}/emacs ~/.emacs
+    fi
+
     ln -sfv ${DOTC_DIR}/vimrc ~/.vimrc
     
     ln -sfv ${DOTC_DIR}/irbrc ~/.irbrc
