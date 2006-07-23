@@ -1,39 +1,50 @@
 ;; Please be -*- emacs-lisp -*-
 
+(save-excursion
+  (let ((site-config-buf (find-file-noselect "~/.site-config")))
+    (switch-to-buffer site-config-buf)
+    (beginning-of-buffer)
+    (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+      (setenv (match-string 1) (match-string 2)))
+    (kill-buffer site-config-buf)
+    ))
+
 (defvar dotc-dir (getenv "DOTC_DIR") "shell config directory")
 (defvar dotc-name (getenv "DOTC_NAME") "shell config name")
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 
-(require 'clgc-site-gentoo)
+(if (string-equal dotc-name "gentoo")
+    (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
 (set-frame-width (selected-frame) 140)
 (set-frame-height (selected-frame) 70)
 (set-frame-font "fixed")
  
-(setq default-buffer-file-coding-system 'utf-8)
-(setq locale-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8
+      file-name-coding-system 'utf-8      
+      locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(setq file-name-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)	
+(prefer-coding-system 'utf-8)		
 (set-selection-coding-system 'compound-text-with-extensions)
 
-(setq line-number-mode t)
-(setq column-number-mode t)
-(setq auto-fill-default t)
-(setq c-basic-offset 2)
+(setq line-number-mode t
+      column-number-mode t
+      auto-fill-default t
+      c-basic-offset 2
+      visible-bell t
+      require-final-newline t
+      debug-on-error t)
 (setq-default indent-tabs-mode t) ; default save as tabs mode
-(setq visible-bell t)
-(setq require-final-newline t)
-(setq debug-on-error t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (resize-minibuffer-mode)           ; Size the minibuffer according to contents.
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
 
 ;; remove vc peskiness while editing .emacs file
 (setq vc-follow-symlinks nil)
@@ -127,38 +138,43 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-;; eRuby
-(require 'mmm-mode)
-(require 'mmm-auto)
-(setq mmm-global-mode 'maybe)
-;;(setq mmm-submode-decoration-level 0)
-;;(set-face-background 'mmm-output-submode-face  "LightGrey")
-;;(set-face-background 'mmm-code-submode-face    "MediumSlateBlue")
-;;(set-face-background 'mmm-comment-submode-face "DarkOliveGreen")
-(mmm-add-classes
- '((eruby
-    :submode ruby-mode
-    :match-face (("<%#" . mmm-comment-submode-face)
-		 ("<%=" . mmm-output-submode-face)
-		       ("<%"  . mmm-code-submode-face))
-    :front "<%[#=]?"
-    :back  "-?%>"
-    :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-	     (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-	     (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
-    )))
-(add-hook 'html-mode-hook
-	  (lambda ()
-	    (setq mmm-classes '(erb-code))
-	    (mmm-mode-on)))
-(add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
-(add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
+(if (string-equal dotc-name "gentoo") 
+    (progn
+      ;; eRuby
+      (require 'mmm-mode)
+      (require 'mmm-auto)
+      (setq mmm-global-mode 'maybe)
+      ;;(setq mmm-submode-decoration-level 0)
+      ;;(set-face-background 'mmm-output-submode-face  "LightGrey")
+      ;;(set-face-background 'mmm-code-submode-face    "MediumSlateBlue")
+      ;;(set-face-background 'mmm-comment-submode-face "DarkOliveGreen")
+      (mmm-add-classes
+      '((eruby
+	 :submode ruby-mode
+	 :match-face (("<%#" . mmm-comment-submode-face)
+		      ("<%=" . mmm-output-submode-face)
+		      ("<%"  . mmm-code-submode-face))
+	 :front "<%[#=]?"
+	 :back  "-?%>"
+	 :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
+		  (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+		  (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
+	 )))
+      (add-hook 'html-mode-hook
+      (lambda ()
+	(setq mmm-classes '(erb-code))
+	(mmm-mode-on)))
+      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
+      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
+      ))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
 (defun my-cperl-mode-hook ()      
   (setq cperl-hairy t)
-  (define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
+  ;(setq cperl-auto-newline t)
+  (outline-minor-mode)
+  ;(define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
 )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
@@ -220,7 +236,6 @@
 ;;                  (switch-to-buffer "Makefile") 
 ;;                  (compile "make -k")))	
 (global-set-key "\C-xp" (lambda () (interactive) (other-window -1))) 
-
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
@@ -231,6 +246,11 @@
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
+(global-set-key "\C-cg" 'goto-line)
+
+(global-set-key "\C-cw" 'whitespace-cleanup)
+(global-set-key "\C-c;" 'comment-region)
+(global-set-key "\C-c:" 'uncomment-region)
 
 ; (server-start)
 
