@@ -21,30 +21,13 @@
     (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
-
-
-(if window-system
-    (progn
-      (set-frame-position (selected-frame) 10 10)
-      (set-frame-width (selected-frame) (floor (/ (* (display-pixel-width) 1.00) 7.5)))
-      (set-frame-height (selected-frame) (floor (/ (* (display-pixel-height) 0.95) 17)))
-      (set-frame-font "fixed")
-      ;; Turn off Emacs 21 toolbar
-      (if (fboundp 'tool-bar-mode)
-	  (tool-bar-mode -1))
-      (if (load "mwheel" t)
-	  (mwheel-install)))
-  ;; if we are in text we don't need no stinkin menu's
-  (menu-bar-mode 0)
-  )
- 
 (setq default-buffer-file-coding-system 'utf-8
-      file-name-coding-system 'utf-8      
+      file-name-coding-system 'utf-8
       locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)	
-(prefer-coding-system 'utf-8)		
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 (set-selection-coding-system 'compound-text-with-extensions)
 
 (setq line-number-mode t
@@ -93,9 +76,10 @@
 	     (cons "." "~/.emacs.d/backups/"))
 
 (require 'compile)
+(require 'smart-compile)
 (setq compilation-ask-about-save nil)
 (setq compilation-read-command t)
-(setq compilation-window-height 10)
+(setq compilation-window-height 12)
 
 ;
 ; Scheme Mode
@@ -105,7 +89,7 @@
 
 ;
 ; ruby mode
-; 
+;
 
 (defun ruby-eval-buffer () (interactive)
    "Evaluate the buffer with ruby."
@@ -136,8 +120,7 @@
   (ruby-electric-mode)
   (abbrev-mode 1)
   (define-key ruby-mode-map "\C-m" 'ruby-reindent-then-newline-and-indent)
-  (define-key ruby-mode-map "\C-j" 'newline)
-)
+  (define-key ruby-mode-map "\C-j" 'newline))
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
@@ -146,7 +129,7 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(if (string-equal dotc-name "gentoo") 
+(if (string-equal dotc-name "gentoo")
     (progn
       ;; eRuby
       (require 'mmm-mode)
@@ -180,12 +163,14 @@
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
-(defun my-cperl-mode-hook ()      
+(defun my-cperl-mode-hook ()
   (setq cperl-hairy t)
   ;(setq cperl-auto-newline t)
   (outline-minor-mode)
   ;(define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
-)
+  ;(make-variable-buffer-local 'compile-command)
+  ;(setq compile-command (concat "perl -w " (buffer-file-name) " "))
+ )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
@@ -209,24 +194,24 @@
 
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
+	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
 
 (setq auto-mode-alist
-      (append 
+      (append
        '(
 	 ("\\.C$"          . c++-mode)
 	 ("\\.cc$"         . c++-mode)
 	 ("\\.[ch]xx|pp$"  . c++-mode)
 	 ;;("\\.h$"      . c++-mode)
 	 ("\\.hh$"         . c++-mode)
-         ;; C Bindings
+	 ;; C Bindings
 	 ("\\.c$"          . c-mode)
 	 ("\\.h$"          . c++-mode)
-         
-         ("\\.awk"         . awk-mode)
+
+	 ("\\.awk"         . awk-mode)
 	 ("\\.css"         . css-mode)
-         
-         ;; Ruby Bindings
+
+	 ;; Ruby Bindings
 	 ("\\.rb$"         . ruby-mode)
 	 ("\\.ruby$"       . ruby-mode)
 	 ("\\[Rr]akefile$" . ruby-mode)
@@ -240,8 +225,8 @@
 
 (global-set-key [(control tab)] 'crs-bury-buffer)
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
-(global-set-key "\C-cc" 'compile)	
-(global-set-key [f5] 'compile)		
+(global-set-key "\C-cc" 'smart-compile)	
+(global-set-key [f5] 'smart-compile)		
 ;;(global-set-key "\C-cm" 		
 ;;                (lambda () (interactive) 
 ;;                  (switch-to-buffer "Makefile") 
@@ -263,6 +248,10 @@
 (global-set-key "\C-cw" 'whitespace-cleanup)
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
+
+;; Ediff
+(eval-after-load 'ediff
+  (setq ediff-split-window-function 'split-window-horizontally))
 
 ; (server-start)
 
@@ -299,11 +288,30 @@
   "compile itself if ~/.emacs"
   (interactive)
   (require 'bytecomp)
-  (if (string= (buffer-file-name) 
-	       (expand-file-name "~/.emacs"))	  
+  (if (string= (buffer-file-name)
+	       (expand-file-name "~/.emacs"))
       (byte-compile-file (buffer-file-name))))
- 
-(add-hook 'after-save-hook 'autocompile)
+;(add-hook 'after-save-hook 'autocompile)
+
+(if window-system
+    (progn
+      (let ((c-height (floor (/ (* (display-pixel-height) 0.95) 17)))
+	    (c-width (floor (/ (* (display-pixel-width) 1.00) 8)))) 
+	(message "Setting width: %d, height: %d" c-width c-height)
+	(set-frame-position (selected-frame) 5 30)
+	;(set-frame-width (selected-frame) c-width)
+	;(set-frame-height (selected-frame) c-height)
+	)
+      (set-frame-font "fixed")
+      ;; Turn off Emacs 21 toolbar
+      (if (fboundp 'tool-bar-mode)
+	  (tool-bar-mode -1))
+      (if (load "mwheel" t)
+	  (mwheel-install)))
+  ;; if we are in text we don't need no stinkin menu's
+  (menu-bar-mode 0)
+  )
+
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
