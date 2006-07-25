@@ -29,10 +29,9 @@ function main () {
     fi
     
     # ssh related config
-    mkdir -pv ~/.ssh
+    mkdir -pv -m 700 ~/.ssh
     ln -sfv ${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ${DOTC_DIR}/ssh/config ~/.ssh/config
-    chmod -v 700 ~/.ssh 
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -l ~/.emacs -batch -f batch-byte-compile \
