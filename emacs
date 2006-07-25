@@ -1,16 +1,19 @@
 ;; Please be -*- emacs-lisp -*-
 
-(save-excursion
-  (let ((site-config-buf (find-file-noselect "~/.site-config")))
-    (switch-to-buffer site-config-buf)
-    (goto-line 0)
-    (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
-      (setenv (match-string 1) (match-string 2)))
-    (kill-buffer site-config-buf)
-    ))
+(if (file-exists-p "~/.site-config")
+    (save-excursion
+      (let ((site-config-buf (find-file-noselect "~/.site-config")))
+	(switch-to-buffer site-config-buf)
+	(goto-line 0)
+	(while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+	  (setenv (match-string 1) (match-string 2)))
+	(kill-buffer site-config-buf)
+	)))
 
-(defvar dotc-dir (getenv "DOTC_DIR") "shell config directory")
-(defvar dotc-name (getenv "DOTC_NAME") "shell config name")
+(unless (boundp 'dotc-dir)
+    (defconst dotc-dir (getenv "DOTC_DIR") "shell config directory"))
+(unless (boundp 'dotc-name)
+    (defconst dotc-name (getenv "DOTC_NAME") "shell config name"))
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 
@@ -18,10 +21,13 @@
     (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
+
+
 (if window-system
     (progn
-      (set-frame-width (selected-frame) 140)
-      (set-frame-height (selected-frame) 70)
+      (set-frame-position (selected-frame) 10 10)
+      (set-frame-width (selected-frame) (floor (/ (* (display-pixel-width) 1.00) 7.5)))
+      (set-frame-height (selected-frame) (floor (/ (* (display-pixel-height) 0.95) 17)))
       (set-frame-font "fixed")
       ;; Turn off Emacs 21 toolbar
       (if (fboundp 'tool-bar-mode)
