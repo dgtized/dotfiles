@@ -22,7 +22,15 @@
     (progn
       (set-frame-width (selected-frame) 140)
       (set-frame-height (selected-frame) 70)
-      (set-frame-font "fixed")))
+      (set-frame-font "fixed")
+      ;; Turn off Emacs 21 toolbar
+      (if (fboundp 'tool-bar-mode)
+	  (tool-bar-mode -1))
+      (if (load "mwheel" t)
+	  (mwheel-install)))
+  ;; if we are in text we don't need no stinkin menu's
+  (menu-bar-mode 0)
+  )
  
 (setq default-buffer-file-coding-system 'utf-8
       file-name-coding-system 'utf-8      
@@ -72,13 +80,6 @@
 (if (fboundp 'iswitchb-default-keybindings)
     (iswitchb-default-keybindings)
   (iswitchb-mode))
-
-; Turn off Emacs 21 toolbar
-(if (fboundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-
-(if (load "mwheel" t)
-    (mwheel-install))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
