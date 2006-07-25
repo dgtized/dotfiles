@@ -25,7 +25,7 @@
     (while (< i 254)
       (setq i (+ i 1))
       (insert (format "%4d %c\n" i i))))
-  (beginning-of-buffer))
+  (goto-line 0))
 
 ;insert date into buffer
 (defun insert-date ()
@@ -84,7 +84,7 @@
 
 ;; Outline Mode
 ; Outline-minor-mode key map
-(defvar cm-map)
+(require 'outline)
 (define-prefix-command 'cm-map nil "Outline-")
 ; HIDE
 (define-key cm-map "q" 'hide-sublevels)     ; Hide everything but the top-level headings

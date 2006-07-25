@@ -3,7 +3,7 @@
 (save-excursion
   (let ((site-config-buf (find-file-noselect "~/.site-config")))
     (switch-to-buffer site-config-buf)
-    (beginning-of-buffer)
+    (goto-line 0)
     (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
       (setenv (match-string 1) (match-string 2)))
     (kill-buffer site-config-buf)
@@ -47,6 +47,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; remove vc peskiness while editing .emacs file
 (setq vc-follow-symlinks nil)
@@ -124,8 +125,8 @@
       )))
   (inf-ruby-keys)
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
-  (if (require 'ruby-electric)
-      (call-if-fbound ruby-electric-mode))
+  (require 'ruby-electric)
+  (ruby-electric-mode)
   (abbrev-mode 1)
   (define-key ruby-mode-map "\C-m" 'ruby-reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
@@ -245,6 +246,7 @@
 (global-set-key "\C-c7" 'ucs-insert)
 
 ;; (global-set-key [f6] 'svn-status)
+(require 'psvn)
 (global-set-key "\C-c1" 'svn-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
