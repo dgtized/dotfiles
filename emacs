@@ -75,8 +75,20 @@
 (add-to-list 'backup-directory-alist
 	     (cons "." "~/.emacs.d/backups/"))
 
-(require 'compile)
-(require 'smart-compile)
+(require 'mode-compile)
+(autoload 'mode-compile "mode-compile"
+  "Command to compile current buffer file based on the major mode" t)
+(autoload 'mode-compile-kill "mode-compile"
+  "Command to kill a compilation launched by `mode-compile'" t)
+(global-set-key "\C-cc" 'mode-compile)
+(global-set-key "\C-ck" 'mode-compile-kill)
+(setq emacs-lisp-sources-regexp "\\.el$|\\.emacs$")
+;(global-set-key "\C-cc" 'smart-compile)	
+;(global-set-key [f5] 'smart-compile)		
+
+
+;(require 'compile)
+;(require 'smart-compile)
 (setq compilation-ask-about-save nil)
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
@@ -96,13 +108,13 @@
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
 
 (defun my-ruby-mode-hook ()
-  (make-variable-buffer-local 'compilation-error-regexp-alist)
-  (add-to-list 'compilation-error-regexp-alist
-	       '("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2))
-  (add-to-list 'compilation-error-regexp-alist
-	       '("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
-  (make-variable-buffer-local 'compile-command)
-  (setq compile-command (concat "ruby -w " (buffer-file-name) " "))
+  ;; (make-variable-buffer-local 'compilation-error-regexp-alist)
+  ;; (add-to-list 'compilation-error-regexp-alist
+  ;;       '("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2))
+  ;; (add-to-list 'compilation-error-regexp-alist
+  ;;       '("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
+  ;;(make-variable-buffer-local 'compile-command)
+  ;;(setq compile-command (concat "ruby -w " (buffer-file-name) " "))
   (local-set-key "\C-cr" 'ruby-eval-buffer)
 
   (c-add-style
@@ -114,7 +126,6 @@
       (label . 2)
       (statement-case-intro . 2)
       )))
-  (inf-ruby-keys)
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
   (require 'ruby-electric)
   (ruby-electric-mode)
@@ -128,6 +139,38 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode) t)
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
+
+(defgroup compile-ruby nil
+  "Ruby compilation options"
+  :group 'compilation-script)
+(defcustom ruby-command "ruby" 
+  "Command to run ruby" 
+  :type 'string 
+  :group 'compile-ruby)
+(defcustom ruby-dbg-flags "-w" 
+  "Flags to give ruby for catching warnings" 
+  :type 'string 
+  :group 'compile-ruby)
+(defvar ruby-compilation-error-regexp-alist
+  '(
+    ;; Unit Tests
+    ("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2)
+    ;; Errors and Warnings
+    ("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
+  "Alist that specifies how to match errors in ruby output.
+
+See variable compilation-error-regexp-alist for more details.")
+(defun ruby-compile ()
+  "Run Ruby with `ruby-dbg-flags' on current-buffer (`ruby-mode').
+
+User is prompted for arguments to run their ruby program with.
+If you want to step throught errors set the variable `ruby-compilation-error-regexp-alist'
+to a value understandable by compile's `next-error'.
+See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-alist."
+  (mc--shell-compile ruby-command ruby-dbg-flags ruby-compilation-error-regexp-alist))
+
+(add-to-list 'mode-compile-modes-alist '(ruby-mode . (ruby-compile killcompilation)))
+
 
 (if (string-equal dotc-name "gentoo")
     (progn
@@ -225,8 +268,6 @@
 
 (global-set-key [(control tab)] 'crs-bury-buffer)
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
-(global-set-key "\C-cc" 'smart-compile)	
-(global-set-key [f5] 'smart-compile)		
 ;;(global-set-key "\C-cm" 		
 ;;                (lambda () (interactive) 
 ;;                  (switch-to-buffer "Makefile") 
