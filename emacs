@@ -309,6 +309,7 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
 (require 'generic-x)
 
 (require 'page-ext)
+(require 'recentf)
 
 ;; it eats up some screen space but let's play with it for a while
 ;(require 'tabbar)
