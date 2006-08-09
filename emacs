@@ -210,6 +210,7 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
   (setq cperl-hairy t)
   ;(setq cperl-auto-newline t)
   (outline-minor-mode)
+  (setq cperl-electric-keywords nil)
   ;(define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
   ;(make-variable-buffer-local 'compile-command)
   ;(setq compile-command (concat "perl -w " (buffer-file-name) " "))
@@ -262,9 +263,14 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
 	 ("\\.gemspec$"    . ruby-mode)
 	 ) auto-mode-alist))
 
-;; KEYBINDINGS
+(defun fix-display nil
+  "fix display problems"
+  (interactive)
+  (redraw-display) 
+  (font-lock-fontify-buffer))
 
-(global-set-key [f11] 'redraw-display)
+;; KEYBINDINGS
+(global-set-key [f11] 'fix-display)
 
 (global-set-key [(control tab)] 'crs-bury-buffer)
 (global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
@@ -272,7 +278,9 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
 ;;                (lambda () (interactive) 
 ;;                  (switch-to-buffer "Makefile") 
 ;;                  (compile "make -k")))	
-(global-set-key "\C-xp" (lambda () (interactive) (other-window -1))) 
+(global-set-key "\C-xO" (lambda () (interactive) (other-window -1)))
+(global-set-key "\C-xp" (lambda () (interactive) (other-window -1)))
+
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
