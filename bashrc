@@ -9,12 +9,6 @@ if [[ $- != *i* ]]; then
 fi
 
 source $HOME/.site-config
-
-#using bash
-#set prompt='%{\033[1;34m%}[%! %n@%m %c]$%{\033[0;0m%} '
-        
-#setenv RUBYLIB ${HOME}/usr/lib:${HOME}/usr/lib/ruby:${HOME}/bin/ruby-1.8.0/ext/socket
-
 source $DOTC_DIR/color-bash
 
 #PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
@@ -89,9 +83,9 @@ alias vi=vim
 export PATH=${HOME}/usr/bin:${PATH}
 export CLASSPATH=.
 export CPPFLAGS=-I$HOME/usr/include
+export CFLAGS=$CPPFLAGS
 export LD_LIBRARY_PATH=$HOME/usr/lib    
 export LDFLAGS=-L$HOME/usr/lib
-export CFLAGS=$CPPFLAGS
 
 export CVS_RSH=ssh
 #export CVSROOT=:ext:cc1@bedlam.cse.wustl.edu:/export/cvs
@@ -101,14 +95,6 @@ if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
 fi
 case $DOTC_NAME in 
     gentoo ) 
-	export PATH=${PATH}:/usr/sbin:/sbin
-	alias eth0='sudo /etc/init.d/net.eth0'
-	alias eth1='sudo /etc/init.d/net.eth1'
-	alias shutdown='sudo /sbin/shutdown'
-	alias iwconfig='sudo /sbin/iwconfig eth1'
-	alias esync='sudo esync'
-	alias emerge='sudo emerge'
-	alias synjeff='ssh -f -N -L 24800:jeff.arl.wustl.edu:24800 comstocl@jeff.arl.wustl.edu && synergyc localhost'
 	;;
     cec )
 	;;
