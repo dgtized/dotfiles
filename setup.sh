@@ -20,6 +20,9 @@ function main () {
     ln -sfv ${DOTC_DIR}/toprc ~/.toprc
     ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
     ln -sfv ${DOTC_DIR}/screenrc ~/.screenrc
+    if [[ -d ~/.subversion ]]; then
+	    ln -sfv ${DOTC_DIR}/svn-config ~/.subversion/config
+    fi
 
     ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
     ln -sfv ${DOTC_DIR}/muttrc ~/.muttrc
