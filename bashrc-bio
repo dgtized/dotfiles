@@ -7,4 +7,4 @@ export MGC=/bio/exp/mgc
 export BIOEXP=/bio/exp/mgc/cc1
 export CVSROOT=/bio/home/cvs
 
-alias qwatch="xterm -geometry 120x80 -e watch 'qstat -u $USER && echo && qstat -g c && echo && qstat' &"
+alias qwatch="xterm -geometry 120x80 -e watch 'qstat -u $USER && echo && qstat -g c && echo && qstat -s p' &"
