@@ -218,6 +218,11 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
+;;;
+;;; VHDL mode
+;;;
+(autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
+
 ;;
 ;; set c/c++ indent width and compile modes
 ;;
@@ -226,6 +231,11 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
   (local-set-key "\C-cc" 'compile)
 )
 (add-hook 'c-mode-hook 'my-c-mode-hook)
+
+(defun my-text-mode-hook ()
+  (flyspell-mode)
+  (auto-fill-mode))
+(add-hook 'text-mode 'my-text-mode-hook) 
 
 ;; ISWITCH
 
@@ -254,6 +264,8 @@ See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-al
 
 	 ("\\.awk"         . awk-mode)
 	 ("\\.css"         . css-mode)
+
+	 ("\\.vhdl?\\'" . vhdl-mode)
 
 	 ;; Ruby Bindings
 	 ("\\.rb$"         . ruby-mode)
