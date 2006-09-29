@@ -1,0 +1,2 @@
+alias apt-install="sudo apt-get install"
+

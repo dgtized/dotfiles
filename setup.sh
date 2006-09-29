@@ -52,6 +52,7 @@ function main () {
 function valid_name () {
     until [[ $DOTC_NAME == "bio" ||
 	     $DOTC_NAME == "gentoo" ||
+	     $DOTC_NAME == "debian" ||
 	     $DOTC_NAME == "cec" ||
 	     $DOTC_NAME == "dreamhost" ]]; do
 	echo "DOTC_NAME cannot be [$DOTC_NAME], what is it? "
@@ -63,6 +64,8 @@ function valid_name () {
 if [[ $# -ne 1 ]]; then
     if [ -f /etc/gentoo-release ]; then
 	DOTC_NAME="gentoo"
+    elif [ -f /etc/debian_version ]; then
+	DOTC_NAME="debian"
     else
 	echo "Usage: setup.sh config-name"
 	exit
