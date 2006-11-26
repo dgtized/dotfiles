@@ -58,6 +58,19 @@ end
 require 'irb/completion'
 ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
 
+module Kernel
+  def m(o)
+    ObjectMethods.new(o.public_methods(false).sort)
+  end
+  
+  class ObjectMethods < Array
+    def inspect
+      puts self
+    end
+  end
+end
+
+
 class Object
   def my_methods
     methods - Object.new.methods
@@ -65,3 +78,4 @@ class Object
 end
 
 require 'yaml'
+

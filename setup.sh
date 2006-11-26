@@ -47,6 +47,12 @@ function main () {
 	    tar xzf bash-completion-latest.tar.gz    
 	fi
     fi    
+    mkdir -pv ~/usr/bin
+    for script in `find ${DOTC_DIR}/scripts -type f | grep -v .svn`; do
+	ln -sfv $script ~/usr/bin;
+    done
+    # this would be cool but then it forgets where it's from
+    #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
 }
 
 function valid_name () {
