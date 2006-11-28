@@ -140,38 +140,6 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(defgroup compile-ruby nil
-  "Ruby compilation options"
-  :group 'compilation-script)
-(defcustom ruby-command "ruby" 
-  "Command to run ruby" 
-  :type 'string 
-  :group 'compile-ruby)
-(defcustom ruby-dbg-flags "-w" 
-  "Flags to give ruby for catching warnings" 
-  :type 'string 
-  :group 'compile-ruby)
-(defvar ruby-compilation-error-regexp-alist
-  '(
-    ;; Unit Tests
-    ("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2)
-    ;; Errors and Warnings
-    ("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
-  "Alist that specifies how to match errors in ruby output.
-
-See variable compilation-error-regexp-alist for more details.")
-(defun ruby-compile ()
-  "Run Ruby with `ruby-dbg-flags' on current-buffer (`ruby-mode').
-
-User is prompted for arguments to run their ruby program with.
-If you want to step throught errors set the variable `ruby-compilation-error-regexp-alist'
-to a value understandable by compile's `next-error'.
-See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-alist."
-  (mc--shell-compile ruby-command ruby-dbg-flags ruby-compilation-error-regexp-alist))
-
-(add-to-list 'mode-compile-modes-alist '(ruby-mode . (ruby-compile killcompilation)))
-
-
 (if (string-equal dotc-name "gentoo")
     (progn
       ;; eRuby
