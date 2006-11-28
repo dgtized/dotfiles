@@ -101,7 +101,7 @@
 ;;   - c-mode, c++-mode, makefile-mode, dired-mode, ada-mode, emacs-lisp-mode,
 ;;     lisp-interaction-mode, sh-mode, csh-mode, fundamental-mode,  text-mode,
 ;;     indented-text-mode     compilation-mode,  fortran-mode,    c?perl-mode,
-;;     zsh-mode java-mode, tcl-mode, python-mode
+;;     zsh-mode java-mode, tcl-mode, python-mode, ruby-mode
 ;;  For other modes a default behaviour is provided.
 ;;
 ;;  When    running    `mode-compile'  or     `mode-compile-kill'   the  hooks
@@ -219,6 +219,10 @@
 ;;    Run file with "python" (can step throught errors with compile's
 ;;    `next-error' command).
 ;;
+;; @@  ruby-mode:
+;;    Run file with "ruby" (can step throught errors with compile's
+;;    `next-error' command).
+;;
 ;; @@  message-mode:
 ;;    Run `message-send'.
 ;;
@@ -250,6 +254,7 @@
 ;;   Scott Hofmann <scotth@visix.com>.
 ;;   Stefan Schoef <Stefan.Schoef@arbi.informatik.uni-oldenburg.de>.
 ;;   John W. Harwell <ccjohnh@showme.missouri.edu> - JWH.
+;;   Charles L.G. Comstock <dgtized@gmail.com> - CLGC
 ;;
 ;; @ ToDo:
 ;; =======
@@ -340,6 +345,7 @@
     (cperl-mode            . (perl-compile      kill-compilation))
     (tcl-mode              . (tcl-compile       kill-compilation)) ; JWH
     (python-mode           . (python-compile    kill-compilation)) ; BM
+    (ruby-mode             . (ruby-compile      kill-compilation)) ; CLGC
     ;(message-mode          . (message-compile   kill-compilation))
     (fundamental-mode      . (guess-compile     nil)) ; bound dynamically
     (text-mode             . (guess-compile     nil)) ; itou
@@ -418,7 +424,8 @@ To add a new filename regexp do the following:
     ("zsh"    .  zsh-mode)
     ("perl"   .  perl-mode)
     ("tcl"    .   tcl-mode) ; JWH
-    ("python" . python-mode)) ; BM
+    ("python" . python-mode) ; BM
+    ("ruby"   . ruby-mode)) ; CLGC
   "Assoc list of compile function for some known shells.
 
 Each element look like (SHELL . MODE) This variable look like
@@ -1250,7 +1257,7 @@ See variable compilation-error-regexp-alist for more details.")
 (defcustom python-dbg-flags ""
   "*Flags to give to python -- none."
   :type 'string
-  :group 'compile-phthon)
+  :group 'compile-python)
 
 (defvar python-compilation-error-regexp-alist
   ;; TK  (file "/directory-path/filename.tcl" line XY in ZZZ)
@@ -1290,6 +1297,32 @@ See variable compilation-error-regexp-alist for more details.")
   ;; This look like a paranoiac regexp: could anybody find a better one? (which WORK).
   ;;'(("^[^\n]* \\(file\\|at\\) \\([^ \t\n]+\\) [^\n]*line \\([0-9]+\\)[\\.,]" 2 3))
   "Alist that specifies how to match errors in perl output.
+
+See variable compilation-error-regexp-alist for more details.")
+
+
+;; @@ ruby-mode compile variables ;;;
+(defgroup compile-ruby nil
+  "Ruby compilation options"
+  :group 'compilation-script)
+
+(defcustom ruby-command "ruby" 
+  "Command to run ruby" 
+  :type 'string 
+  :group 'compile-ruby)
+
+(defcustom ruby-dbg-flags "-w" 
+  "Flags to give ruby for catching warnings" 
+  :type 'string 
+  :group 'compile-ruby)
+
+(defvar ruby-compilation-error-regexp-alist
+  '(
+    ;; Unit Tests
+    ("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2)
+    ;; Errors and Warnings
+    ("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
+  "Alist that specifies how to match errors in ruby output.
 
 See variable compilation-error-regexp-alist for more details.")
 
@@ -2369,6 +2402,15 @@ to a value understandable by compile's `next-error'.
 See variables compilation-error-regexp-alist or python-compilation-error-regexp-alist."
   (mc--shell-compile python-command python-dbg-flags python-compilation-error-regexp-alist))
 
+(defun ruby-compile ()
+  ;; CLGC
+  "Run `ruby-command' with `ruby-dbg-flags' on current-buffer (`ruby-mode').
+
+User is prompted for arguments to run their ruby program with.
+If you want to step throught errors set the variable `ruby-compilation-error-regexp-alist'
+to a value understandable by compile's `next-error'.
+See variables compilation-error-regexp-alist or ruby-compilation-error-regexp-alist."
+  (mc--shell-compile ruby-command ruby-dbg-flags ruby-compilation-error-regexp-alist))
 
 (defun default-compile ()
   "Default function invoked by `mode-compile' (\\[mode-compile])
@@ -2501,6 +2543,7 @@ Currently know how to compile in:
  `cperl-mode'            -- function perl-compile.
  `tcl-mode'              -- function tcl-compile.
  `python-mode'           -- function python-compile.
+ `ruby-mode'             -- function ruby-compile.
  `fundamental-mode'      -- function guess-compile.
  `text-mode'             -- function guess-compile.
  `indented-text-mode'    -- function guess-compile.
@@ -2605,6 +2648,7 @@ Currently know how to kill compilations from:
  `cperl-mode'            -- function kill-compilation.
  `tcl-mode'              -- function kill-compilation.
  `python-mode'           -- function kill-compilation.
+ `ruby-mode'             -- function kill-compilation.
  `fundamental-mode'      -- Bound dynamically.
  `text-mode'             -- Bound dynamically.
  `indented-text-mode'    -- Bound dynamically.
