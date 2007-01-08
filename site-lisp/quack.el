@@ -1,12 +1,12 @@
 ;;; quack.el --- enhanced support for editing and running Scheme code
 
-(defconst quack-copyright    "Copyright (C) 2002-2005 Neil W. Van Dyke")
+(defconst quack-copyright    "Copyright (C) 2002-2006 Neil W. Van Dyke")
 (defconst quack-copyright-2  "Portions Copyright (C) Free Software Foundation")
 ;; Emacs-style font-lock specs adapted from GNU Emacs 21.2 scheme.el.
 ;; Scheme Mode menu adapted from GNU Emacs 21.2 cmuscheme.el.
 
-(defconst quack-version      "0.28")
-(defconst quack-author-name  "Neil W. Van Dyke")
+(defconst quack-version      "0.29")
+(defconst quack-author-name  "Neil Van Dyke")
 (defconst quack-author-email "neil@neilvandyke.org")
 (defconst quack-web-page     "http://www.neilvandyke.org/quack/")
 
@@ -21,7 +21,7 @@ should have received a copy of the GNU General Public License along with Emacs;
 see the file `COPYING'.  If not, write to the Free Software Foundation, Inc.,
 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.")
 
-(defconst quack-cvsid "$Id: quack.el,v 1.420 2005/05/14 10:40:25 neil Exp $")
+(defconst quack-cvsid "$Id: quack.el,v 1.426 2006-11-12 09:09:18 neil Exp $")
 
 ;;; Commentary:
 
@@ -153,6 +153,11 @@ see the file `COPYING'.  If not, write to the Free Software Foundation, Inc.,
 ;;     neil@neilvandyke.org to add you to the moderated `quack-announce' list.
 
 ;; HISTORY:
+;;
+;;     Version 0.29 (2006-11-12)
+;;         * Fixed `quack-bar-syntax-string', which caused vertical bar
+;;           characters to be treated as whitespace.  Thanks to Eric Hanchrow
+;;           for reporting.
 ;;
 ;;     Version 0.28 (2005-05-14)
 ;;         * Added `quack-smart-open-paren-p'.
@@ -2517,7 +2522,7 @@ follows draft,since a final version supercedes a draft version).")
             ;; We don't have a keywords file, so warn if the user wanted
             ;; keywords for this manual.
             (when kw-p
-              (quack-warning "Could not find keywords file for manual \"%S\"."
+              (quack-warning "Could not find keywords file for manual %S."
                              plt-name)))))
        ;; The location is an unrecognized symbol, so just barf.
        (t (quack-internal-error))))
@@ -3070,7 +3075,8 @@ Can be used in your `~/.emacs' file something like this:
 ;;       whether or not a user's target Scheme dialect supports nested.
 
 (defconst quack-pound-syntax-string (if quack-gnuemacs-p "_ p14bn" "_ p14b"))
-(defconst quack-bar-syntax-string   (if quack-gnuemacs-p "  23bn"  "  23b"))
+;; (defconst quack-bar-syntax-string   (if quack-gnuemacs-p "  23bn"  "  23b"))
+(defconst quack-bar-syntax-string   (if quack-gnuemacs-p "_ 23bn"  "_ 23b"))
 
 (defconst quack-pound-syntax (quack-str-syntax quack-pound-syntax-string))
 (defconst quack-bar-syntax   (quack-str-syntax quack-bar-syntax-string))
@@ -4480,6 +4486,26 @@ Provided by Quack: http://www.neilvandyke.org/quack/"
 ;; mzscheme -emq '(begin (write (current-library-collection-paths)) (exit 0))'
 ;; ("/home/neil/collects" "/home/neil/.plt-scheme/208/collects"
 ;;  "/usr/lib/plt/collects")
+
+;; TODO: Bind M-[ to quack-insert-parentheses
+
+;; TODO: Peter Barabas reports that `quack-global-menu-p' set to nil doesn't
+;; disable the menu.
+
+;; TODO: Way to get default collects directories.  From Matthew Flatt,
+;; 2006-04-22:
+;; 
+;; env PLTCOLLECTS="" mzscheme -mvqe '(printf "~s\n" (map path->string 
+;; (current-library-collection-paths)))'
+
+;; TODO: Have key binding to insert "lambda" (for use with pretty-lambda).
+;; Suggested by Olwe Bottorff on 2006-04-20.
+
+;; TODO: Jerry van Dijk writes: "I would like to try out quack, but I do not
+;; like its menu constantly on the main menu bar (as I use emacs for a lot of
+;; things). Unfortunately sofar quack has bravely defied all my attempts to
+;; remove it. From desecting the customize option to adding (define-key
+;; global-map [menu-bar quack] nil)"
 
 ;; emacs21  -batch -no-site-file -f batch-byte-compile quack.el ; rm quack.elc
 ;; emacs20  -batch -no-site-file -f batch-byte-compile quack.el ; rm quack.elc
