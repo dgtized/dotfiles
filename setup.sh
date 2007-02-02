@@ -27,7 +27,7 @@ function main () {
     ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
     ln -sfv ${DOTC_DIR}/muttrc ~/.muttrc
     
-    if [[ $DOTC_NAME == "cec" || $DOTC_NAME == "cse"]]; then
+    if [[ $DOTC_NAME == "cec" || $DOTC_NAME == "cse" ]]; then
 	ln -sfv ${DOTC_DIR}/cshrc.mine-${DOTC_NAME} ~/.cshrc.mine
     fi
     
