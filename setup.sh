@@ -27,8 +27,8 @@ function main () {
     ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
     ln -sfv ${DOTC_DIR}/muttrc ~/.muttrc
     
-    if [[ $DOTC_NAME == "cec" ]]; then
-	ln -sfv ${DOTC_DIR}/cshrc.mine ~/.cshrc.mine
+    if [[ $DOTC_NAME == "cec" || $DOTC_NAME == "cse"]]; then
+	ln -sfv ${DOTC_DIR}/cshrc.mine-${DOTC_NAME} ~/.cshrc.mine
     fi
     
     # ssh related config
@@ -59,6 +59,7 @@ function valid_name () {
     until [[ $DOTC_NAME == "bio" ||
 	     $DOTC_NAME == "gentoo" ||
 	     $DOTC_NAME == "debian" ||
+	     $DOTC_NAME == "cse" ||
 	     $DOTC_NAME == "cec" ||
 	     $DOTC_NAME == "dreamhost" ]]; do
 	echo "DOTC_NAME cannot be [$DOTC_NAME], what is it? "
