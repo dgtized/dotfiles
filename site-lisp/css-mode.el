@@ -4,10 +4,10 @@
 ;;; Adds font locking, some rather primitive indentation handling and
 ;;; some typing help.
 ;;;
-(defvar cssm-version "0.10"
+(defvar cssm-version "0.11"
   "The current version number of css-mode.")
 ;;; copyright (c) 1998 Lars Marius Garshol, larsga@ifi.uio.no
-;;; $Id: css-mode.el,v 1.5 1998/12/15 10:36:44 larsga Exp $
+;;; $Id: css-mode.el,v 1.9 2000/01/05 21:21:56 larsga Exp $
 
 ;;; css-mode is free software; you can redistribute it and/or modify
 ;;; it under the terms of the GNU General Public License as published
@@ -43,7 +43,7 @@
 ; (setq auto-mode-alist       
 ;      (cons '("\\.css\\'" . css-mode) auto-mode-alist))
 
-;; Should  do:
+;; Todo:
 
 ; - must not color URL file name extensions as class selectors (*.css)
 ; - color [] and url() constructs correctly, even if quoted strings present
@@ -56,6 +56,7 @@
 
 ;; Required modules
 
+(require 'apropos)
 (require 'font-lock)
 (require 'cl)
 
@@ -67,6 +68,9 @@
 (defvar cssm-mirror-mode t
   "Whether brackets, quotes etc should be mirrored automatically on
   insertion.")
+(defvar cssm-newline-before-closing-bracket nil
+  "In mirror-mode, controls whether a newline should be inserted before the
+closing bracket or not.")
 (defvar cssm-indent-function #'cssm-old-style-indenter
   "Which function to use when deciding which column to indent to. To get
 C-style indentation, use cssm-c-style-indenter.")
@@ -147,7 +151,7 @@ C-style indentation, use cssm-c-style-indenter.")
    (cons "#[a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]\\([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]\\)?"
 	 font-lock-reference-face)
    (cons "\\[.*\\]" font-lock-variable-name-face)
-   (cons "#[a-zA-Z][-a-zA-Z.]*" font-lock-function-name-face)
+   (cons "#[-a-zA-Z0-9]*" font-lock-function-name-face)
    (cons "rgb(\\s-*[0-9]+\\(\\.[0-9]+\\s-*%\\s-*\\)?\\s-*,\\s-*[0-9]+\\(\\.[0-9]+\\s-*%\\s-*\\)?\\s-*,\\s-*[0-9]+\\(\\.[0-9]+\\s-*%\\s-*\\)?\\s-*)"
 	 font-lock-reference-face)
    )
@@ -161,6 +165,16 @@ C-style indentation, use cssm-c-style-indenter.")
   (define-key cssm-mode-map (read-kbd-macro "C-c C-u") 'cssm-insert-url)
   (define-key cssm-mode-map (read-kbd-macro "}") 'cssm-insert-right-brace-and-indent)
   (define-key cssm-mode-map (read-kbd-macro "M-TAB") 'cssm-complete-property))
+
+;;; Cross-version compatibility layer
+
+(when (not (or (apropos-macrop 'kbd)
+	     (fboundp 'kbd)))
+    (defmacro kbd (keys)
+      "Convert KEYS to the internal Emacs key representation.
+KEYS should be a string constant in the format used for
+saving keyboard macros (see `insert-kbd-macro')."
+      (read-kbd-macro keys)))
 
 ;;; Auto-indentation support
 
@@ -313,7 +327,8 @@ C-style indentation, use cssm-c-style-indenter.")
 
 (define-skeleton cssm-insert-curlies
   "Inserts a pair of matching curly parenthesises." nil
-  "{ " _ " }")
+  "{ " _ (if cssm-newline-before-closing-bracket "\n" " ")
+  "}")
 
 (define-skeleton cssm-insert-quotes
   "Inserts a pair of matching quotes." nil
@@ -390,22 +405,22 @@ C-style indentation, use cssm-c-style-indenter.")
 	(display-completion-list (sort completions 'string<)))
       (goto-char (point-min))
       (pop-to-buffer cur))))
-  
+
 (defun cssm-complete-property()
   "Completes the CSS property being typed at point."
   (interactive)
-  (let* ((prop (cssm-property-at-point))
-	 (alts (all-completions prop cssm-properties-alist)))
+  (let* ((prop   (cssm-property-at-point))
+	 (alts   (all-completions prop cssm-properties-alist))
+	 (proplen (length prop)))
     (if (= (length alts) 1)
-	(insert (substring (car alts) (length prop)))
+	(insert (substring (car alts) proplen))
       (let ((beg (cssm-common-beginning alts)))
 	(if (not (string= beg prop))
-	    (insert (substring beg (length prop)))
+	    (insert (substring beg proplen))
 	  (insert (substring
 		   (completing-read "Property: " cssm-properties-alist nil
 				    nil prop)
-		   (length prop)))
-	)))))
+		   proplen)))))))
 
 (defun css-mode()
   "Major mode for editing CSS style sheets.
@@ -428,7 +443,7 @@ C-style indentation, use cssm-c-style-indenter.")
   (setq skeleton-end-hook nil)
   
   (when cssm-mirror-mode
-	(cssm-enter-mirror-mode))
+    (cssm-enter-mirror-mode))
   
   (use-local-map cssm-mode-map)
   
