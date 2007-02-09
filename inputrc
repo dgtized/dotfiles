@@ -1,3 +1,4 @@
-
 set show-all-if-ambiguous on
 set visible-stats on
+set keymap emacs-meta
+set input-meta on

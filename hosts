@@ -2,23 +2,28 @@
 
 24.217.198.219 requiem
 
-128.252.19.7   acm.wustl.edu
-128.252.19.34  acm2.wustl.edu
-64.111.108.81  dgtized.net
+128.252.19.7   acm.wustl.edu acm
+128.252.19.34  acm2.wustl.edu bubble
+64.111.108.81  dgtized.net 
 
 # bio
-128.252.234.125 ardor.wustl.edu
-128.252.234.126 zest.wustl.edu
+128.252.234.125 ardor.wustl.edu ardor
+128.252.234.126 zest.wustl.edu zest
 
 # saic
 128.252.153.69 cynic.arl.wustl.edu
-128.252.153.20 bb3.arl.wustl.edu
-128.252.153.21 bb4.arl.wustl.edu
+128.252.153.20 bb3.arl.wustl.edu 
+128.252.153.21 bb4.arl.wustl.edu 
+
+# cse servers
+128.252.165.3 siesta.cse.wustl.edu siesta
+128.252.165.4 bash.cse.wustl.edu bash
 
 # cec servers
-128.252.21.14  hive.cec.wustl.edu
-128.252.21.3   clarion.cec.wustl.edu
-128.252.21.4   hilton.cec.wustl.edu
+128.252.21.14  hive.cec.wustl.edu hive
+128.252.21.3   clarion.cec.wustl.edu clarion
+128.252.21.4   hilton.cec.wustl.edu hilton
+
 # and insects...
 172.16.2.1  chigger.int.cec.wustl.edu
 172.16.2.2  scarab.int.cec.wustl.edu

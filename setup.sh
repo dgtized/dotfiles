@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# wget -r -Imain/home-config http://svn.dgtized.net/main/
+
 function main () {
     echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
 
