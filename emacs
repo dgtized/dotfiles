@@ -83,7 +83,6 @@
 (global-set-key "\C-cc" 'mode-compile)
 (global-set-key "\C-ck" 'mode-compile-kill)
 (setq emacs-lisp-sources-regexp "\\.el$|\\.emacs$")
-;(global-set-key "\C-cc" 'smart-compile)	
 ;(global-set-key [f5] 'smart-compile)		
 
 
@@ -93,16 +92,22 @@
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
 
-;
-; Scheme Mode
-;
+;;;
+;;; Scheme Mode
+;;;
 (autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
 (autoload 'run-scheme "quack" "Quack scheme editing mode" t)
 
-;
-; ruby mode
-;
+;;;
+;;; css mode
+;;;
+(autoload 'css-mode "css-mode")
+(setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-indent-level '2)
 
+;;;
+;;; ruby mode
+;;;
 (defun ruby-eval-buffer () (interactive)
    "Evaluate the buffer with ruby."
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
@@ -140,37 +145,50 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(if (string-equal dotc-name "gentoo")
+(if (or (string-equal dotc-name "gentoo")
+	(string-equal dotc-name "debian")
+	(and (string-equal dotc-name "bio")
+	     (>= emacs-major-version 22)))
     (progn
       ;; eRuby
       (require 'mmm-mode)
       (require 'mmm-auto)
       (setq mmm-global-mode 'maybe)
-      ;;(setq mmm-submode-decoration-level 0)
-      ;;(set-face-background 'mmm-output-submode-face  "LightGrey")
-      ;;(set-face-background 'mmm-code-submode-face    "MediumSlateBlue")
-      ;;(set-face-background 'mmm-comment-submode-face "DarkOliveGreen")
-      (mmm-add-classes
-      '((eruby
-	 :submode ruby-mode
-	 :match-face (("<%#" . mmm-comment-submode-face)
-		      ("<%=" . mmm-output-submode-face)
-		      ("<%"  . mmm-code-submode-face))
-	 :front "<%[#=]?"
-	 :back  "-?%>"
-	 :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-		  (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-		  (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
-	 )))
-      (add-hook 'html-mode-hook
-      (lambda ()
-	(setq mmm-classes '(erb-code))
-	(mmm-mode-on)))
-      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
-      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
-      ))
 
-(autoload 'css-mode "css-mode")
+      (setq mmm-submode-decoration-level 2)
+      (set-face-background 'mmm-output-submode-face "white")
+      (set-face-background 'mmm-code-submode-face "white")
+      (set-face-background 'mmm-comment-submode-face "white")
+      (set-face-foreground 'mmm-output-submode-face "DarkGreen")
+      (set-face-foreground 'mmm-code-submode-face "DarkGreen")
+      (set-face-foreground 'mmm-comment-submode-face "Red")
+      (set-face-foreground 'mmm-delimiter-face "Yellow")
+      (make-face-italic 'mmm-delimiter-face)
+      (make-face-italic 'mmm-comment-submode-face)
+      
+      (mmm-add-classes
+       '((eruby-code
+	  :submode ruby-mode
+	  :match-face (("<%#" . mmm-comment-submode-face)
+		       ("<%=" . mmm-output-submode-face)
+		       ("<%"  . mmm-code-submode-face))
+	  :front "<%[#=]?" 
+	  :back "-?%>" 
+	  :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
+		   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+		   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
+
+	 (html-css-attribute
+	  :submode css-mode
+	  :face mmm-declaration-submode-face
+	  :front "style=\""
+	  :back "\"")))
+
+      (add-hook 'html-mode-hook	(lambda () 
+				  (setq mmm-classes '(eruby-code)) 
+				  (mmm-mode-on)))
+      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))      
+      ))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
@@ -189,7 +207,7 @@
 ;;;
 ;;; VHDL mode
 ;;;
-(autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
+;(autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
 
 ;;
 ;; set c/c++ indent width and compile modes
@@ -266,9 +284,9 @@
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key "\C-c7" 'ucs-insert)
 
-;; (global-set-key [f6] 'svn-status)
 (require 'psvn)
 (global-set-key "\C-c1" 'svn-status)
+(global-set-key [f6] 'svn-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)

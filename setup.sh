@@ -51,6 +51,11 @@ function main () {
     for script in `find ${DOTC_DIR}/scripts -type f | grep -v .svn`; do
 	ln -sfv $script ~/usr/bin;
     done
+    if [[ -d $HOME/.scripts/ ]]; then
+    	for script in `find ${HOME}/.scripts -type f | grep -v .svn`; do
+		ln -sfv $script ~/usr/bin;
+	done
+    fi
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
 }

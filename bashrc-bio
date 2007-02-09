@@ -6,5 +6,7 @@ export SGE=/bio/tmp/sge_outputs/
 export MGC=/bio/exp/mgc
 export BIOEXP=/bio/exp/mgc/cc1
 export CVSROOT=/bio/home/cvs
+export RUBYLIB=$RUBYLIB:$HOME/usr/lib/site_ruby/1.8
+#export GMAP="$HOME/usr/bin/gmap -D/bio/db/gmap -dhg17"
 
 alias qwatch="xterm -geometry 120x80 -e watch 'qstat -u $USER && echo && qstat -g c && echo && qstat -s p' &"
