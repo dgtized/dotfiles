@@ -35,6 +35,7 @@ function main () {
     
     # ssh related config
     mkdir -pv -m 700 ~/.ssh
+    chmod 600 ${DOTC_DIR}/ssh/*
     ln -sfv ${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ${DOTC_DIR}/ssh/config ~/.ssh/config
 
