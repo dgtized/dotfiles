@@ -321,6 +321,17 @@
 ;(require 'tabbar)
 ;(tabbar-mode)
 
+(require 'graphviz-dot-mode)
+(eval-after-load 'graphviz-dot-mode
+  (setq graphviz-dot-indent-width 2)
+  (setq graphviz-dot-auto-indent-on-semi nil))
+
+(defun auctex nil
+  (interactive)
+  (load "auctex.el" nil t t)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t))
+
 ;; http://repose.cx/conf/.elisp/
 
 (custom-set-variables
