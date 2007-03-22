@@ -223,8 +223,15 @@
   (auto-fill-mode))
 (add-hook 'text-mode 'my-text-mode-hook) 
 
-;; ISWITCH
+;; isearch
+(define-key isearch-mode-map (kbd "C-o")
+  (lambda ()
+    (interactive)
+    (let ((case-fold-search isearch-case-fold-search))
+      (occur (if isearch-regexp isearch-string
+               (regexp-quote isearch-string))))))
 
+;; ISWITCH
 ; this is the list of buffers I never want to see
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
