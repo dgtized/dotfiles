@@ -62,13 +62,19 @@
 (require 'font-lock)
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-; (setq iswitchb-case nil) ; completions are case sensitive.
-(if (fboundp 'iswitchb-default-keybindings)
-    (iswitchb-default-keybindings)
-  (iswitchb-mode))
+(require 'ido)
+(ido-mode t)
+
+(defvar crs-hated-buffers
+  '("KILL" "*Compile-Log*"))
+; might as well use this for both
+;(setq ido-ignore-buffers (append '("^ " "*Buffer") crs-hated-buffers))
+
+(setq completion-ignored-extensions
+      '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
+	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
@@ -83,7 +89,7 @@
 (global-set-key "\C-cc" 'mode-compile)
 (global-set-key "\C-ck" 'mode-compile-kill)
 (setq emacs-lisp-sources-regexp "\\.el$|\\.emacs$")
-;(global-set-key [f5] 'smart-compile)		
+;(global-set-key [f5] 'smart-compile)
 
 
 ;(require 'compile)
@@ -165,15 +171,15 @@
       (set-face-foreground 'mmm-delimiter-face "Yellow")
       (make-face-italic 'mmm-delimiter-face)
       (make-face-italic 'mmm-comment-submode-face)
-      
+
       (mmm-add-classes
        '((eruby-code
 	  :submode ruby-mode
 	  :match-face (("<%#" . mmm-comment-submode-face)
 		       ("<%=" . mmm-output-submode-face)
 		       ("<%"  . mmm-code-submode-face))
-	  :front "<%[#=]?" 
-	  :back "-?%>" 
+	  :front "<%[#=]?"
+	  :back "-?%>"
 	  :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
 		   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
 		   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
@@ -184,10 +190,10 @@
 	  :front "style=\""
 	  :back "\"")))
 
-      (add-hook 'html-mode-hook	(lambda () 
-				  (setq mmm-classes '(eruby-code)) 
+      (add-hook 'html-mode-hook	(lambda ()
+				  (setq mmm-classes '(eruby-code))
 				  (mmm-mode-on)))
-      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))      
+      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
       ))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
@@ -221,7 +227,7 @@
 (defun my-text-mode-hook ()
   (flyspell-mode)
   (auto-fill-mode))
-(add-hook 'text-mode 'my-text-mode-hook) 
+(add-hook 'text-mode 'my-text-mode-hook)
 
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -229,19 +235,7 @@
     (interactive)
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string
-               (regexp-quote isearch-string))))))
-
-;; ISWITCH
-; this is the list of buffers I never want to see
-(defvar crs-hated-buffers
-  '("KILL" "*Compile-Log*"))
-
-; might as well use this for both
-(setq iswitchb-buffer-ignore (append '("^ " "*Buffer") crs-hated-buffers))
-
-(setq completion-ignored-extensions
-      '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
+	       (regexp-quote isearch-string))))))
 
 (setq auto-mode-alist
       (append
@@ -271,18 +265,12 @@
 (defun fix-display nil
   "fix display problems"
   (interactive)
-  (redraw-display) 
+  (redraw-display)
   (font-lock-fontify-buffer))
 
 ;; KEYBINDINGS
 (global-set-key [f11] 'fix-display)
 
-(global-set-key [(control tab)] 'crs-bury-buffer)
-(global-set-key [(control shift tab)]  (lambda () (interactive) (crs-bury-buffer -1)))
-;;(global-set-key "\C-cm" 		
-;;                (lambda () (interactive) 
-;;                  (switch-to-buffer "Makefile") 
-;;                  (compile "make -k")))	
 (global-set-key "\C-xO" (lambda () (interactive) (other-window -1)))
 (global-set-key "\C-xp" (lambda () (interactive) (other-window -1)))
 
@@ -362,7 +350,7 @@
 (if window-system
     (progn
       (let ((c-height (floor (/ (* (display-pixel-height) 0.95) 17)))
-	    (c-width (floor (/ (* (display-pixel-width) 1.00) 8)))) 
+	    (c-width (floor (/ (* (display-pixel-width) 1.00) 8))))
 	(message "Setting width: %d, height: %d" c-width c-height)
 	(set-frame-position (selected-frame) 5 30)
 	;(set-frame-width (selected-frame) c-width)
