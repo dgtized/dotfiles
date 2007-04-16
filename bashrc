@@ -66,19 +66,20 @@ else
 	export LESS=' -M '          # Less stuff 
 fi
 #LESSEDIT="%E ?lt+%lt. %f" 
-#LESSCHARDEF="8bcccbcc13b.4b95.33b."
 
-set HISTSIZE=1000 # Long history
-set HISTFILESIZE=500 # Size of historyfile
-set HISTCONTROL="ignoredups:erasedups" # Ignore duplicates
-set HISTIGNORE='&:[bf]g:exit'# Ignore stuff
+export HISTFILE=$HOME/.bashist/`date +%Y-%m-%d_%R`.$$.`hostname`
+touch $HISTFILE && chmod 600 $HISTFILE
+
+export PROMPT_COMMAND='history -w' #write to history whenever the prompt is displayed
+export HISTSIZE=1000 # Long history
+export HISTFILESIZE=10000 # Size of historyfile
+export HISTCONTROL="ignoreboth" # Ignore duplicates
+export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
+set HISTTIMEFORMAT 
 
 alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
 alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
 alias vi=vim
-
-#setenv ACE_ROOT /home/cec/class/cs342/ACE_wrappers
-#setenv LD_LIBRARY_PATH ${ACE_ROOT}/ace:/home/cec/class/cs342/lib
 
 export PATH=${HOME}/usr/bin:${PATH}
 export CLASSPATH=.
@@ -110,15 +111,15 @@ export OUTPUT_OPTION=""
 #export EDITOR=emacsclient
 export EDITOR=vim
 
-
+set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then  
-    if [ -f $DOTC_DIR/bash_completion/bash_completion ]; then # interactive shell
+    if [[ -f $DOTC_DIR/bash_completion/bash_completion ]]; then # interactive shell
 	export BASH_COMPLETION=$DOTC_DIR/bash_completion
 	. $DOTC_DIR/bash_completion/bash_completion
-    elif [ -f /etc/bash_completion]; then
+    elif [[ -f /etc/bash_completion ]]; then
 	. /etc/bash_completion
     fi 
 fi

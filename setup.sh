@@ -34,23 +34,25 @@ function main () {
     fi
     
     # ssh related config
-    mkdir -pv -m 700 ~/.ssh
+    mkdir -pv -m 700 $HOME/.ssh
     chmod 600 ${DOTC_DIR}/ssh/*
     ln -sfv ${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ${DOTC_DIR}/ssh/config ~/.ssh/config
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -l ~/.emacs -batch -f batch-byte-compile \
-	${DOTC_DIR}/site-lisp/*.el ~/.emacs 2>&1) > \
-        ${DOTC_DIR}/site-lisp/compile.log
+	${DOTC_DIR}/site-lisp/*.el ${DOTC_DIR}/site-lisp/ruby/*.el \
+	~/.emacs 2>&1) > ${DOTC_DIR}/site-lisp/compile.log
     
+    mkdir -pv $HOME/.bashist
+
     # lets get some bash completion if we don't have it
-    if [[ $DOTC_NAME != "gentoo" ]]; then
-	if wget -N http://www.caliban.org/files/bash/bash-completion-latest.tar.gz; then
+    if [[ !-f /etc/bash_completion ]]; then
+	if wget -N "http://www.caliban.org/files/bash/bash-completion-latest.tar.gz"; then
 	    tar xzf bash-completion-latest.tar.gz    
 	fi
     fi    
-    mkdir -pv ~/usr/bin
+    mkdir -pv $HOME/usr/bin
     for script in `find ${DOTC_DIR}/scripts -type f | grep -v .svn`; do
 	ln -sfv $script ~/usr/bin;
     done

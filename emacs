@@ -16,6 +16,7 @@
     (defconst dotc-name (getenv "DOTC_NAME") "shell config name"))
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/ruby"))
 
 (if (string-equal dotc-name "gentoo")
     (require 'clgc-site-gentoo))
@@ -64,6 +65,7 @@
 (global-font-lock-mode t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; Ido
 (require 'ido)
 (ido-mode t)
 
@@ -292,8 +294,8 @@
 (global-set-key "\C-c:" 'uncomment-region)
 
 ;; Ediff
-(eval-after-load 'ediff
-  (setq ediff-split-window-function 'split-window-horizontally))
+;(eval-after-load 'ediff
+;  (setq ediff-split-window-function 'split-window-horizontally))
 
 ; (server-start)
 
@@ -301,9 +303,6 @@
 
 ;; (require 'session)
 ;; (add-hook 'after-init-hook 'session-initialize)
-
-;; (require 'ido)
-;; (ido-mode t)
 
 ;; make highlight standard /etc files
 (require 'generic)
@@ -316,14 +315,17 @@
 ;(require 'tabbar)
 ;(tabbar-mode)
 
-;(require 'graphviz-dot-mode)
-;(eval-after-load 'graphviz-dot-mode
-;  (setq graphviz-dot-indent-width 2)
-;  (setq graphviz-dot-auto-indent-on-semi nil))
+(defun start-graphviz
+  (interactive)
+  (require 'graphviz-dot-mode)
+  (eval-after-load 'graphviz-dot-mode
+    (setq graphviz-dot-indent-width 2)
+    (setq graphviz-dot-auto-indent-on-semi nil)))
 
 (defun auctex nil
   (interactive)
   (load "auctex.el" nil t t)
+  (load "preview-latex.el" nil t t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
 
