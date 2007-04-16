@@ -1,7 +1,7 @@
 ;;; cperl-mode.el --- Perl code editing commands for Emacs
 
 ;; Copyright (C) 1985, 1986, 1987, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
-;; 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006
+;; 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007
 ;;     Free Software Foundation, Inc.
 
 ;; Author: Ilya Zakharevich and Bob Olson
@@ -352,7 +352,15 @@ Can be overwritten by `cperl-hairy' if nil."
 
 (defcustom cperl-electric-keywords nil
   "*Not-nil (and non-null) means keywords are electric in CPerl.
-Can be overwritten by `cperl-hairy' if nil."
+Can be overwritten by `cperl-hairy' if nil.
+
+Uses `abbrev-mode' to do the expansion.  If you want to use your
+own abbrevs in cperl-mode, but do not want keywords to be
+electric, you must redefine `cperl-mode-abbrev-table': do
+\\[edit-abbrevs], search for `cperl-mode-abbrev-table', and, in
+that paragraph, delete the words that appear at the ends of lines and
+that begin with \"cperl-electric\".
+"
   :type '(choice (const null) boolean)
   :group 'cperl-affected-by-hairy)
 
@@ -1681,9 +1689,8 @@ or as help on variables `cperl-tips', `cperl-problems',
 			  [(control c) (control h) f])))
   (setq major-mode cperl-use-major-mode)
   (setq mode-name "CPerl")
-  (if (not cperl-mode-abbrev-table)
-      (let ((prev-a-c abbrevs-changed))
-	(define-abbrev-table 'cperl-mode-abbrev-table '(
+  (let ((prev-a-c abbrevs-changed))
+    (define-abbrev-table 'cperl-mode-abbrev-table '(
 		("if" "if" cperl-electric-keyword 0)
 		("elsif" "elsif" cperl-electric-keyword 0)
 		("while" "while" cperl-electric-keyword 0)
@@ -1704,7 +1711,7 @@ or as help on variables `cperl-tips', `cperl-problems',
 		("over" "over" cperl-electric-pod 0)
 		("head1" "head1" cperl-electric-pod 0)
 		("head2" "head2" cperl-electric-pod 0)))
-	(setq abbrevs-changed prev-a-c)))
+	(setq abbrevs-changed prev-a-c))
   (setq local-abbrev-table cperl-mode-abbrev-table)
   (if (cperl-val 'cperl-electric-keywords)
       (abbrev-mode 1))
@@ -1788,8 +1795,8 @@ or as help on variables `cperl-tips', `cperl-problems',
 	((boundp 'compilation-error-regexp-alist);; xmeacs 19.x
 	 (make-local-variable 'compilation-error-regexp-alist)
 	 (set 'compilation-error-regexp-alist
-	       (cons cperl-compilation-error-regexp-alist
-		     (symbol-value 'compilation-error-regexp-alist)))))
+	       (append cperl-compilation-error-regexp-alist
+		       (symbol-value 'compilation-error-regexp-alist)))))
   (make-local-variable 'font-lock-defaults)
   (setq	font-lock-defaults
 	(cond
@@ -1864,9 +1871,7 @@ or as help on variables `cperl-tips', `cperl-problems',
       (easy-menu-add cperl-menu))	; A NOP in Emacs.
   (run-mode-hooks 'cperl-mode-hook)
   (if cperl-hook-after-change
-      (progn
-	(make-local-hook 'after-change-functions)
-	(add-hook 'after-change-functions 'cperl-after-change-function nil t)))
+      (add-hook 'after-change-functions 'cperl-after-change-function nil t))
   ;; After hooks since fontification will break this
   (if cperl-pod-here-scan
       (or cperl-syntaxify-by-font-lock
