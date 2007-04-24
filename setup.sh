@@ -47,7 +47,7 @@ function main () {
     mkdir -pv $HOME/.bashist
 
     # lets get some bash completion if we don't have it
-    if [[ !-f /etc/bash_completion ]]; then
+    if [[ ! -f /etc/bash_completion ]]; then
 	if wget -N "http://www.caliban.org/files/bash/bash-completion-latest.tar.gz"; then
 	    tar xzf bash-completion-latest.tar.gz    
 	fi

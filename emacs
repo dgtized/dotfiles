@@ -22,6 +22,7 @@
     (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
+(setq inhibit-startup-message t)
 (setq default-buffer-file-coding-system 'utf-8
       file-name-coding-system 'utf-8
       locale-coding-system 'utf-8)
