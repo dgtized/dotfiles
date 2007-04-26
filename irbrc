@@ -7,7 +7,7 @@ MAXHISTSIZE = 100
 begin
   if defined? Readline::HISTORY
     histfile = File::expand_path( HISTFILE )
-    if File::exists?( histfile )
+    if File::exist?( histfile )
       lines = IO::readlines( histfile ).collect {|line| line.chomp}
       puts "Read %d saved history commands from %s." %
         [ lines.nitems, histfile ] if $DEBUG || $VERBOSE
