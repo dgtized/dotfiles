@@ -1,11 +1,11 @@
 ;;; quack.el --- enhanced support for editing and running Scheme code
 
-(defconst quack-copyright    "Copyright (C) 2002-2006 Neil W. Van Dyke")
+(defconst quack-copyright    "Copyright (C) 2002-2007 Neil W. Van Dyke")
 (defconst quack-copyright-2  "Portions Copyright (C) Free Software Foundation")
 ;; Emacs-style font-lock specs adapted from GNU Emacs 21.2 scheme.el.
 ;; Scheme Mode menu adapted from GNU Emacs 21.2 cmuscheme.el.
 
-(defconst quack-version      "0.29")
+(defconst quack-version      "0.30")
 (defconst quack-author-name  "Neil Van Dyke")
 (defconst quack-author-email "neil@neilvandyke.org")
 (defconst quack-web-page     "http://www.neilvandyke.org/quack/")
@@ -21,7 +21,7 @@ should have received a copy of the GNU General Public License along with Emacs;
 see the file `COPYING'.  If not, write to the Free Software Foundation, Inc.,
 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.")
 
-(defconst quack-cvsid "$Id: quack.el,v 1.426 2006-11-12 09:09:18 neil Exp $")
+(defconst quack-cvsid "$Id: quack.el,v 1.427 2007-06-27 17:02:33 neil Exp $")
 
 ;;; Commentary:
 
@@ -153,6 +153,10 @@ see the file `COPYING'.  If not, write to the Free Software Foundation, Inc.,
 ;;     neil@neilvandyke.org to add you to the moderated `quack-announce' list.
 
 ;; HISTORY:
+;;
+;;     Version 0.30 (2007-06-27)
+;;         * Emacs 22 compatibility change: `string-to-number' instead of
+;;           `string-to-int'.  Thanks to Charles Comstock.
 ;;
 ;;     Version 0.29 (2006-11-12)
 ;;         * Fixed `quack-bar-syntax-string', which caused vertical bar
@@ -3935,7 +3939,7 @@ Can be used in your `~/.emacs' file something like this:
     )))
 
 (defun quack-compile-no-line-number (filename column)
-  (list (point-marker) filename 1 (and column (string-to-int column))))
+  (list (point-marker) filename 1 (and column (string-to-number column))))
 
 (defun quack-install-compilation-mode-stuff ()
   (unless quack-saved-compilation-error-regexp-alist
