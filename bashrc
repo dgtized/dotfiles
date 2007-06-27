@@ -62,6 +62,9 @@ export LESSCHARSET='utf-8'
 if [ -f /usr/bin/src-hilite-lesspipe.sh ]; then
 	export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 	export LESS=' -R '
+elif [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
+	export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+	export LESS=' -R '
 else
 	export LESS=' -M '          # Less stuff 
 fi
