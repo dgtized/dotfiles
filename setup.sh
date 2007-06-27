@@ -107,7 +107,7 @@ if [[ -d $DOTC_DIR ]]; then
     elif [[ $1 == "up" || $1 == "update" ]]; then
         echo "Updating Configuration..."
         svn update
-	svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el
+	svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
         test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
