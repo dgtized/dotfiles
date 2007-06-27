@@ -4,9 +4,10 @@
 
 function main () {
     echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
-
-    echo "export DOTC_DIR=$DOTC_DIR" > site-config
+    
+    echo "export DOTC_DIR=~/$DOTC_DIR" > site-config
     echo "export DOTC_NAME=$DOTC_NAME" >> site-config
+
     ln -sfv ${DOTC_DIR}/site-config ~/.site-config
     
     ln -sfv ${DOTC_DIR}/bashrc ~/.bashrc
@@ -23,7 +24,7 @@ function main () {
     ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
     ln -sfv ${DOTC_DIR}/screenrc ~/.screenrc
     if [[ -d ~/.subversion ]]; then
-	    ln -sfv ${DOTC_DIR}/svn-config ~/.subversion/config
+	    ln -sfv ../${DOTC_DIR}/svn-config ~/.subversion/config
     fi
 
     ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
@@ -35,14 +36,14 @@ function main () {
     
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh
-    chmod 600 ${DOTC_DIR}/ssh/*
-    ln -sfv ${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
-    ln -sfv ${DOTC_DIR}/ssh/config ~/.ssh/config
+    chmod 600 ${HOME}/${DOTC_DIR}/ssh/*
+    ln -sfv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
+    ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -l ~/.emacs -batch -f batch-byte-compile \
-	${DOTC_DIR}/site-lisp/*.el ${DOTC_DIR}/site-lisp/ruby/*.el \
-	~/.emacs 2>&1) > ${DOTC_DIR}/site-lisp/compile.log
+	site-lisp/*.el site-lisp/ruby/*.el \
+	~/.emacs 2>&1) > site-lisp/compile.log
     
     mkdir -pv $HOME/.bashist
 
@@ -53,12 +54,12 @@ function main () {
 	fi
     fi    
     mkdir -pv $HOME/usr/bin
-    for script in `find ${DOTC_DIR}/scripts -type f | grep -v .svn`; do
-	ln -sfv $script ~/usr/bin;
+    for script in `find scripts -type f | grep -v .svn`; do
+	ln -sfv ../../${DOTC_DIR}/$script ~/usr/bin;
     done
     if [[ -d $HOME/.scripts/ ]]; then
     	for script in `find ${HOME}/.scripts -type f | grep -v .svn`; do
-		ln -sfv $script ~/usr/bin;
+		ln -sfv ../../$script ~/usr/bin;
 	done
     fi
     # this would be cool but then it forgets where it's from
@@ -91,11 +92,12 @@ else
     DOTC_NAME=$1
 fi
 
-DOTC_DIR=`dirname $0`
+#DOTC_DIR=`dirname $0`
+# for the moment we can only run from .home-config
+DOTC_DIR=.home-config
 
 if [[ -d $DOTC_DIR ]]; then
-    pushd . > /dev/null 2>&1
-    cd $DOTC_DIR
+    cd $HOME/$DOTC_DIR
 
     if [[ $1 == "clean" ]]; then
 	echo "Cleaning..."
@@ -120,6 +122,4 @@ if [[ -d $DOTC_DIR ]]; then
     echo 
     echo "Site Config for `hostname`-${DOTC_NAME}:"
     cat site-config
-
-    popd > /dev/null 2>&1    
 fi
