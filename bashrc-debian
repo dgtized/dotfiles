@@ -1,2 +1,13 @@
 alias apt-install="sudo apt-get install"
 
+alias forward-mysql="ssh -L 9306:mysql.mblab.wustl.edu:3306 zest"
+
+if [ -d ${HOME}/pcr_pipeline/bin ]; then
+  export PATH=${HOME}/pcr_pipeline/bin:$PATH
+fi
+#export RUBYLIB=$HOME/usr/lib/ruby/site_ruby/1.8
+#export GEM_HOME=$HOME/usr/lib/ruby/gems
+
+
+
+

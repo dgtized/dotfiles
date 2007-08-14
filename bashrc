@@ -51,6 +51,7 @@ alias lm='ls -al |more'         # pipe through 'more'
 alias tree='tree -Csu' # nice alternative to 'ls'
 
 alias grep='grep --color=auto'
+#alias grephist='grep
 
 # tailoring 'less'
 alias more='less'

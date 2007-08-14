@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 # put this as ~/.irbrc and you shall have commandline completion
 
-HISTFILE = "~/.irb.hist"
-MAXHISTSIZE = 100
+HISTFILE = "~/.irb.hist" unless(defined? :HISTFILE)
+MAXHISTSIZE = 100 unless (defined? :MAXHISTSIZE)
 
 begin
   if defined? Readline::HISTORY
