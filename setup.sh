@@ -96,7 +96,7 @@ fi
 # for the moment we can only run from .home-config
 DOTC_DIR=.home-config
 
-if [[ -d $DOTC_DIR ]]; then
+if [[ -d $HOME/$DOTC_DIR ]]; then
     cd $HOME/$DOTC_DIR
 
     if [[ $1 == "clean" ]]; then
@@ -111,7 +111,7 @@ if [[ -d $DOTC_DIR ]]; then
         test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
-	exec ${DOTC_DIR}/setup.sh $DOTC_NAME
+	exec ${DOTC_DIR}/setup.sh ${DOTC_NAME}
     fi
 
     valid_name
@@ -122,4 +122,6 @@ if [[ -d $DOTC_DIR ]]; then
     echo 
     echo "Site Config for `hostname`-${DOTC_NAME}:"
     cat site-config
+else
+    echo "Can't find $DOTC_DIR"
 fi
