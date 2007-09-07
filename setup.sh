@@ -37,7 +37,8 @@ function main () {
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh
     chmod 600 ${HOME}/${DOTC_DIR}/ssh/*
-    ln -sfv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
+    rm -r ~/.ssh/authorized_keys 
+    cp -fv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
