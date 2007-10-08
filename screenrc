@@ -21,7 +21,7 @@ silencewait 15
 shell bash
 
 #bindkey -k kD stuff \177
-bindkey -k kb stuff ^H
+#bindkey -k kb stuff ^H
 
 termcapinfo linux "ve=\E[?25h\E[?17;0;64c" # red
 
