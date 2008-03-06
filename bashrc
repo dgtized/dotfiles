@@ -104,7 +104,11 @@ pathmunge ${HOME}/usr/bin
 export CLASSPATH=.
 export CPPFLAGS=-I$HOME/usr/include
 export CFLAGS=$CPPFLAGS
-export LD_LIBRARY_PATH=$HOME/usr/lib    
+if [[ -z $LD_LIBRARY_PATH ]]; then
+	export LD_LIBRARY_PATH=$HOME/usr/lib
+else
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib
+fi	
 export LDFLAGS=-L$HOME/usr/lib
 
 export CVS_RSH=ssh
