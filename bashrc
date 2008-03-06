@@ -8,8 +8,22 @@ if [[ $- != *i* ]]; then
     return
 fi
 
+if [[ -e /etc/bashrc ]]; then
+    . /etc/bashrc
+fi
+
 source $HOME/.site-config
 source $DOTC_DIR/color-bash
+
+pathmunge () {
+        if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+           if [ "$2" = "after" ] ; then
+              PATH=$PATH:$1
+           else
+              PATH=$1:$PATH
+           fi
+        fi
+}
 
 #PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
 PS1="\[$red\][\! \u@\h \w]$\[$NC\] "
@@ -85,7 +99,8 @@ alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
 alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
 alias vi=vim
 
-export PATH=${HOME}/usr/bin:${PATH}
+pathmunge ${HOME}/usr/bin
+
 export CLASSPATH=.
 export CPPFLAGS=-I$HOME/usr/include
 export CFLAGS=$CPPFLAGS
@@ -141,4 +156,6 @@ fi
 #    xmodmap $DOTC_DIR/xmodmap 
 #fi
 
+unset pathmunge
+export PATH
 xset b off > /dev/null 2>&1
