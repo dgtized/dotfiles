@@ -42,7 +42,7 @@ function main () {
     ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    (emacs -l ~/.emacs -batch -f batch-byte-compile \
+    (emacs -l ${DOTC_DIR}/emacs -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/ruby/*.el \
 	~/.emacs 2>&1) > site-lisp/compile.log
     
