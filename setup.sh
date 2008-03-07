@@ -42,9 +42,8 @@ function main () {
     ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
 
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    (emacs -l ${DOTC_DIR}/emacs -batch -f batch-byte-compile \
-	site-lisp/*.el site-lisp/ruby/*.el \
-	~/.emacs 2>&1) > site-lisp/compile.log
+    (emacs -L site-lisp -batch -f batch-byte-compile \
+	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log
     
     mkdir -pv $HOME/.bashist
 
