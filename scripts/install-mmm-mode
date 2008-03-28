@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir -p ~/install
+cd ~/install
+cvs -z3 -d:pserver:anonymous@mmm-mode.cvs.sourceforge.net:/cvsroot/mmm-mode co -P mmm-mode
+cd mmm-mode
+./autogen.sh
+./configure --prefix=$HOME/usr
+make
+make install
