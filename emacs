@@ -3,12 +3,12 @@
 (if (file-exists-p "~/.site-config")
     (save-excursion
       (let ((site-config-buf (find-file-noselect "~/.site-config")))
-	(switch-to-buffer site-config-buf)
-	(goto-line 0)
-	(while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
-	  (setenv (match-string 1) (match-string 2)))
-	(kill-buffer site-config-buf)
-	)))
+        (switch-to-buffer site-config-buf)
+        (goto-line 0)
+        (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+          (setenv (match-string 1) (match-string 2)))
+        (kill-buffer site-config-buf)
+        )))
 
 (unless (boundp 'dotc-dir)
     (defconst dotc-dir (getenv "DOTC_DIR") "shell config directory"))
@@ -17,6 +17,8 @@
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/ruby"))
+;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rhtml"))
+;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rails"))
 
 (if (string-equal dotc-name "gentoo")
     (require 'clgc-site-gentoo))
@@ -77,12 +79,12 @@
 
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
+        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (add-to-list 'backup-directory-alist
-	     (cons "." "~/.emacs.d/backups/"))
+             (cons "." "~/.emacs.d/backups/"))
 
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
@@ -141,11 +143,15 @@
       (statement-case-intro . 2)
       )))
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
-  (require 'ruby-electric)
-  (ruby-electric-mode)
-  (abbrev-mode 1)
+  ;(require 'ruby-electric)
+  ;(ruby-electric-mode)
+  ;(abbrev-mode 1)
   (define-key ruby-mode-map "\C-m" 'ruby-reindent-then-newline-and-indent)
-  (define-key ruby-mode-map "\C-j" 'newline))
+  (define-key ruby-mode-map "\C-j" 'newline)
+  (require 'nxml-mode)
+  ;(require 'rhtml-mode)
+  ;(require 'rails)
+)
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
@@ -155,9 +161,9 @@
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
 (if (or (string-equal dotc-name "gentoo")
-	(string-equal dotc-name "debian")
-	(and (string-equal dotc-name "bio")
-	     (>= emacs-major-version 22)))
+        (string-equal dotc-name "debian")
+        (and (string-equal dotc-name "bio")
+             (>= emacs-major-version 22)))
     (progn
       ;; eRuby
       (require 'mmm-mode)
@@ -177,26 +183,26 @@
 
       (mmm-add-classes
        '((eruby-code
-	  :submode ruby-mode
-	  :match-face (("<%#" . mmm-comment-submode-face)
-		       ("<%=" . mmm-output-submode-face)
-		       ("<%"  . mmm-code-submode-face))
-	  :front "<%[#=]?"
-	  :back "-?%>"
-	  :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-		   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-		   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
+          :submode ruby-mode
+          :match-face (("<%#" . mmm-comment-submode-face)
+                       ("<%=" . mmm-output-submode-face)
+                       ("<%"  . mmm-code-submode-face))
+          :front "<%[#=]?"
+          :back "-?%>"
+          :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
+                   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+                   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
 
-	 (html-css-attribute
-	  :submode css-mode
-	  :face mmm-declaration-submode-face
-	  :front "style=\""
-	  :back "\"")))
+         (html-css-attribute
+          :submode css-mode
+          :face mmm-declaration-submode-face
+          :front "style=\""
+          :back "\"")))
 
-      (add-hook 'html-mode-hook	(lambda ()
-				  (setq mmm-classes '(eruby-code))
-				  (mmm-mode-on)))
-      (add-to-list 'auto-mode-alist '("\\.rhtml$" . html-mode))
+      ;; (add-hook 'html-mode-hook (lambda ()
+      ;;                                   (setq mmm-classes '(eruby-code))
+      ;;                                   (mmm-mode-on)))
+      ;; (add-to-list 'auto-mode-alist '("\\.rhtml$" . rhtml-mode))
       ))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
@@ -238,32 +244,32 @@
     (interactive)
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string
-	       (regexp-quote isearch-string))))))
+               (regexp-quote isearch-string))))))
 
 (setq auto-mode-alist
       (append
        '(
-	 ("\\.C$"          . c++-mode)
-	 ("\\.cc$"         . c++-mode)
-	 ("\\.[ch]xx|pp$"  . c++-mode)
-	 ;;("\\.h$"      . c++-mode)
-	 ("\\.hh$"         . c++-mode)
-	 ;; C Bindings
-	 ("\\.c$"          . c-mode)
-	 ("\\.h$"          . c++-mode)
+         ("\\.C$"          . c++-mode)
+         ("\\.cc$"         . c++-mode)
+         ("\\.[ch]xx|pp$"  . c++-mode)
+         ;;("\\.h$"      . c++-mode)
+         ("\\.hh$"         . c++-mode)
+         ;; C Bindings
+         ("\\.c$"          . c-mode)
+         ("\\.h$"          . c++-mode)
 
-	 ("\\.awk"         . awk-mode)
-	 ("\\.css"         . css-mode)
+         ("\\.awk"         . awk-mode)
+         ("\\.css"         . css-mode)
 
-	 ("\\.vhdl?\\'" . vhdl-mode)
+         ("\\.vhdl?\\'" . vhdl-mode)
 
-	 ;; Ruby Bindings
-	 ("\\.rb$"         . ruby-mode)
-	 ("\\.ruby$"       . ruby-mode)
-	 ("\\[Rr]akefile$" . ruby-mode)
-	 ("\\.gem$"        . ruby-mode)
-	 ("\\.gemspec$"    . ruby-mode)
-	 ) auto-mode-alist))
+         ;; Ruby Bindings
+         ("\\.rb$"         . ruby-mode)
+         ("\\.ruby$"       . ruby-mode)
+         ("\\[Rr]akefile$" . ruby-mode)
+         ("\\.gem$"        . ruby-mode)
+         ("\\.gemspec$"    . ruby-mode)
+         ) auto-mode-alist))
 
 (defun fix-display nil
   "fix display problems"
@@ -316,7 +322,7 @@
 ;(require 'tabbar)
 ;(tabbar-mode)
 
-(defun start-graphviz
+(defun graphviz
   (interactive)
   (require 'graphviz-dot-mode)
   (eval-after-load 'graphviz-dot-mode
@@ -337,34 +343,42 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(pr-ps-name (quote default))
+ '(ps-inter-column 42)
+ '(ps-landscape-mode t)
+ '(ps-left-margin 42)
+ '(ps-number-of-columns 2)
+ '(ps-right-margin 42)
+ '(ps-spool-duplex t)
  '(quack-pretty-lambda-p nil)
  '(quack-programs (quote ("mzscheme" "mzscheme -M errortrace" "mzscheme -M eopl" "mred -z" "guile" "mit-scheme" "scheme" "scheme48")))
- '(quack-tabs-are-evil-p t))
+ '(quack-tabs-are-evil-p t)
+ '(rng-nxml-auto-validate-flag nil))
 
 (defun autocompile nil
   "compile itself if ~/.emacs"
   (interactive)
   (require 'bytecomp)
   (if (string= (buffer-file-name)
-	       (expand-file-name "~/.emacs"))
+               (expand-file-name "~/.emacs"))
       (byte-compile-file (buffer-file-name))))
 ;(add-hook 'after-save-hook 'autocompile)
 
 (if window-system
     (progn
       (let ((c-height (floor (/ (* (display-pixel-height) 0.95) 17)))
-	    (c-width (floor (/ (* (display-pixel-width) 1.00) 8))))
-	(message "Setting width: %d, height: %d" c-width c-height)
-	(set-frame-position (selected-frame) 5 30)
-	;(set-frame-width (selected-frame) c-width)
-	;(set-frame-height (selected-frame) c-height)
-	)
+            (c-width (floor (/ (* (display-pixel-width) 1.00) 8))))
+        (message "Setting width: %d, height: %d" c-width c-height)
+        (set-frame-position (selected-frame) 5 30)
+        ;(set-frame-width (selected-frame) c-width)
+        ;(set-frame-height (selected-frame) c-height)
+        )
       (set-frame-font "fixed")
       ;; Turn off Emacs 21 toolbar
       (if (fboundp 'tool-bar-mode)
-	  (tool-bar-mode -1))
+          (tool-bar-mode -1))
       (if (load "mwheel" t)
-	  (mwheel-install)))
+          (mwheel-install)))
   ;; if we are in text we don't need no stinkin menu's
   (menu-bar-mode 0)
   )
