@@ -5,11 +5,11 @@ vbellwait 1                     # Seconds to pause the screen for visual bell
 #allpartial off                  # Refresh entire screen on window change
 autodetach on                   # Autodetach session on hangup V dying
 bufferfile /tmp/screen-buffer   # Filename for the paste buffer
-escape ^Qq                      # set escape character to ctrl-z
+escape ^Zz                      # set escape character to ctrl-z
 shelltitle $HOST                # Set the title of all shell windows
 defflow off                     # Set the default flow control mode
 defmode 0620                    # Set the default mode of each pseudo tty
-defscrollback 1024              # Set the default number of scrollback lines
+defscrollback 8096              # Set the default number of scrollback lines
 #deflogin off                    # Do not register the window in utmp
 startup_message off             # Disable startup messages
 
@@ -26,7 +26,8 @@ shell bash
 termcapinfo linux "ve=\E[?25h\E[?17;0;64c" # red
 
 screen -t emacs.0@$HOST -h 0 0 emacs -nw
-screen -t email.9@$HOST -h 0 9
+screen -t irssi.9@$HOST -h 0 9 irssi
+screen -t mongrel.8@$HOST -h 0 8
 screen -t shell.1.$USER@$HOST 1
 screen -t shell.2.$USER@$HOST 2
 screen -t shell.3.$USER@$HOST 3
