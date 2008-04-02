@@ -10,10 +10,8 @@
         (kill-buffer site-config-buf)
         )))
 
-(unless (boundp 'dotc-dir)
-    (defconst dotc-dir (getenv "DOTC_DIR") "shell config directory"))
-(unless (boundp 'dotc-name)
-    (defconst dotc-name (getenv "DOTC_NAME") "shell config name"))
+(defconst dotc-dir (getenv "DOTC_DIR") "shell config directory")
+(defconst dotc-name (getenv "DOTC_NAME") "shell config name")
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/ruby"))
@@ -364,24 +362,31 @@
       (byte-compile-file (buffer-file-name))))
 ;(add-hook 'after-save-hook 'autocompile)
 
-(if window-system
-    (progn
-      (let ((c-height (floor (/ (* (display-pixel-height) 0.95) 17)))
-            (c-width (floor (/ (* (display-pixel-width) 1.00) 8))))
-        (message "Setting width: %d, height: %d" c-width c-height)
-        (set-frame-position (selected-frame) 5 30)
-        ;(set-frame-width (selected-frame) c-width)
-        ;(set-frame-height (selected-frame) c-height)
-        )
-      (set-frame-font "fixed")
-      ;; Turn off Emacs 21 toolbar
-      (if (fboundp 'tool-bar-mode)
-          (tool-bar-mode -1))
-      (if (load "mwheel" t)
-          (mwheel-install)))
-  ;; if we are in text we don't need no stinkin menu's
-  (menu-bar-mode 0)
-  )
+
+(add-hook 'after-init-hook
+	  (lambda nil
+	    (server-start)
+	    (normal-erase-is-backspace-mode)
+	    (if (fboundp 'tool-bar-mode)
+		(tool-bar-mode -1))))
+
+(add-hook 'after-make-frame-functions 
+	  (lambda (frame)
+	    (if (window-system frame)
+		(progn
+		  (let ((c-height (floor (* (display-pixel-height) 0.80)))
+			(c-width (floor (* (display-pixel-width) 0.80))))
+		    (message "Setting width: %d, height: %d" c-width c-height)
+		    (set-frame-position frame 5 30)
+		    (set-frame-width frame c-width)
+		    (set-frame-height frame c-height)
+		    )
+		  (set-frame-font 'fixed)
+		  ;; Turn off Emacs 21 toolbar		  
+		  (if (load "mwheel" t)
+		      (mwheel-install)))
+	      ;; if not in window system	      
+	      )))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
