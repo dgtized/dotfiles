@@ -81,7 +81,7 @@ elif [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
 	export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 	export LESS=' -R '
 else
-	export LESS=' -M '          # Less stuff 
+	export LESS=' -M -R'          # Less stuff 
 fi
 #LESSEDIT="%E ?lt+%lt. %f" 
 
