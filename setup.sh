@@ -14,7 +14,7 @@ function main () {
     if [[ -e ${DOTC_DIR}/emacs-${DOTC_NAME} ]]; then
     	ln -sfv ${DOTC_DIR}/emacs-${DOTC_NAME} ~/.emacs
     else
-	ln -sfv ${DOTC_DIR}/emacs ~/.emacs
+	ln -sfv ~/${DOTC_DIR}/emacs ~/.emacs
     fi
 
     ln -sfv ${DOTC_DIR}/vimrc ~/.vimrc

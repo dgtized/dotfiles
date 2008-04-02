@@ -10,5 +10,6 @@ export GEM_HOME=$HOME/usr/lib/ruby/gems
 export GEM_PATH=$HOME/usr/lib/ruby/gems:/usr/lib/ruby/gems/1.8/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sge/lib/lx24-x86/
 
-alias qwatch="xterm -geometry 120x80 -e watch 'qstat -u $USER && echo && qstat -g c && echo && qstat -s p' &"
+alias qwatch="xterm -geometry 120x80 -e watch 'qstat -u $USER && echo && qstat -g c && echo && qstat -s p -u '*'' &"
 alias consistency="ssh clgc@192.168.115.165"
+alias emacswin="xrdb -merge .Xresources && emacsclient -c &"

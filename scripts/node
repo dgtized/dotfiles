@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+opts = Hash.new
+optp = OptionParser.new
+optp.banner = "Usage: node [options] [command]"
+optp.on("-32", "Force 32-bit processor") {|v| opts[:m32] = v}
+optp.on("-64", "Force 64-bit processor") {|v| opts[:m64] = v}
+optp.on("-m=N", "--memory=N", String, "Require MEM memory","default: 512mb") {|v| opts[:mem_need] = v}
+optp.on("-s=N", "--slots=N", Integer, "Reserve N slots on machine","default: 1") {|v| opts[:slots] = v}
+optp.on("-n=N", "--node=N", Integer, "Use specified node number") {|v| opts[:node] = v}
+optp.on("-l", "--later", "Delay scheduling till resource is available") {|v| opts[:delay] = v}
+optp.on("-q", "--qsub", "Use qsub instead of qrsh") {|v| opts[:nowait] = v}
+optp.on("-h","--help","Show this message") { puts optp; exit }
+argv = optp.parse(ARGV)
+
+resources = []
+resources << "arch=lx24-x86" if opts[:m32]
+resources << "arch=lx24-amd64" if opts[:m64]
+resources << "mem_need=%s" % opts[:mem_need] if opts[:mem_need]
+resources << "slots=%d" % opts[:slots] if opts[:slots]
+resources << "hostname=node%03d" % opts[:node] if opts[:node]
+
+rc = []
+rc << "-l " + resources.join(",") unless resources.empty?
+rc << "-now n" if opts[:delay]
+
+if(argv.empty?)
+  cmd = "qlogin #{rc.join(" ")}"
+else
+  subcmd = opts[:nowait] ? "qsub" : "qrsh"
+  cmd = "#{subcmd} -cwd -V %s \"%s\"" % [rc.join(" "),argv.join(" ")]
+end
+
+puts "Executing: %p" % cmd
+exec(cmd)
+
+
