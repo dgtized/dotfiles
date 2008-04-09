@@ -264,7 +264,8 @@
          ;; Ruby Bindings
          ("\\.rb$"         . ruby-mode)
          ("\\.ruby$"       . ruby-mode)
-         ("\\[Rr]akefile$" . ruby-mode)
+         ("\\.rake$"       . ruby-mode)
+         ("[Rr]akefile$"   . ruby-mode)
          ("\\.gem$"        . ruby-mode)
          ("\\.gemspec$"    . ruby-mode)
          ) auto-mode-alist))
