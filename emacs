@@ -22,7 +22,7 @@
     (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
-(setq inhibit-startup-message t)
+(setq inhibit-startup-screen t)
 (setq default-buffer-file-coding-system 'utf-8
       file-name-coding-system 'utf-8
       locale-coding-system 'utf-8)
@@ -244,31 +244,32 @@
       (occur (if isearch-regexp isearch-string
                (regexp-quote isearch-string))))))
 
-(setq auto-mode-alist
-      (append
-       '(
-         ("\\.C$"          . c++-mode)
-         ("\\.cc$"         . c++-mode)
-         ("\\.[ch]xx|pp$"  . c++-mode)
-         ;;("\\.h$"      . c++-mode)
-         ("\\.hh$"         . c++-mode)
-         ;; C Bindings
-         ("\\.c$"          . c-mode)
-         ("\\.h$"          . c++-mode)
+(mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
+	'(
+	  ("\\.C$"          . c++-mode)
+	  ("\\.cc$"         . c++-mode)
+	  ("\\.[ch]xx|pp$"  . c++-mode)
+	  ;;("\\.h$"      . c++-mode)
+	  ("\\.hh$"         . c++-mode)
+	  ;; C Bindings
+	  ("\\.c$"          . c-mode)
+	  ("\\.h$"          . c++-mode)
+	  
+	  ("\\.awk"         . awk-mode)
+	  ("\\.css"         . css-mode)
+	  
+	  ("\\.vhdl?\\'" . vhdl-mode)
+	  
+	  ;; Ruby Bindings
+	  ("\\.rb$"         . ruby-mode)
+	  ("\\.ruby$"       . ruby-mode)
+	  ("\\.rake$"       . ruby-mode)
+	  ("[Rr]akefile$"   . ruby-mode)
+	  ("\\.gem$"        . ruby-mode)
+	  ("\\.gemspec$"    . ruby-mode)
 
-         ("\\.awk"         . awk-mode)
-         ("\\.css"         . css-mode)
-
-         ("\\.vhdl?\\'" . vhdl-mode)
-
-         ;; Ruby Bindings
-         ("\\.rb$"         . ruby-mode)
-         ("\\.ruby$"       . ruby-mode)
-         ("\\.rake$"       . ruby-mode)
-         ("[Rr]akefile$"   . ruby-mode)
-         ("\\.gem$"        . ruby-mode)
-         ("\\.gemspec$"    . ruby-mode)
-         ) auto-mode-alist))
+	  ("\\.ya?ml$"      . yaml-mode)
+	  ))
 
 (defun fix-display nil
   "fix display problems"
@@ -303,8 +304,6 @@
 ;(eval-after-load 'ediff
 ;  (setq ediff-split-window-function 'split-window-horizontally))
 
-; (server-start)
-
 ;; from http://www.ntu.edu.sg/home5/pg04878518/EmacsTools.html
 
 ;; (require 'session)
@@ -320,6 +319,8 @@
 ;; it eats up some screen space but let's play with it for a while
 ;(require 'tabbar)
 ;(tabbar-mode)
+
+(require 'yaml-mode)
 
 (defun graphviz
   (interactive)
@@ -366,6 +367,7 @@
 
 (add-hook 'after-init-hook
 	  (lambda nil
+	    (message "clgc-after-init-hook")
 	    (server-start)
 	    (normal-erase-is-backspace-mode)
 	    (if (fboundp 'tool-bar-mode)

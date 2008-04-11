@@ -108,6 +108,7 @@ if [[ -d $HOME/$DOTC_DIR ]]; then
         echo "Updating Configuration..."
         svn update
 	svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
+	svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
         test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
