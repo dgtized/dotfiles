@@ -41,6 +41,9 @@ function main () {
     cp -fv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
     ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
 
+    # These happen hear so they happen after setup.sh reload
+    svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
+    svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log
@@ -107,8 +110,6 @@ if [[ -d $HOME/$DOTC_DIR ]]; then
     elif [[ $1 == "up" || $1 == "update" ]]; then
         echo "Updating Configuration..."
         svn update
-	svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
-	svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
         test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
