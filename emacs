@@ -320,6 +320,13 @@
 ;(require 'tabbar)
 ;(tabbar-mode)
 
+(autoload 'dna-mode "dna-mode" "Major mode for dna" t)
+(add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
+(add-to-list
+ 'auto-mode-alist
+ '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
+(add-hook 'dna-mode-hook 'turn-on-font-lock)
+
 (require 'yaml-mode)
 
 (defun graphviz
@@ -370,8 +377,7 @@
 	    (message "clgc-after-init-hook")
 	    (server-start)
 	    (normal-erase-is-backspace-mode)
-	    (if (fboundp 'tool-bar-mode)
-		(tool-bar-mode -1))))
+	    ))
 
 (add-hook 'after-make-frame-functions 
 	  (lambda (frame)
@@ -386,6 +392,8 @@
 		    )
 		  (set-frame-font 'fixed)
 		  ;; Turn off Emacs 21 toolbar		  
+		  (if (fboundp 'tool-bar-mode)
+		      (tool-bar-mode nil))
 		  (if (load "mwheel" t)
 		      (mwheel-install)))
 	      ;; if not in window system	      
