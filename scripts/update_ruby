@@ -10,7 +10,7 @@ then
     cd ruby
     echo "Configuring..."
 #    autoconf
-    ./configure --prefix=$HOME/usr --enable-install-doc 
+    ./configure --prefix=$HOME/usr --with-default-kcode=utf8 --with-readline 
     echo "Compiling..."
     make #>& /dev/null
     echo "Testing..."
