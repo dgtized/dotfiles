@@ -44,7 +44,7 @@ function main () {
     # These happen hear so they happen after setup.sh reload
     svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
     svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
-    svn export http://svn.ruby-lang.org/repos/ruby/trunk/misc site-lisp/ruby
+    rm -rf site-lisp/ruby && svn export http://svn.ruby-lang.org/repos/ruby/trunk/misc site-lisp/ruby
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log
@@ -96,9 +96,11 @@ else
     DOTC_NAME=$1
 fi
 
-#DOTC_DIR=`dirname $0`
-# for the moment we can only run from .home-config
-DOTC_DIR=.home-config
+pushd $(dirname $0) > /dev/null
+DIRNAME=`pwd`/setup.sh
+popd > /dev/null
+DOTC_DIR=`dirname ${DIRNAME//$HOME/} | sed 's/^\///'`
+unset DIRNAME
 
 if [[ -d $HOME/$DOTC_DIR ]]; then
     cd $HOME/$DOTC_DIR
@@ -114,7 +116,7 @@ if [[ -d $HOME/$DOTC_DIR ]]; then
         test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
-	exec ${DOTC_DIR}/setup.sh ${DOTC_NAME}
+	exec ./setup.sh ${DOTC_NAME}
     fi
 
     valid_name
