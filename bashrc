@@ -4,6 +4,7 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]]; then
+    export PATH=$HOME/usr/bin:$PATH
     # Shell is non-interactive.  Be done now
     return
 fi
