@@ -112,8 +112,25 @@ if [[ -d $HOME/$DOTC_DIR ]]; then
 	exit
     elif [[ $1 == "up" || $1 == "update" ]]; then
         echo "Updating Configuration..."
-        svn update
-        test -e site-config && source site-config
+
+	branch=`git branch | grep '*' | sed -e 's/\* //g'`
+	echo " * saving local changes to stash"
+	git stash save
+	if [[ $branch != "master" ]]; then
+	    echo " * switching from $branch to master"
+	    git checkout master
+	fi	
+	echo " * pulling remote"
+	git pull
+	if [[ $branch != "master" ]]; then
+	    echo " * returning to $branch"
+	    git checkout $branch
+	fi
+	echo " * reapplying local changes"
+	git stash apply
+	unset branch
+        
+	test -e site-config && source site-config
 	valid_name
 	echo "Reloading setup.sh in case of remote change"
 	exec ./setup.sh ${DOTC_NAME}
