@@ -37,9 +37,10 @@ function main () {
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh
     chmod 600 ${HOME}/${DOTC_DIR}/ssh/*
-    rm -r ~/.ssh/authorized_keys 
+    rm -r ~/.ssh/{authorized_keys,config}
     cp -fv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
-    ln -sfv ../${DOTC_DIR}/ssh/config ~/.ssh/config
+    cp -fv ../${DOTC_DIR}/ssh/config ~/.ssh/config
+    chmod 600 ${HOME}/.ssh/{authorized_keys,config}
 
     # These happen hear so they happen after setup.sh reload
     svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
