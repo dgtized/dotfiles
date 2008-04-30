@@ -1,0 +1,6 @@
+**/*.elc
+site-config
+site-lisp/psvn.el
+site-lisp/yaml-mode.el
+site-lisp/ruby
+site-lisp/compile.log
