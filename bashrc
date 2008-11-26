@@ -66,6 +66,7 @@ alias lm='ls -al |more'         # pipe through 'more'
 alias tree='tree -Csu' # nice alternative to 'ls'
 
 alias grep='grep --color=auto'
+alias remacs='`grep emacs ~/.screenrc`'
 #alias grephist='grep
 
 # tailoring 'less'
@@ -96,8 +97,6 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 set HISTTIMEFORMAT 
 
-alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
-alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
 alias vi=vim
 
 pathmunge ${HOME}/usr/bin
