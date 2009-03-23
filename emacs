@@ -3,12 +3,12 @@
 (if (file-exists-p "~/.site-config")
     (save-excursion
       (let ((site-config-buf (find-file-noselect "~/.site-config")))
-        (switch-to-buffer site-config-buf)
-        (goto-line 0)
-        (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
-          (setenv (match-string 1) (match-string 2)))
-        (kill-buffer site-config-buf)
-        )))
+	(switch-to-buffer site-config-buf)
+	(goto-line 0)
+	(while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+	  (setenv (match-string 1) (match-string 2)))
+	(kill-buffer site-config-buf)
+	)))
 
 (defconst dotc-dir (getenv "DOTC_DIR") "shell config directory")
 (defconst dotc-name (getenv "DOTC_NAME") "shell config name")
@@ -80,12 +80,12 @@
 
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
+	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (add-to-list 'backup-directory-alist
-             (cons "." "~/.emacs.d/backups/"))
+	     (cons "." "~/.emacs.d/backups/"))
 
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
@@ -162,9 +162,9 @@
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
 (if (or (string-equal dotc-name "gentoo")
-        (string-equal dotc-name "debian")
-        (and (string-equal dotc-name "bio")
-             (>= emacs-major-version 22)))
+	(string-equal dotc-name "debian")
+	(and (string-equal dotc-name "bio")
+	     (>= emacs-major-version 22)))
     (progn
       ;; eRuby
       (require 'mmm-mode)
@@ -184,21 +184,21 @@
 
       (mmm-add-classes
        '((eruby-code
-          :submode ruby-mode
-          :match-face (("<%#" . mmm-comment-submode-face)
-                       ("<%=" . mmm-output-submode-face)
-                       ("<%"  . mmm-code-submode-face))
-          :front "<%[#=]?"
-          :back "-?%>"
-          :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-                   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-                   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
+	  :submode ruby-mode
+	  :match-face (("<%#" . mmm-comment-submode-face)
+		       ("<%=" . mmm-output-submode-face)
+		       ("<%"  . mmm-code-submode-face))
+	  :front "<%[#=]?"
+	  :back "-?%>"
+	  :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
+		   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+		   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
 
-         (html-css-attribute
-          :submode css-mode
-          :face mmm-declaration-submode-face
-          :front "style=\""
-          :back "\"")))
+	 (html-css-attribute
+	  :submode css-mode
+	  :face mmm-declaration-submode-face
+	  :front "style=\""
+	  :back "\"")))
 
       ;; (add-hook 'html-mode-hook (lambda ()
       ;;                                   (setq mmm-classes '(eruby-code))
@@ -245,7 +245,7 @@
     (interactive)
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string
-               (regexp-quote isearch-string))))))
+	       (regexp-quote isearch-string))))))
 
 (mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
 	'(
@@ -257,12 +257,12 @@
 	  ;; C Bindings
 	  ("\\.c$"          . c-mode)
 	  ("\\.h$"          . c++-mode)
-	  
+
 	  ("\\.awk"         . awk-mode)
 	  ("\\.css"         . css-mode)
-	  
+
 	  ("\\.vhdl?\\'" . vhdl-mode)
-	  
+
 	  ;; Ruby Bindings
 	  ("\\.rb$"         . ruby-mode)
 	  ("\\.ruby$"       . ruby-mode)
@@ -375,7 +375,7 @@
   (interactive)
   (require 'bytecomp)
   (if (string= (buffer-file-name)
-               (expand-file-name "~/.emacs"))
+	       (expand-file-name "~/.emacs"))
       (byte-compile-file (buffer-file-name))))
 ;(add-hook 'after-save-hook 'autocompile)
 
