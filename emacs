@@ -379,26 +379,6 @@
 	    (normal-erase-is-backspace-mode)
 	    ))
 
-(add-hook 'after-make-frame-functions 
-	  (lambda (frame)
-	    (if (window-system frame)
-		(progn
-		  (let ((c-height (floor (* (display-pixel-height) 0.80)))
-			(c-width (floor (* (display-pixel-width) 0.80))))
-		    (message "Setting width: %d, height: %d" c-width c-height)
-		    (set-frame-position frame 5 30)
-		    (set-frame-width frame c-width)
-		    (set-frame-height frame c-height)
-		    )
-		  (set-frame-font 'fixed)
-		  ;; Turn off Emacs 21 toolbar		  
-		  (if (fboundp 'tool-bar-mode)
-		      (tool-bar-mode nil))
-		  (if (load "mwheel" t)
-		      (mwheel-install)))
-	      ;; if not in window system	      
-	      )))
-
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
