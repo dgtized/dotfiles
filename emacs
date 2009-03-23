@@ -15,6 +15,7 @@
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/ruby"))
+(add-to-list 'load-path "/usr/share/emacs22/site-lisp/")
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rhtml"))
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rails"))
 
@@ -39,7 +40,9 @@
       visible-bell t
       require-final-newline t
       debug-on-error t)
-(setq-default indent-tabs-mode t) ; default save as tabs mode
+(setq-default show-trailing-whitespace t)
+(setq-default default-indicate-empty-lines t)
+(setq-default indent-tabs-mode nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 ;(resize-minibuffer-mode)           ; Size the minibuffer according to contents.
 
@@ -77,7 +80,7 @@
 
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc"))
+        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
@@ -341,8 +344,10 @@
 
 (defun auctex nil
   (interactive)
+  (add-to-list 'load-path "/usr/share/emacs/site-lisp/auctex/")
   (load "auctex.el" nil t t)
   (load "preview-latex.el" nil t t)
+  (setq-default TeX-master nil)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
 
