@@ -36,4 +36,4 @@ screen -t irb.5.$USER@$HOST 5
 screen -t mysql.6.$USER@$HOST 6
 screen -t www.8.$USER@$HOST 8
 
-unsetenv DISPLAY               # shellmode != display
+#unsetenv DISPLAY               # shellmode != display

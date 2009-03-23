@@ -3,11 +3,10 @@ alias apt-install="sudo apt-get install"
 alias forward-mysql="ssh -L 9306:mysql.mblab.wustl.edu:3306 zest"
 
 if [ -d ${HOME}/pcr_pipeline/bin ]; then
-  export PATH=${HOME}/pcr_pipeline/bin:$PATH
+   pathmunge ${HOME}/pcr_pipeline/bin
 fi
-#export RUBYLIB=$HOME/usr/lib/ruby/site_ruby/1.8
-#export GEM_HOME=$HOME/usr/lib/ruby/gems
 
-
-
-
+export PERL5LIB=${HOME}/bioperl:${HOME}/annotation_pipeline/lib:${PERL5LIB}
+export RUBYLIB=$HOME/usr/lib/:/usr/lib/ruby/site_ruby/1.8/
+export GEM_HOME=$HOME/usr/lib/ruby/gems
+export GEM_PATH=$HOME/usr/lib/ruby/gems:/usr/lib/ruby/gems/1.8/
