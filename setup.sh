@@ -46,6 +46,8 @@ function main () {
     svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
     svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
     rm -rf site-lisp/ruby && svn export http://svn.ruby-lang.org/repos/ruby/trunk/misc site-lisp/ruby
+    wget http://github.com/nex3/haml/raw/master/extra/haml-mode.el -O site-lisp/haml-mode.el
+    wget http://github.com/nex3/haml/raw/master/extra/sass-mode.el -O site-lisp/sass-mode.el
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log

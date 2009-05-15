@@ -334,6 +334,8 @@
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
 (require 'yaml-mode)
+(require 'haml-mode)
+(require 'sass-mode)
 
 (defun graphviz
   (interactive)
