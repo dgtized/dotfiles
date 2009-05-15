@@ -2,6 +2,8 @@
 site-config
 site-lisp/psvn.el
 site-lisp/yaml-mode.el
+site-lisp/sass-mode.el
+site-lisp/haml-mode.el
 site-lisp/ruby
 site-lisp/compile.log
 bash?completion*
