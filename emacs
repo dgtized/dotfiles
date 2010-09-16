@@ -18,8 +18,6 @@
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rhtml"))
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rails"))
 
-(if (string-equal dotc-name "gentoo")
-    (require 'clgc-site-gentoo))
 (require 'clgc-functions)
 
 (setq inhibit-startup-screen t)
@@ -43,7 +41,9 @@
 (setq-default default-indicate-empty-lines t)
 (setq-default indent-tabs-mode nil)
 (fset 'yes-or-no-p 'y-or-n-p)
-;(resize-minibuffer-mode)           ; Size the minibuffer according to contents.
+
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
