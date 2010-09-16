@@ -14,8 +14,7 @@
 (defconst dotc-name (getenv "DOTC_NAME") "shell config name")
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/ruby"))
-(add-to-list 'load-path "/usr/share/emacs22/site-lisp/")
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/groovy"))
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rhtml"))
 ;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rails"))
 
@@ -72,6 +71,7 @@
 ;; Ido
 (require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
@@ -147,7 +147,7 @@
   ;(require 'ruby-electric)
   ;(ruby-electric-mode)
   ;(abbrev-mode 1)
-  (define-key ruby-mode-map "\C-m" 'ruby-reindent-then-newline-and-indent)
+  (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
   (require 'nxml-mode)
   ;(require 'rhtml-mode)
@@ -160,6 +160,18 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode) t)
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
+
+;;; use groovy-mode when file ends in .groovy or has #!/bin/groovy at start
+(autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
+(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\.gsp$" . nxml-mode))
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+
+;;; make Groovy mode electric by default.
+(add-hook 'groovy-mode-hook
+          '(lambda ()
+             (require 'groovy-electric)
+             (groovy-electric-mode)))
 
 (if (or (string-equal dotc-name "gentoo")
 	(string-equal dotc-name "debian")

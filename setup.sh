@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# wget -r -Imain/home-config http://svn.dgtized.net/main/
-
 function main () {
     echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
     
@@ -11,14 +9,8 @@ function main () {
     ln -sfv ${DOTC_DIR}/site-config ~/.site-config
     
     ln -sfv ${DOTC_DIR}/bashrc ~/.bashrc
-    if [[ -e ${DOTC_DIR}/emacs-${DOTC_NAME} ]]; then
-    	ln -sfv ${DOTC_DIR}/emacs-${DOTC_NAME} ~/.emacs
-    else
-	ln -sfv ~/${DOTC_DIR}/emacs ~/.emacs
-    fi
-
+    ln -sfv ${DOTC_DIR}/emacs ~/.emacs
     ln -sfv ${DOTC_DIR}/vimrc ~/.vimrc
-    
     ln -sfv ${DOTC_DIR}/irbrc ~/.irbrc
     ln -sfv ${DOTC_DIR}/toprc ~/.toprc
     ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
@@ -42,12 +34,11 @@ function main () {
     cp -fv ../${DOTC_DIR}/ssh/config ~/.ssh/config
     chmod 600 ${HOME}/.ssh/{authorized_keys,config}
 
-    # These happen hear so they happen after setup.sh reload
-    svn export http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/psvn.el site-lisp/psvn.el
+    # These happen here so they happen after setup.sh reload
     svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
-    rm -rf site-lisp/ruby && svn export http://svn.ruby-lang.org/repos/ruby/trunk/misc site-lisp/ruby
     wget http://github.com/nex3/haml/raw/master/extra/haml-mode.el -O site-lisp/haml-mode.el
     wget http://github.com/nex3/haml/raw/master/extra/sass-mode.el -O site-lisp/sass-mode.el
+    rm -rf groovy && svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log
