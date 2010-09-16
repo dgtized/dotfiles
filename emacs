@@ -34,12 +34,12 @@
       column-number-mode t
       auto-fill-default t
       c-basic-offset 2
+      tab-width 4
       visible-bell t
       require-final-newline t
       debug-on-error t)
 (setq-default show-trailing-whitespace t)
 (setq-default default-indicate-empty-lines t)
-(setq-default indent-tabs-mode nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
