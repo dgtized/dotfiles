@@ -38,7 +38,7 @@ function main () {
     svn export http://svn.clouder.jp/repos/public/yaml-mode/trunk/yaml-mode.el site-lisp/yaml-mode.el
     wget http://github.com/nex3/haml/raw/master/extra/haml-mode.el -O site-lisp/haml-mode.el
     wget http://github.com/nex3/haml/raw/master/extra/sass-mode.el -O site-lisp/sass-mode.el
-    rm -rf groovy && svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
+    rm -rf site-lisp/groovy && svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
 	site-lisp/*.el site-lisp/*/*.el ~/.emacs 2>&1) > site-lisp/compile.log
