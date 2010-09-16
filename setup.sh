@@ -121,7 +121,7 @@ if [[ -d $HOME/$DOTC_DIR ]]; then
 	    git checkout $branch
 	fi
 	echo " * reapplying local changes"
-	git stash apply
+	git stash pop 
 	unset branch
         
 	test -e site-config && source site-config
