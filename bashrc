@@ -67,7 +67,10 @@ alias tree='tree -Csu' # nice alternative to 'ls'
 
 alias grep='grep --color=auto'
 alias remacs='`grep emacs ~/.screenrc`'
-#alias grephist='grep
+
+function sgrep {
+    grep -r "$1" * | grep -v '\.svn/'
+}
 
 # tailoring 'less'
 alias more='less'
@@ -97,8 +100,13 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 set HISTTIMEFORMAT 
 
+alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
+alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
+alias ardor='ssh ardor.wustl.edu -L 3000:ardor.wustl.edu:3000 -L 4567:ardor.wustl.edu:4567'
 alias vi=vim
 
+pathmunge /var/lib/gems/1.8/bin
+pathmunge ${HOME}/.gem/ruby/1.8/bin
 pathmunge ${HOME}/usr/bin
 
 export CLASSPATH=.
@@ -118,6 +126,8 @@ if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
 	source $DOTC_DIR/bashrc-$DOTC_NAME
 fi
 case $DOTC_NAME in 
+    debian )
+	;;
     gentoo ) 
 	;;
     cec )
@@ -150,7 +160,7 @@ unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
     if which keychain > /dev/null 2>&1; then
-	keychain --ignore-missing -Q -q id_rsa id_dsa
+	keychain --ignore-missing -Q -q id_rsa id_dsa adjudica_rsa
 	source ~/.keychain/$HOSTNAME-sh
     fi
 fi
