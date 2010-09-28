@@ -1,8 +1,8 @@
 ;; Please be -*- emacs-lisp -*-
 
 (if (file-exists-p "~/.site-config")
-    (save-excursion
-      (let ((site-config-buf (find-file-noselect "~/.site-config")))
+	(save-excursion
+	  (let ((site-config-buf (find-file-noselect "~/.site-config")))
 	(switch-to-buffer site-config-buf)
 	(goto-line 0)
 	(while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
@@ -15,15 +15,19 @@
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/groovy"))
-;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rhtml"))
-;(add-to-list 'load-path (concat dotc-dir "/site-lisp/rails"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/malabar-1.5-SNAPSHOT/lisp"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim/vendor"))
+
+(when (load "package.el")
+  (package-initialize))
 
 (require 'clgc-functions)
 
 (setq inhibit-startup-screen t)
 (setq default-buffer-file-coding-system 'utf-8
-      file-name-coding-system 'utf-8
-      locale-coding-system 'utf-8)
+	  file-name-coding-system 'utf-8
+	  locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -31,13 +35,13 @@
 (set-selection-coding-system 'compound-text-with-extensions)
 
 (setq line-number-mode t
-      column-number-mode t
-      auto-fill-default t
-      c-basic-offset 2
-      tab-width 4
-      visible-bell t
-      require-final-newline t
-      debug-on-error t)
+	  column-number-mode t
+	  auto-fill-default t
+	  c-basic-offset 2
+	  visible-bell t
+	  require-final-newline t
+	  debug-on-error t)
+(setq default-tab-width 4)
 (setq-default show-trailing-whitespace t)
 (setq-default default-indicate-empty-lines t)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -98,13 +102,15 @@
   '("KILL" "*Compile-Log*"))
 
 (setq completion-ignored-extensions
-      '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-	".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
+	  '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
+		".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (add-to-list 'backup-directory-alist
-	     (cons "." "~/.emacs.d/backups/"))
+			 (cons "." "~/.emacs.d/backups/"))
+(setq auto-save-file-name-transforms
+	  `((".*" "~/.emacs.d/auto-save" t)))
 
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
@@ -156,12 +162,12 @@
   (c-add-style
    "ruby"
    '("bsd"
-     (c-basic-offset . 4)
-     (c-offsets-alist
-      (case-label . 2)
-      (label . 2)
-      (statement-case-intro . 2)
-      )))
+	 (c-basic-offset . 4)
+	 (c-offsets-alist
+	  (case-label . 2)
+	  (label . 2)
+	  (statement-case-intro . 2)
+	  )))
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
   ;(require 'ruby-electric)
   ;(ruby-electric-mode)
@@ -251,11 +257,11 @@
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key "\C-c7" 'ucs-insert)
 
-(require 'psvn)
+(autoload 'svn-status "psvn" "Load subversion SCM commands." t)
 (global-set-key "\C-c1" 'svn-status)
 (global-set-key [f6] 'svn-status)
 
-(autoload 'magit-status "magit" nil t)
+(autoload 'magit-status "magit" "Load git SCM commands." t)
 (global-set-key "\C-c2" 'magit-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -296,16 +302,16 @@
  '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
-(require 'yaml-mode)
-(require 'haml-mode)
-(require 'sass-mode)
+(autoload 'yaml-mode "yaml-mode" "load YAML major mode" t)
+(autoload 'haml-mode "haml-mode" "load haml major mode" t)
+(autoload 'sass-mode "sass-mode" "load sass major mode" t)
 
 (defun graphviz
   (interactive)
   (require 'graphviz-dot-mode)
   (eval-after-load 'graphviz-dot-mode
-    (setq graphviz-dot-indent-width 2)
-    (setq graphviz-dot-auto-indent-on-semi nil)))
+	(setq graphviz-dot-indent-width 2)
+	(setq graphviz-dot-auto-indent-on-semi nil)))
 
 (defun auctex nil
   (interactive)
