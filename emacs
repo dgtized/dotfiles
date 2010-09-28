@@ -320,6 +320,10 @@
 
 ;; http://repose.cx/conf/.elisp/
 
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories (concat dotc-dir "/site-lisp/ac-dict"))
+(ac-config-default)
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
