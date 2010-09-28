@@ -291,10 +291,6 @@
 (require 'page-ext)
 (require 'recentf)
 
-;; it eats up some screen space but let's play with it for a while
-;(require 'tabbar)
-;(tabbar-mode)
-
 (autoload 'dna-mode "dna-mode" "Major mode for dna" t)
 (add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
 (add-to-list
