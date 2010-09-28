@@ -1,0 +1,3 @@
+--langdef=groovy
+--langmap=groovy:.groovy
+--regex-groovy=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class,classes/
