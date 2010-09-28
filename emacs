@@ -73,10 +73,29 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
+(defun ido-find-file-in-tag-files ()
+  (interactive)
+  (save-excursion
+	(let ((enable-recursive-minibuffers t))
+	  (visit-tags-table-buffer))
+	(find-file
+	 (expand-file-name
+	  (ido-completing-read
+	   "Project file: " (tags-table-files) nil t nil nil "")))))
+
+(defun ido-find-tag ()
+  "Find a tag using ido"
+  (interactive)
+  (tags-completion-table)
+  (let (tag-names)
+	(mapc (lambda (x)
+			(unless (integerp x)
+			  (push (prin1-to-string x t) tag-names)))
+		  tags-completion-table)
+	(find-tag (ido-completing-read "Tag: " tag-names))))
+
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
-; might as well use this for both
-;(setq ido-ignore-buffers (append '("^ " "*Buffer") crs-hated-buffers))
 
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
@@ -254,37 +273,10 @@
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
   (lambda ()
-    (interactive)
-    (let ((case-fold-search isearch-case-fold-search))
-      (occur (if isearch-regexp isearch-string
-	       (regexp-quote isearch-string))))))
-
-(mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
-	'(
-	  ("\\.C$"          . c++-mode)
-	  ("\\.cc$"         . c++-mode)
-	  ("\\.[ch]xx|pp$"  . c++-mode)
-	  ;;("\\.h$"      . c++-mode)
-	  ("\\.hh$"         . c++-mode)
-	  ;; C Bindings
-	  ("\\.c$"          . c-mode)
-	  ("\\.h$"          . c++-mode)
-
-	  ("\\.awk"         . awk-mode)
-	  ("\\.css"         . css-mode)
-
-	  ("\\.vhdl?\\'" . vhdl-mode)
-
-	  ;; Ruby Bindings
-	  ("\\.rb$"         . ruby-mode)
-	  ("\\.ruby$"       . ruby-mode)
-	  ("\\.rake$"       . ruby-mode)
-	  ("[Rr]akefile$"   . ruby-mode)
-	  ("\\.gem$"        . ruby-mode)
-	  ("\\.gemspec$"    . ruby-mode)
-
-	  ("\\.ya?ml$"      . yaml-mode)
-	  ))
+	(interactive)
+	(let ((case-fold-search isearch-case-fold-search))
+	  (occur (if isearch-regexp isearch-string
+		   (regexp-quote isearch-string))))))
 
 (defun fix-display nil
   "fix display problems"
@@ -317,6 +309,9 @@
 (global-set-key "\C-cw" 'whitespace-cleanup)
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
+
+(global-set-key "\C-xt" 'ido-find-file-in-tag-files)
+(global-set-key "\M-." 'ido-find-tag)
 
 ;; Ediff
 ;(eval-after-load 'ediff
@@ -389,17 +384,47 @@
   (interactive)
   (require 'bytecomp)
   (if (string= (buffer-file-name)
-	       (expand-file-name "~/.emacs"))
-      (byte-compile-file (buffer-file-name))))
+		   (expand-file-name "~/.emacs"))
+	  (byte-compile-file (buffer-file-name))))
 ;(add-hook 'after-save-hook 'autocompile)
 
 
 (add-hook 'after-init-hook
 	  (lambda nil
-	    (message "clgc-after-init-hook")
-	    (server-start)
-	    (normal-erase-is-backspace-mode)
-	    ))
+		(message "clgc-after-init-hook")
+		(server-start)
+		;; (normal-erase-is-backspace-mode)
+		))
+
+;; setup audo modes
+(mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
+	'(
+	  ("\\.C$"          . c++-mode)
+	  ("\\.cc$"         . c++-mode)
+	  ("\\.[ch]xx|pp$"  . c++-mode)
+	  ("\\.hh$"         . c++-mode)
+	  ;; C Bindings
+	  ("\\.c$"          . c-mode)
+	  ("\\.h$"          . c++-mode)
+
+	  ("\\.awk"         . awk-mode)
+	  ("\\.css"         . css-mode)
+
+	  ;; Ruby Bindings
+	  ("\\.rb$"         . ruby-mode)
+	  ("\\.ruby$"       . ruby-mode)
+	  ("\\.rake$"       . ruby-mode)
+	  ("[Rr]akefile$"   . ruby-mode)
+	  ("\\.gem$"        . ruby-mode)
+	  ("\\.gemspec$"    . ruby-mode)
+
+	  ("\\.ya?ml$"      . yaml-mode)
+	  ("\\.sass$"       . sass-mode)
+	  ("\\.ha?ml$"      . haml-mode)
+
+	  ("\\.java$"       . malabar-mode)
+	  ("\\.js$"         . javascript-mode)
+	  ))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
