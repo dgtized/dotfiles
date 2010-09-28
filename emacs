@@ -188,54 +188,10 @@
 
 ;;; make Groovy mode electric by default.
 (add-hook 'groovy-mode-hook
-          '(lambda ()
-             (require 'groovy-electric)
-             (groovy-electric-mode)))
-
-(if (or (string-equal dotc-name "gentoo")
-	(string-equal dotc-name "debian")
-	(and (string-equal dotc-name "bio")
-	     (>= emacs-major-version 22)))
-    (progn
-      ;; eRuby
-      (require 'mmm-mode)
-      (require 'mmm-auto)
-      (setq mmm-global-mode 'maybe)
-
-      (setq mmm-submode-decoration-level 2)
-      (set-face-background 'mmm-output-submode-face "white")
-      (set-face-background 'mmm-code-submode-face "white")
-      (set-face-background 'mmm-comment-submode-face "white")
-      (set-face-foreground 'mmm-output-submode-face "DarkGreen")
-      (set-face-foreground 'mmm-code-submode-face "DarkGreen")
-      (set-face-foreground 'mmm-comment-submode-face "Red")
-      (set-face-foreground 'mmm-delimiter-face "Yellow")
-      (make-face-italic 'mmm-delimiter-face)
-      (make-face-italic 'mmm-comment-submode-face)
-
-      (mmm-add-classes
-       '((eruby-code
-	  :submode ruby-mode
-	  :match-face (("<%#" . mmm-comment-submode-face)
-		       ("<%=" . mmm-output-submode-face)
-		       ("<%"  . mmm-code-submode-face))
-	  :front "<%[#=]?"
-	  :back "-?%>"
-	  :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
-		   (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-		   (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))
-
-	 (html-css-attribute
-	  :submode css-mode
-	  :face mmm-declaration-submode-face
-	  :front "style=\""
-	  :back "\"")))
-
-      ;; (add-hook 'html-mode-hook (lambda ()
-      ;;                                   (setq mmm-classes '(eruby-code))
-      ;;                                   (mmm-mode-on)))
-      ;; (add-to-list 'auto-mode-alist '("\\.rhtml$" . rhtml-mode))
-      ))
+		  '(lambda ()
+			 (setq c-basic-offset 4)
+			 (require 'groovy-electric)
+			 (groovy-electric-mode)))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
