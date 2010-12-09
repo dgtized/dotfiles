@@ -12,3 +12,5 @@ export PERL5LIB=${HOME}/bioperl:${HOME}/annotation_pipeline/lib:${PERL5LIB}
 export RUBYLIB=$HOME/usr/lib/:/usr/lib/ruby/site_ruby/1.8/
 export GEM_HOME=$HOME/usr/lib/ruby/gems
 export GEM_PATH=$HOME/usr/lib/ruby/gems:/var/lib/gems/1.8/
+
+alias fmvn="mvn -Dmaven.test.skip=true"
