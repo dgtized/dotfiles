@@ -32,8 +32,6 @@ chdir $HOME/workspace/Adjudica
 screen -t compile.1.$USER@$HOST 1
 chdir $HOME/workspace/Adjudica/gsm/user-interface
 screen -t jetty-interface.2.$USER@$HOST 2
-chdir $HOME/workspace/Adjudica/gsm/local-server
-screen -t cargo-service.3.$USER@$HOST 3
 #screen -t shell.4.$USER@$HOST 4
 #screen -t irb.5.$USER@$HOST 5
 #screen -t mysql.6.$USER@$HOST 6
