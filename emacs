@@ -38,6 +38,7 @@
 	  column-number-mode t
 	  auto-fill-default t
 	  c-basic-offset 2
+	  sgml-basic-offset 4
 	  visible-bell t
 	  require-final-newline t
 	  debug-on-error t)
@@ -107,8 +108,8 @@
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
-(add-to-list 'backup-directory-alist
-			 (cons "." "~/.emacs.d/backups/"))
+(setq backup-directory-alist
+			 (list (cons "." "~/.emacs.d/backups/")))
 (setq auto-save-file-name-transforms
 	  `((".*" "~/.emacs.d/auto-save" t)))
 
