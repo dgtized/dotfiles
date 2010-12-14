@@ -5,4 +5,5 @@ site-lisp/js2-mode.el
 site-lisp/ruby
 site-lisp/groovy
 site-lisp/compile.log
+site-lisp/malabar*
 bash?completion*
