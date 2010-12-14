@@ -14,6 +14,10 @@
 (defconst dotc-name (getenv "DOTC_NAME") "shell config name")
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/magit"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/sass-mode"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/haml-mode"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/yaml-mode"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/groovy"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/malabar-1.5-SNAPSHOT/lisp"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim"))
