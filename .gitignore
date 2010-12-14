@@ -1,9 +1,7 @@
 **/*.elc
 site-config
 site-lisp/psvn.el
-site-lisp/yaml-mode.el
-site-lisp/sass-mode.el
-site-lisp/haml-mode.el
+site-lisp/js2-mode.el
 site-lisp/ruby
 site-lisp/groovy
 site-lisp/compile.log
