@@ -1,3 +1,9 @@
 [submodule "site-lisp/vendor/magit"]
 	path = site-lisp/vendor/magit
 	url = git://github.com/philjackson/magit.git
+[submodule "site-lisp/vendor/haml-mode"]
+	path = site-lisp/vendor/haml-mode
+	url = git://github.com/nex3/haml-mode.git
+[submodule "site-lisp/vendor/sass-mode"]
+	path = site-lisp/vendor/sass-mode
+	url = git://github.com/nex3/sass-mode.git
