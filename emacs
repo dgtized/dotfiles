@@ -334,6 +334,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 4)
  '(pr-ps-name (quote default))
  '(ps-inter-column 42)
  '(ps-landscape-mode t)
@@ -363,6 +364,8 @@
 		;; (normal-erase-is-backspace-mode)
 		))
 
+(autoload 'js2-mode "js2-mode" "Steve Yegge's Javascript Major Mode" t)
+
 ;; setup audo modes
 (mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
 	'(
@@ -390,7 +393,7 @@
 	  ("\\.ha?ml$"      . haml-mode)
 
 	  ("\\.java$"       . malabar-mode)
-	  ("\\.js$"         . javascript-mode)
+	  ("\\.js$"         . js2-mode)
 	  ))
 
 (custom-set-faces
