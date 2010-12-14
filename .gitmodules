@@ -7,3 +7,6 @@
 [submodule "site-lisp/vendor/sass-mode"]
 	path = site-lisp/vendor/sass-mode
 	url = git://github.com/nex3/sass-mode.git
+[submodule "site-lisp/vendor/yaml-mode"]
+	path = site-lisp/vendor/yaml-mode
+	url = git://github.com/yoshiki/yaml-mode.git
