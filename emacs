@@ -14,6 +14,7 @@
 (defconst dotc-name (getenv "DOTC_NAME") "shell config name")
 
 (add-to-list 'load-path (concat dotc-dir "/site-lisp"))
+(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/js2-mode"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/magit"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/sass-mode"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/haml-mode"))
@@ -23,10 +24,13 @@
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim"))
 (add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim/vendor"))
 
+(require 'cl)
+
 (when (load "package.el")
   (package-initialize))
 
 (require 'clgc-functions)
+(require 'clgc-javascript)
 
 (setq inhibit-startup-screen t)
 (setq default-buffer-file-coding-system 'utf-8
@@ -334,7 +338,6 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(js2-basic-offset 4)
  '(pr-ps-name (quote default))
  '(ps-inter-column 42)
  '(ps-landscape-mode t)
@@ -363,8 +366,6 @@
 		(server-start)
 		;; (normal-erase-is-backspace-mode)
 		))
-
-(autoload 'js2-mode "js2-mode" "Steve Yegge's Javascript Major Mode" t)
 
 ;; setup audo modes
 (mapcar (lambda (x) (add-to-list 'auto-mode-alist x))

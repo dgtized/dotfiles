@@ -7,3 +7,4 @@ site-lisp/groovy
 site-lisp/compile.log
 site-lisp/malabar*
 bash?completion*
+site-lisp/vendor/js2-mode*
