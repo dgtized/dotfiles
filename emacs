@@ -45,11 +45,12 @@
 (setq line-number-mode t
 	  column-number-mode t
 	  auto-fill-default t
-	  c-basic-offset 2
+	  c-basic-offset 4
 	  sgml-basic-offset 4
 	  visible-bell t
 	  require-final-newline t
-	  debug-on-error t)
+	  debug-on-error t
+	  indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq-default show-trailing-whitespace t)
 (setq-default default-indicate-empty-lines t)
@@ -149,7 +150,7 @@
 ;;;
 (autoload 'css-mode "css-mode")
 (setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-indent-level '2)
+(setq cssm-indent-level 4)
 
 ;;;
 ;;; ruby mode
