@@ -268,11 +268,10 @@
 (global-set-key "\C-c7" 'ucs-insert)
 
 (autoload 'svn-status "psvn" "Load subversion SCM commands." t)
-(global-set-key "\C-c1" 'svn-status)
-(global-set-key [f6] 'svn-status)
 
 (autoload 'magit-status "magit" "Load git SCM commands." t)
-(global-set-key "\C-c2" 'magit-status)
+(global-set-key "\C-xg" 'magit-status)
+(global-set-key [f6] 'magit-status)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
