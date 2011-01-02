@@ -153,9 +153,8 @@
 ;;;
 ;;; css mode
 ;;;
-(autoload 'css-mode "css-mode")
-(setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-indent-level 4)
+(eval-after-load 'css-mode
+  (setq css-indent-level 4))
 
 ;;;
 ;;; ruby mode
