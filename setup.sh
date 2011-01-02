@@ -37,7 +37,7 @@ function main () {
     # These happen here so they happen after setup.sh reload
     git submodule update --init
     pushd site-lisp/vendor/magit
-        make
+        make 2>&1 > site-lisp/compile.log
     popd
 
     wget http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode/js2-highlight-vars.el\
@@ -46,7 +46,7 @@ function main () {
         svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
-        {site-lisp,site-lisp/vendor}/*.el 2>&1) > site-lisp/compile.log
+        {site-lisp,site-lisp/vendor}/*.el 2>&1) >> site-lisp/compile.log
 
     mkdir -pv $HOME/.bashist
 
