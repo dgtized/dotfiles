@@ -36,9 +36,8 @@
 (require 'clgc-functions)
 (require 'clgc-javascript)
 
-(setq inhibit-startup-screen t)
-
-(setq line-number-mode t
+(setq inhibit-startup-screen t
+      line-number-mode t
 	  column-number-mode t
 	  auto-fill-default t
 	  c-basic-offset 4
@@ -46,10 +45,11 @@
 	  visible-bell t
 	  require-final-newline t
 	  debug-on-error t)
-(setq-default indent-tabs-mode nil)
-(setq default-tab-width 4)
-(setq-default show-trailing-whitespace t)
-(setq-default default-indicate-empty-lines t)
+
+(setq-default indent-tabs-mode nil
+              tab-width 4
+              show-trailing-whitespace t
+              default-indicate-empty-lines t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
