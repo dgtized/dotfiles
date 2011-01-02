@@ -36,15 +36,13 @@ function main () {
 
     # These happen here so they happen after setup.sh reload
     git submodule update --init
-    rm -rf site-lisp/vendor/js2-mode &&\
-        svn checkout http://js2-mode.googlecode.com/svn/trunk/ site-lisp/vendor/js2-mode
     wget http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode/js2-highlight-vars.el\
-        -O site-lisp/vendor/js2-mode/js2-highlight-vars.el
+        -O site-lisp/vendor/js2-highlight-vars.el
     rm -rf site-lisp/groovy &&\
         svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L site-lisp -batch -f batch-byte-compile \
-        {site-lisp,site-lisp/vendor/*}/*.el site-lisp/vendor/*/*.el 2>&1) > site-lisp/compile.log
+        {site-lisp,site-lisp/vendor}/*.el site-lisp/vendor/*/*.el 2>&1) > site-lisp/compile.log
 
     mkdir -pv $HOME/.bashist
 
