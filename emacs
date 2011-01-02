@@ -10,19 +10,28 @@
 	(kill-buffer site-config-buf)
 	)))
 
-(defconst dotc-dir (getenv "DOTC_DIR") "shell config directory")
-(defconst dotc-name (getenv "DOTC_NAME") "shell config name")
+(defconst dotc-dir
+  (expand-file-name (getenv "DOTC_DIR"))
+  "shell config directory")
+(defconst dotc-name
+  (expand-file-name (getenv "DOTC_NAME"))
+  "shell config name")
 
-(add-to-list 'load-path (concat dotc-dir "/site-lisp"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/js2-mode"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/magit"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/sass-mode"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/haml-mode"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/vendor/yaml-mode"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/groovy"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/malabar-1.5-SNAPSHOT/lisp"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim"))
-(add-to-list 'load-path (concat dotc-dir "/site-lisp/emacs-eclim/vendor"))
+(setq site-lisp (concat dotc-dir "/site-lisp"))
+(setq autoload-file (concat site-lisp "loaddefs.el"))
+(setq package-user-dir (concat site-lisp "/elpa"))
+(setq custom-file (concat dotc-dir "custom.el"))
+
+(add-to-list 'load-path site-lisp)
+(add-to-list 'load-path (concat site-lisp "/vendor/js2-mode"))
+(add-to-list 'load-path (concat site-lisp "/vendor/magit"))
+(add-to-list 'load-path (concat site-lisp "/vendor/sass-mode"))
+(add-to-list 'load-path (concat site-lisp "/vendor/haml-mode"))
+(add-to-list 'load-path (concat site-lisp "/vendor/yaml-mode"))
+(add-to-list 'load-path (concat site-lisp "/groovy"))
+(add-to-list 'load-path (concat site-lisp "/malabar-1.5-SNAPSHOT/lisp"))
+(add-to-list 'load-path (concat site-lisp "/emacs-eclim"))
+(add-to-list 'load-path (concat site-lisp "/emacs-eclim/vendor"))
 
 (require 'cl)
 
@@ -337,7 +346,7 @@
 (semantic-mode 1)
 
 (autoload 'malabar-mode "malabar-mode" "load java/malabar mode" t)
-(setq malabar-groovy-lib-dir (concat dotc-dir "/site-lisp/malabar-1.5-SNAPSHOT/lib"))
+(setq malabar-groovy-lib-dir (concat site-lisp "/malabar-1.5-SNAPSHOT/lib"))
 
 (add-hook 'malabar-mode-hook
 		  (lambda ()
@@ -345,7 +354,7 @@
 			(add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat dotc-dir "/site-lisp/ac-dict"))
+(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
 (ac-config-default)
 
 (defun eclim nil
@@ -353,23 +362,6 @@
   (require 'eclim)
   (setq eclim-auto-save t)
   (global-eclim-mode))
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(pr-ps-name (quote default))
- '(ps-inter-column 42)
- '(ps-landscape-mode t)
- '(ps-left-margin 42)
- '(ps-number-of-columns 2)
- '(ps-right-margin 42)
- '(ps-spool-duplex t)
- '(quack-pretty-lambda-p nil)
- '(quack-programs (quote ("mzscheme" "mzscheme -M errortrace" "mzscheme -M eopl" "mred -z" "guile" "mit-scheme" "scheme" "scheme48")))
- '(quack-tabs-are-evil-p t)
- '(rng-nxml-auto-validate-flag nil))
 
 (defun autocompile nil
   "compile itself if ~/.emacs"
