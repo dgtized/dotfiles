@@ -31,8 +31,7 @@
 
 (require 'cl)
 
-(when (load "package.el")
-  (package-initialize))
+(require 'package)
 
 (require 'clgc-functions)
 (require 'clgc-javascript)
