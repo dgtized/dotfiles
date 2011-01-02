@@ -329,9 +329,30 @@
 
 ;; http://repose.cx/conf/.elisp/
 
+;; Or enable more if you wish
+(setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
+				  global-semanticdb-minor-mode
+				  global-semantic-idle-summary-mode
+				  global-semantic-mru-bookmark-mode))
+(semantic-mode 1)
+
+(autoload 'malabar-mode "malabar-mode" "load java/malabar mode" t)
+(setq malabar-groovy-lib-dir (concat dotc-dir "/site-lisp/malabar-1.5-SNAPSHOT/lib"))
+
+(add-hook 'malabar-mode-hook
+		  (lambda ()
+			(setq c-basic-offset 4)
+			(add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
+
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat dotc-dir "/site-lisp/ac-dict"))
 (ac-config-default)
+
+(defun eclim nil
+  (interactive)
+  (require 'eclim)
+  (setq eclim-auto-save t)
+  (global-eclim-mode))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
