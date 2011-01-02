@@ -1,14 +1,13 @@
 ;; Please be -*- emacs-lisp -*-
 
 (if (file-exists-p "~/.site-config")
-	(save-excursion
-	  (let ((site-config-buf (find-file-noselect "~/.site-config")))
-	(switch-to-buffer site-config-buf)
-	(goto-line 0)
-	(while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
-	  (setenv (match-string 1) (match-string 2)))
-	(kill-buffer site-config-buf)
-	)))
+    (save-excursion
+      (let ((site-config-buf (find-file-noselect "~/.site-config")))
+        (switch-to-buffer site-config-buf)
+        (goto-line 0)
+        (while (re-search-forward "export \\(.*\\)=\\(.*\\)" nil t)
+          (setenv (match-string 1) (match-string 2)))
+        (kill-buffer site-config-buf))))
 
 (defconst dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
@@ -38,13 +37,13 @@
 
 (setq inhibit-startup-screen t
       line-number-mode t
-	  column-number-mode t
-	  auto-fill-default t
-	  c-basic-offset 4
-	  sgml-basic-offset 4
-	  visible-bell t
-	  require-final-newline t
-	  debug-on-error t)
+      column-number-mode t
+      auto-fill-default t
+      c-basic-offset 4
+      sgml-basic-offset 4
+      visible-bell t
+      require-final-newline t
+      debug-on-error t)
 
 (setq-default indent-tabs-mode nil
               tab-width 4
@@ -86,37 +85,37 @@
 (defun ido-find-file-in-tag-files ()
   (interactive)
   (save-excursion
-	(let ((enable-recursive-minibuffers t))
-	  (visit-tags-table-buffer))
-	(find-file
-	 (expand-file-name
-	  (ido-completing-read
-	   "Project file: " (tags-table-files) nil t nil nil "")))))
+    (let ((enable-recursive-minibuffers t))
+      (visit-tags-table-buffer))
+    (find-file
+     (expand-file-name
+      (ido-completing-read
+       "Project file: " (tags-table-files) nil t nil nil "")))))
 
 (defun ido-find-tag ()
   "Find a tag using ido"
   (interactive)
   (tags-completion-table)
   (let (tag-names)
-	(mapc (lambda (x)
-			(unless (integerp x)
-			  (push (prin1-to-string x t) tag-names)))
-		  tags-completion-table)
-	(find-tag (ido-completing-read "Tag: " tag-names))))
+    (mapc (lambda (x)
+            (unless (integerp x)
+              (push (prin1-to-string x t) tag-names)))
+          tags-completion-table)
+    (find-tag (ido-completing-read "Tag: " tag-names))))
 
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
 
 (setq completion-ignored-extensions
-	  '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
-		".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
+      '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
+        ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (setq backup-directory-alist
-			 (list (cons "." "~/.emacs.d/backups/")))
+             (list (cons "." "~/.emacs.d/backups/")))
 (setq auto-save-file-name-transforms
-	  `((".*" "~/.emacs.d/auto-save" t)))
+      `((".*" "~/.emacs.d/auto-save" t)))
 
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
@@ -167,12 +166,12 @@
   (c-add-style
    "ruby"
    '("bsd"
-	 (c-basic-offset . 4)
-	 (c-offsets-alist
-	  (case-label . 2)
-	  (label . 2)
-	  (statement-case-intro . 2)
-	  )))
+     (c-basic-offset . 4)
+     (c-offsets-alist
+      (case-label . 2)
+      (label . 2)
+      (statement-case-intro . 2)
+      )))
   ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
   ;(require 'ruby-electric)
   ;(ruby-electric-mode)
@@ -199,10 +198,10 @@
 
 ;;; make Groovy mode electric by default.
 (add-hook 'groovy-mode-hook
-		  '(lambda ()
-			 (setq c-basic-offset 4)
-			 (require 'groovy-electric)
-			 (groovy-electric-mode)))
+          '(lambda ()
+             (setq c-basic-offset 4)
+             (require 'groovy-electric)
+             (groovy-electric-mode)))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
@@ -240,10 +239,10 @@
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
   (lambda ()
-	(interactive)
-	(let ((case-fold-search isearch-case-fold-search))
-	  (occur (if isearch-regexp isearch-string
-		   (regexp-quote isearch-string))))))
+    (interactive)
+    (let ((case-fold-search isearch-case-fold-search))
+      (occur (if isearch-regexp isearch-string
+           (regexp-quote isearch-string))))))
 
 (defun fix-display nil
   "fix display problems"
@@ -310,8 +309,8 @@
   (interactive)
   (require 'graphviz-dot-mode)
   (eval-after-load 'graphviz-dot-mode
-	(setq graphviz-dot-indent-width 2)
-	(setq graphviz-dot-auto-indent-on-semi nil)))
+    (setq graphviz-dot-indent-width 2)
+    (setq graphviz-dot-auto-indent-on-semi nil)))
 
 (defun auctex nil
   (interactive)
@@ -326,18 +325,18 @@
 
 ;; Or enable more if you wish
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
-				  global-semanticdb-minor-mode
-				  global-semantic-idle-summary-mode
-				  global-semantic-mru-bookmark-mode))
+                  global-semanticdb-minor-mode
+                  global-semantic-idle-summary-mode
+                  global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
 
 (autoload 'malabar-mode "malabar-mode" "load java/malabar mode" t)
 (setq malabar-groovy-lib-dir (concat site-lisp "/malabar-1.5-SNAPSHOT/lib"))
 
 (add-hook 'malabar-mode-hook
-		  (lambda ()
-			(setq c-basic-offset 4)
-			(add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
+          (lambda ()
+            (setq c-basic-offset 4)
+            (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
@@ -354,47 +353,47 @@
   (interactive)
   (require 'bytecomp)
   (if (string= (buffer-file-name)
-		   (expand-file-name "~/.emacs"))
-	  (byte-compile-file (buffer-file-name))))
+           (expand-file-name "~/.emacs"))
+      (byte-compile-file (buffer-file-name))))
 ;(add-hook 'after-save-hook 'autocompile)
 
 
 (add-hook 'after-init-hook
-	  (lambda nil
-		(message "clgc-after-init-hook")
-		(server-start)
-		;; (normal-erase-is-backspace-mode)
-		))
+      (lambda nil
+        (message "clgc-after-init-hook")
+        (server-start)
+        ;; (normal-erase-is-backspace-mode)
+        ))
 
 ;; setup audo modes
 (mapcar (lambda (x) (add-to-list 'auto-mode-alist x))
-	'(
-	  ("\\.C$"          . c++-mode)
-	  ("\\.cc$"         . c++-mode)
-	  ("\\.[ch]xx|pp$"  . c++-mode)
-	  ("\\.hh$"         . c++-mode)
-	  ;; C Bindings
-	  ("\\.c$"          . c-mode)
-	  ("\\.h$"          . c++-mode)
+    '(
+      ("\\.C$"          . c++-mode)
+      ("\\.cc$"         . c++-mode)
+      ("\\.[ch]xx|pp$"  . c++-mode)
+      ("\\.hh$"         . c++-mode)
+      ;; C Bindings
+      ("\\.c$"          . c-mode)
+      ("\\.h$"          . c++-mode)
 
-	  ("\\.awk"         . awk-mode)
-	  ("\\.css"         . css-mode)
+      ("\\.awk"         . awk-mode)
+      ("\\.css"         . css-mode)
 
-	  ;; Ruby Bindings
-	  ("\\.rb$"         . ruby-mode)
-	  ("\\.ruby$"       . ruby-mode)
-	  ("\\.rake$"       . ruby-mode)
-	  ("[Rr]akefile$"   . ruby-mode)
-	  ("\\.gem$"        . ruby-mode)
-	  ("\\.gemspec$"    . ruby-mode)
+      ;; Ruby Bindings
+      ("\\.rb$"         . ruby-mode)
+      ("\\.ruby$"       . ruby-mode)
+      ("\\.rake$"       . ruby-mode)
+      ("[Rr]akefile$"   . ruby-mode)
+      ("\\.gem$"        . ruby-mode)
+      ("\\.gemspec$"    . ruby-mode)
 
-	  ("\\.ya?ml$"      . yaml-mode)
-	  ("\\.sass$"       . sass-mode)
-	  ("\\.ha?ml$"      . haml-mode)
+      ("\\.ya?ml$"      . yaml-mode)
+      ("\\.sass$"       . sass-mode)
+      ("\\.ha?ml$"      . haml-mode)
 
-	  ("\\.java$"       . malabar-mode)
-	  ("\\.js$"         . js2-mode)
-	  ))
+      ("\\.java$"       . malabar-mode)
+      ("\\.js$"         . js2-mode)
+      ))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
