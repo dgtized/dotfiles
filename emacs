@@ -38,14 +38,6 @@
 (require 'clgc-javascript)
 
 (setq inhibit-startup-screen t)
-(setq default-buffer-file-coding-system 'utf-8
-	  file-name-coding-system 'utf-8
-	  locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-selection-coding-system 'compound-text-with-extensions)
 
 (setq line-number-mode t
 	  column-number-mode t
