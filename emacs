@@ -23,6 +23,7 @@
 (setq custom-file (concat dotc-dir "custom.el"))
 
 (add-to-list 'load-path site-lisp)
+(add-to-list 'load-path (concat site-lisp "/vendor/magit"))
 (add-to-list 'load-path (concat site-lisp "/groovy"))
 (add-to-list 'load-path (concat site-lisp "/malabar-1.5-SNAPSHOT/lisp"))
 (add-to-list 'load-path (concat site-lisp "/emacs-eclim"))
