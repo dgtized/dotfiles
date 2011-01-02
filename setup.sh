@@ -36,17 +36,10 @@ function main () {
 
     # These happen here so they happen after setup.sh reload
     git submodule update --init
-    pushd site-lisp/vendor/magit
-        make 2>&1 > site-lisp/compile.log
-    popd
 
-    wget http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode/js2-highlight-vars.el\
-        -O site-lisp/vendor/js2-highlight-vars.el
-    rm -rf site-lisp/groovy &&\
-        svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs site-lisp/groovy
-    echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    (emacs -L site-lisp -batch -f batch-byte-compile \
-        {site-lisp,site-lisp/vendor}/*.el 2>&1) >> site-lisp/compile.log
+    pushd site-lisp
+    setup_emacs
+    popd
 
     mkdir -pv $HOME/.bashist
 
@@ -67,6 +60,19 @@ function main () {
     fi
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
+}
+
+function setup_emacs () {
+    wget http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode/js2-highlight-vars.el\
+        -O vendor/js2-highlight-vars.el
+    rm -rf vendor/groovy &&\
+        svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs vendor/groovy
+    echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
+    pushd vendor/magit
+    ((make 2>&1) > ../../compile.log)
+    popd
+    (emacs -L site-lisp -batch -f batch-byte-compile \
+        {.,vendor}/*.el 2>&1) >> compile.log
 }
 
 function valid_name () {

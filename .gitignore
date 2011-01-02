@@ -1,10 +1,8 @@
 **/*.elc
 site-config
 site-lisp/psvn.el
-site-lisp/js2-mode.el
 site-lisp/ruby
-site-lisp/groovy
 site-lisp/compile.log
 site-lisp/malabar*
 bash?completion*
-site-lisp/vendor/js2-mode*
+site-lisp/vendor/*
