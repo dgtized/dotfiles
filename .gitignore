@@ -6,3 +6,4 @@ site-lisp/compile.log
 site-lisp/malabar*
 bash?completion*
 site-lisp/vendor/*
+site-lisp/loaddefs.el

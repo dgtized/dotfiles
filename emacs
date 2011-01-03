@@ -16,22 +16,22 @@
   (expand-file-name (getenv "DOTC_NAME"))
   "shell config name")
 
-(setq site-lisp (concat dotc-dir "/site-lisp"))
+(setq site-lisp (concat dotc-dir "/site-lisp/"))
 (setq autoload-file (concat site-lisp "loaddefs.el"))
-(setq package-user-dir (concat site-lisp "/elpa"))
+(setq package-user-dir (concat site-lisp "elpa/"))
 (setq custom-file (concat dotc-dir "custom.el"))
 
 (add-to-list 'load-path site-lisp)
-(add-to-list 'load-path (concat site-lisp "/vendor/magit"))
-(add-to-list 'load-path (concat site-lisp "/vendor/groovy"))
-(add-to-list 'load-path (concat site-lisp "/malabar-1.5-SNAPSHOT/lisp"))
-(add-to-list 'load-path (concat site-lisp "/emacs-eclim"))
-(add-to-list 'load-path (concat site-lisp "/emacs-eclim/vendor"))
+(add-to-list 'load-path (concat site-lisp "vendor/magit"))
+(add-to-list 'load-path (concat site-lisp "vendor/groovy"))
+(add-to-list 'load-path (concat site-lisp "malabar-1.5-SNAPSHOT/lisp"))
+(add-to-list 'load-path (concat site-lisp "emacs-eclim"))
+(add-to-list 'load-path (concat site-lisp "emacs-eclim/vendor"))
 
 (require 'cl)
 
-(require 'package)
-
+(require 'clgc-elpa)
+(regen-autoloads)
 (require 'clgc-functions)
 (require 'clgc-javascript)
 
@@ -143,8 +143,7 @@
 ;;;
 ;;; css mode
 ;;;
-(eval-after-load 'css-mode
-  (setq css-indent-level 4))
+(setq css-indent-level 4)
 
 ;;;
 ;;; ruby mode
@@ -301,9 +300,6 @@
  '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
-(autoload 'yaml-mode "yaml-mode" "load YAML major mode" t)
-(autoload 'haml-mode "haml-mode" "load haml major mode" t)
-(autoload 'sass-mode "sass-mode" "load sass major mode" t)
 
 (defun graphviz
   (interactive)
