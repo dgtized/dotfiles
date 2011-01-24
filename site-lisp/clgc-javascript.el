@@ -1,5 +1,4 @@
 (autoload 'js2-mode "js2-mode" "Steve Yegge's Javascript Major Mode" t)
-(autoload 'js2-highlight-vars "js2-highlight-vars")
 
 (defun my-js2-indent-function ()
   (interactive)
@@ -58,28 +57,16 @@
 
 (defun my-js2-mode-hook ()
   (require 'js)
-  (require 'js2-highlight-vars)
   (setq js-indent-level 4
 	indent-tabs-mode nil
 	c-basic-offset 4)
   ;; (c-toggle-auto-newline 0)
   ;; (c-toggle-hungry-state 1)
   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
-  ;; (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
-  ;; (define-key js2-mode-map [(meta control \;)]
-  ;;   '(lambda()
-  ;;      (interactive)
-  ;;      (insert "/* -----[ ")
-  ;;      (save-excursion
-  ;;        (insert " ]----- */"))
-  ;;      ))
   ;; (define-key js2-mode-map [(return)] 'newline-and-indent)
   ;; (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   ;; (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
-  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
-  (if (featurep 'js2-highlight-vars)
-      (js2-highlight-vars-mode))
-  (message "My JS2 hook"))
+  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp))
 
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 

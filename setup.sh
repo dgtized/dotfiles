@@ -63,8 +63,6 @@ function main () {
 }
 
 function setup_emacs () {
-    wget http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode/js2-highlight-vars.el\
-        -O vendor/js2-highlight-vars.el
     rm -rf vendor/groovy &&\
         svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs vendor/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
