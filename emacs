@@ -217,11 +217,6 @@
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
-;;;
-;;; VHDL mode
-;;;
-;(autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
-
 ;;
 ;; set c/c++ indent width and compile modes
 ;;
