@@ -240,14 +240,16 @@
       (occur (if isearch-regexp isearch-string
            (regexp-quote isearch-string))))))
 
-(defun fix-display nil
-  "fix display problems"
-  (interactive)
-  (redraw-display)
-  (font-lock-fontify-buffer))
 
-;; KEYBINDINGS
-(global-set-key [f11] 'fix-display)
+(defun toggle-fullscreen (&optional f)
+  (interactive)
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+                         (if (equal 'fullboth current-value)
+                             (if (boundp 'old-fullscreen) old-fullscreen nil)
+                           (progn (setq old-fullscreen current-value)
+                                  'fullboth)))))
+(global-set-key [f11] 'toggle-fullscreen)
 
 (global-set-key "\C-xO" (lambda () (interactive) (other-window -1)))
 (global-set-key "\C-xp" (lambda () (interactive) (other-window -1)))
