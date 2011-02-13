@@ -1,5 +1,9 @@
 (require 'package)
 
+(dolist (source '(("technomancy" . "http://repo.technomancy.us/emacs/")
+                  ("elpa" . "http://tromey.com/elpa/")))
+  (add-to-list 'package-archives source t))
+
 (defvar clgc-packages
   (list 'haml-mode 'yaml-mode 'js2-mode 'sass-mode 'css-mode))
 
