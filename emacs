@@ -35,6 +35,7 @@
 (regen-autoloads)
 (require 'clgc-functions)
 (require 'clgc-javascript)
+(require 'clgc-lisp)
 
 (setq inhibit-startup-screen t
       line-number-mode t
