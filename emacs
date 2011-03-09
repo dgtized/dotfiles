@@ -85,6 +85,18 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
+(require 'etags)
+(defun ido-find-tag ()
+  "Find a tag using ido"
+  (interactive)
+  (tags-completion-table)
+  (let (tag-names)
+    (mapc (lambda (x)
+	    (unless (integerp x)
+	      (push (prin1-to-string x t) tag-names)))
+	  tags-completion-table)
+    (find-tag (ido-completing-read "Tag: " tag-names))))
+
 (defun ido-find-file-in-tag-files ()
   (interactive)
   (save-excursion
@@ -93,18 +105,7 @@
     (find-file
      (expand-file-name
       (ido-completing-read
-       "Project file: " (tags-table-files) nil t nil nil "")))))
-
-(defun ido-find-tag ()
-  "Find a tag using ido"
-  (interactive)
-  (tags-completion-table)
-  (let (tag-names)
-    (mapc (lambda (x)
-            (unless (integerp x)
-              (push (prin1-to-string x t) tag-names)))
-          tags-completion-table)
-    (find-tag (ido-completing-read "Tag: " tag-names))))
+       "Project file: " (tags-table-files) nil t)))))
 
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
@@ -274,8 +275,9 @@
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
 
-(global-set-key "\C-xt" 'ido-find-file-in-tag-files)
-(global-set-key "\M-." 'ido-find-tag)
+(global-set-key [remap find-tag] 'ido-find-tag)
+(global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
+(global-set-key (kbd "C-TAB") 'complete-symbol)
 
 ;; Ediff
 ;(eval-after-load 'ediff
