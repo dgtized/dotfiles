@@ -19,7 +19,7 @@
 (setq site-lisp (concat dotc-dir "/site-lisp/"))
 (setq autoload-file (concat site-lisp "loaddefs.el"))
 (setq package-user-dir (concat site-lisp "elpa/"))
-(setq custom-file (concat dotc-dir "custom.el"))
+(setq custom-file (concat dotc-dir "/custom.el"))
 
 (add-to-list 'load-path site-lisp)
 (add-to-list 'load-path (concat site-lisp "vendor/"))

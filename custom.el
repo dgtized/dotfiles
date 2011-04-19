@@ -13,4 +13,12 @@
  '(quack-pretty-lambda-p nil)
  '(quack-programs (quote ("mzscheme" "mzscheme -M errortrace" "mzscheme -M eopl" "mred -z" "guile" "mit-scheme" "scheme" "scheme48")))
  '(quack-tabs-are-evil-p t)
- '(rng-nxml-auto-validate-flag nil))
+ '(rng-nxml-auto-validate-flag nil)
+ '(nxhtml-autoload-web nil t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
