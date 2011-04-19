@@ -5,7 +5,8 @@
   (add-to-list 'package-archives source t))
 
 (defvar clgc-packages
-  (list 'haml-mode 'yaml-mode 'js2-mode 'sass-mode 'css-mode))
+  (list 'haml-mode 'yaml-mode 'js2-mode 'sass-mode 'css-mode
+        'magit 'clojure-mode 'clojure-test-mode 'paredit))
 
 (defun clgc-elpa-install ()
   "Install all starter-kit packages that aren't installed."
