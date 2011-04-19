@@ -160,7 +160,7 @@ unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
     if which keychain > /dev/null 2>&1; then
-	keychain --ignore-missing -Q -q id_rsa id_dsa adjudica_rsa
+	keychain --ignore-missing -Q -q id_rsa id_dsa adjudica 
 	source ~/.keychain/$HOSTNAME-sh
     fi
 fi
