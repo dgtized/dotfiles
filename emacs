@@ -335,9 +335,9 @@
             (setq c-basic-offset 4)
             (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
-(ac-config-default)
+;(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
+;(ac-config-default)
 
 (defun eclim nil
   (interactive)
