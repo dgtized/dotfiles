@@ -67,9 +67,6 @@ function setup_emacs () {
     rm -rf vendor/groovy &&\
         svn export http://svn.codehaus.org/groovy/trunk/groovy/ide/emacs vendor/groovy
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    pushd vendor/magit
-    ((make 2>&1) > ../../compile.log)
-    popd
     (emacs -L site-lisp -batch -f batch-byte-compile \
         {.,vendor}/*.el 2>&1) >> compile.log
 }
