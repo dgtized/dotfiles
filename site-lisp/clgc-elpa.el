@@ -3,6 +3,7 @@
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
                   ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
+(package-initialize)
 
 (defvar clgc-packages
   (list 'haml-mode 'yaml-mode 'js2-mode 'sass-mode 'css-mode
