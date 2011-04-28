@@ -389,7 +389,7 @@
       ("\\.sass$"       . sass-mode)
       ("\\.ha?ml$"      . haml-mode)
 
-      ("\\.java$"       . malabar-mode)
+      ;("\\.java$"       . malabar-mode)
       ("\\.js$"         . js2-mode)
       ))
 
