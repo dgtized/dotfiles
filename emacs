@@ -24,6 +24,7 @@
 (add-to-list 'load-path site-lisp)
 (add-to-list 'load-path (concat site-lisp "vendor/"))
 (add-to-list 'load-path (concat site-lisp "vendor/groovy"))
+(add-to-list 'load-path (concat site-lisp "vendor/js2-mode"))
 (add-to-list 'load-path (concat site-lisp "malabar-1.5-SNAPSHOT/lisp"))
 (add-to-list 'load-path (concat site-lisp "emacs-eclim"))
 (add-to-list 'load-path (concat site-lisp "emacs-eclim/vendor"))

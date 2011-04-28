@@ -6,7 +6,7 @@
 (package-initialize)
 
 (defvar clgc-packages
-  (list 'haml-mode 'yaml-mode 'js2-mode 'sass-mode 'css-mode
+  (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode
         'magit 'clojure-mode 'clojure-test-mode 'paredit))
 
 (defun starter-kit-elpa-install ()
