@@ -11,4 +11,5 @@ find . -name "*.java" -print >> /tmp/tag-list
 find . -name "*.groovy" -print >> /tmp/tag-list
 find . -name "*.js" -print >> /tmp/tag-list
 
-grep -v target /tmp/tag-list | grep -v '#' | xargs etags --lang=auto -a
+git grep -l "." | grep -v "min\|tiny_mce\|target\|sql\|TXT\|pdf\|jpeg\|jpg" | xargs etags --lang=auto -a
+#grep -v target /tmp/tag-list | grep -v '#' | xargs etags --lang=auto -a
