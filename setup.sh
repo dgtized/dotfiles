@@ -15,6 +15,7 @@ function main () {
     ln -sfv ${DOTC_DIR}/toprc ~/.toprc
     ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
     ln -sfv ${DOTC_DIR}/screenrc ~/.screenrc
+    ln -sfv ${DOTC_DIR}/gitconfig ~/.gitconfig
     if [[ -d ~/.subversion ]]; then
         ln -sfv ../${DOTC_DIR}/svn-config ~/.subversion/config
     fi

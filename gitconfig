@@ -1,0 +1,11 @@
+[color]
+	ui = true
+[github]
+	user = dgtized
+	token = df51c26ffcb6a03ca04e72a126e4c052
+[user]
+	name = Charles Comstock
+	email = dgtized@gmail.com
+[alias]
+	co = checkout
+	st = status
