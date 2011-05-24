@@ -1,6 +1,7 @@
 #!/bin/sh
 
 rm -f TAGS
-filter="min|tiny_mce|target|sql|TXT|pdf|jpeg|jpg|gif|png|images"
+filter="target|images|sql|TXT|pdf|jpeg|jpg|gif|png|ico|tiny_mce|min\.js"
+
 git grep -l "." | egrep -v $filter | xargs etags --lang=auto -a
 
