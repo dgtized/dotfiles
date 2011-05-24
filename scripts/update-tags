@@ -1,15 +1,6 @@
 #!/bin/sh
 
-grepcmd="grep -v '/target/'"
-
 rm -f TAGS
-find . -name "*.css" -print > /tmp/tag-list
-find . -name "*.html" -print > /tmp/tag-list
-find . -name "*.xml" -print > /tmp/tag-list
-find . -name "*.gsp" -print >> /tmp/tag-list
-find . -name "*.java" -print >> /tmp/tag-list
-find . -name "*.groovy" -print >> /tmp/tag-list
-find . -name "*.js" -print >> /tmp/tag-list
+filter="min|tiny_mce|target|sql|TXT|pdf|jpeg|jpg|gif|png|images"
+git grep -l "." | egrep -v $filter | xargs etags --lang=auto -a
 
-git grep -l "." | grep -v "min\|tiny_mce\|target\|sql\|TXT\|pdf\|jpeg\|jpg" | xargs etags --lang=auto -a
-#grep -v target /tmp/tag-list | grep -v '#' | xargs etags --lang=auto -a
