@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias apt-install="sudo apt-get install"
 
 alias forward-mysql="ssh -L 9306:mysql.mblab.wustl.edu:3306 zest"
