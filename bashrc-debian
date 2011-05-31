@@ -14,3 +14,6 @@ export GEM_HOME=$HOME/usr/lib/ruby/gems
 export GEM_PATH=$HOME/usr/lib/ruby/gems:/var/lib/gems/1.8/
 
 alias fmvn="mvn -Dmaven.test.skip=true"
+
+export JAVA_HOME="/usr/lib/jvm/java-6-sun-1.6.0.24"
+export M2_HOME="/usr/share/maven2/lib/"
