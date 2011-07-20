@@ -24,3 +24,13 @@ export GRAILS_HOME=${HOME}/code/grails-core
 if [ -d ${GRAILS_HOME} ]; then
     pathmunge ${GRAILS_HOME}/bin
 fi
+
+export JRUBY_HOME=/opt/jruby
+if [ -d ${JRUBY_HOME} ]; then
+    pathmunge ${JRUBY_HOME}/bin
+fi
+
+export GLASSFISH_HOME=${HOME}/usr/glassfish3/glassfish
+if [ -d ${GLASSFISH_HOME} ]; then
+    pathmunge ${GLASFISH_HOME}/bin
+fi
