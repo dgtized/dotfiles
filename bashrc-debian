@@ -21,16 +21,16 @@ export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 export M2_HOME="/usr/share/maven2/"
 
 export GRAILS_HOME=${HOME}/code/grails-core
-if [ -d ${GRAILS_HOME} ]; then
+if [[ -d ${GRAILS_HOME} ]]; then
     pathmunge ${GRAILS_HOME}/bin
 fi
 
 export JRUBY_HOME=/opt/jruby
-if [ -d ${JRUBY_HOME} ]; then
+if [[ -d ${JRUBY_HOME} ]]; then
     pathmunge ${JRUBY_HOME}/bin
 fi
 
 export GLASSFISH_HOME=${HOME}/usr/glassfish3/glassfish
-if [ -d ${GLASSFISH_HOME} ]; then
-    pathmunge ${GLASFISH_HOME}/bin
+if [[ -d ${GLASSFISH_HOME} ]]; then
+    pathmunge ${GLASSFISH_HOME}/bin
 fi
