@@ -28,10 +28,10 @@ termcapinfo linux "ve=\E[?25h\E[?17;0;64c" # red
 #screen -t emacs.0@$HOST -h 0 0 emacs -nw --eval '(normal-erase-is-backspace-mode)'
 #screen -t irssi.9@$HOST -h 0 9 irssi
 #screen -t mongrel.8@$HOST -h 0 8
-chdir $HOME/workspace/Adjudica
+chdir $HOME/workspace/adjudica
 screen -t compile.1.$USER@$HOST 1
-chdir $HOME/workspace/Adjudica/gsm/user-interface
-screen -t jetty-interface.2.$USER@$HOST 2
+chdir $HOME/workspace/adjudica
+screen -t server.2.$USER@$HOST 2
 #screen -t shell.4.$USER@$HOST 4
 #screen -t irb.5.$USER@$HOST 5
 #screen -t mysql.6.$USER@$HOST 6
