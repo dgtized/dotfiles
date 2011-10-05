@@ -60,7 +60,5 @@
 (setq version-control nil)
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backups" user-emacs-directory))))
-(setq auto-save-file-name-transforms
-      `((".*" (expand-file-name "auto-save" user-emacs-directory) t)))
 
 (provide 'clgc-find-files)

@@ -1,4 +1,4 @@
-
+ 
 (defconst dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
   "shell config directory")
@@ -298,15 +298,12 @@
   (setq eclim-auto-save t)
   (global-eclim-mode))
 
-(defun autocompile nil
-  "compile itself if ~/.emacs"
-  (interactive)
-  (require 'bytecomp)
-  (if (string= (buffer-file-name)
-           (expand-file-name "~/.emacs"))
-      (byte-compile-file (buffer-file-name))))
-;(add-hook 'after-save-hook 'autocompile)
-
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (require 'bytecomp)
+            (add-hook 'after-save-hook
+                      (lambda ()
+                        (byte-compile-file (buffer-file-name) t))))) 
 
 (add-hook 'after-init-hook
       (lambda nil
