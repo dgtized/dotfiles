@@ -19,6 +19,8 @@ cd
 emac &
 ~/.home-config/setup.sh up
 
+# packages: libm17n-dev libgnutls-dev libgconf2-dev
+
 # java
 sudo add-apt-repository ppa:ferramroberto/java
 sudo apt-get update

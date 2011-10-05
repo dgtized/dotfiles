@@ -91,7 +91,6 @@
 (dolist (pattern '("*.css" ".groovy" "*.java" "*.sql"
                    "*rc" "*.gsp" "*.xml" "*.properties"))
   (add-to-list 'ffip-patterns pattern t))
-(print ffip-patterns)
 
 ;; https://gist.github.com/1198329
 ;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)
@@ -280,15 +279,14 @@
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
-(global-set-key "\C-cg" 'goto-line)
 
 (global-set-key "\C-cw" 'whitespace-cleanup)
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
 
 (global-set-key [remap find-tag] 'ido-find-tag)
-(global-set-key (kbd "C-.") 'find-file-in-project)
-(global-set-key (kbd "C-TAB") 'complete-symbol)
+(global-set-key "\C-c\C-f" 'find-file-in-project)
+(global-set-key "\C-c\C-g" 'find-grep-in-project)
 
 ;; Ediff
 ;(eval-after-load 'ediff
