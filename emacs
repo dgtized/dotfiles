@@ -37,6 +37,8 @@
 (require 'clgc-javascript)
 (require 'clgc-lisp)
 
+(setenv "PAGER" "/bin/cat") ;; disable pager
+
 (setq inhibit-startup-screen t
       line-number-mode t
       column-number-mode t
@@ -90,6 +92,18 @@
                    "*rc" "*.gsp" "*.xml" "*.properties"))
   (add-to-list 'ffip-patterns pattern t))
 (print ffip-patterns)
+
+;; https://gist.github.com/1198329
+;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)
+(defun find-grep-in-project (command-args)
+  (interactive
+   (progn
+     (list (read-shell-command "Run find (like this): "
+                               '("git grep -nH -e " . 17)
+                               'grep-find-history))))
+  (when command-args
+    (let ((null-device nil)) ; see grep
+      (grep command-args))))
 
 (require 'etags)
 (defun ido-find-tag ()
