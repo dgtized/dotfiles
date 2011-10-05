@@ -293,8 +293,8 @@
 (global-set-key "\C-c:" 'uncomment-region)
 
 (global-set-key [remap find-tag] 'ido-find-tag)
-(global-set-key "\C-c\C-f" 'find-file-in-project)
-(global-set-key "\C-c\C-g" 'find-grep-in-project)
+(global-set-key (kbd "C-.") 'find-file-in-project)
+(global-set-key (kbd "C-,") 'find-grep-in-project)
 
 ;; Ediff
 ;(eval-after-load 'ediff
