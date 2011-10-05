@@ -84,11 +84,20 @@
 
 (setq ffip-limit 768)
 
-(defvar ffip-excludes '("\./old.*" "\./target/test-reports.*"))
+;; override ffip-join-patterns to wrap output in a single group
+;; so that -and -not actually works for filtering
+(defun ffip-join-patterns ()
+  "Turn `ffip-paterns' into a string that `find' can use."
+  (format "\\( %s \\)"
+          (mapconcat (lambda (pat) (format "-name \"%s\"" pat))
+                     ffip-patterns " -or ")))
+
 (setq ffip-find-options
       (format "-not \\( %s \\)"
               (mapconcat (lambda (pat) (format "-regex \"%s\"" pat))
-                         ffip-excludes " -or ")))
+                         '(".*/old/.*" ".*/target/test-reports/.*"
+                           ".*/web-app/js/vendor/.*")
+                         " -or ")))
 
 ;; https://gist.github.com/1198329
 ;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)
