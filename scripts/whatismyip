@@ -1,0 +1,12 @@
+#!/bin/bash
+
+IP=`curl -s http://automation.whatismyip.com/n09230945.asp`
+DATE=`date`
+HOST=`hostname`
+MESSAGE="${DATE} ${HOST} ${IP}"
+if [[ -n $1 ]]; then
+    echo $MESSAGE | ssh $1 "cat >> files.dgtized.net/whatismyip.log"
+else
+    echo $IP
+fi
+
