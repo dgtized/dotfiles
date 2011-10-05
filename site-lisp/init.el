@@ -133,9 +133,9 @@
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
 (setq backup-directory-alist
-             (list (cons "." "~/.emacs.d/backups/")))
+      (list (cons "." (expand-file-name "backups" user-emacs-directory))))
 (setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/auto-save" t)))
+      `((".*" (expand-file-name "auto-save" user-emacs-directory) t)))
 
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
