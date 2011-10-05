@@ -85,6 +85,12 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
+(require 'find-file-in-project)
+(dolist (pattern '("*.css" ".groovy" "*.java" "*.sql"
+                   "*rc" "*.gsp" "*.xml" "*.properties"))
+  (add-to-list 'ffip-patterns pattern t))
+(print ffip-patterns)
+
 (require 'etags)
 (defun ido-find-tag ()
   "Find a tag using ido"
@@ -96,16 +102,6 @@
 	      (push (prin1-to-string x t) tag-names)))
 	  tags-completion-table)
     (find-tag (ido-completing-read "Tag: " tag-names))))
-
-(defun ido-find-file-in-tag-files ()
-  (interactive)
-  (save-excursion
-    (let ((enable-recursive-minibuffers t))
-      (visit-tags-table-buffer))
-    (find-file
-     (expand-file-name
-      (ido-completing-read
-       "Project file: " (tags-table-files) nil t)))))
 
 (defvar crs-hated-buffers
   '("KILL" "*Compile-Log*"))
@@ -276,7 +272,7 @@
 (global-set-key "\C-c:" 'uncomment-region)
 
 (global-set-key [remap find-tag] 'ido-find-tag)
-(global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
+(global-set-key (kbd "C-.") 'find-file-in-project)
 (global-set-key (kbd "C-TAB") 'complete-symbol)
 
 ;; Ediff

@@ -3,5 +3,5 @@
 rm -f TAGS
 filter="target|images|sql|TXT|pdf|jpeg|jpg|gif|png|ico|tiny_mce|min\.js"
 
-git grep -l "." | egrep -v $filter | xargs etags --lang=auto -a
+git ls-files | egrep -v $filter | xargs etags --lang=auto -a
 

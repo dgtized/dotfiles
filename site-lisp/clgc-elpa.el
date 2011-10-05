@@ -7,7 +7,8 @@
 
 (defvar clgc-packages
   (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode
-        'magit 'clojure-mode 'clojure-test-mode 'paredit))
+        'magit 'clojure-mode 'clojure-test-mode 'paredit
+        'find-file-in-project))
 
 (defun starter-kit-elpa-install ()
   "Install all starter-kit packages that aren't installed."
