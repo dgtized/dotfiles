@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export UBUNTU_MENUPROXY=0
+/home/clgc/usr/springsource/sts-2.7.1.RELEASE/STS
