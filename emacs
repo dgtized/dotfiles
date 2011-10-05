@@ -92,6 +92,14 @@
                    "*rc" "*.gsp" "*.xml" "*.properties"))
   (add-to-list 'ffip-patterns pattern t))
 
+(setq ffip-limit 768)
+
+(defvar ffip-excludes '("\./old.*" "\./target/test-reports.*"))
+(setq ffip-find-options
+      (format "-not \\( %s \\)"
+              (mapconcat (lambda (pat) (format "-regex \"%s\"" pat))
+                         ffip-excludes " -or ")))
+
 ;; https://gist.github.com/1198329
 ;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)
 (defun find-grep-in-project (command-args)
