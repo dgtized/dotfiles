@@ -41,7 +41,6 @@ alias mkdir='mkdir -p'
 
 alias h='history'
 alias j='jobs -l'
-#alias which='type -all'
 alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 #alias print='/usr/bin/lp -o nobanner -d $LPDEST'   # Assumes LPDEST is defined
@@ -67,10 +66,6 @@ alias tree='tree -Csu' # nice alternative to 'ls'
 
 alias grep='grep --color=auto'
 alias remacs='`grep emacs ~/.screenrc`'
-
-function sgrep {
-    grep -r "$1" * | grep -v '\.svn/'
-}
 
 # tailoring 'less'
 alias more='less'
@@ -100,9 +95,6 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 set HISTTIMEFORMAT 
 
-alias requiem='rdesktop -a16 -u comstocl -f 128.252.48.55 &'
-alias oasis='rdesktop -a16 -u cc1 -f oasis.cec.wustl.edu &'
-alias ardor='ssh ardor.wustl.edu -L 3000:ardor.wustl.edu:3000 -L 4567:ardor.wustl.edu:4567'
 alias vi=vim
 
 pathmunge /var/lib/gems/1.8/bin
@@ -119,24 +111,9 @@ else
 fi	
 export LDFLAGS=-L$HOME/usr/lib
 
-export CVS_RSH=ssh
-#export CVSROOT=:ext:cc1@bedlam.cse.wustl.edu:/export/cvs
-
 if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
 	source $DOTC_DIR/bashrc-$DOTC_NAME
 fi
-case $DOTC_NAME in 
-    debian )
-	;;
-    gentoo ) 
-	;;
-    cec )
-	;;
-    dreamhost )
-    	;;
-    bio )
-	;;
-esac
 
 export HOSTFILE=$DOTC_DIR/hosts
 

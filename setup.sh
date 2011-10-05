@@ -23,10 +23,6 @@ function main () {
     ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
     ln -sfv ${DOTC_DIR}/muttrc ~/.muttrc
 
-    if [[ $DOTC_NAME == "cec" || $DOTC_NAME == "cse" ]]; then
-        ln -sfv ${DOTC_DIR}/cshrc.mine-${DOTC_NAME} ~/.cshrc.mine
-    fi
-
     # setup fonts for emacs correctly
     if which xrdb; then
         ln -sfv ${DOTC_DIR}/Xresources ~/.Xresources
@@ -61,11 +57,6 @@ function main () {
     for script in `find scripts -type f | grep -v .svn`; do
         ln -sfv ../../${DOTC_DIR}/$script ~/usr/bin;
     done
-    if [[ -d $HOME/.scripts/ ]]; then
-        for script in `find ${HOME}/.scripts -type f | grep -v .svn`; do
-                ln -sfv ../../$script ~/usr/bin;
-        done
-    fi
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
 }
@@ -82,8 +73,6 @@ function valid_name () {
     until [[ $DOTC_NAME == "bio" ||
              $DOTC_NAME == "gentoo" ||
              $DOTC_NAME == "debian" ||
-             $DOTC_NAME == "cse" ||
-             $DOTC_NAME == "cec" ||
              $DOTC_NAME == "dreamhost" ]]; do
         echo "DOTC_NAME cannot be [$DOTC_NAME], what is it? "
         read -e var
