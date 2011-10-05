@@ -81,6 +81,8 @@
 (setq emacs-lisp-sources-regexp "\\.el$\\|\\.emacs$")
 ;(global-set-key [f5] 'smart-compile)
 
+(add-hook 'emacs-lisp-mode-hook
+          (lambda () (add-hook 'after-save-hook 'elisp-compile)))
 
 ;(require 'compile)
 ;(require 'smart-compile)
@@ -295,13 +297,6 @@
   (require 'eclim)
   (setq eclim-auto-save t)
   (global-eclim-mode))
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (require 'bytecomp)
-            (add-hook 'after-save-hook
-                      (lambda ()
-                        (byte-compile-file (buffer-file-name) t))))) 
 
 (add-hook 'after-init-hook
       (lambda nil
