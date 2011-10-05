@@ -1,12 +1,10 @@
-*.elc
-**/*.elc
+site-lisp/**.elc
 site-config
 site-lisp/psvn.el
 site-lisp/ruby
 site-lisp/compile.log
 site-lisp/malabar*
 bash?completion*
-site-lisp/vendor/*
 site-lisp/elpa/*
 compile.log
 site-lisp/loaddefs.el*
