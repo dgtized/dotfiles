@@ -15,7 +15,7 @@
 (dolist (path '("vendor/" "vendor/groovy" "vendor/js2-mode"
                 "malabar-1.5-SNAPSHOT/lisp"
                 "emacs-eclim" "emacs-eclim/vendor"))
-  (add-to-list 'load-path path))
+  (add-to-list 'load-path (concat site-lisp path)))
 
 (setenv "PAGER" "/bin/cat") ;; disable pager
 
