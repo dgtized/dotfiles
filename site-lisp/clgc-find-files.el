@@ -1,3 +1,6 @@
+(eval-when-compile (require 'cl)
+                   (require 'clgc-elpa))
+
 ;; Ido
 (require 'ido)
 (ido-mode t)
@@ -19,13 +22,12 @@
                      ffip-patterns " -or ")))
 
 (setq ffip-find-options
-      (let (patterns '(".*/old/.*"
-                       ".*/target/test-reports/.*"
-                       ".*/web-app/js/vendor/.*"))
-        (format "-not \\( %s \\)"
-                (mapconcat (lambda (path)
-                             (format "-regex \"%s\"" path))
-                           patterns " -or "))))
+      (format "-not \\( %s \\)"
+	      (mapconcat (lambda (path)
+			   (format "-regex \"%s\"" path))
+			 '(".*/old/.*"
+			   ".*/target/test-reports/.*"
+			   ".*/web-app/js/vendor/.*") " -or ")))
 
 ;; https://gist.github.com/1198329
 ;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)

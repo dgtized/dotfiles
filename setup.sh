@@ -63,8 +63,8 @@ function main () {
 
 function setup_emacs () {
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    (emacs -L site-lisp -batch -f batch-byte-compile \
-        {.,vendor/*}/*.el 2>&1) >> compile.log
+    (emacs -L . -L vendor/groovy -batch -f batch-byte-compile \
+        *.el vendor/**/*.el 2>&1) >> compile.log
 }
 
 function valid_name () {
