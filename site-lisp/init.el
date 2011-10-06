@@ -254,13 +254,10 @@
  '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
-
-(defun graphviz
-  (interactive)
-  (require 'graphviz-dot-mode)
-  (eval-after-load 'graphviz-dot-mode
-    (setq graphviz-dot-indent-width 2)
-    (setq graphviz-dot-auto-indent-on-semi nil)))
+(autoload 'graphviz-dot-mode "graphviz-dot-mode" "Major mode for dot graph files" t)
+(eval-when-compile (require 'graphviz-mode))
+(setq graphviz-dot-indent-width 2
+      graphviz-dot-auto-indent-on-semi nil)
 
 (defun auctex nil
   (interactive)
