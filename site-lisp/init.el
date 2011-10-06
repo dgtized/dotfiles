@@ -255,7 +255,6 @@
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" "Major mode for dot graph files" t)
-(eval-when-compile (require 'graphviz-mode))
 (setq graphviz-dot-indent-width 2
       graphviz-dot-auto-indent-on-semi nil)
 
