@@ -19,11 +19,13 @@
                      ffip-patterns " -or ")))
 
 (setq ffip-find-options
-      (format "-not \\( %s \\)"
-              (mapconcat (lambda (pat) (format "-regex \"%s\"" pat))
-                         '(".*/old/.*" ".*/target/test-reports/.*"
-                           ".*/web-app/js/vendor/.*")
-                         " -or ")))
+      (let (patterns '(".*/old/.*"
+                       ".*/target/test-reports/.*"
+                       ".*/web-app/js/vendor/.*"))
+        (format "-not \\( %s \\)"
+                (mapconcat (lambda (path)
+                             (format "-regex \"%s\"" path))
+                           patterns " -or "))))
 
 ;; https://gist.github.com/1198329
 ;; original command: '("git ls-files -z | xargs -0 egrep -nH -e " . 41)
