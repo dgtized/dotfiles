@@ -302,32 +302,32 @@
         ))
 
 ;; setup audo modes
-(setq auto-modes
- '(("\\.C$"          . c++-mode)
-   ("\\.cc$"         . c++-mode)
-   ("\\.[ch]xx|pp$"  . c++-mode)
-   ("\\.hh$"         . c++-mode)
-   ;; C Bindings
-   ("\\.c$"          . c-mode)
-   ("\\.h$"          . c++-mode)
+(let (auto-modes
+      '(("\\.C$"          . c++-mode)
+        ("\\.cc$"         . c++-mode)
+        ("\\.[ch]xx|pp$"  . c++-mode)
+        ("\\.hh$"         . c++-mode)
+        ;; C Bindings
+        ("\\.c$"          . c-mode)
+        ("\\.h$"          . c++-mode)
 
-   ("\\.awk"         . awk-mode)
-   ("\\.css"         . css-mode)
+        ("\\.awk"         . awk-mode)
+        ("\\.css"         . css-mode)
 
-   ;; Ruby Bindings
-   ("\\.rb$"         . ruby-mode)
-   ("\\.ruby$"       . ruby-mode)
-   ("\\.rake$"       . ruby-mode)
-   ("[Rr]akefile$"   . ruby-mode)
-   ("\\.gem$"        . ruby-mode)
-   ("\\.gemspec$"    . ruby-mode)
+        ;; Ruby Bindings
+        ("\\.rb$"         . ruby-mode)
+        ("\\.ruby$"       . ruby-mode)
+        ("\\.rake$"       . ruby-mode)
+        ("[Rr]akefile$"   . ruby-mode)
+        ("\\.gem$"        . ruby-mode)
+        ("\\.gemspec$"    . ruby-mode)
 
-   ("\\.ya?ml$"      . yaml-mode)
-   ("\\.sass$"       . sass-mode)
-   ("\\.ha?ml$"      . haml-mode)
+        ("\\.ya?ml$"      . yaml-mode)
+        ("\\.sass$"       . sass-mode)
+        ("\\.ha?ml$"      . haml-mode)
 
-   ;;("\\.java$"       . malabar-mode)
-   ("\\.js$"         . js2-mode)))
-(dolist (mode auto-modes) (add-to-list 'auto-mode-alist mode))
+        ;;("\\.java$"       . malabar-mode)
+        ("\\.js$"         . js2-mode)))
+  (dolist (mode auto-modes) (add-to-list 'auto-mode-alist mode)))
 
 (load custom-file 'noerror)
