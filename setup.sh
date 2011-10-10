@@ -8,20 +8,13 @@ function main () {
 
     ln -sfv ${DOTC_DIR}/site-config ~/.site-config
 
-    ln -sfv ${DOTC_DIR}/bashrc ~/.bashrc
-    ln -sfv ${DOTC_DIR}/emacs ~/.emacs
-    ln -sfv ${DOTC_DIR}/vimrc ~/.vimrc
-    ln -sfv ${DOTC_DIR}/irbrc ~/.irbrc
-    ln -sfv ${DOTC_DIR}/toprc ~/.toprc
-    ln -sfv ${DOTC_DIR}/inputrc ~/.inputrc
-    ln -sfv ${DOTC_DIR}/screenrc ~/.screenrc
-    ln -sfv ${DOTC_DIR}/gitconfig ~/.gitconfig
+    for dot in `find $DOTC_DIR/dot`; do
+        ln -sfv $dot $HOME/.`basename $dot`
+    done
+
     if [[ -d ~/.subversion ]]; then
         ln -sfv ../${DOTC_DIR}/svn-config ~/.subversion/config
     fi
-
-    ln -sfv ${DOTC_DIR}/pinerc ~/.pinerc
-    ln -sfv ${DOTC_DIR}/muttrc ~/.muttrc
 
     # setup fonts for emacs correctly
     if which xrdb; then
