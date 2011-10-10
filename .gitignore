@@ -1,5 +1,5 @@
 site-lisp/**.elc
-site-config
+dot/site-config
 site-lisp/psvn.el
 site-lisp/ruby
 site-lisp/compile.log

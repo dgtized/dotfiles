@@ -3,10 +3,10 @@
 function main () {
     echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
 
-    echo "export DOTC_DIR=$DOTC_DIR" > site-config
-    echo "export DOTC_NAME=$DOTC_NAME" >> site-config
-
-    ln -sfv ${DOTC_DIR}/site-config ~/.site-config
+    cat <<-EOF > $DOTC_CONFIG
+export DOTC_DIR=$DOTC_DIR
+export DOTC_NAME=$DOTC_NAME
+EOF
 
     for dot in `find $DOTC_DIR/dot -type f`; do
         ln -sfv $dot $HOME/.`basename $dot`
@@ -80,13 +80,14 @@ else
 fi
 
 : ${DOTC_DIR:=$HOME/.home-config}
+: ${DOTC_CONFIG:=$DOTC_DIR/dot/site-config}
 
 if [[ -d $DOTC_DIR ]]; then
     cd $DOTC_DIR
 
     if [[ $1 == "clean" ]]; then
         echo "Cleaning..."
-        rm -rfv bash-completion-latest.tar.gz bash_completion site-config \
+        rm -rfv bash-completion-latest.tar.gz bash_completion $DOTC_CONFIG \
             *~ *\# site-lisp/*.elc site-lisp/compile.log
         exit
     elif [[ $1 == "up" || $1 == "update" ]]; then
@@ -109,7 +110,7 @@ if [[ -d $DOTC_DIR ]]; then
         git stash pop
         unset branch
 
-        test -e site-config && source site-config
+        test -e $DOTC_CONFIG && source $DOTC_CONFIG
         valid_name
         echo "Reloading setup.sh in case of remote change"
         exec ./setup.sh ${DOTC_NAME}
@@ -122,7 +123,7 @@ if [[ -d $DOTC_DIR ]]; then
 
     echo
     echo "Site Config for `hostname`-${DOTC_NAME}:"
-    cat site-config
+    cat $DOTC_CONFIG
 else
     echo "Can't find $DOTC_DIR"
 fi
