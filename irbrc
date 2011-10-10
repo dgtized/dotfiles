@@ -16,7 +16,7 @@ begin
       puts "History file '%s' was empty or non-existant." %
         histfile if $DEBUG || $VERBOSE
     end
-    
+
     Kernel::at_exit {
       lines = Readline::HISTORY.to_a.reverse.uniq.reverse
       lines = lines[ -MAXHISTSIZE, MAXHISTSIZE ] if lines.nitems > MAXHISTSIZE
@@ -41,16 +41,16 @@ class MethodFinder
   # Find all methods on [anObject] which, when called with [args] return [expectedResult]
   def self.find( anObject, expectedResult, *args )
     anObject.methods.select { |name| anObject.method(name).arity == args.size }.
-                     select { |name| begin anObject.megaClone.method( name ).call(*args) == expectedResult; 
-                                     rescue; end }	
+                     select { |name| begin anObject.megaClone.method( name ).call(*args) == expectedResult;
+                                     rescue; end }
   end
 
   # Pretty-prints the results of the previous method
   def self.show( anObject, expectedResult, *args )
     find( anObject, expectedResult, *args ).each { |name|
-      print "#{anObject.inspect}.#{name}" 
+      print "#{anObject.inspect}.#{name}"
       print "(" + args.map { |o| o.inspect }.join(", ") + ")" unless args.empty?
-      puts " == #{expectedResult.inspect}" 
+      puts " == #{expectedResult.inspect}"
     }
   end
 end
@@ -62,7 +62,7 @@ module Kernel
   def m(o)
     ObjectMethods.new(o.public_methods(false).sort)
   end
-  
+
   class ObjectMethods < Array
     def inspect
       puts self
@@ -78,4 +78,3 @@ class Object
 end
 
 require 'yaml'
-
