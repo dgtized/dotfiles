@@ -17,9 +17,8 @@ function main () {
     fi
 
     # setup fonts for emacs correctly
-    if which xrdb; then
-        ln -sfv ${DOTC_DIR}/Xresources ~/.Xresources
-        xrdb -merge ~/.Xresources
+    if which xrdb > /dev/null; then
+        xrdb -merge $HOME/.Xresources
     fi
 
     # ssh related config
