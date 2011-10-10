@@ -81,8 +81,8 @@
 (setq emacs-lisp-sources-regexp "\\.el$\\|\\.emacs$")
 ;(global-set-key [f5] 'smart-compile)
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda () (add-hook 'after-save-hook 'elisp-compile)))
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda () (add-hook 'after-save-hook 'elisp-compile)))
 
 ;(require 'compile)
 ;(require 'smart-compile)
