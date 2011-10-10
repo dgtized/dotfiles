@@ -128,12 +128,11 @@ if [[ -f /etc/bash_completion ]]; then
 	. /etc/bash_completion
 fi
 
-if [[ `uname` != "SunOS" ]]; then
-    if which keychain > /dev/null 2>&1; then
-	keychain --ignore-missing -Q -q id_rsa id_dsa adjudica 
+if which keychain > /dev/null; then
+	keychain --ignore-missing -Q -q id_rsa adjudica
 	source ~/.keychain/$HOSTNAME-sh
-    fi
 fi
+
 
 # gets called every time need to fix for once it's set
 #if [[! -f ~/.xmodmap ]]; then
