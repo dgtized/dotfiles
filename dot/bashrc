@@ -124,16 +124,9 @@ export EDITOR=vim
 set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 
-bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
-if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ]; then  
-    if [[ -f $DOTC_DIR/bash_completion/bash_completion ]]; then # interactive shell
-	export BASH_COMPLETION=$DOTC_DIR/bash_completion
-	. $DOTC_DIR/bash_completion/bash_completion
-    elif [[ -f /etc/bash_completion ]]; then
+if [[ -f /etc/bash_completion ]]; then
 	. /etc/bash_completion
-    fi 
 fi
-unset bash bmajor bminor
 
 if [[ `uname` != "SunOS" ]]; then
     if which keychain > /dev/null 2>&1; then

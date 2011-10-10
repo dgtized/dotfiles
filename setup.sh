@@ -35,12 +35,6 @@ EOF
 
     mkdir -pv $HOME/.bashist
 
-    # lets get some bash completion if we don't have it
-    if [[ ! -f /etc/bash_completion ]]; then
-        if wget -N "http://www.caliban.org/files/bash/bash-completion-latest.tar.gz"; then
-            tar xzf bash-completion-latest.tar.gz
-        fi
-    fi
     mkdir -pv $HOME/usr/bin
     for script in `find ${DOTC_DIR}/scripts -type f`; do
         ln -sfv $script $HOME/usr/bin;
@@ -87,8 +81,7 @@ if [[ -d $DOTC_DIR ]]; then
 
     if [[ $1 == "clean" ]]; then
         echo "Cleaning..."
-        rm -rfv bash-completion-latest.tar.gz bash_completion $DOTC_CONFIG \
-            *~ *\# site-lisp/*.elc site-lisp/compile.log
+        rm -rfv $DOTC_CONFIG *~ *\# site-lisp/*.elc site-lisp/compile.log
         exit
     elif [[ $1 == "up" || $1 == "update" ]]; then
         echo "Updating Configuration..."
