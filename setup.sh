@@ -31,10 +31,6 @@ function main () {
 
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh
-    #chmod 600 ${HOME}/${DOTC_DIR}/ssh/*
-    #rm -r ~/.ssh/{authorized_keys,config}
-    #cp -fv ../${DOTC_DIR}/ssh/authorized_keys ~/.ssh/authorized_keys
-    #cp -fv ../${DOTC_DIR}/ssh/config ~/.ssh/config
     touch ~/.ssh/{authorized_keys,config}
     chmod 600 ${HOME}/.ssh/{authorized_keys,config}
 
