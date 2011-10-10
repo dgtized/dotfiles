@@ -3,17 +3,17 @@
 function main () {
     echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
 
-    echo "export DOTC_DIR=~/$DOTC_DIR" > site-config
+    echo "export DOTC_DIR=$DOTC_DIR" > site-config
     echo "export DOTC_NAME=$DOTC_NAME" >> site-config
 
     ln -sfv ${DOTC_DIR}/site-config ~/.site-config
 
-    for dot in `find $DOTC_DIR/dot`; do
+    for dot in `find $DOTC_DIR/dot -type f`; do
         ln -sfv $dot $HOME/.`basename $dot`
     done
 
     if [[ -d ~/.subversion ]]; then
-        ln -sfv ../${DOTC_DIR}/svn-config ~/.subversion/config
+        ln -sfv ${DOTC_DIR}/svn-config ~/.subversion/config
     fi
 
     # setup fonts for emacs correctly
@@ -43,8 +43,8 @@ function main () {
         fi
     fi
     mkdir -pv $HOME/usr/bin
-    for script in `find scripts -type f | grep -v .svn`; do
-        ln -sfv ../../${DOTC_DIR}/$script ~/usr/bin;
+    for script in `find ${DOTC_DIR}/scripts -type f`; do
+        ln -sfv $script $HOME/usr/bin;
     done
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
@@ -80,14 +80,10 @@ else
     DOTC_NAME=$1
 fi
 
-pushd $(dirname $0) > /dev/null
-DIRNAME=`pwd`/setup.sh
-popd > /dev/null
-DOTC_DIR=`dirname ${DIRNAME//$HOME/} | sed 's/^\///'`
-unset DIRNAME
+: ${DOTC_DIR:=$HOME/.home-config}
 
-if [[ -d $HOME/$DOTC_DIR ]]; then
-    cd $HOME/$DOTC_DIR
+if [[ -d $DOTC_DIR ]]; then
+    cd $DOTC_DIR
 
     if [[ $1 == "clean" ]]; then
         echo "Cleaning..."
