@@ -37,7 +37,8 @@
       nxml-child-indent 4
       visible-bell t
       require-final-newline t
-      debug-on-error t)
+      debug-on-error t
+      sentence-end-double-space nil)
 
 (setq-default indent-tabs-mode nil
               tab-width 4
