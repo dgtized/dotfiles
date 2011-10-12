@@ -81,13 +81,6 @@
 (global-set-key [f5] 'mode-compile)
 (global-set-key "\C-ck" 'mode-compile-kill)
 
-(defun auto-recompile-el-buffer ()
-  (interactive)
-  (when (and (eq major-mode 'emacs-lisp-mode)
-             (file-exists-p (byte-compile-dest-file buffer-file-name)))
-    (byte-compile-file buffer-file-name)))
-(add-hook 'after-save-hook 'auto-recompile-el-buffer)
-
 (setq compilation-ask-about-save nil)
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
