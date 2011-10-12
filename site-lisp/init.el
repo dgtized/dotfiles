@@ -81,11 +81,13 @@
 (setq emacs-lisp-sources-regexp "\\.el$\\|\\.emacs$")
 ;(global-set-key [f5] 'smart-compile)
 
-;; (add-hook 'emacs-lisp-mode-hook
-;;           (lambda () (add-hook 'after-save-hook 'elisp-compile)))
+(defun auto-recompile-el-buffer ()
+  (interactive)
+  (when (and (eq major-mode 'emacs-lisp-mode)
+             (file-exists-p (byte-compile-dest-file buffer-file-name)))
+    (byte-compile-file buffer-file-name)))
+(add-hook 'after-save-hook 'auto-recompile-el-buffer)
 
-;(require 'compile)
-;(require 'smart-compile)
 (setq compilation-ask-about-save nil)
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
