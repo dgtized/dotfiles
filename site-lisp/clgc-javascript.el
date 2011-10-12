@@ -1,9 +1,8 @@
 (autoload 'js2-mode "js2-mode" "Steve Yegge's Javascript Major Mode" t)
 
 (defun my-js2-mode-hook ()
-  (setq js-indent-level 4
-        indent-tabs-mode nil
-        c-basic-offset 4))
+  (setq indent-tabs-mode nil
+        js2-basic-offset 4))
 
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
