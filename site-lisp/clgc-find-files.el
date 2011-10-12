@@ -53,9 +53,6 @@
 	  tags-completion-table)
     (find-tag (ido-completing-read "Tag: " tag-names))))
 
-(defvar crs-hated-buffers
-  '("KILL" "*Compile-Log*"))
-
 (setq completion-ignored-extensions
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
         ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
