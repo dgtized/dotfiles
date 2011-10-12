@@ -78,9 +78,8 @@
 (autoload 'mode-compile-kill "mode-compile"
   "Command to kill a compilation launched by `mode-compile'" t)
 (global-set-key "\C-cc" 'mode-compile)
+(global-set-key [f5] 'mode-compile)
 (global-set-key "\C-ck" 'mode-compile-kill)
-(setq emacs-lisp-sources-regexp "\\.el$\\|\\.emacs$")
-;(global-set-key [f5] 'smart-compile)
 
 (defun auto-recompile-el-buffer ()
   (interactive)
