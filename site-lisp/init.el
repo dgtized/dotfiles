@@ -238,9 +238,7 @@
 ;; make highlight standard /etc files
 (require 'generic)
 (require 'generic-x)
-
 (require 'page-ext)
-(require 'recentf)
 
 (autoload 'dna-mode "dna-mode" "Major mode for dna" t)
 (add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
