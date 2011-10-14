@@ -71,10 +71,6 @@ else
 fi
 export LDFLAGS=-L$HOME/usr/lib
 
-if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
-    . $DOTC_DIR/bashrc-$DOTC_NAME
-fi
-
 export HOSTFILE=$DOTC_DIR/hosts
 
 export OUTPUT_OPTION=""
@@ -86,6 +82,10 @@ shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/nu
 
 if [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
+fi
+
+if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
+    . $DOTC_DIR/bashrc-$DOTC_NAME
 fi
 
 if which keychain > /dev/null; then
