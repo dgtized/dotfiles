@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if [ -d ${HOME}/pcr_pipeline/bin ]; then
-   pathmunge ${HOME}/pcr_pipeline/bin
-fi
-
-pathmunge /var/lib/gems/1.8/bin
+pathmunge ${HOME}/pcr_pipeline/bin
 
 export PERL5LIB=$HOME/bioperl:$HOME/annotation_pipeline/lib:$PERL5LIB
 #export RUBYLIB=$HOME/usr/lib/:/usr/lib/ruby/site_ruby/1.8/
@@ -15,11 +11,8 @@ export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 export M2_HOME="/usr/share/maven2/"
 
 export GRAILS_HOME=$HOME/code/grails-core
-if [[ -d ${GRAILS_HOME} ]]; then
-    pathmunge ${GRAILS_HOME}/bin
-fi
+pathmunge ${GRAILS_HOME}/bin
 
 export JRUBY_HOME=/opt/jruby
-if [[ -d ${JRUBY_HOME} ]]; then
-    pathmunge ${JRUBY_HOME}/bin
-fi
+pathmunge ${JRUBY_HOME}/bin
+

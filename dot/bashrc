@@ -18,7 +18,7 @@ source $DOTC_DIR/aliases
 source $DOTC_DIR/color-bash
 
 pathmunge () {
-    if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+    if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" && test -d $1; then
         if [ "$2" = "after" ] ; then
             PATH=$PATH:$1
         else
