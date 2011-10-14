@@ -1,8 +1,6 @@
 #!/bin/bash
 
-alias apt-install="sudo apt-get install"
-
-alias forward-mysql="ssh -L 9306:mysql.mblab.wustl.edu:3306 zest"
+alias apti="sudo aptitude install"
 
 if [ -d ${HOME}/pcr_pipeline/bin ]; then
    pathmunge ${HOME}/pcr_pipeline/bin
@@ -10,17 +8,15 @@ fi
 
 pathmunge /var/lib/gems/1.8/bin
 
-export PERL5LIB=${HOME}/bioperl:${HOME}/annotation_pipeline/lib:${PERL5LIB}
+export PERL5LIB=$HOME/bioperl:$HOME/annotation_pipeline/lib:$PERL5LIB
 #export RUBYLIB=$HOME/usr/lib/:/usr/lib/ruby/site_ruby/1.8/
 export GEM_HOME=$HOME/usr/lib/ruby/gems
 export GEM_PATH=$HOME/usr/lib/ruby/gems:/var/lib/gems/1.8/
 
-alias fmvn="mvn -Dmaven.test.skip=true"
-
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 export M2_HOME="/usr/share/maven2/"
 
-export GRAILS_HOME=${HOME}/code/grails-core
+export GRAILS_HOME=$HOME/code/grails-core
 if [[ -d ${GRAILS_HOME} ]]; then
     pathmunge ${GRAILS_HOME}/bin
 fi
@@ -28,9 +24,4 @@ fi
 export JRUBY_HOME=/opt/jruby
 if [[ -d ${JRUBY_HOME} ]]; then
     pathmunge ${JRUBY_HOME}/bin
-fi
-
-export GLASSFISH_HOME=${HOME}/usr/glassfish3/glassfish
-if [[ -d ${GLASSFISH_HOME} ]]; then
-    pathmunge ${GLASSFISH_HOME}/bin
 fi
