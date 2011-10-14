@@ -1,7 +1,5 @@
 #!/bin/bash
 
-alias apti="sudo aptitude install"
-
 if [ -d ${HOME}/pcr_pipeline/bin ]; then
    pathmunge ${HOME}/pcr_pipeline/bin
 fi
