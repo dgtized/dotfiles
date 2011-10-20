@@ -7,8 +7,7 @@
 (setq ido-enable-flex-matching t ;; enable fuzzy matching
       ido-case-fold t
       ido-create-new-buffer 'always
-      ido-use-virtual-buffers t
-      ido-use-filename-at-point t)
+      ido-use-virtual-buffers t)
 
 (require 'find-file-in-project)
 (dolist (pattern '("*.css" "*.groovy" "*.java" "*.sql"
