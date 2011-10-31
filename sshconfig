@@ -1,0 +1,17 @@
+Host sandbox
+     HostName sandbox.adjudica.net
+     RemoteForward 1983 localhost:8080
+
+Host vm1
+     HostName vm1.adjudica.net
+     LocalForward 7071 localhost:7071
+
+Host vm2
+     HostName vm2.adjudica.net
+     LocalForward 8081 localhost:8081
+
+Host *
+     ForwardAgent yes
+     Compression yes
+     ForwardX11 yes
+     User clgc
