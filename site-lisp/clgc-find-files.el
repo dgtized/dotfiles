@@ -10,8 +10,10 @@
       ido-use-virtual-buffers t)
 
 (require 'find-file-in-project)
-(dolist (pattern '("*.css" "*.groovy" "*.java" "*.sql" "*.less"
-                   "*rc" "*.gsp" "*.xml" "*.properties"))
+(dolist (pattern '("*.css" "*.less" "*.gsp"
+                   "*.groovy" "*.java"
+                   "*.sh" "*rc"
+                   "*.sql" "*.xml" "*.properties"))
   (add-to-list 'ffip-patterns pattern t))
 
 (setq ffip-limit 768)
