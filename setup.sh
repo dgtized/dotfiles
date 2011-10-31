@@ -12,8 +12,8 @@ EOF
         ln -sfv $dot $HOME/.`basename $dot`
     done
 
-    if [[ -d ~/.subversion ]]; then
-        ln -sfv ${DOTC_DIR}/svn-config ~/.subversion/config
+    if [[ -d $HOME/.subversion ]]; then
+        ln -sfv ${DOTC_DIR}/svn-config $HOME/.subversion/config
     fi
 
     # setup fonts for emacs correctly
@@ -24,18 +24,15 @@ EOF
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh
     touch ~/.ssh/authorized_keys
-    ln -sfv ${DOTC_DIR}/sshconfig ${HOME}/.ssh/config
-    chmod 600 ${HOME}/.ssh/{authorized_keys,config}
+    ln -sfv ${DOTC_DIR}/sshconfig $HOME/.ssh/config
+    chmod 600 $HOME/.ssh/{authorized_keys,config}
 
     # These happen here so they happen after setup.sh reload
     git submodule update --init
 
-    pushd site-lisp
     setup_emacs
-    popd
 
     mkdir -pv $HOME/.bashist
-
     mkdir -pv $HOME/usr/bin
     for script in `find ${DOTC_DIR}/scripts -type f`; do
         ln -sfv $script $HOME/usr/bin;
@@ -45,20 +42,11 @@ EOF
 }
 
 function setup_emacs () {
+    pushd site-lisp
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L . -L vendor/groovy -batch -f batch-byte-compile \
         *.el vendor/**/*.el 2>&1) > compile.log
-}
-
-function valid_name () {
-    until [[ $DOTC_NAME == "bio" ||
-             $DOTC_NAME == "gentoo" ||
-             $DOTC_NAME == "debian" ||
-             $DOTC_NAME == "dreamhost" ]]; do
-        echo "DOTC_NAME cannot be [$DOTC_NAME], what is it? "
-        read -e var
-        eval "DOTC_NAME=\$var;"
-    done
+    popd
 }
 
 if [[ $# -ne 1 ]]; then
@@ -105,12 +93,10 @@ if [[ -d $DOTC_DIR ]]; then
         unset branch
 
         test -e $DOTC_CONFIG && source $DOTC_CONFIG
-        valid_name
         echo "Reloading setup.sh in case of remote change"
         exec ./setup.sh ${DOTC_NAME}
     fi
 
-    valid_name
     source color-bash
 
     main # now that we know everything will get cleaned up
