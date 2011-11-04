@@ -27,6 +27,7 @@
 (require 'clgc-javascript)
 (require 'clgc-lisp)
 (require 'clgc-find-files)
+(require 'clgc-eshell)
 
 (setq inhibit-startup-screen t
       line-number-mode t
@@ -214,6 +215,7 @@
 (autoload 'magit-status "magit" "Load git SCM commands." t)
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key [f6] 'magit-status)
+(global-set-key [f8] 'eshell)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
