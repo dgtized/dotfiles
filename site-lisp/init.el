@@ -19,6 +19,9 @@
 
 (setenv "PAGER" "/bin/cat") ;; disable pager
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
 (require 'cl)
 
 (require 'clgc-elpa)
