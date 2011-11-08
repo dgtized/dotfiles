@@ -30,6 +30,7 @@
 (require 'clgc-javascript)
 (require 'clgc-lisp)
 (require 'clgc-find-files)
+(require 'starter-kit-eshell)
 
 (setq inhibit-startup-screen t
       line-number-mode t
