@@ -8,15 +8,9 @@ git clone comstocl@dgtized.net:git/home-config.git .home-config
 sudo aptitude install build-essential
 
 # emacs
-sudo aptitude build-dep emacs23
-mkdir code && cd code # or copy over existing code directory
-git clone git://repo.or.cz/emacs.git
-cd emacs
-./autogen.sh && ./configure --prefix=$HOME/usr
-make bootstrap && make && make install
-cd
-# to make sure the packages download/compile correctly
-emac &
+sudo add-apt-repository ppa:cassou/emacs
+sudo aptitude install emacs-snapshot-{gtk,el}
+
 ~/.home-config/setup.sh up
 
 # packages: libm17n-dev libgnutls-dev libgconf2-dev
