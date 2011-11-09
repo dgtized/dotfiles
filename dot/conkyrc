@@ -27,52 +27,80 @@ alignment top_right
 background yes
 border_width 2
 cpu_avg_samples 2
-default_color white
+default_color cornflowerblue
 default_outline_color white
 default_shade_color white
+double_buffer yes
 draw_borders no
 draw_graph_borders yes
 draw_outline no
 draw_shades no
 use_xft yes
-xftfont DejaVu Sans Mono:size=10
-gap_x 5
-gap_y 60
-minimum_size 5 5
+xftfont Bitstream Vera Sans Mono:size=9
+xftalpha 0.8
+gap_x 15
+gap_y 45
+max_port_monitor_connections 64
+max_specials 512
+max_user_text 16384
+minimum_size 330,10
+maximum_width 330
 net_avg_samples 2
 no_buffers yes
 out_to_console no
 out_to_stderr no
 extra_newline no
 own_window yes
+own_window_colour black
 own_window_class Conky
 own_window_type desktop
-own_window_transparent yes
-stippled_borders 0
-update_interval 1.0
+own_window_transparent no
+stippled_borders 2
+update_interval 2
 uppercase no
-use_spacer none
+use_spacer yes
 show_graph_scale no
 show_graph_range no
 
 TEXT
-$nodename - $sysname $kernel $machine
-$hr
-${color grey}Uptime:$color $uptime
-${color grey}Frequency (in MHz):$color $freq
-${color grey}Frequency (in GHz):$color $freq_g
-${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
-${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
-${color grey}CPU Usage:$color $cpu% ${cpubar 4}
-${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
-$hr
-${color grey}File systems:
- / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
-${color grey}Networking:
-Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
-$hr
-${color grey}Name              PID   CPU%   MEM%
-${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
-${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
-${color lightgrey} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
-${color lightgrey} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color #0077ff}$nodename     ${alignc}$sysname $kernel ${alignr}$color${time %l:%M:%p}
+
+${color #0077ff}Load:$color $loadavg     ${color #0077ff}Uptime:$color $uptime
+${color #0077ff}CPU:$color ${cpu}% ${color #0077ff}${cpubar 5,85}${color #0077ff}     Disk I/O: $color${diskio}
+${color #0077ff}${cpugraph 0 32,155 104E8B 0077ff -t} $alignr${color #0077ff}${diskiograph 32,155 104E8B 0077ff 750}
+${color #0077ff}RAM:$color  $memperc% $color$mem${color #0077ff}/${color}$memmax $alignr${color #0077ff}Swap:$color $swapperc% $color$swap${color #0077ff}/${color}$swapmax
+${color #0077ff}Procs:$color $processes ${color #0077ff}Run:$color $running_processes ${color #0077ff}Freq:${color} $freq_g Ghz
+${color #0077ff}Entropy: ${color}${entropy_avail}${color #0077ff}/${color}${entropy_poolsize} ${color #0077ff}${entropy_bar}
+${color #0077ff}File systems:
+ ${color #0077ff}/          $color${fs_used /}/${fs_size /}${alignr}${color #0077ff}${fs_bar 5,120 /}
+${if_mounted /media/HotswapData} ${color #0077ff}HotSwap    $color${fs_used /media/HotswapData}/${fs_size /media/HotswapData}${alignr}${color #0077ff}${fs_bar 5,120 /media/HotswapData}$endif
+
+${color #0077ff}Name              PID     CPU%   MEM%
+$color ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+$color ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+$color ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color #0077ff}Mem usage
+$color ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+$color ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+$color ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+$if_gw
+${color #0077ff}Interfaces:$color
+${if_up eth0} eth0  ${addr eth0}$endif
+${if_up wlan0} wlan0 ${addr wlan0} to ${wireless_essid wlan0} @ ${wireless_bitrate wlan0} $alignr${color #0077ff}${wireless_link_bar 5,40 wlan0}$endif
+
+${color #0077ff}Net Down:$color ${downspeed eth0} k/s      ${color #0077ff}Net Up:$color ${upspeed eth0} k/s
+${color #0077ff}${downspeedgraph eth0 32,155 104E8B 0077ff} $alignr${color #0077ff}${upspeedgraph eth0 32,155 104E8B 0077ff}
+${color #0077ff}Port(s)${alignr}#Connections
+$color Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768 61000 count}${alignr} ALL: ${tcp_portmon 1 65535 count}
+${color #0077ff}Inbound Connection ${alignr} Local Service/Port$color
+ ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+ ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+ ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+ ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+ ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${color #0077ff}Outbound Connection ${alignr} Remote Service/Port$color
+ ${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+ ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+ ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+ ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+ ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}$endif
