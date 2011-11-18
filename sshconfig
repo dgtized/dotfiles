@@ -10,6 +10,9 @@ Host vm2
      HostName vm2.adjudica.net
      LocalForward 8081 localhost:8081
 
+Host nocturnal
+     HostName 24.107.184.225
+
 Host *
      ForwardAgent yes
      Compression yes
