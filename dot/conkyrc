@@ -85,8 +85,8 @@ $color ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 $color ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 $if_gw
 ${color #0077ff}Interfaces:$color
-${if_up eth0} eth0  ${addr eth0}$endif
-${if_up wlan0} wlan0 ${addr wlan0} to ${wireless_essid wlan0} @ ${wireless_bitrate wlan0} $alignr${color #0077ff}${wireless_link_bar 5,40 wlan0}$endif
+${if_up eth0} eth0  ${addr eth0}$endif${if_up eth1} eth1  ${addr eth1}$endif
+${if_up wlan0} wlan0 ${addr wlan0} to ${wireless_essid wlan0} @ ${wireless_bitrate wlan0} $alignr${color #0077ff}${wireless_link_bar 5,40 wlan0}$endif${if_up wlan1} wlan1 ${addr wlan1} to ${wireless_essid wlan1} @ ${wireless_bitrate wlan1} $alignr${color #0077ff}${wireless_link_bar 5,40 wlan1}$endif
 
 ${color #0077ff}Net Down:$color ${downspeed eth0} k/s      ${color #0077ff}Net Up:$color ${upspeed eth0} k/s
 ${color #0077ff}${downspeedgraph eth0 32,155 104E8B 0077ff} $alignr${color #0077ff}${upspeedgraph eth0 32,155 104E8B 0077ff}
