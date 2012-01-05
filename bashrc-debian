@@ -13,6 +13,6 @@ export M2_HOME="/usr/share/maven2/"
 export GRAILS_HOME=$HOME/code/grails-core
 pathmunge ${GRAILS_HOME}/bin
 
-export JRUBY_HOME=/opt/jruby
-pathmunge ${JRUBY_HOME}/bin
+#export JRUBY_HOME=/opt/jruby
+#pathmunge ${JRUBY_HOME}/bin
 
