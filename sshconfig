@@ -8,7 +8,13 @@ Host vm1
 
 Host vm2
      HostName vm2.adjudica.net
+     # jmx and insight respectively
+     LocalForward 6969 localhost:6969 
      LocalForward 8081 localhost:8081
+
+Host vm3
+     HostName vm3.adjudica.net
+     # LocalForward 7071 localhost:7071
 
 Host nocturnal
      HostName 24.107.184.225
