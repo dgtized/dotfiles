@@ -18,6 +18,7 @@ Host vm3
 
 Host nocturnal
      HostName 24.107.184.225
+     #HostName nocturnal.uk.to
 
 # proxy host1 through sandbox
 Host host1
