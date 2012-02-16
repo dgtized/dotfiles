@@ -22,7 +22,7 @@ EOF
     fi
 
     # ssh related config
-    mkdir -pv -m 700 $HOME/.ssh
+    mkdir -pv -m 700 $HOME/.ssh/control
     touch ~/.ssh/authorized_keys
     ln -sfv ${DOTC_DIR}/sshconfig $HOME/.ssh/config
     chmod 600 $HOME/.ssh/{authorized_keys,config}
