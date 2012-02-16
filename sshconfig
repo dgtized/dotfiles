@@ -19,6 +19,11 @@ Host vm3
 Host nocturnal
      HostName 24.107.184.225
 
+# proxy host1 through sandbox
+Host host1
+     ProxyCommand ssh -q sandbox nc -q0 host1.adjudica.hostirian.com 22
+     User root
+
 Host *
      ForwardAgent yes
      Compression yes
