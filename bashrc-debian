@@ -16,3 +16,6 @@ pathmunge ${GRAILS_HOME}/bin
 #export JRUBY_HOME=/opt/jruby
 #pathmunge ${JRUBY_HOME}/bin
 
+if [[ -f $HOME/.ec2/env.sh ]]; then
+    . $HOME/.ec2/env.sh
+fi
