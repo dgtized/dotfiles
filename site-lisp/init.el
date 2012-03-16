@@ -322,6 +322,7 @@
                 ("\\.ya?ml$"      . yaml-mode)
                 ("\\.sass$"       . sass-mode)
                 ("\\.ha?ml$"      . haml-mode)
+                ("\\.md$"         . markdown-mode)
 
                 ;;("\\.java$"       . malabar-mode)
                 ("\\.js$"         . js2-mode)))
