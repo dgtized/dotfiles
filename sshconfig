@@ -20,6 +20,10 @@ Host nocturnal
      HostName nocturnal.uk.to
      #HostName nocturnal.uk.to
 
+Host vagrant
+     HostName vagrant.adjudica.net
+     LocalForward 1443 localhost:443
+
 # proxy host1 through sandbox
 Host host1
      ProxyCommand ssh -q sandbox nc -q0 host1.adjudica.hostirian.com 22
