@@ -7,17 +7,17 @@
 
 (defvar clgc-packages
   (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode 'less-css-mode
-        'magit 'clojure-mode 'clojure-test-mode 'paredit
+        'magit 'gist 'org
+        'clojure-mode 'clojure-test-mode 'paredit
         'find-file-in-project 'graphviz-dot-mode 'mode-compile
-        'color-theme 'zenburn
+        'color-theme 'zenburn 'color-theme-solarized
         'starter-kit-eshell))
 
 (defun starter-kit-elpa-install ()
   "Install all starter-kit packages that aren't installed."
   (interactive)
   (dolist (package clgc-packages)
-    (unless (or (member package package-activated-list)
-                (functionp package))
+    (when (not (package-installed-p package))
       (message "Installing %s" (symbol-name package))
       (package-install package))))
 
