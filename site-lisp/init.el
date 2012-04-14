@@ -328,6 +328,6 @@
                 ("\\.js$"         . js2-mode)))
   (add-to-list 'auto-mode-alist mode))
 
-(color-theme-solarized-light)
+(color-theme-zenburn)
 
 (load custom-file 'noerror)
