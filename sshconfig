@@ -14,6 +14,7 @@ Host vm2
 
 Host vm3
      HostName vm3.adjudica.net
+     LocalForward 3443 localhost:443
      # LocalForward 7071 localhost:7071
 
 Host nocturnal
