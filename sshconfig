@@ -19,7 +19,6 @@ Host vm3
 
 Host nocturnal
      HostName nocturnal.uk.to
-     #HostName nocturnal.uk.to
 
 Host vagrant
      HostName vagrant.adjudica.net
@@ -36,6 +35,9 @@ Host host1
      LocalForward *:5905 localhost:5905
      LocalForward *:5906 localhost:5906
      User root
+
+Host gateway
+     HostName gateway.adjudica.net
 
 Host *
      ForwardAgent yes
