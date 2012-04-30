@@ -48,3 +48,5 @@ Host *
      ControlPath ~/.ssh/control/%r@%h:%p
      ControlMaster auto
      ControlPersist 60
+     ServerAliveCountMax 4
+     ServerAliveInterval 15
