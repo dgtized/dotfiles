@@ -6,7 +6,9 @@
  '(js2-auto-indent-p t)
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
- '(js2-use-ast-for-indentation-p t))
+ '(js2-use-ast-for-indentation-p t)
+ '(magit-default-tracking-name-function (quote magit-default-tracking-name-branch-only))
+ '(magit-set-upstream-on-push (quote dontask)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
