@@ -34,21 +34,6 @@
   ;;                                                (match-end 1) "ƒ")
   ;;                                nil))))))
 
-  (defun lein-swank ()
-    (interactive)
-    (let ((root (locate-dominating-file default-directory "project.clj")))
-      (when (not root)
-        (error "Not in a Leiningen project."))
-      ;; you can customize slime-port using .dir-locals.el
-      (shell-command (format "cd %s && lein swank &" root)
-                     "*lein-swank*")
-      (set-process-filter (get-buffer-process "*lein-swank*")
-                          (lambda (process output)
-                            (when (string-match "Connection opened on" output)
-                              (slime-connect "localhost" slime-port)
-                              (set-process-filter process nil))))
-      (message "Starting swank server...")))
-
   (eval-after-load 'clojure-mode
     (add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)))
 
