@@ -17,7 +17,7 @@
                    "*.sql" "*.xml" "*.properties"))
   (add-to-list 'ffip-patterns pattern t))
 
-(setq ffip-limit 768)
+(setq ffip-limit 1024)
 
 ;; override ffip-join-patterns to wrap output in a single group
 ;; so that -and -not actually works for filtering
