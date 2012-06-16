@@ -284,9 +284,13 @@
             (setq c-basic-offset 4)
             (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
-;(require 'auto-complete-config)
-;(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
-;(ac-config-default)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
+(ac-config-default)
+
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 (defun eclim nil
   (interactive)
