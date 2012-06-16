@@ -24,8 +24,10 @@
     ;; need a binding that works in the terminal
     '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
-  (dolist (mode '(scheme emacs-lisp lisp clojure))
-    (add-hook (intern (concat (symbol-name mode) "-mode-hook")) (lambda () (paredit-mode t))))
+  (dolist (mode '(scheme emacs-lisp lisp clojure
+                         inferior-lisp slime slime-repl))
+    (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
+              (lambda () (paredit-mode t))))
 
   ;; (eval-after-load 'clojure-mode
   ;;   '(font-lock-add-keywords
