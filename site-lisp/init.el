@@ -231,6 +231,8 @@
 (global-set-key (kbd "C-.") 'find-file-in-project)
 (global-set-key (kbd "C-,") 'find-grep-in-project)
 
+(global-set-key "\M-T" 'transpose-sexps)
+
 ;; Ediff
 ;(eval-after-load 'ediff
 ;  (setq ediff-split-window-function 'split-window-horizontally))
