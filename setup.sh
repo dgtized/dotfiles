@@ -45,7 +45,7 @@ function setup_emacs () {
     pushd site-lisp
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
     (emacs -L . -L vendor/groovy -batch -f batch-byte-compile \
-        *.el vendor/**/*.el 2>&1) > compile.log
+        vendor/**/*.el 2>&1) > compile.log
     popd
 }
 
