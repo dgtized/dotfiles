@@ -27,16 +27,6 @@
   (dolist (mode '(scheme emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl))
     (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              (lambda () (paredit-mode t))))
-
-  ;; (eval-after-load 'clojure-mode
-  ;;   '(font-lock-add-keywords
-  ;;     'clojure-mode `(("(\\(fn\\>\\)"
-  ;;                      (0 (progn (compose-region (match-beginning 1)
-  ;;                                                (match-end 1) "ƒ")
-  ;;                                nil))))))
-
-  (eval-after-load 'clojure-mode
-    (add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)))
+              'paredit-mode)))
 
 (provide 'clgc-lisp)
