@@ -1,3 +1,4 @@
+(require 'cl)
 (require 'package)
 
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
@@ -54,8 +55,5 @@ just have to assume it's online."
       (let (emacs-lisp-mode-hook)
         (update-directory-autoloads autoload-dir))))
   (load autoload-file))
-
-(autoload 'paredit-mode "paredit" "" t)
-(autoload 'yaml-mode "yaml-mode" "" t)
 
 (provide 'clgc-elpa)
