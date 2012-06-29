@@ -41,7 +41,6 @@ Host gateway
 
 Host *.adjulocal
      Proxycommand ssh -q gateway nc -q0 %h 22
-     User clgc
 
 Host *
      ForwardAgent yes
