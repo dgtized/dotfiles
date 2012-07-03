@@ -8,8 +8,12 @@ export DOTC_DIR=$DOTC_DIR
 export DOTC_NAME=$DOTC_NAME
 EOF
 
+    for dotdir in `find $DOTC_DIR/dot/ -type d`; do
+        mkdir -pv ${dotdir#dot/}
+    done
+
     for dot in `find $DOTC_DIR/dot -type f`; do
-        ln -sfv $dot $HOME/.`basename $dot`
+        ln -sfv $dot $HOME/.${dot#dot/}
     done
 
     if [[ -d $HOME/.subversion ]]; then
