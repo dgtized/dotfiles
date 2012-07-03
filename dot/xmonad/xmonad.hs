@@ -7,4 +7,8 @@ myManageHook = composeAll (
     , className =? "Unity-2d-shell" --> doFloat
     ])
 
-main = xmonad gnomeConfig { manageHook = myManageHook }
+main = xmonad gnomeConfig {
+     -- use windows as mod instead of meta
+     modMask = mod4Mask,
+     manageHook = myManageHook
+}
