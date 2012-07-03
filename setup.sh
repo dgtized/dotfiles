@@ -35,6 +35,9 @@ EOF
     git submodule update --init
 
     setup_emacs
+    if [[ -e /usr/bin/xmonad ]]; then
+        xmonad --recompile
+    fi
 
     mkdir -pv $HOME/.bashist
     mkdir -pv $HOME/usr/bin

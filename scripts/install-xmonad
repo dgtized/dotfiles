@@ -1,0 +1,24 @@
+#!/bin/bash -ex
+
+sudo aptitude install xmonad
+
+xmonad --recompile
+
+cat <<EOF | sudo tee /usr/share/gnome-session/sessions/xmonad.session
+[GNOME Session]
+Name=Xmonad Unity
+RequiredComponents=gnome-settings-daemon;unity-2d-panel;unity-2d-shell
+RequiredProviders=windowmanager
+DefaultProvider-windowmanager=xmonad
+DefaultProvider-panel=unity-2d-panel
+DefaultProvider-launcher=unity-2d-launcher
+EOF
+
+cat <<EOF | sudo tee /usr/share/xsessions/xmonad-unity-session.desktop
+[Desktop Entry]
+Name=XMonad Unity
+Comment=Tiling window manager
+TryExec=/usr/bin/gnome-session
+Exec=gnome-session --session=xmonad
+Type=XSession
+EOF
