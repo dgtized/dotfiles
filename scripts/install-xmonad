@@ -7,11 +7,11 @@ xmonad --recompile
 cat <<EOF | sudo tee /usr/share/gnome-session/sessions/xmonad.session
 [GNOME Session]
 Name=Xmonad Unity
-RequiredComponents=gnome-settings-daemon;unity-2d-panel;unity-2d-shell
-RequiredProviders=windowmanager
+RequiredComponents=gnome-settings-daemon
+RequiredProviders=windowmanager;panel
 DefaultProvider-windowmanager=xmonad
 DefaultProvider-panel=unity-2d-panel
-DefaultProvider-launcher=unity-2d-launcher
+FallbackSession=ubuntu-2d
 EOF
 
 cat <<EOF | sudo tee /usr/share/xsessions/xmonad-unity-session.desktop
