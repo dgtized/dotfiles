@@ -8,6 +8,7 @@
 
 (defvar clgc-packages
   (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode 'less-css-mode
+        'markdown-mode
         'magit 'gist 'org
         'auto-complete 'ac-slime
         'clojure-mode 'clojure-test-mode 'paredit
