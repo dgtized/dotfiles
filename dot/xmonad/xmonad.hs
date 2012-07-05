@@ -1,8 +1,7 @@
 import XMonad
 import XMonad.Config.Gnome
-import XMonad.Actions.PhysicalScreens
+import XMonad.Actions.CycleWS
 import qualified Data.Map as M
-import qualified XMonad.StackSet as W
 
 myManageHook = composeAll (
     [ manageHook gnomeConfig
@@ -19,6 +18,8 @@ main = xmonad gnomeConfig {
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             [ ((modm, xK_p), spawn "dmenu_run -b -l 3" )
-            , ((modm, xK_o), onNextNeighbour W.view)
-            , ((modm .|. shiftMask, xK_o), onNextNeighbour W.shift)
+            , ((modm, xK_o), nextScreen)
+            , ((modm .|. shiftMask, xK_o), shiftNextScreen)
+            , ((modm, xK_semicolon), toggleWS)
+            , ((modm, xK_quoteright), moveTo Next HiddenNonEmptyWS)
             ]
