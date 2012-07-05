@@ -17,7 +17,7 @@ main = xmonad gnomeConfig {
 }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
-            [ ((modm, xK_p), spawn "dmenu_run -b -l 3" )
+            [ ((modm, xK_p), spawn "dmenu_run -b" )
             , ((modm, xK_o), nextScreen)
             , ((modm .|. shiftMask, xK_o), shiftNextScreen)
             , ((modm, xK_semicolon), toggleWS)
