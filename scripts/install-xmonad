@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-sudo aptitude install xmonad
+sudo aptitude install xmonad dmenu
 
 xmonad --recompile
 
