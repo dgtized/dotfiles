@@ -42,7 +42,7 @@ sudo aptitude install maven2
 
 sudo add-apt-repository ppa:pitti/postgresql
 sudo aptitude update
-sudo aptitude install postgresql-9.0 libpq-dev pgAdmin3
+sudo aptitude install postgresql-9.1 libpq-dev pgAdmin3
 
 # to dump all with roles
 # pg_dumpall > adjudica.psql.gz
@@ -57,3 +57,9 @@ sudo aptitude install postgresql-9.0 libpq-dev pgAdmin3
 # psql -f adjudica.psql postgres
 
 # git clone git@github.com:adjudicallc/Adjudica.git adjudica
+
+sudo add-apt-repository ppa:leolik/leolik
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install libnotify-bin
+pkill notify-osd
