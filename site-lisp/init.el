@@ -305,6 +305,10 @@
         ;; (normal-erase-is-backspace-mode)
         ))
 
+(autoload 'org-tree-slide-mode "org-tree-slide" t)
+(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
+(global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
+
 ;; setup audo modes
 (dolist (mode '(("\\.C$"          . c++-mode)
                 ("\\.cc$"         . c++-mode)
