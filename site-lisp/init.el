@@ -81,9 +81,6 @@
   "Command to compile current buffer file based on the major mode" t)
 (autoload 'mode-compile-kill "mode-compile"
   "Command to kill a compilation launched by `mode-compile'" t)
-(global-set-key "\C-cc" 'mode-compile)
-(global-set-key [f5] 'mode-compile)
-(global-set-key "\C-ck" 'mode-compile-kill)
 
 (setq compilation-ask-about-save nil)
 (setq compilation-read-command t)
@@ -203,35 +200,10 @@
                              (if (boundp 'old-fullscreen) old-fullscreen nil)
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
-(global-set-key [f11] 'toggle-fullscreen)
-
-(global-set-key "\C-xO" (lambda () (interactive) (other-window -1)))
-(global-set-key "\C-xp" (lambda () (interactive) (other-window -1)))
-
-(global-set-key "\C-xE" 'apply-macro-to-region-lines)
-
-;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
-(global-set-key "\C-c7" 'ucs-insert)
 
 (autoload 'svn-status "psvn" "Load subversion SCM commands." t)
 
 (autoload 'magit-status "magit" "Load git SCM commands." t)
-(global-set-key "\C-xg" 'magit-status)
-(global-set-key [f6] 'magit-status)
-(global-set-key [f8] 'eshell)
-
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
-(global-set-key "\C-cw" 'whitespace-cleanup)
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
-
-(global-set-key [remap find-tag] 'ido-find-tag)
-(global-set-key (kbd "C-.") 'find-file-in-project)
-(global-set-key (kbd "C-,") 'find-grep-in-project)
-
-(global-set-key "\M-T" 'transpose-sexps)
 
 ;; Ediff
 ;(eval-after-load 'ediff
@@ -306,8 +278,6 @@
         ))
 
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
-(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
-(global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
 
 ;; setup audo modes
 (dolist (mode '(("\\.C$"          . c++-mode)
@@ -338,6 +308,7 @@
                 ("\\.js$"         . js2-mode)))
   (add-to-list 'auto-mode-alist mode))
 
+(require 'clgc-key-bindings)
 (color-theme-zenburn)
 
 (load custom-file 'noerror)
