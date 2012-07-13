@@ -76,6 +76,8 @@
 (global-font-lock-mode t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+(setq delete-by-moving-to-trash t)
+
 (require 'mode-compile)
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
