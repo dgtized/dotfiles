@@ -9,12 +9,15 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t)
 
+(add-to-list 'ido-ignore-directories "target")
+
 (require 'find-file-in-project)
 (dolist (pattern '("*.css" "*.less" "*.gsp" "*.erb"
                    "*.groovy" "*.java" "*.clj"
                    "*.json" "*.js"
                    "*.sh" "*rc" "*.rb"
-                   "*.sql" "*.xml" "*.properties"))
+                   "*.sql" "*.xml" "*.properties"
+                   "*.md" "*README*" "*.org"))
   (add-to-list 'ffip-patterns pattern t))
 
 (setq ffip-limit 1024)
