@@ -32,4 +32,6 @@
 (global-set-key [f5] 'mode-compile)
 (global-set-key "\C-ck" 'mode-compile-kill)
 
+(windmove-default-keybindings)
+
 (provide 'clgc-key-bindings)
