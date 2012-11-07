@@ -15,6 +15,9 @@
   (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
   (define-key emacs-lisp-mode-map (kbd "C-c v") 'eval-buffer)
 
+  (add-to-list 'load-path "~/code/4clj-el")
+  (autoload 4clojure-problem "four-clj" "4Clojure-Mode" t)
+
 ;;; Enhance Lisp Modes
 
   (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
