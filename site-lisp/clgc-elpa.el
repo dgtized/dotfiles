@@ -10,8 +10,8 @@
   (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode 'less-css-mode
         'markdown-mode
         'magit 'gist 'org
-        'auto-complete 'ac-slime
-        'clojure-mode 'clojure-test-mode 'paredit
+        'auto-complete 'ac-nrepl 'fuzzy
+        'clojure-mode 'clojure-test-mode 'paredit 'nrepl
         'find-file-in-project 'graphviz-dot-mode 'mode-compile
         'color-theme 'zenburn 'color-theme-solarized
         'starter-kit-eshell))

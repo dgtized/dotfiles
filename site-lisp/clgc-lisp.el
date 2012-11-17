@@ -1,5 +1,3 @@
-
-
 (progn
   (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'auto-recompile-el-buffer)
@@ -15,11 +13,6 @@
   (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
   (define-key emacs-lisp-mode-map (kbd "C-c v") 'eval-buffer)
 
-  (add-to-list 'load-path "~/code/4clj-el")
-  (autoload '4clojure-problem "four-clj" "4Clojure-Mode" t)
-
-;;; Enhance Lisp Modes
-
   (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
   (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
@@ -28,8 +21,32 @@
     '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
   (dolist (mode '(scheme emacs-lisp lisp clojure
-                         inferior-lisp slime slime-repl))
+                         inferior-lisp slime slime-repl nrepl))
     (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              'paredit-mode)))
+              'paredit-mode)) ;;; Enhance Lisp Modes
+
+  ;; Clojure Specific
+  (add-to-list 'load-path "~/code/4clj-el")
+  (autoload '4clojure-problem "four-clj" "4Clojure-Mode" t)
+
+  (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
+  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+  (eval-after-load "auto-complete"
+    '(add-to-list 'ac-modes 'nrepl-mode))
+
+  (add-hook 'nrepl-interaction-mode-hook
+            'nrepl-turn-on-eldoc-mode)
+
+  ;; (defun set-auto-complete-as-completion-at-point-function ()
+  ;;   (setq completion-at-point-functions '(auto-complete)))
+  ;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+  ;; (add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+  ;; (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+  
+  )
+
 
 (provide 'clgc-lisp)
