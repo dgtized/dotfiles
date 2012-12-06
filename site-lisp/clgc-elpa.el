@@ -2,19 +2,21 @@
 (require 'package)
 
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")))
+                  ("elpa" . "http://tromey.com/elpa/")
+                  ("melpa" . "http://melpa.milkbox.net/packages/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
 
 (defvar clgc-packages
-  (list 'haml-mode 'yaml-mode 'sass-mode 'css-mode 'less-css-mode
-        'markdown-mode
-        'magit 'gist 'org
-        'auto-complete 'ac-nrepl 'fuzzy
-        'clojure-mode 'clojure-test-mode 'paredit 'nrepl
-        'find-file-in-project 'graphviz-dot-mode 'mode-compile
-        'color-theme 'zenburn 'color-theme-solarized
-        'starter-kit-eshell))
+  '(melpa
+    haml-mode yaml-mode sass-mode css-mode less-css-mode
+    markdown-mode
+    magit gist org
+    auto-complete ac-nrepl fuzzy
+    clojure-mode clojure-test-mode paredit nrepl nrepl-ritz
+    find-file-in-project graphviz-dot-mode mode-compile
+    color-theme zenburn color-theme-solarized
+    starter-kit-eshell))
 
 (defun starter-kit-elpa-install ()
   "Install all starter-kit packages that aren't installed."
