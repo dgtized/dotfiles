@@ -38,7 +38,7 @@
       auto-fill-default t
       c-basic-offset 4
       sgml-basic-offset 4
-      nxml-child-indent 4
+      nxml-child-indent 2
       visible-bell t
       require-final-newline t
       debug-on-error t
