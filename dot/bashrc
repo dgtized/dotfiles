@@ -57,8 +57,8 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 set HISTTIMEFORMAT
 
-pathmunge /var/lib/gems/1.8/bin
-pathmunge ${HOME}/.gem/ruby/1.8/bin
+#pathmunge /var/lib/gems/1.8/bin
+#pathmunge ${HOME}/.gem/ruby/1.8/bin
 pathmunge ${HOME}/usr/bin
 
 export CLASSPATH=.
@@ -102,3 +102,5 @@ fi
 unset pathmunge
 export PATH
 xset b off > /dev/null 2>&1
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
