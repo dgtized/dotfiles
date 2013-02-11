@@ -12,7 +12,7 @@
     haml-mode yaml-mode sass-mode css-mode less-css-mode
     markdown-mode
     magit gist org
-    auto-complete ac-nrepl fuzzy
+    auto-complete ac-nrepl fuzzy expand-region
     clojure-mode clojure-test-mode paredit nrepl nrepl-ritz
     find-file-in-project graphviz-dot-mode mode-compile
     color-theme zenburn color-theme-solarized
