@@ -306,6 +306,10 @@
                 ("\\.js$"         . js2-mode)))
   (add-to-list 'auto-mode-alist mode))
 
+;; FIXME: frequent problem with menubars without this required because
+;; of void-variable senator-kill-ring
+(require 'semantic/senator)
+
 (require 'clgc-key-bindings)
 (color-theme-zenburn)
 
