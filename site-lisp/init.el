@@ -311,6 +311,6 @@
 (require 'semantic/senator)
 
 (require 'clgc-key-bindings)
-(color-theme-zenburn)
+(load-theme 'zenburn)
 
 (load custom-file 'noerror)
