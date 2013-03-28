@@ -10,12 +10,13 @@
 (defvar clgc-packages
   '(melpa
     haml-mode yaml-mode sass-mode css-mode less-css-mode
-    markdown-mode
+    markdown-mode log4j-mode
     magit gist org
-    auto-complete ac-nrepl fuzzy expand-region
-    clojure-mode clojure-test-mode paredit nrepl nrepl-ritz
+    auto-complete fuzzy expand-region
+    clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl
+    paredit rainbow-delimiters
     find-file-in-project graphviz-dot-mode mode-compile
-    color-theme zenburn color-theme-solarized
+    color-theme zenburn-theme color-theme-solarized
     starter-kit-eshell))
 
 (defun starter-kit-elpa-install ()
