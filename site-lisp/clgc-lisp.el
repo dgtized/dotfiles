@@ -22,8 +22,10 @@
 
   (dolist (mode '(scheme emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl nrepl))
-    (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              'paredit-mode)) ;;; Enhance Lisp Modes
+    (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
+      (progn
+        (add-hook mode-hook 'paredit-mode)
+        (add-hook mode-hook 'rainbow-delimiters-mode)))) ;;; Enhance Lisp Modes
 
   (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
 
