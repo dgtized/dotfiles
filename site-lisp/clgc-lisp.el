@@ -25,7 +25,7 @@
     (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
               'paredit-mode)) ;;; Enhance Lisp Modes
 
-  ; (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
+  (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
 
   ;; Clojure Specific
   (add-to-list 'load-path "~/code/4clj-el")
