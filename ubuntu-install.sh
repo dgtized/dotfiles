@@ -63,3 +63,5 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install libnotify-bin
 pkill notify-osd
+
+sudo aptitude install git-flow
