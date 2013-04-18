@@ -10,7 +10,7 @@
 (defvar clgc-packages
   '(melpa
     haml-mode yaml-mode sass-mode css-mode less-css-mode
-    markdown-mode log4j-mode haskell-mode groovy-mode
+    markdown-mode log4j-mode haskell-mode
     magit gist org
     auto-complete fuzzy expand-region
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl
