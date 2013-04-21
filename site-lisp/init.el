@@ -1,4 +1,4 @@
- 
+
 (defconst dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
   "shell config directory")
@@ -303,7 +303,8 @@
                 ("\\.md$"         . markdown-mode)
 
                 ;;("\\.java$"       . malabar-mode)
-                ("\\.js$"         . js2-mode)))
+                ("\\.js$"         . js2-mode)
+                ("\\.cljs$"       . clojure-mode)))
   (add-to-list 'auto-mode-alist mode))
 
 ;; FIXME: frequent problem with menubars without this required because
