@@ -27,6 +27,14 @@ pathmunge () {
     fi
 }
 
+ediff () {
+    if test -d $1; then
+        emacsclient -c --eval "(ediff-directories \"$1\" \"$2\")"
+    else
+        emacsclient -c --eval "(ediff-files \"$1\" \"$2\")"
+    fi
+}
+
 #PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
 export PS1="\[$red\][\! \u@\h \w]$\[$NC\] "
 
