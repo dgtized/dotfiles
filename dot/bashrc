@@ -55,7 +55,7 @@ export HISTSIZE=1000 # Long history
 export HISTFILESIZE=10000 # Size of historyfile
 export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
-set HISTTIMEFORMAT
+export HISTTIMEFORMAT='%F_%T '
 
 #pathmunge /var/lib/gems/1.8/bin
 #pathmunge ${HOME}/.gem/ruby/1.8/bin
@@ -74,8 +74,7 @@ export LDFLAGS=-L$HOME/usr/lib
 export HOSTFILE=$DOTC_DIR/hosts
 
 export OUTPUT_OPTION=""
-#export EDITOR=emacsclient
-export EDITOR=vim
+export EDITOR=emacsclient
 
 set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
