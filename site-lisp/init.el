@@ -162,7 +162,6 @@
 (defun my-cperl-mode-hook ()
   (setq cperl-hairy t)
   ;(setq cperl-auto-newline t)
-  (outline-minor-mode)
   (setq cperl-electric-keywords nil)
   ;(define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
   ;(make-variable-buffer-local 'compile-command)
