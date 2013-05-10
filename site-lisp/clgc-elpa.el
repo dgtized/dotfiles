@@ -13,7 +13,7 @@
     markdown-mode log4j-mode dna-mode haskell-mode
     magit gist org
     auto-complete fuzzy expand-region
-    clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl
+    clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
     paredit rainbow-delimiters quack
     find-file-in-project graphviz-dot-mode mode-compile
     color-theme zenburn-theme color-theme-solarized
