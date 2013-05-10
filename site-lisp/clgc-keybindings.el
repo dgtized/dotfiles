@@ -39,4 +39,4 @@
 
 (windmove-default-keybindings)
 
-(provide 'clgc-key-bindings)
+(provide 'clgc-keybindings)

@@ -310,7 +310,7 @@
 ;; of void-variable senator-kill-ring
 (require 'semantic/senator)
 
-(require 'clgc-key-bindings)
+(require 'clgc-keybindings)
 
 (load custom-file 'noerror)
 (load-theme 'zenburn)
