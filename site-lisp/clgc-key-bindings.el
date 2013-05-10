@@ -20,6 +20,7 @@
 (global-set-key "\C-c:" 'uncomment-region)
 
 (global-set-key "\C-cr" 'rename-file-and-buffer)
+(global-set-key "\C-ct" 'visit-term-buffer)
 
 (global-set-key [remap find-tag] 'ido-find-tag)
 (global-set-key (kbd "C-.") 'find-file-in-project)
