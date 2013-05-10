@@ -14,7 +14,7 @@
     magit gist org
     auto-complete fuzzy expand-region
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl
-    paredit rainbow-delimiters
+    paredit rainbow-delimiters quack
     find-file-in-project graphviz-dot-mode mode-compile
     color-theme zenburn-theme color-theme-solarized
     starter-kit-eshell))
