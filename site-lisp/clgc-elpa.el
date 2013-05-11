@@ -7,7 +7,7 @@
   (add-to-list 'package-archives source t))
 (package-initialize)
 
-(defvar clgc-packages
+(setq clgc-packages
   '(melpa
     haml-mode yaml-mode sass-mode css-mode less-css-mode
     markdown-mode log4j-mode dna-mode haskell-mode
