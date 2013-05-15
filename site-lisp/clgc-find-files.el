@@ -68,7 +68,10 @@
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (setq version-control nil)
-(setq backup-directory-alist
-      (list (cons "." (expand-file-name "backups" user-emacs-directory))))
+(let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
+  (setq backup-directory-alist
+        `((".*" . ,backup-dir)))
+  (setq auto-save-file-name-transforms
+        `((".*" ,backup-dir t))))
 
 (provide 'clgc-find-files)
