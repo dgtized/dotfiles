@@ -46,6 +46,7 @@
 
   (eval-after-load "nrepl"
     '(progn (require 'nrepl-inspect)
-            (define-key nrepl-mode-map (kbd "C-c i") 'nrepl-inspect))))
+            (define-key nrepl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
+            (define-key nrepl-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
 
 (provide 'clgc-lisp)
