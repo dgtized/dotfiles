@@ -29,6 +29,8 @@
 
   (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
 
+  (add-hook 'nrepl-mode-hook 'subword-mode)
+
   ;; Clojure Specific
   (add-to-list 'load-path "~/code/4clj-el")
   (autoload '4clojure-problem "four-clj" "4Clojure-Mode" t)
