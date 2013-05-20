@@ -42,6 +42,10 @@
     '(add-to-list 'ac-modes 'nrepl-mode))
 
   (add-hook 'nrepl-interaction-mode-hook
-            'nrepl-turn-on-eldoc-mode))
+            'nrepl-turn-on-eldoc-mode)
+
+  (eval-after-load "nrepl"
+    '(progn (require 'nrepl-inspect)
+            (define-key nrepl-mode-map (kbd "C-c i") 'nrepl-inspect))))
 
 (provide 'clgc-lisp)

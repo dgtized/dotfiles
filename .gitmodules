@@ -4,3 +4,6 @@
 [submodule "site-lisp/vendor/groovy"]
 	path = site-lisp/vendor/groovy
 	url = https://github.com/emacsmirror/groovy-mode.git
+[submodule "site-lisp/vendor/javert"]
+	path = site-lisp/vendor/javert
+	url = git@github.com:technomancy/javert.git
