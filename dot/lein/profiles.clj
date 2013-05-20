@@ -10,5 +10,5 @@
   :repl-options {:nrepl-middleware
                  [inspector.middleware/wrap-inspect
                   ritz.nrepl.middleware.javadoc/wrap-javadoc
-                  ritz.nrepl.middleware.apropos/wrap-apropos]}
+                  ritz.nrepl.middleware.simple-complete/wrap-simple-complete]}
   :aliases {"slamhound" ["run" "-m" "slam.hound"]}}}
