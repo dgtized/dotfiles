@@ -314,4 +314,4 @@
 (require 'clgc-keybindings)
 
 (load custom-file 'noerror)
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
