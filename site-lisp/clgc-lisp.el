@@ -20,20 +20,20 @@
     ;; need a binding that works in the terminal
     '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
+  ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl nrepl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
         (add-hook mode-hook 'paredit-mode)
-        (add-hook mode-hook 'rainbow-delimiters-mode)))) ;;; Enhance Lisp Modes
-
-  (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
-
-  (add-hook 'nrepl-mode-hook 'subword-mode)
+        (add-hook mode-hook 'rainbow-delimiters-mode))))
 
   ;; Clojure Specific
   (add-to-list 'load-path "~/code/4clj-el")
   (autoload '4clojure-problem "four-clj" "4Clojure-Mode" t)
+
+  (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
+  (add-hook 'nrepl-mode-hook 'subword-mode)
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
   (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
