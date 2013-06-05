@@ -296,6 +296,7 @@
                 ("[Rr]akefile$"   . ruby-mode)
                 ("\\.gem$"        . ruby-mode)
                 ("\\.gemspec$"    . ruby-mode)
+                ("\\Gemfile$"     . ruby-mode)
 
                 ("\\.ya?ml$"      . yaml-mode)
                 ("\\.sass$"       . sass-mode)
