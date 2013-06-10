@@ -12,7 +12,7 @@
 (add-to-list 'ido-ignore-directories "target")
 
 (require 'find-file-in-project)
-(dolist (pattern '("*.css" "*.less" "*.gsp" "*.erb"
+(dolist (pattern '("*.css" "*.less" "*.gsp" "*.erb" "*.rabl"
                    "*.groovy" "*.java" "*.clj"
                    "*.json" "*.js"
                    "*.sh" "*rc" "*.rb"
