@@ -2,7 +2,7 @@
 
 sudo apt-get install aptitude git subversion openssh-server screen
 
-git clone comstocl@dgtized.net:git/home-config.git .home-config
+git clone ssh://git@bitbucket.org/dgtized/home-config.git .home-config
 ~/.home-config/setup.sh debian
 
 sudo aptitude install build-essential
@@ -31,9 +31,9 @@ sudo gem1.8 update --system
 sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
 
 # grails
-sudo add-apt-repository ppa:groovy-dev/grails
-sudo apt-get update
-sudo apt-get install grails
+# sudo add-apt-repository ppa:groovy-dev/grails
+# sudo apt-get update
+# sudo apt-get install grails
 
 # maven2
 sudo aptitude install maven2
@@ -64,4 +64,4 @@ sudo apt-get upgrade
 sudo apt-get install libnotify-bin
 pkill notify-osd
 
-sudo aptitude install git-flow
+sudo aptitude install git-flow exuberant-ctags
