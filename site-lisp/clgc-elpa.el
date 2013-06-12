@@ -17,6 +17,7 @@
     paredit rainbow-delimiters quack
     find-file-in-project graphviz-dot-mode mode-compile
     color-theme zenburn-theme color-theme-solarized
+    rvm inf-ruby
     starter-kit-eshell))
 
 (defun starter-kit-elpa-install ()
