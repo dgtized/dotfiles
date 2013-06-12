@@ -17,8 +17,7 @@
 
 (global-set-key (kbd "C-c j") 'just-one-space)
 (global-set-key "\C-cw" 'whitespace-cleanup)
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
+(global-set-key "\C-cq" 'comment-dwim)
 
 (global-set-key "\C-cr" 'rename-file-and-buffer)
 (global-set-key "\C-ct" 'visit-term-buffer)
