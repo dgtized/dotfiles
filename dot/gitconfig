@@ -6,3 +6,5 @@
 [alias]
 	co = checkout
 	st = status
+[push]
+	default = simple
