@@ -13,7 +13,9 @@
   ;;       '("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
   ;;(make-variable-buffer-local 'compile-command)
   ;;(setq compile-command (concat "ruby -w " (buffer-file-name) " "))
-  (local-set-key "\C-cr" 'ruby-eval-buffer)
+  ;; (local-set-key "\C-cr" 'ruby-eval-buffer)
+  (require 'rinari)
+  (global-rinari-mode)
 
   (c-add-style
    "ruby"

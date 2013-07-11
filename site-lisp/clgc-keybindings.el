@@ -19,7 +19,7 @@
 (global-set-key "\C-cw" 'whitespace-cleanup)
 (global-set-key "\C-cq" 'comment-dwim)
 
-(global-set-key "\C-cr" 'rename-file-and-buffer)
+(global-set-key "\C-cR" 'rename-file-and-buffer)
 (global-set-key "\C-ct" 'visit-term-buffer)
 (global-set-key "\C-cd" 'ediff-windows-linewise)
 (global-set-key "\C-cD" 'ediff-windows-wordwise)
