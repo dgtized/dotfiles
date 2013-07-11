@@ -41,3 +41,8 @@ alias remacs='`grep emacs ~/.screenrc`'
 alias more='less'
 alias vi=vim
 alias apti="sudo aptitude install"
+alias sane='stty sane'
+
+# intoximeters
+
+alias intoxlogin='http localhost:3000/session username=admin password=password --session admin'
