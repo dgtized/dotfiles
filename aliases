@@ -45,4 +45,4 @@ alias sane='stty sane'
 
 # intoximeters
 
-alias intoxlogin='http localhost:3000/session username=admin password=password --session admin'
+alias intoxlogin='http localhost:3000/api/session username=admin password=password --session admin'
