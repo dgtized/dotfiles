@@ -15,7 +15,7 @@
   ;;(setq compile-command (concat "ruby -w " (buffer-file-name) " "))
   ;; (local-set-key "\C-cr" 'ruby-eval-buffer)
   (require 'rinari)
-  (global-rinari-mode)
+  (global-rinari-mode t)
 
   (c-add-style
    "ruby"
