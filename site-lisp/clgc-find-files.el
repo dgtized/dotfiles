@@ -9,6 +9,8 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t)
 
+(projectile-global-mode)
+
 (add-to-list 'ido-ignore-directories "target")
 
 (require 'find-file-in-project)

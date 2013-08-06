@@ -16,7 +16,8 @@
     auto-complete fuzzy expand-region
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
     paredit rainbow-delimiters quack
-    find-file-in-project graphviz-dot-mode mode-compile
+    find-file-in-project projectile
+    graphviz-dot-mode mode-compile
     color-theme zenburn-theme color-theme-solarized
     rvm inf-ruby rinari rspec-mode
     starter-kit-eshell))
