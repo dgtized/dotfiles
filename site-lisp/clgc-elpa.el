@@ -11,7 +11,7 @@
   '(melpa
     haml-mode yaml-mode sass-mode css-mode less-css-mode
     markdown-mode log4j-mode dna-mode haskell-mode
-    js2-mode
+    js2-mode groovy-mode
     magit gist org
     auto-complete fuzzy expand-region
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
