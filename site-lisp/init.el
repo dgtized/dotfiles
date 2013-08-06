@@ -78,6 +78,10 @@
 (show-paren-mode t)
 (setq blink-matching-paren nil)
 
+;; Uniquify buffer
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
 (setq-default font-lock-maximum-decoration t)
