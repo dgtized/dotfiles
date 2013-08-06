@@ -35,6 +35,10 @@
   (require 'nxml-mode)
   ;(require 'rhtml-mode)
   ;(require 'rails)
+
+  ;; Keep ac-mode from trying to complete on an end
+  (make-local-variable 'ac-ignores)
+  (add-to-list 'ac-ignores "end")
 )
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
