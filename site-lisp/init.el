@@ -46,6 +46,12 @@
       debug-on-error t
       sentence-end-double-space nil)
 
+;; Clipboard and Selection
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t
+      save-interprogram-paste-before-kill t
+      mouse-yank-at-point t)
+
 (setq-default indent-tabs-mode nil
               tab-width 4
               show-trailing-whitespace t
