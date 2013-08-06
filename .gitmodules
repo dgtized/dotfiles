@@ -1,6 +1,3 @@
-[submodule "site-lisp/vendor/js2-mode"]
-	path = site-lisp/vendor/js2-mode
-	url = https://github.com/mooz/js2-mode.git
 [submodule "site-lisp/vendor/groovy"]
 	path = site-lisp/vendor/groovy
 	url = https://github.com/emacsmirror/groovy-mode.git

@@ -51,7 +51,7 @@ EOF
 function setup_emacs () {
     pushd site-lisp
     echo "Compiling site-lisp... (see site-lisp/compile.log for detail)"
-    (emacs -L . -L vendor/groovy -L vendor/js2-mode -Q -batch \
+    (emacs -L . -L vendor/groovy -Q -batch \
         -f batch-byte-compile vendor/**/*.el 2>&1) > compile.log
     popd
 }
