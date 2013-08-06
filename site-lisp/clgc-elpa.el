@@ -1,4 +1,4 @@
-(require 'cl)
+(eval-when-compile (require 'cl))
 (require 'package)
 
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
@@ -36,7 +36,7 @@ just have to assume it's online."
   ;; TODO how could this work on Windows?
   (if (and (functionp 'network-interface-list)
            (network-interface-list))
-      (some (lambda (iface) (unless (equal "lo" (car iface))
+      (cl-some (lambda (iface) (unless (equal "lo" (car iface))
                          (member 'up (first (last (network-interface-info
                                                    (car iface)))))))
             (network-interface-list))
@@ -54,7 +54,7 @@ just have to assume it's online."
         (generated-autoload-file autoload-file))
     (when (or force-regen
               (not (file-exists-p autoload-file))
-              (some (lambda (f) (file-newer-than-file-p f autoload-file))
+              (cl-some (lambda (f) (file-newer-than-file-p f autoload-file))
                     (directory-files autoload-dir t "\\.el$")))
       (message "Updating autoloads...")
       (let (emacs-lisp-mode-hook)
