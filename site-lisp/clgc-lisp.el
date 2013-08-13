@@ -45,8 +45,8 @@
             'nrepl-turn-on-eldoc-mode)
 
   (eval-after-load "nrepl"
-    '(progn (require 'nrepl-inspect)
-            (define-key nrepl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
-            (define-key nrepl-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
+    '(when (require 'nrepl-inspect nil 'noerror)
+       (define-key nrepl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
+       (define-key nrepl-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
 
 (provide 'clgc-lisp)
