@@ -17,7 +17,7 @@
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
     paredit rainbow-delimiters quack
     find-file-in-project projectile
-    graphviz-dot-mode mode-compile
+    graphviz-dot-mode
     color-theme zenburn-theme color-theme-solarized
     rvm inf-ruby rinari rspec-mode
     starter-kit-eshell))

@@ -33,10 +33,6 @@
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
 
-;; (global-set-key "\C-cc" 'mode-compile)
-(global-set-key [f5] 'mode-compile)
-;; (global-set-key "\C-ck" 'mode-compile-kill)
-
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (windmove-default-keybindings)
