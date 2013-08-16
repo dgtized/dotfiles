@@ -1,0 +1,42 @@
+
+(defun ruby-symbol-string (location)
+  (save-excursion (goto-char location)
+                  (cond ((looking-at ":") 'symbol)
+                        ((looking-at "'") 'single)
+                        ((looking-at "\"") 'double)
+                        ((looking-backwards-at "#{")))))
+
+(defun ruby-in-string-p ()
+  (interactive)
+  (ruby-in-ppss-context-p 'string))
+
+(defun ruby-at-end-of-string-p ()
+  (and (ruby-in-string-p)
+       (not (save-excursion (forward-char)
+                            (ruby-in-string-p)))))
+
+(defun ruby-end-of-string ()
+  (while (not (ruby-at-end-of-string-p))
+    (ruby-forward-sexp)))
+
+(defun ruby-beginning-of-string ()
+  (when (or (ruby-in-string-p)
+            (not (looking-at-p "[:\"']")))
+    (ruby-backward-sexp)
+    (when (ruby-in-string-p)
+      (backward-char))))
+
+(defun ruby-toggle-symbol-string ()
+  (interactive)
+  (save-excursion
+    (ruby-beginning-of-string)
+    (cond ((looking-at-p ":")
+           (delete-char 1)
+           (insert "\"")
+           (ruby-forward-sexp)
+           (insert "\""))
+          ((looking-at-p "[\"']")
+           (save-excursion (ruby-end-of-string)
+                           (delete-char 1))
+           (delete-char 1)
+           (insert ":")))))

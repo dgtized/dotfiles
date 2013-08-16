@@ -19,7 +19,7 @@
     find-file-in-project projectile
     graphviz-dot-mode
     color-theme zenburn-theme color-theme-solarized
-    rvm inf-ruby rinari rspec-mode
+    rvm inf-ruby rinari rspec-mode ruby-tools
     starter-kit-eshell))
 
 (defun starter-kit-elpa-install ()

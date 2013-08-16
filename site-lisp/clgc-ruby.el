@@ -5,6 +5,22 @@
    "Evaluate the buffer with ruby."
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
 
+(eval-when-compile (require 'ruby-tools))
+(defun ruby-toggle-symbol-string ()
+  (interactive)
+  ;; jump out of back or into beginning of string/symbol
+  (when (looking-at "[:'\"]") (forward-char))
+  ;; jump into beginning of string/symbol if after
+  (when (not (or (ruby-tools-symbol-at-point-p)
+                 (ruby-tools-string-at-point-p)))
+    (ruby-backward-sexp))
+  ;; but we still need to be inside to trigger the toggle
+  (when (looking-at "[:'\"]") (forward-char))
+  (cond ((ruby-tools-symbol-at-point-p)
+         (ruby-tools-to-double-quote-string))
+        ((ruby-tools-string-at-point-p)
+         (ruby-tools-to-symbol))))
+
 (defun my-ruby-mode-hook ()
   ;; (make-variable-buffer-local 'compilation-error-regexp-alist)
   ;; (add-to-list 'compilation-error-regexp-alist
@@ -35,6 +51,8 @@
   (require 'ruby-mode-expansions)
   (define-key ruby-mode-map (kbd "C-M-u") 'er/ruby-forward-up)
   (define-key ruby-mode-map (kbd "C-M-d") 'er/ruby-backward-up)
+  (require 'ruby-tools)
+  (define-key ruby-tools-mode-map (kbd "C-:") 'ruby-toggle-symbol-string)
   (require 'nxml-mode)
   ;(require 'rhtml-mode)
   ;(require 'rails)
