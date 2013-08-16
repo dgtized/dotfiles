@@ -6,8 +6,7 @@
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
 
 (eval-when-compile (require 'ruby-tools))
-(defun ruby-toggle-symbol-string ()
-  (interactive)
+(defun ruby-tools-jump-to-inside-of-thing ()
   ;; jump out of back or into beginning of string/symbol
   (when (looking-at "[:'\"]") (forward-char))
   ;; jump into beginning of string/symbol if after
@@ -15,11 +14,24 @@
                  (ruby-tools-string-at-point-p)))
     (ruby-backward-sexp))
   ;; but we still need to be inside to trigger the toggle
-  (when (looking-at "[:'\"]") (forward-char))
-  (cond ((ruby-tools-symbol-at-point-p)
-         (ruby-tools-to-double-quote-string))
-        ((ruby-tools-string-at-point-p)
-         (ruby-tools-to-symbol))))
+  (when (looking-at "[:'\"]") (forward-char)))
+
+(defun ruby-toggle-symbol-string ()
+  (interactive)
+  (save-excursion
+    (ruby-tools-jump-to-inside-of-thing)
+    (cond ((ruby-tools-symbol-at-point-p)
+           (ruby-tools-to-double-quote-string))
+          ((ruby-tools-string-at-point-p)
+           (ruby-tools-to-symbol)))))
+
+(defun ruby-toggle-string-type ()
+  (interactive)
+  (save-excursion
+    (ruby-tools-jump-to-inside-of-thing)
+    (if (looking-back "[':]" (1- (point)))
+        (ruby-tools-to-double-quote-string)
+      (ruby-tools-to-single-quote-string))))
 
 (defun my-ruby-mode-hook ()
   ;; (make-variable-buffer-local 'compilation-error-regexp-alist)
@@ -53,6 +65,8 @@
   (define-key ruby-mode-map (kbd "C-M-d") 'er/ruby-backward-up)
   (require 'ruby-tools)
   (define-key ruby-tools-mode-map (kbd "C-:") 'ruby-toggle-symbol-string)
+  (define-key ruby-tools-mode-map (kbd "C-\"") 'ruby-toggle-string-type)
+  (define-key ruby-tools-mode-map (kbd "C-'") nil)
   (require 'nxml-mode)
   ;(require 'rhtml-mode)
   ;(require 'rails)
