@@ -25,7 +25,6 @@
 (global-set-key "\C-cD" 'ediff-windows-wordwise)
 (global-set-key "\C-cs" 'isearch-other-window)
 
-(global-set-key [remap find-tag] 'ido-find-tag)
 (global-set-key (kbd "C-.") 'find-file-in-project)
 (global-set-key (kbd "C-,") 'find-grep-in-project)
 
