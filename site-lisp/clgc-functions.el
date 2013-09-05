@@ -70,4 +70,10 @@
         (ansi-term (getenv "SHELL")))
     (switch-to-buffer-other-window "*ansi-term*")))
 
+(defun isearch-other-window ()
+  (interactive)
+  (save-selected-window
+    (other-window 1)
+    (isearch-forward)))
+
 (provide 'clgc-functions)
