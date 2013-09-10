@@ -40,7 +40,7 @@
       nxml-child-indent 2
       visible-bell t
       require-final-newline t
-      debug-on-error t
+      debug-on-error nil
       sentence-end-double-space nil)
 
 ;; Clipboard and Selection
