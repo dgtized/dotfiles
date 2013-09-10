@@ -94,11 +94,6 @@
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
 
-;;;
-;;; css mode
-;;;
-(setq css-indent-level 4)
-
 (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\.gsp$" . nxml-mode))
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
