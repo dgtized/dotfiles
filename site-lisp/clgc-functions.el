@@ -1,4 +1,3 @@
-
 (defmacro when-emacs-version (vers &rest body)
   `(when (equal emacs-major-version ,vers)
     ,@body))
@@ -43,7 +42,7 @@
 (defun unix2dos ()
   (interactive)
     (goto-char (point-min))
-      (while (search-forward "\n" nil t) (replace-match "\r\n"))) 
+      (while (search-forward "\n" nil t) (replace-match "\r\n")))
 
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
