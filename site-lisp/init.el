@@ -219,9 +219,19 @@
             (setq c-basic-offset 4)
             (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
+(require 'yasnippet)
+(add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
+(yas-global-mode)
+
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat site-lisp "/ac-dict"))
+(add-to-list 'ac-dictionary-directories (concat site-lisp "ac-dict"))
 (ac-config-default)
+
+(setq-default ac-sources
+              '(ac-source-yasnippet
+                ac-source-abbrev
+                ac-source-dictionary
+                ac-source-words-in-same-mode-buffers))
 
 (defun eclim nil
   (interactive)

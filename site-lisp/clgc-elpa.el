@@ -14,6 +14,7 @@
     js2-mode groovy-mode
     magit gist org
     auto-complete fuzzy expand-region
+    yasnippet angular-snippets clojure-snippets
     clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
     paredit rainbow-delimiters quack
     find-file-in-project projectile
