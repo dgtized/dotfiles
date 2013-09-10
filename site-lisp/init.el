@@ -129,15 +129,6 @@
   (auto-fill-mode))
 (add-hook 'text-mode 'my-text-mode-hook)
 
-;; isearch
-(define-key isearch-mode-map (kbd "C-o")
-  (lambda ()
-    (interactive)
-    (let ((case-fold-search isearch-case-fold-search))
-      (occur (if isearch-regexp isearch-string
-           (regexp-quote isearch-string))))))
-
-
 (defun toggle-fullscreen (&optional f)
   (interactive)
   (let ((current-value (frame-parameter nil 'fullscreen)))
