@@ -211,14 +211,6 @@
                   global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
 
-(autoload 'malabar-mode "malabar-mode" "load java/malabar mode" t)
-(setq malabar-groovy-lib-dir (concat site-lisp "/malabar-1.5-SNAPSHOT/lib"))
-
-(add-hook 'malabar-mode-hook
-          (lambda ()
-            (setq c-basic-offset 4)
-            (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
-
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
 (yas-global-mode)
@@ -232,12 +224,6 @@
                 ac-source-abbrev
                 ac-source-dictionary
                 ac-source-words-in-same-mode-buffers))
-
-(defun eclim nil
-  (interactive)
-  (require 'eclim)
-  (setq eclim-auto-save t)
-  (global-eclim-mode))
 
 (add-hook 'after-init-hook
       (lambda nil
@@ -275,7 +261,6 @@
                 ("\\.ha?ml$"      . haml-mode)
                 ("\\.md$"         . markdown-mode)
 
-                ;;("\\.java$"       . malabar-mode)
                 ("\\.js$"         . js2-mode)
                 ("\\.cljs$"       . clojure-mode)))
   (add-to-list 'auto-mode-alist mode))
