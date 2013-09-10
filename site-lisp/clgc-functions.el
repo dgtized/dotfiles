@@ -4,14 +4,7 @@
 
 (defun call-if-fbound (function &rest args)
   (when (fboundp function)
-	(apply function args)))
-
-(defun indent-or-complete ()
-  "Complete if point is at end of line, and indent line."
-  (interactive)
-  (if (looking-at "$")
-      (hippie-expand nil))
-  (indent-for-tab-command))
+    (apply function args)))
 
 ;show ascii table
 (defun ascii-table ()
