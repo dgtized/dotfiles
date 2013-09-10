@@ -94,11 +94,8 @@
 (setq compilation-read-command t)
 (setq compilation-window-height 12)
 
-(add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
-(add-to-list 'auto-mode-alist '("\.gsp$" . nxml-mode))
-(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-
 ;;; make Groovy mode electric by default.
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
 (add-hook 'groovy-mode-hook
           '(lambda ()
              (setq c-basic-offset 4)
@@ -211,9 +208,6 @@
                 ("\\.c$"          . c-mode)
                 ("\\.h$"          . c++-mode)
 
-                ("\\.awk"         . awk-mode)
-                ("\\.css"         . css-mode)
-
                 ;; Ruby Bindings
                 ("\\.rb$"         . ruby-mode)
                 ("\\.ruby$"       . ruby-mode)
@@ -224,6 +218,11 @@
                 ("\\Gemfile$"     . ruby-mode)
                 ("\\.rabl$"       . ruby-mode)
 
+                ("\\.awk"         . awk-mode)
+                ("\.gradle$"      . groovy-mode)
+                ("\.gsp$"         . nxml-mode)
+
+                ("\\.css"         . css-mode)
                 ("\\.ya?ml$"      . yaml-mode)
                 ("\\.sass$"       . sass-mode)
                 ("\\.ha?ml$"      . haml-mode)
