@@ -8,7 +8,9 @@
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
  '(js2-use-ast-for-indentation-p t)
+ '(magit-completing-read-function (quote magit-ido-completing-read))
  '(magit-default-tracking-name-function (quote magit-default-tracking-name-branch-only))
+ '(magit-diff-options (quote ("--patience")))
  '(magit-set-upstream-on-push (quote dontask))
  '(rspec-use-rvm t))
 (custom-set-faces
