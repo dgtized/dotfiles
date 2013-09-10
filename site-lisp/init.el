@@ -95,19 +95,10 @@
 (setq compilation-window-height 12)
 
 ;;;
-;;; Scheme Mode
-;;;
-(autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
-(autoload 'run-scheme "quack" "Quack scheme editing mode" t)
-
-;;;
 ;;; css mode
 ;;;
 (setq css-indent-level 4)
 
-;;; use groovy-mode when file ends in .groovy or has #!/bin/groovy at start
-(autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
-(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\.gsp$" . nxml-mode))
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
@@ -164,34 +155,16 @@
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
 
-(autoload 'svn-status "psvn" "Load subversion SCM commands." t)
-
-(autoload 'magit-status "magit" "Load git SCM commands." t)
-
-;; Ediff
-;(eval-after-load 'ediff
-;  (setq ediff-split-window-function 'split-window-horizontally))
-
-;; from http://www.ntu.edu.sg/home5/pg04878518/EmacsTools.html
-
-;; (require 'session)
-;; (add-hook 'after-init-hook 'session-initialize)
-
 ;; make highlight standard /etc files
 (require 'generic)
 (require 'generic-x)
 (require 'page-ext)
 
-(autoload 'dna-mode "dna-mode" "Major mode for dna" t)
 (add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
 (add-to-list
  'auto-mode-alist
  '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
-
-(autoload 'graphviz-dot-mode "graphviz-dot-mode" "Major mode for dot graph files" t)
-(setq graphviz-dot-indent-width 2
-      graphviz-dot-auto-indent-on-semi nil)
 
 (defun auctex nil
   (interactive)
