@@ -31,30 +31,13 @@
       (ruby-tools-to-single-quote-string))))
 
 (defun my-ruby-mode-hook ()
-  ;; (make-variable-buffer-local 'compilation-error-regexp-alist)
-  ;; (add-to-list 'compilation-error-regexp-alist
-  ;;       '("test[a-zA-Z0-9_]*([A-Z][a-zA-Z0-9_]*) \\[\\(.*\\):\\([0-9]+\\)\\]:" 1 2))
-  ;; (add-to-list 'compilation-error-regexp-alist
-  ;;       '("\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 2 3))
-  ;;(make-variable-buffer-local 'compile-command)
-  ;;(setq compile-command (concat "ruby -w " (buffer-file-name) " "))
-  ;; (local-set-key "\C-cr" 'ruby-eval-buffer)
+  ;; Keep ac-mode from trying to complete on an end
+  (make-local-variable 'ac-ignores)
+  (add-to-list 'ac-ignores "end")
   (require 'rinari)
+  (setq rinari-tags-file-name "TAGS")
   (global-rinari-mode t)
 
-  (c-add-style
-   "ruby"
-   '("bsd"
-     (c-basic-offset . 4)
-     (c-offsets-alist
-      (case-label . 2)
-      (label . 2)
-      (statement-case-intro . 2)
-      )))
-  ;; from: http://shylock.uw.hu/Emacs/ruby-electric.el
-  ;(require 'ruby-electric)
-  ;(ruby-electric-mode)
-  ;(abbrev-mode 1)
   (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
   (require 'ruby-mode-expansions)
@@ -63,15 +46,7 @@
   (require 'ruby-tools)
   (define-key ruby-tools-mode-map (kbd "C-:") 'ruby-toggle-symbol-string)
   (define-key ruby-tools-mode-map (kbd "C-\"") 'ruby-toggle-string-type)
-  (define-key ruby-tools-mode-map (kbd "C-'") nil)
-  (require 'nxml-mode)
-  ;(require 'rhtml-mode)
-  ;(require 'rails)
-
-  ;; Keep ac-mode from trying to complete on an end
-  (make-local-variable 'ac-ignores)
-  (add-to-list 'ac-ignores "end")
-)
+  (define-key ruby-tools-mode-map (kbd "C-'") nil))
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
@@ -80,6 +55,7 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(setq rinari-tags-file-name "TAGS")
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 
 (provide 'clgc-ruby)
