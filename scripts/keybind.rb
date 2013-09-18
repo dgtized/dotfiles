@@ -20,5 +20,5 @@ org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Super>Right']
 org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Super>Up']
 org.compiz.integrated show-hud ['<Super>h']
 org.gnome.desktop.wm.keybindings show-desktop ['<Super>d']
-org.gnome.settings-daemon.plugins.media-keys screensaver '<Super>l'
+org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Super>l'
 org.gnome.settings-daemon.plugins.media-keys terminal '<Super>r'
