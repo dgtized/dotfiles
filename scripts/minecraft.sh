@@ -1,2 +1,2 @@
 #!/bin/sh
-java -Xmx1024M -Xms512M -cp ~/usr/minecraft.jar net.minecraft.LauncherFrame &
+java -Xmx1024M -Xms512M -jar ~/usr/minecraft.jar &

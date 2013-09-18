@@ -4,14 +4,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(erc-nick "dgtized")
+ '(global-magit-wip-save-mode nil)
  '(js2-auto-indent-p t)
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
  '(js2-use-ast-for-indentation-p t)
- '(magit-completing-read-function (quote magit-ido-completing-read))
+ '(magit-completing-read-function (quote magit-builtin-completing-read))
  '(magit-default-tracking-name-function (quote magit-default-tracking-name-branch-only))
  '(magit-diff-options (quote ("--patience")))
  '(magit-set-upstream-on-push (quote dontask))
+ '(magit-wip-mode nil)
  '(rspec-use-rvm t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -12,11 +12,6 @@ Host vm2
      LocalForward 6969 localhost:6969
      LocalForward 8081 localhost:8081
 
-Host vm3
-     HostName vm3.adjudica.net
-     LocalForward 3443 localhost:443
-     # LocalForward 7071 localhost:7071
-
 Host nocturnal
      HostName nocturnal.uk.to
 

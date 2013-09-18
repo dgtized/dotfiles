@@ -8,3 +8,5 @@
 	st = status
 [push]
 	default = simple
+[github]
+	user = dgtized
