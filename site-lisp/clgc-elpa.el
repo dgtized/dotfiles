@@ -15,7 +15,7 @@
     magit gist org
     auto-complete fuzzy expand-region
     yasnippet angular-snippets clojure-snippets
-    clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound
+    clojure-mode clojure-test-mode nrepl nrepl-ritz ac-nrepl slamhound 4clojure
     paredit rainbow-delimiters quack
     find-file-in-project projectile
     graphviz-dot-mode
