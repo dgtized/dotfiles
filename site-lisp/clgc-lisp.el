@@ -22,7 +22,7 @@
 
   ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp lisp clojure
-                         inferior-lisp slime slime-repl nrepl))
+                         inferior-lisp slime slime-repl nrepl-repl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
         (add-hook mode-hook 'paredit-mode)
@@ -33,20 +33,20 @@
   (autoload '4clojure-problem "four-clj" "4Clojure-Mode" t)
 
   (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
-  (add-hook 'nrepl-mode-hook 'subword-mode)
+  (add-hook 'nrepl-repl-mode-hook 'subword-mode)
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
-  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+  (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
   (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
   (eval-after-load "auto-complete"
-    '(add-to-list 'ac-modes 'nrepl-mode))
+    '(add-to-list 'ac-modes 'nrepl-repl-mode))
 
   (add-hook 'nrepl-interaction-mode-hook
             'nrepl-turn-on-eldoc-mode)
 
   (eval-after-load "nrepl"
     '(when (require 'nrepl-inspect nil 'noerror)
-       (define-key nrepl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
+       (define-key nrepl-repl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
        (define-key nrepl-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
 
 (provide 'clgc-lisp)
