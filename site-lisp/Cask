@@ -18,12 +18,15 @@
 (depends-on "haskell-mode")
 (depends-on "js2-mode")
 (depends-on "groovy-mode")
+
+;; Clojure
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")
 (depends-on "nrepl")
 (depends-on "nrepl-ritz")
 (depends-on "ac-nrepl")
 (depends-on "slamhound")
+(depends-on "4clojure")
 
 (depends-on "paredit")
 (depends-on "rainbow-delimiters")
@@ -32,6 +35,7 @@
 (depends-on "find-file-in-project")
 (depends-on "projectile")
 
+;; Ruby
 (depends-on "rvm")
 (depends-on "inf-ruby")
 (depends-on "rinari")
