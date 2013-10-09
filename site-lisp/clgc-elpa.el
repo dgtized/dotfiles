@@ -1,11 +1,11 @@
 (eval-when-compile (require 'cl))
 (require 'package)
 
-(dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")
-                  ("melpa" . "http://melpa.milkbox.net/packages/")))
-  (add-to-list 'package-archives source t))
-(package-initialize)
+;; (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
+;;                   ("elpa" . "http://tromey.com/elpa/")
+;;                   ("melpa" . "http://melpa.milkbox.net/packages/")))
+;;   (add-to-list 'package-archives source t))
+;; (package-initialize)
 
 (setq clgc-packages
   '(melpa
@@ -46,9 +46,9 @@ just have to assume it's online."
     t))
 
 ;; On your first run, this should pull in all the base packages.
-(when (esk-online?)
-  (unless package-archive-contents (package-refresh-contents))
-  (starter-kit-elpa-install))
+;; (when (esk-online?)
+;;   (unless package-archive-contents (package-refresh-contents))
+;;   (starter-kit-elpa-install))
 
 (defun regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."

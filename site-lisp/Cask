@@ -1,0 +1,52 @@
+(source marmalade)
+(source melpa)
+
+(depends-on "haml-mode")
+(depends-on "yaml-mode")
+(depends-on "sass-mode")
+(depends-on "css-mode")
+(depends-on "less-css-mode")
+(depends-on "markdown-mode")
+(depends-on "log4j-mode")
+(depends-on "dna-mode")
+(depends-on "org")
+(depends-on "graphviz-dot-mode")
+
+(depends-on "magit")
+(depends-on "gist")
+
+(depends-on "haskell-mode")
+(depends-on "js2-mode")
+(depends-on "groovy-mode")
+(depends-on "clojure-mode")
+(depends-on "clojure-test-mode")
+(depends-on "nrepl")
+(depends-on "nrepl-ritz")
+(depends-on "ac-nrepl")
+(depends-on "slamhound")
+
+(depends-on "paredit")
+(depends-on "rainbow-delimiters")
+(depends-on "quack")
+
+(depends-on "find-file-in-project")
+(depends-on "projectile")
+
+(depends-on "rvm")
+(depends-on "inf-ruby")
+(depends-on "rinari")
+(depends-on "rspec-mode")
+(depends-on "ruby-tools")
+
+(depends-on "starter-kit-eshell")
+(depends-on "auto-complete")
+(depends-on "fuzzy")
+(depends-on "expand-region")
+
+(depends-on "yasnippet")
+(depends-on "angular-snippets")
+(depends-on "clojure-snippets")
+
+(depends-on "color-theme")
+(depends-on "zenburn-theme")
+(depends-on "color-theme-solarized")

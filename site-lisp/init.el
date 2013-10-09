@@ -6,13 +6,14 @@
   (expand-file-name (getenv "DOTC_NAME"))
   "shell config name")
 
+(require 'cask (concat dotc-dir "/cask/cask.el"))
+(cask-initialize)
+
 (setq site-lisp (concat dotc-dir "/site-lisp/"))
 (setq autoload-file (concat site-lisp "loaddefs.el"))
-(setq package-user-dir (concat site-lisp "elpa/"))
 (setq custom-file (concat dotc-dir "/custom.el"))
 
 (add-to-list 'load-path site-lisp)
-(add-to-list 'load-path (concat site-lisp "vendor"))
 
 (setenv "PAGER" "/bin/cat") ;; disable pager
 
@@ -23,6 +24,7 @@
 
 (require 'clgc-elpa)
 (regen-autoloads)
+
 (require 'clgc-functions)
 (require 'clgc-javascript)
 (require 'clgc-lisp)
@@ -157,7 +159,8 @@
                 ("\\.md$"         . markdown-mode)
 
                 ("\\.js$"         . js2-mode)
-                ("\\.cljs$"       . clojure-mode)))
+                ("\\.cljs$"       . clojure-mode)
+                ("Cask"           . emacs-lisp-mode)))
   (add-to-list 'auto-mode-alist mode))
 
 ;; FIXME: frequent problem with menubars without this required because
