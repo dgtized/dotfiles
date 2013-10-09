@@ -36,6 +36,7 @@ alias tree='tree -Csu' # nice alternative to 'ls'
 
 alias grep='grep --color=auto'
 alias remacs='`grep emacs ~/.screenrc`'
+alias cask="$DOTC_DIR/cask/bin/cask"
 
 # defaults
 alias more='less'
