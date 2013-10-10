@@ -6,7 +6,7 @@
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
-(global-set-key "\C-c7" 'ucs-insert)
+(global-set-key "\C-c7" 'insert-char)
 
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key [f6] 'magit-status)
