@@ -43,6 +43,7 @@
       visible-bell t
       require-final-newline t
       debug-on-error nil
+      apropos-do-all t
       sentence-end-double-space nil)
 
 ;; Clipboard and Selection
