@@ -15,6 +15,9 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
+(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key "\M-/" 'hippie-expand)
+
 (global-set-key "\C-ck" 'kill-whole-line)
 (global-set-key (kbd "C-c j") 'just-one-space)
 (global-set-key "\C-cw" 'whitespace-cleanup)
