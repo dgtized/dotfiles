@@ -9,6 +9,10 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t)
 
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+
 (projectile-global-mode)
 
 (add-to-list 'ido-ignore-directories "target")
@@ -72,7 +76,7 @@
 (setq version-control nil)
 (let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
   (setq backup-directory-alist
-        `((".*" . ,backup-dir)))
+        `(("." . ,backup-dir)))
   (setq auto-save-file-name-transforms
         `((".*" ,backup-dir t))))
 
