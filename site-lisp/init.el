@@ -145,13 +145,7 @@
                 ("\\.h$"          . c++-mode)
 
                 ;; Ruby Bindings
-                ("\\.rb$"         . ruby-mode)
                 ("\\.ruby$"       . ruby-mode)
-                ("\\.rake$"       . ruby-mode)
-                ("[Rr]akefile$"   . ruby-mode)
-                ("\\.gem$"        . ruby-mode)
-                ("\\.gemspec$"    . ruby-mode)
-                ("\\Gemfile$"     . ruby-mode)
                 ("\\.rabl$"       . ruby-mode)
 
                 ("\\.awk"         . awk-mode)
