@@ -50,11 +50,6 @@
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
-(autoload 'ruby-mode "ruby-mode" nil t)
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode) t)
-(autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
-(autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
-
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 
