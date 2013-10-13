@@ -115,6 +115,7 @@
   (setq yas-dont-activate t)
   (setq show-trailing-whitespace nil))
 (add-hook 'term-mode-hook 'clgc-term-mode)
+(add-hook 'comint-mode-hook 'clgc-term-mode)
 
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat site-lisp "ac-dict"))
