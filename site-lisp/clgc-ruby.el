@@ -49,6 +49,7 @@
   (define-key ruby-tools-mode-map (kbd "C-'") nil))
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
