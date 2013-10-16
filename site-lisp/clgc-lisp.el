@@ -29,7 +29,7 @@
         (add-hook mode-hook 'rainbow-delimiters-mode))))
 
   ;; Clojure Specific
-  (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
+  ;; (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
   (add-hook 'nrepl-repl-mode-hook 'subword-mode)
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)

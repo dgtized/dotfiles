@@ -23,7 +23,7 @@
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")
 (depends-on "nrepl")
-(depends-on "nrepl-ritz")
+;; (depends-on "nrepl-ritz")
 (depends-on "ac-nrepl")
 (depends-on "slamhound")
 (depends-on "4clojure")
