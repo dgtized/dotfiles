@@ -160,7 +160,6 @@
                 ("\\.md$"         . markdown-mode)
 
                 ("\\.js$"         . js2-mode)
-                ("\\.cljs$"       . clojure-mode)
                 ("Cask"           . emacs-lisp-mode)))
   (add-to-list 'auto-mode-alist mode))
 
