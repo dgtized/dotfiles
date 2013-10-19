@@ -1,4 +1,5 @@
 (progn
+  (require 'cider) ;; until cider autoloads are stable
   (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'auto-recompile-el-buffer)
 
@@ -22,30 +23,30 @@
 
   ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp lisp clojure
-                         inferior-lisp slime slime-repl nrepl-repl))
+                         inferior-lisp slime slime-repl cider-repl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
         (add-hook mode-hook 'paredit-mode)
         (add-hook mode-hook 'rainbow-delimiters-mode))))
 
   ;; Clojure Specific
-  ;; (add-hook 'nrepl-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
-  (add-hook 'nrepl-repl-mode-hook 'subword-mode)
+  ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
+  (add-hook 'cider-repl-mode-hook 'subword-mode)
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
-  (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
-  (add-hook 'nrepl-repl-mode-hook 'ensure-yasnippet-is-first-ac-source)
-  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-  (add-hook 'nrepl-interaction-mode-hook 'ensure-yasnippet-is-first-ac-source)
+  (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+  (add-hook 'cider-repl-mode-hook 'ensure-yasnippet-is-first-ac-source)
+  (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
+  (add-hook 'cider-interaction-mode-hook 'ensure-yasnippet-is-first-ac-source)
   (eval-after-load "auto-complete"
-    '(add-to-list 'ac-modes 'nrepl-repl-mode))
+    '(add-to-list 'ac-modes 'cider-repl-mode))
 
-  (add-hook 'nrepl-interaction-mode-hook
-            'nrepl-turn-on-eldoc-mode)
+  (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+  (add-hook 'cider-interaction-mode-hook 'cider-turn-on-eldoc-mode)
 
-  (eval-after-load "nrepl"
+  (eval-after-load "cider"
     '(when (require 'nrepl-inspect nil 'noerror)
-       (define-key nrepl-repl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
-       (define-key nrepl-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
+       (define-key cider-repl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
+       (define-key cider-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
 
 (provide 'clgc-lisp)
