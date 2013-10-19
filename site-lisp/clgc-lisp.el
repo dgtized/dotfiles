@@ -34,7 +34,9 @@
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
   (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
+  (add-hook 'nrepl-repl-mode-hook 'ensure-yasnippet-is-first-ac-source)
   (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+  (add-hook 'nrepl-interaction-mode-hook 'ensure-yasnippet-is-first-ac-source)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'nrepl-repl-mode))
 

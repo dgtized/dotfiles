@@ -77,4 +77,10 @@
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
 
+(defun ensure-yasnippet-is-first-ac-source ()
+  (when (memq 'ac-source-yasnippet ac-sources)
+    (setq ac-sources
+          (cons 'ac-source-yasnippet
+                (remove 'ac-source-yasnippet ac-sources)))))
+
 (provide 'clgc-functions)
