@@ -31,18 +31,30 @@
 
   ;; Clojure Specific
   ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
-  (add-hook 'cider-repl-mode-hook 'subword-mode)
+  (defun clgc-clojure-mode-hook ()
+    (subword-mode +1)
+    (clojure-test-mode +1))
+
+  (defun clgc-cider-repl-mode-hook ()
+    (subword-mode +1)
+    (ac-nrepl-setup)
+    (ensure-yasnippet-is-first-ac-source)
+    (cider-turn-on-eldoc-mode))
+
+  (defun clgc-cider-mode-hook ()
+    (ac-nrepl-setup)
+    (ensure-yasnippet-is-first-ac-source)
+    (cider-turn-on-eldoc-mode))
+
+  (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+
+  (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
+  (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
+  (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 
   (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
-  (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-  (add-hook 'cider-repl-mode-hook 'ensure-yasnippet-is-first-ac-source)
-  (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
-  (add-hook 'cider-interaction-mode-hook 'ensure-yasnippet-is-first-ac-source)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'cider-repl-mode))
-
-  (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
-  (add-hook 'cider-interaction-mode-hook 'cider-turn-on-eldoc-mode)
 
   (eval-after-load "cider"
     '(when (require 'nrepl-inspect nil 'noerror)
