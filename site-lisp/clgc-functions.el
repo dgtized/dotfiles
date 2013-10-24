@@ -83,4 +83,14 @@
           (cons 'ac-source-yasnippet
                 (remove 'ac-source-yasnippet ac-sources)))))
 
+(defun load-environment-variables ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (while (re-search-forward "^export \\([^=]+\\)=\\(.+\\)")
+      (let ((var (match-string 1))
+            (value (match-string 2)))
+        (message "Setting %s to %s" var value)
+        (setenv var value)))))
+
 (provide 'clgc-functions)
