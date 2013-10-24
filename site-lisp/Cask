@@ -27,6 +27,7 @@
 (depends-on "ac-nrepl")
 (depends-on "slamhound")
 (depends-on "4clojure")
+(depends-on "clojure-cheatsheato")
 
 (depends-on "paredit")
 (depends-on "rainbow-delimiters")
