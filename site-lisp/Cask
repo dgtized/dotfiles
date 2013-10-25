@@ -52,6 +52,8 @@
 (depends-on "angular-snippets")
 (depends-on "clojure-snippets")
 
+(depends-on "flycheck")
+
 (depends-on "color-theme")
 (depends-on "zenburn-theme")
 (depends-on "color-theme-solarized")

@@ -134,6 +134,8 @@
         ;; (normal-erase-is-backspace-mode)
         ))
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
 
 ;; setup audo modes
