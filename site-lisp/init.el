@@ -76,7 +76,6 @@
 ;Enable opposite bracket/paranthesis highlighting
 (require 'paren)
 (show-paren-mode t)
-(setq show-paren-style 'mixed)
 
 ;; Uniquify buffer
 (require 'uniquify)
