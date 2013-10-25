@@ -156,7 +156,8 @@
                 ("\\.md$"         . markdown-mode)
 
                 ("\\.js$"         . js2-mode)
-                ("Cask"           . emacs-lisp-mode)))
+                ("Cask"           . emacs-lisp-mode)
+                ("gitconfig"      . conf-mode)))
   (add-to-list 'auto-mode-alist mode))
 
 ;; FIXME: frequent problem with menubars without this required because
