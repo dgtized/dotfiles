@@ -53,6 +53,7 @@
 (depends-on "clojure-snippets")
 
 (depends-on "flycheck")
+(depends-on "pretty-mode-plus")
 
 (depends-on "color-theme")
 (depends-on "zenburn-theme")

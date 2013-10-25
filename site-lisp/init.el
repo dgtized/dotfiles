@@ -86,6 +86,10 @@
 (require 'font-lock)
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
+
+;; (require 'pretty-mode-plus)
+;; (global-pretty-mode 1)
+
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq delete-by-moving-to-trash t)
