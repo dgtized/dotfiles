@@ -127,13 +127,7 @@
                 ac-source-dictionary
                 ac-source-words-in-same-mode-buffers))
 
-(add-hook 'after-init-hook
-      (lambda nil
-        (message "clgc-after-init-hook")
-        (server-start)
-        ;; (normal-erase-is-backspace-mode)
-        ))
-
+(add-hook 'after-init-hook 'server-start)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
