@@ -1,12 +1,12 @@
-
-(defconst dotc-dir
+;;; init.el --- Summary
+;;; Commentary:
+;;; Code:
+(makunbound 'dotc-dir)
+(defvar dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
-  "shell config directory")
-(defconst dotc-name
-  (expand-file-name (getenv "DOTC_NAME"))
-  "shell config name")
+  "Directory root containing shell configuration.")
 
-(require 'cask (concat dotc-dir "/cask/cask.el"))
+(require 'cask (expand-file-name "cask/cask.el" dotc-dir))
 (cask-initialize)
 
 (setq site-lisp (concat dotc-dir "/site-lisp/"))
@@ -167,3 +167,5 @@
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
+
+;;; init.el ends here
