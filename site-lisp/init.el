@@ -114,6 +114,8 @@
 (add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
 (yas-global-mode)
 
+(global-undo-tree-mode)
+
 (defun clgc-term-mode ()
   (setq yas-dont-activate t)
   (setq show-trailing-whitespace nil))
