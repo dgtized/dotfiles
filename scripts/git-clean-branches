@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git remote prune ${1-origin}
+git branch --merged master | grep -v 'master$' | xargs git branch -d
