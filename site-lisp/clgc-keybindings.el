@@ -29,6 +29,8 @@
 (global-set-key (kbd "C-c D") 'ediff-windows-wordwise)
 (global-set-key (kbd "C-c s") 'isearch-other-window)
 
+(global-set-key (kbd "C-c G") 'github-browse)
+
 (global-set-key (kbd "C-.") 'find-file-in-project)
 (global-set-key (kbd "C-,") 'find-grep-in-project)
 
