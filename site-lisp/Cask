@@ -35,6 +35,7 @@
 
 (depends-on "find-file-in-project")
 (depends-on "projectile")
+(depends-on "smex")
 
 ;; Ruby
 (depends-on "rvm")
