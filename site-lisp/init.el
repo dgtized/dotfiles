@@ -132,7 +132,6 @@
                 ac-source-dictionary
                 ac-source-words-in-same-mode-buffers))
 
-(add-hook 'after-init-hook 'server-start)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
@@ -170,6 +169,10 @@
 (require 'semantic/senator)
 
 (require 'clgc-keybindings)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
