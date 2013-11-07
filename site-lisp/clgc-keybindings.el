@@ -33,6 +33,7 @@
 
 (global-set-key (kbd "C-.") 'find-file-in-project)
 (global-set-key (kbd "C-,") 'find-grep-in-project)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 (global-set-key (kbd "M-T") 'transpose-sexps)
 

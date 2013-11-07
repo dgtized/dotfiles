@@ -36,6 +36,7 @@
 (depends-on "find-file-in-project")
 (depends-on "projectile")
 (depends-on "smex")
+(depends-on "ace-jump-mode")
 
 ;; Ruby
 (depends-on "rvm")
