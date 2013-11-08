@@ -12,8 +12,11 @@
 (global-set-key [f6] 'magit-status)
 (global-set-key [f8] 'eshell)
 
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
-(global-set-key (kbd "C-c C-m") 'execute-extended-command)
+(global-unset-key (kbd "M-x")) ;; use one below
+(global-set-key (kbd "C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "C-x C-m") 'smex)
+(global-set-key (kbd "C-c C-m") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -46,9 +49,6 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (windmove-default-keybindings)
 
