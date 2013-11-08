@@ -20,6 +20,8 @@
 (projectile-global-mode)
 (setq projectile-switch-project-action 'projectile-magit)
 
+(require 'helm-config)
+
 (add-to-list 'ido-ignore-directories "target")
 
 (require 'find-file-in-project)
