@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-c q") 'comment-dwim)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
-(global-set-key (kbd "C-c t") 'visit-term-buffer)
+(global-set-key (kbd "C-x t") 'visit-term-buffer)
 (global-set-key (kbd "C-c d") 'ediff-windows-linewise)
 (global-set-key (kbd "C-c D") 'ediff-windows-wordwise)
 (global-set-key (kbd "C-c s") 'isearch-other-window)
