@@ -175,11 +175,12 @@
   (server-start))
 
 (require 'diminish)
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " A"))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Y"))
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
-(eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-(eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "undo-tree" '(diminish 'undo-tree-mode "U"))
+(eval-after-load "projectile" '(diminish 'projectile-mode "P"))
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
