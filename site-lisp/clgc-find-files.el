@@ -13,7 +13,12 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "places" user-emacs-directory))
 
+(defun projectile-magit ()
+  (interactive)
+  (magit-status (projectile-project-root)))
+
 (projectile-global-mode)
+(setq projectile-switch-project-action 'projectile-magit)
 
 (add-to-list 'ido-ignore-directories "target")
 
