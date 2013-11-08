@@ -23,6 +23,7 @@
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")
 (depends-on "cider")
+(depends-on "cider-tracing")
 ;; (depends-on "nrepl-ritz")
 (depends-on "ac-nrepl")
 (depends-on "slamhound")

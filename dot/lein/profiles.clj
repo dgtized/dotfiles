@@ -4,6 +4,7 @@
             ;[lein-ritz "0.7.0"]
             [com.palletops/pallet-lein "0.8.0-alpha.1"]]
   :dependencies [;[ritz/ritz-nrepl-middleware "0.7.0"]
+                 [org.clojure/tools.trace "0.7.6"]
                  [slamhound "1.3.3"]]
   ;; :repl-options {:nrepl-middleware
   ;;                [ritz.nrepl.middleware.javadoc/wrap-javadoc
