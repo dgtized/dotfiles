@@ -12,6 +12,8 @@
 (global-set-key [f6] 'magit-status)
 (global-set-key [f8] 'eshell)
 
+(global-unset-key (kbd "C-z")) ;; use C-x C-z instead
+
 (global-unset-key (kbd "M-x")) ;; use one below
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "C-x C-m") 'smex)
