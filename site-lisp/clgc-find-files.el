@@ -19,9 +19,7 @@
 
 (require 'find-file-in-project)
 (dolist (pattern '("*.css" "*.less" "*.gsp" "*.erb" "*.rabl"
-                   "*.groovy" "*.java" "*.clj"
-                   "*.json" "*.js"
-                   "*.sh" "*rc" "*.rb"
+                   "*.groovy" "*.java" "*.json" "*rc"
                    "*.sql" "*.xml" "*.properties"
                    "*.md" "*README*" "*.org"))
   (add-to-list 'ffip-patterns pattern t))
