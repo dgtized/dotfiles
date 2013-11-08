@@ -38,6 +38,7 @@
 (depends-on "projectile")
 (depends-on "smex")
 (depends-on "ace-jump-mode")
+(depends-on "diminish")
 
 ;; Ruby
 (depends-on "rvm")
