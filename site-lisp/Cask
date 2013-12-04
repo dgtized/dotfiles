@@ -57,7 +57,6 @@
 (depends-on "clojure-snippets")
 
 (depends-on "flycheck")
-(depends-on "pretty-mode-plus")
 (depends-on "undo-tree")
 
 (depends-on "color-theme")
