@@ -18,7 +18,10 @@
   (magit-status (projectile-project-root)))
 
 (projectile-global-mode)
+(setq projectile-enable-caching t)
 (setq projectile-switch-project-action 'projectile-magit)
+(when (file-exists-p "/usr/bin/ack-grep")
+  (setq ack-and-a-half-executable "/usr/bin/ack-grep"))
 
 (require 'helm-config)
 

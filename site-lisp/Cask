@@ -37,8 +37,11 @@
 (depends-on "geiser")
 (depends-on "quack")
 
+;; Files and Projects
 (depends-on "find-file-in-project")
 (depends-on "projectile")
+(depends-on "ag")
+(depends-on "ack-and-a-half")
 (depends-on "smex")
 (depends-on "ace-jump-mode")
 (depends-on "diminish")
