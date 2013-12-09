@@ -169,6 +169,7 @@
 (require 'semantic/senator)
 
 (require 'clgc-keybindings)
+(winner-mode)
 
 (require 'server)
 (unless (server-running-p)
