@@ -46,6 +46,8 @@
     (ensure-yasnippet-is-first-ac-source)
     (cider-turn-on-eldoc-mode))
 
+  (setq cider-popup-stacktraces nil)
+
   (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
   (define-key clojure-mode-map (kbd "C-c C-g") 'clojure-cheatsheet)
 
