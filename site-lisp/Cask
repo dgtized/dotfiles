@@ -32,6 +32,9 @@
 
 (depends-on "paredit")
 (depends-on "rainbow-delimiters")
+
+;; Scheme
+(depends-on "geiser")
 (depends-on "quack")
 
 (depends-on "find-file-in-project")
