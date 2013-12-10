@@ -52,6 +52,7 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+(define-key ctl-x-4-map (kbd "t") 'transpose-windows)
 (windmove-default-keybindings)
 
 ;; isearch
