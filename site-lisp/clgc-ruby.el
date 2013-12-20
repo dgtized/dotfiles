@@ -38,6 +38,9 @@
   (setq rinari-tags-file-name "TAGS")
   (global-rinari-mode t)
 
+  (require 'rvm)
+  (add-hook 'ruby-mode-hook 'rvm-activate-corresponding-ruby)
+
   (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
   (require 'ruby-tools)
