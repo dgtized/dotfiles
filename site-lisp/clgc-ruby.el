@@ -51,6 +51,10 @@
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
+;; Robe
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode 'robe-ac-setup)
+
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 
