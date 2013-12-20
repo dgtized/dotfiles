@@ -65,3 +65,5 @@ sudo apt-get install libnotify-bin
 pkill notify-osd
 
 sudo aptitude install git-flow exuberant-ctags
+
+sudo aptitude install w3m silversearcher-ag ack-grep
