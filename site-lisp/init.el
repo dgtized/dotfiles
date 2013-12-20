@@ -73,9 +73,15 @@
 
 (setq tramp-default-method "ssh")
 
-;Enable opposite bracket/paranthesis highlighting
-(require 'paren)
-(show-paren-mode t)
+;; smart pairing for all
+(require 'smartparens-config)
+(setq sp-base-key-bindings 'paredit)
+(setq sp-autoskip-closing-pair 'always)
+(setq sp-hybrid-kill-entire-symbol nil)
+(sp-use-paredit-bindings)
+
+(show-smartparens-global-mode +1)
+(smartparens-global-strict-mode)
 
 ;; Uniquify buffer
 (require 'uniquify)
@@ -179,7 +185,6 @@
 (eval-after-load "auto-complete" '(diminish 'auto-complete-mode " A"))
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Y"))
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "undo-tree" '(diminish 'undo-tree-mode "U"))
 (eval-after-load "projectile" '(diminish 'projectile-mode "P"))
 

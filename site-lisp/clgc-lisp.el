@@ -17,16 +17,11 @@
   (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
   (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
-  (eval-after-load 'paredit
-    ;; need a binding that works in the terminal
-    '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
-
   ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl cider-repl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
-        (add-hook mode-hook 'paredit-mode)
         (add-hook mode-hook 'rainbow-delimiters-mode))))
 
   ;; Clojure Specific

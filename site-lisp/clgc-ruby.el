@@ -40,9 +40,6 @@
 
   (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
-  (require 'ruby-mode-expansions)
-  (define-key ruby-mode-map (kbd "C-M-u") 'er/ruby-forward-up)
-  (define-key ruby-mode-map (kbd "C-M-d") 'er/ruby-backward-up)
   (require 'ruby-tools)
   (define-key ruby-tools-mode-map (kbd "C-:") 'ruby-toggle-symbol-string)
   (define-key ruby-tools-mode-map (kbd "C-\"") 'ruby-toggle-string-type)
