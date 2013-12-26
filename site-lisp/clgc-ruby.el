@@ -55,7 +55,7 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'robe-ac-setup)
 
-(defadvice robe-start (before activate-rvm-for-robe)
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
 ;; broken per https://github.com/dgutov/robe/issues/20
