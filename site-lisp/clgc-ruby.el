@@ -53,6 +53,7 @@
 
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'robe-ac-setup)
 
 ;; broken per https://github.com/dgutov/robe/issues/20
 ;; (add-hook 'robe-mode 'robe-ac-setup)
