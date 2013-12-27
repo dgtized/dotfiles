@@ -36,11 +36,9 @@
 
 (global-set-key (kbd "C-c G") 'github-browse)
 
-(global-set-key (kbd "C-.") 'find-file-in-project)
-(global-set-key (kbd "C-,") 'find-grep-in-project)
+;; (global-set-key (kbd "C-.") 'find-file-in-project)
+;; (global-set-key (kbd "C-,") 'find-grep-in-project)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-
-(global-set-key (kbd "M-T") 'transpose-sexps)
 
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
