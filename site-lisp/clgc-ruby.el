@@ -38,9 +38,6 @@
   (setq rinari-tags-file-name "TAGS")
   (global-rinari-mode t)
 
-  (require 'rvm)
-  (add-hook 'ruby-mode-hook 'rvm-activate-corresponding-ruby)
-
   (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-j" 'newline)
   (require 'ruby-tools)
@@ -57,6 +54,9 @@
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
+
+;; RVM
+(rvm-use-default)
 
 ;; broken per https://github.com/dgutov/robe/issues/20
 ;; (add-hook 'robe-mode 'robe-ac-setup)
