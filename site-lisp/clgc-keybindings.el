@@ -1,7 +1,6 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
-(global-set-key (kbd "C-x p") (lambda () (interactive) (other-window -1)))
 
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
 
