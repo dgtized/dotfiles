@@ -43,6 +43,7 @@
 (depends-on "quack")
 
 ;; Files and Projects
+(depends-on "helm")
 (depends-on "find-file-in-project")
 (depends-on "projectile")
 (depends-on "ag")
