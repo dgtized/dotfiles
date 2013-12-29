@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-c 7") 'insert-char)
 
 (global-unset-key (kbd "C-z")) ;; use C-x C-z instead
+(define-key undo-tree-map (kbd "C-_") nil) ;; use C-/ instead
 
 (global-unset-key (kbd "M-x")) ;; use one below
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
