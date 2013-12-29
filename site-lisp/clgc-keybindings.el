@@ -1,5 +1,4 @@
-(global-set-key [f11] 'toggle-fullscreen)
-
+;;; clgc-keybindings -- keybindings for clgc
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
