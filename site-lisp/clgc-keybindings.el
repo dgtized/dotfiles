@@ -29,10 +29,6 @@
 (global-set-key (kbd "M-g e") 'eshell)
 (global-set-key (kbd "M-g f") 'helm-find-files)
 
-(global-set-key (kbd "C-c d") 'ediff-windows-linewise)
-(global-set-key (kbd "C-c D") 'ediff-windows-wordwise)
-(global-set-key (kbd "C-c s") 'isearch-other-window)
-
 (global-set-key (kbd "C-c G") 'github-browse)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-g b") 'magit-blame-mode)
@@ -53,6 +49,10 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 (define-key ctl-x-4-map (kbd "t") 'transpose-windows)
+(define-key ctl-x-4-map (kbd "e") (lambda () (interactive) (ediff-windows-linewise t)))
+(define-key ctl-x-4-map (kbd "E") (lambda () (interactive) (ediff-windows-wordwise t)))
+(define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
+
 (windmove-default-keybindings)
 
 ;; isearch
