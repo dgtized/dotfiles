@@ -12,9 +12,6 @@
 (depends-on "org")
 (depends-on "graphviz-dot-mode")
 
-(depends-on "magit")
-(depends-on "gist")
-
 (depends-on "w3m")
 
 (depends-on "haskell-mode")
@@ -43,9 +40,12 @@
 (depends-on "quack")
 
 ;; Files and Projects
+(depends-on "magit")
+(depends-on "gist")
 (depends-on "helm")
 (depends-on "find-file-in-project")
 (depends-on "projectile")
+(depends-on "helm-projectile")
 (depends-on "ag")
 (depends-on "ack-and-a-half")
 (depends-on "smex")
