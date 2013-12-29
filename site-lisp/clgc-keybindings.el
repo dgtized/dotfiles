@@ -20,7 +20,6 @@
 
 (global-set-key (kbd "C-c k") 'kill-whole-line)
 (global-set-key (kbd "C-c j") 'join-line)
-(global-set-key (kbd "C-c J") (lambda () (interactive) (join-line 1)))
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c q") 'comment-dwim)
 
