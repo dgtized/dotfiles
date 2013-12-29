@@ -7,8 +7,6 @@
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key (kbd "C-c 7") 'insert-char)
 
-(global-set-key (kbd "C-x g") 'magit-status)
-
 (global-unset-key (kbd "C-z")) ;; use C-x C-z instead
 
 (global-unset-key (kbd "M-x")) ;; use one below
@@ -27,14 +25,18 @@
 (global-set-key (kbd "C-c q") 'comment-dwim)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
-(global-set-key (kbd "C-c t") 'visit-term-buffer)
-(global-set-key (kbd "C-x m") 'eshell)
+(global-set-key (kbd "M-g t") 'visit-term-buffer)
+(global-set-key (kbd "M-g e") 'eshell)
+(global-set-key (kbd "M-g f") 'helm-find-files)
 
 (global-set-key (kbd "C-c d") 'ediff-windows-linewise)
 (global-set-key (kbd "C-c D") 'ediff-windows-wordwise)
 (global-set-key (kbd "C-c s") 'isearch-other-window)
 
 (global-set-key (kbd "C-c G") 'github-browse)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "M-g b") 'magit-blame-mode)
+(global-set-key (kbd "M-g l") 'magit-file-log)
 
 ;; (global-set-key (kbd "C-.") 'find-file-in-project)
 ;; (global-set-key (kbd "C-,") 'find-grep-in-project)
