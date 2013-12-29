@@ -8,8 +8,6 @@
 (global-set-key (kbd "C-c 7") 'insert-char)
 
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key [f6] 'magit-status)
-(global-set-key [f8] 'eshell)
 
 (global-unset-key (kbd "C-z")) ;; use C-x C-z instead
 
@@ -29,7 +27,9 @@
 (global-set-key (kbd "C-c q") 'comment-dwim)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
-(global-set-key (kbd "C-x t") 'visit-term-buffer)
+(global-set-key (kbd "C-c t") 'visit-term-buffer)
+(global-set-key (kbd "C-x m") 'eshell)
+
 (global-set-key (kbd "C-c d") 'ediff-windows-linewise)
 (global-set-key (kbd "C-c D") 'ediff-windows-wordwise)
 (global-set-key (kbd "C-c s") 'isearch-other-window)
