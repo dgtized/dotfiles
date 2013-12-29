@@ -25,18 +25,20 @@
 (global-set-key (kbd "C-c q") 'comment-dwim)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
-(global-set-key (kbd "M-g t") 'visit-term-buffer)
-(global-set-key (kbd "M-g e") 'eshell)
-(global-set-key (kbd "M-g f") 'helm-find-files)
 
 (global-set-key (kbd "C-c G") 'github-browse)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "M-g b") 'magit-blame-mode)
-(global-set-key (kbd "M-g l") 'magit-file-log)
 
-;; (global-set-key (kbd "C-.") 'find-file-in-project)
-;; (global-set-key (kbd "C-,") 'find-grep-in-project)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(define-key goto-map (kbd "t") 'visit-term-buffer)
+(define-key goto-map (kbd "e") 'eshell)
+(define-key goto-map (kbd "f") 'helm-find-files)
+(define-key goto-map (kbd "b") 'magit-blame-mode)
+(define-key goto-map (kbd "l") 'magit-file-log)
+(define-key goto-map (kbd "j") 'ace-jump-mode)
+(define-key goto-map (kbd "M-j") 'ace-jump-mode)
+(define-key goto-map (kbd "i") 'imenu)
+(define-key goto-map (kbd ".") 'find-file-in-project)
+(define-key goto-map (kbd ",") 'find-grep-in-project)
 
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
