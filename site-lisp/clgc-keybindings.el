@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+(global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-c k") 'kill-whole-line)
 (global-set-key (kbd "C-c j") 'join-line)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
