@@ -46,6 +46,9 @@
   (define-key ruby-tools-mode-map (kbd "C-'") nil))
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+(add-hook 'ruby-mode-hook 'subword-mode)
+
+;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;; Robe

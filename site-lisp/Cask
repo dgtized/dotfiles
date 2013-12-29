@@ -58,6 +58,7 @@
 (depends-on "rspec-mode")
 (depends-on "ruby-tools")
 (depends-on "robe")
+(depends-on "yari")
 
 (depends-on "starter-kit-eshell")
 (depends-on "auto-complete")
