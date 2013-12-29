@@ -49,8 +49,7 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 (define-key ctl-x-4-map (kbd "t") 'transpose-windows)
-(define-key ctl-x-4-map (kbd "e") (lambda () (interactive) (ediff-windows-linewise t)))
-(define-key ctl-x-4-map (kbd "E") (lambda () (interactive) (ediff-windows-wordwise t)))
+(define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
 (windmove-default-keybindings)

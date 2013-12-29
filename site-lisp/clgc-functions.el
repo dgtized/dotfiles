@@ -68,6 +68,13 @@
     (other-window 1)
     (isearch-forward)))
 
+(defun ediff-other-window (wordwise)
+  "Ediff linewise or wordwise depending on prefix argument"
+  (interactive "P")
+  (if wordwise
+      (ediff-windows-wordwise t)
+    (ediff-windows-linewise t)))
+
 (defun toggle-fullscreen (&optional f)
   (interactive)
   (let ((current-value (frame-parameter nil 'fullscreen)))
