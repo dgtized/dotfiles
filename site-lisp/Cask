@@ -21,6 +21,9 @@
 (depends-on "js2-mode")
 (depends-on "groovy-mode")
 
+;; Elisp
+(depends-on "elisp-slime-nav")
+
 ;; Clojure
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")

@@ -17,6 +17,9 @@
   (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
   (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook 'turn-on-elisp-slime-nav-mode))
+
   ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl cider-repl))
