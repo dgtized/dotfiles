@@ -13,12 +13,6 @@
                 (when (file-exists-p (byte-compile-dest-file buffer-file-name))
                   (byte-compile-file buffer-file-name)))))
 
-  (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
-  (define-key emacs-lisp-mode-map (kbd "C-c v") 'eval-buffer)
-
-  (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
-  (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
-
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'turn-on-elisp-slime-nav-mode))
 
