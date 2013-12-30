@@ -108,6 +108,8 @@
 (require 'generic-x)
 (require 'page-ext)
 
+(require 'dired-x)
+
 ;; http://repose.cx/conf/.elisp/
 ;; Or enable more if you wish
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
@@ -138,6 +140,7 @@
                 ac-source-dictionary
                 ac-source-words-in-same-mode-buffers))
 
+(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
