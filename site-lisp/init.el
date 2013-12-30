@@ -80,8 +80,16 @@
 (setq sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
 
+;; overrides isearch and friends
+(define-key sp-keymap (kbd "M-s") nil)
+(define-key sp-keymap (kbd "M-S") nil)
+(define-key sp-keymap (kbd "M-r") nil)
+(define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
+(define-key sp-keymap (kbd "M-F") 'sp-forward-symbol)
+(define-key sp-keymap (kbd "M-B") 'sp-backward-symbol)
+
 (show-smartparens-global-mode +1)
-(smartparens-global-strict-mode)
+(smartparens-global-mode)
 
 ;; Uniquify buffer
 (require 'uniquify)
