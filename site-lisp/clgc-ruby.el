@@ -53,7 +53,7 @@
 
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'robe-ac-setup)
+;; (add-hook 'robe-mode-hook 'robe-ac-setup)
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))

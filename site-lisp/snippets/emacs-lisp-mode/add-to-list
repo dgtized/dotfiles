@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Charles L.G. Comstock <dgtized@gmail.com>
+# name: add-to-list
+# key: atl
+# --
+(add-to-list '${1:list} ${2:element})
