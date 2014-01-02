@@ -15,7 +15,7 @@
 
 (add-to-list 'load-path site-lisp)
 
-(setenv "PAGER" "/bin/cat") ;; disable pager
+(setenv "PAGER" (executable-find "cat")) ;; disable pager
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
