@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
 DATA.each do |line|
-  schema,key,*rest = line.split
-  puts "gsettings set #{schema} #{key} \"#{rest.join(" ")}\""
+  schema,key,keybind = line.split
+  puts "gsettings set #{schema} #{key} \"#{keybind}\""
 end
 
 __END__
-org.gnome.libgnomekbd.keyboard options ['terminate\tterminate:ctrl_alt_bksp', 'caps\tcaps:ctrl_modifier']
+org.gnome.desktop.input-sources xkb-options ['caps:ctrl_modifier']
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Super>space']
 org.gnome.desktop.wm.keybindings maximize ['<Super>Page_Up']
 org.gnome.desktop.wm.keybindings unmaximize ['<Super>Page_Down']
@@ -20,5 +20,6 @@ org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Super>Right']
 org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Super>Up']
 org.compiz.integrated show-hud ['<Super>h']
 org.gnome.desktop.wm.keybindings show-desktop ['<Super>d']
-org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Super>l'
+org.gnome.settings-daemon.plugins.media-keys logout '<Super>Delete'
+org.gnome.settings-daemon.plugins.media-keys screensaver '<Super>l'
 org.gnome.settings-daemon.plugins.media-keys terminal '<Super>r'
