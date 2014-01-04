@@ -40,10 +40,17 @@
 (define-key goto-map (kbd ",") 'find-grep-in-project)
 
 (let ((map smartparens-mode-map))
+  (define-key map (kbd "C-]") nil) ;; don't override abort recursive edit
   (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
   (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
   (define-key map (kbd "C-}") 'sp-forward-barf-sexp)
+  (define-key map (kbd "M-<delete>") 'sp-kill-symbol)
+  (define-key map (kbd "M-<backspace>") 'sp-backward-kill-symbol)
+  (define-key map (kbd "<delete>") 'sp-delete-char)
+  (define-key map (kbd "M-<up>") 'sp-splice-sexp-killing-backward)
+  (define-key map (kbd "M-<down>") 'sp-splice-sexp-killing-forward)
+  (define-key map (kbd "M-r") 'sp-raise-sexp)
   (define-key map (kbd "C-M-t") 'sp-transpose-sexp)
   (define-key map (kbd "C-M-j") 'sp-split-sexp)
   (define-key map (kbd "M-J") 'sp-join-sexp)
