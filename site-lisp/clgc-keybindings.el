@@ -22,6 +22,7 @@
 (global-set-key (kbd "C-c j") 'join-line)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c q") 'comment-dwim)
+(global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
