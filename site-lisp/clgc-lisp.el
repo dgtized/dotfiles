@@ -17,11 +17,12 @@
     (add-hook hook 'turn-on-elisp-slime-nav-mode))
 
   ;; Enhance Lisp Modes
-  (dolist (mode '(scheme emacs-lisp lisp clojure
+  (dolist (mode '(scheme emacs-lisp inferior-emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl cider-repl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
-        (add-hook mode-hook 'rainbow-delimiters-mode))))
+        (add-hook mode-hook 'rainbow-delimiters-mode)
+        (add-hook mode-hook 'smartparens-strict-mode))))
 
   ;; Clojure Specific
   ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
