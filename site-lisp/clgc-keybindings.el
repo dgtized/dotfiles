@@ -39,6 +39,16 @@
 (define-key goto-map (kbd ".") 'find-file-in-project)
 (define-key goto-map (kbd ",") 'find-grep-in-project)
 
+(let ((map smartparens-mode-map))
+  (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
+  (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
+  (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
+  (define-key map (kbd "C-}") 'sp-forward-barf-sexp)
+  (define-key map (kbd "C-M-t") 'sp-transpose-sexp)
+  (define-key map (kbd "C-M-j") 'sp-split-sexp)
+  (define-key map (kbd "M-J") 'sp-join-sexp)
+  (define-key map (kbd "M-?") 'sp-convolute-sexp))
+
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
 

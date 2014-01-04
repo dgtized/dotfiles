@@ -75,18 +75,9 @@
 
 ;; smart pairing for all
 (require 'smartparens-config)
-(setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
-(setq sp-hybrid-kill-entire-symbol nil)
-(sp-use-paredit-bindings)
-
-;; overrides isearch and friends
-(define-key sp-keymap (kbd "M-s") nil)
-(define-key sp-keymap (kbd "M-S") nil)
-(define-key sp-keymap (kbd "M-r") nil)
-(define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
-(define-key sp-keymap (kbd "M-F") 'sp-forward-symbol)
-(define-key sp-keymap (kbd "M-B") 'sp-backward-symbol)
+(setq sp-hybrid-kill-entire-symbol t)
+(sp-use-smartparens-bindings)
 
 (show-smartparens-global-mode +1)
 (smartparens-global-mode)
