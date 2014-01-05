@@ -22,6 +22,7 @@
 (global-set-key (kbd "C-c j") 'join-line)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c q") 'comment-dwim)
+(global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
@@ -38,6 +39,23 @@
 (define-key goto-map (kbd "i") 'imenu)
 (define-key goto-map (kbd ".") 'find-file-in-project)
 (define-key goto-map (kbd ",") 'find-grep-in-project)
+
+(let ((map smartparens-mode-map))
+  (define-key map (kbd "C-]") nil) ;; don't override abort recursive edit
+  (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
+  (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
+  (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
+  (define-key map (kbd "C-}") 'sp-forward-barf-sexp)
+  (define-key map (kbd "M-<delete>") 'sp-kill-symbol)
+  (define-key map (kbd "M-<backspace>") 'sp-backward-kill-symbol)
+  (define-key map (kbd "<delete>") 'sp-delete-char)
+  (define-key map (kbd "M-<up>") 'sp-splice-sexp-killing-backward)
+  (define-key map (kbd "M-<down>") 'sp-splice-sexp-killing-forward)
+  (define-key map (kbd "M-r") 'sp-raise-sexp)
+  (define-key map (kbd "C-M-t") 'sp-transpose-sexp)
+  (define-key map (kbd "C-M-j") 'sp-split-sexp)
+  (define-key map (kbd "M-J") 'sp-join-sexp)
+  (define-key map (kbd "M-?") 'sp-convolute-sexp))
 
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)

@@ -38,8 +38,6 @@
   (setq rinari-tags-file-name "TAGS")
   (global-rinari-mode t)
 
-  (define-key ruby-mode-map "\C-m" 'reindent-then-newline-and-indent)
-  (define-key ruby-mode-map "\C-j" 'newline)
   (require 'ruby-tools)
   (define-key ruby-tools-mode-map (kbd "C-:") 'ruby-toggle-symbol-string)
   (define-key ruby-tools-mode-map (kbd "C-\"") 'ruby-toggle-string-type)
@@ -47,6 +45,7 @@
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'subword-mode)
+(add-hook 'ruby-mode-hook 'superword-mode)
 
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
