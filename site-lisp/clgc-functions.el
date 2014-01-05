@@ -60,6 +60,12 @@ With negative N, comment out original line and use the absolute value."
         (forward-line 1)
         (forward-char pos)))))
 
+(defun comment-dwim-line ()
+  "Comment or uncomment the current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position)
+                               (line-end-position)))
+
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)

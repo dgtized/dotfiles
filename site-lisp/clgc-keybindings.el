@@ -23,6 +23,8 @@
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c q") 'comment-dwim)
+(global-set-key (kbd "C-c Q") 'comment-dwim-line)
+(global-set-key (kbd "C-;") 'comment-dwim-line)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
