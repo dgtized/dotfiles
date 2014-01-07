@@ -61,6 +61,8 @@
   (define-key map (kbd "M-J") 'sp-join-sexp)
   (define-key map (kbd "M-?") 'sp-convolute-sexp))
 
+(define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
+
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
 
