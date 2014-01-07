@@ -11,6 +11,7 @@
 (depends-on "dna-mode")
 (depends-on "org")
 (depends-on "graphviz-dot-mode")
+(depends-on "web-mode")
 
 (depends-on "w3m")
 
