@@ -23,7 +23,9 @@
 (global-set-key (kbd "C-c q") 'comment-dwim)
 (global-set-key (kbd "C-c Q") 'comment-dwim-line)
 (global-set-key (kbd "C-;") 'comment-dwim-line)
+(global-set-key (kbd "C-c n") 'sp-select-next-thing-exchange)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
+(global-set-key (kbd "C-c s") 'sp-splice-sexp)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
