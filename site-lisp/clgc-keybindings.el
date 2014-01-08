@@ -38,6 +38,8 @@
 (define-key goto-map (kbd "t") 'visit-term-buffer)
 (define-key goto-map (kbd "e") 'eshell)
 (define-key goto-map (kbd "f") 'helm-find-files)
+(define-key goto-map (kbd "d") 'dired-jump)
+(define-key goto-map (kbd "w") 'whitespace-mode)
 (define-key goto-map (kbd "b") 'magit-blame-mode)
 (define-key goto-map (kbd "l") 'magit-file-log)
 (define-key goto-map (kbd "j") 'ace-jump-mode)
