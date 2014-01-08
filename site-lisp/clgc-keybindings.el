@@ -18,8 +18,6 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
-(global-set-key (kbd "C-c k") 'kill-whole-line)
-(global-set-key (kbd "C-c j") 'join-line)
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c q") 'comment-dwim)
@@ -27,6 +25,9 @@
 (global-set-key (kbd "C-;") 'comment-dwim-line)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
+(global-set-key (kbd "C-S-j") 'join-line)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
