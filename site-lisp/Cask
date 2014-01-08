@@ -40,9 +40,12 @@
 (depends-on "geiser")
 (depends-on "quack")
 
-;; Files and Projects
+;; Git
 (depends-on "magit")
 (depends-on "gist")
+(depends-on "github-browse-file")
+
+;; Files and Projects
 (depends-on "helm")
 (depends-on "find-file-in-project")
 (depends-on "projectile")

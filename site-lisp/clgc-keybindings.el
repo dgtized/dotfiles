@@ -42,6 +42,8 @@
 (define-key goto-map (kbd "w") 'whitespace-mode)
 (define-key goto-map (kbd "b") 'magit-blame-mode)
 (define-key goto-map (kbd "l") 'magit-file-log)
+(define-key goto-map (kbd "h") 'github-browse-file)
+(define-key goto-map (kbd "B") 'github-browse-file-blame)
 (define-key goto-map (kbd "j") 'ace-jump-mode)
 (define-key goto-map (kbd "M-j") 'ace-jump-mode)
 (define-key goto-map (kbd "i") 'imenu)
