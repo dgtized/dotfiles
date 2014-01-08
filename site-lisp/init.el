@@ -37,9 +37,6 @@
       line-number-mode t
       column-number-mode t
       auto-fill-default t
-      c-basic-offset 4
-      sgml-basic-offset 4
-      nxml-child-indent 2
       visible-bell t
       require-final-newline t
       debug-on-error nil
@@ -53,9 +50,17 @@
       mouse-yank-at-point t)
 
 (setq-default indent-tabs-mode nil
-              tab-width 4
-              show-trailing-whitespace t
-              default-indicate-empty-lines t)
+              tab-width 2
+              c-basic-offset 2
+              sgml-basic-offset 4
+              nxml-child-indent 2)
+
+(defun clgc-prog-mode-hook ()
+  (setq show-trailing-whitespace t
+        default-indicate-empty-lines t))
+
+(add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -124,8 +129,7 @@
 (global-undo-tree-mode)
 
 (defun clgc-term-mode ()
-  (setq yas-dont-activate t)
-  (setq show-trailing-whitespace nil))
+  (setq yas-dont-activate t))
 (add-hook 'term-mode-hook 'clgc-term-mode)
 (add-hook 'comint-mode-hook 'clgc-term-mode)
 
