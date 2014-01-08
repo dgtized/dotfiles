@@ -48,6 +48,11 @@
 (define-key goto-map (kbd ".") 'find-file-in-project)
 (define-key goto-map (kbd ",") 'find-grep-in-project)
 
+(let ((map occur-mode-map))
+  (define-key map (kbd "v") 'occur-mode-display-occurrence)
+  (define-key map (kbd "p") 'occur-prev)
+  (define-key map (kbd "n") 'occur-next))
+
 (let ((map smartparens-mode-map))
   (define-key map (kbd "C-]") nil) ;; don't override abort recursive edit
   (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
