@@ -58,7 +58,7 @@
   (rvm-activate-corresponding-ruby))
 
 ;; RVM
-(rvm-use-default)
+(add-hook 'after-init-hook 'rvm-use-default)
 
 ;; broken per https://github.com/dgutov/robe/issues/20
 ;; (add-hook 'robe-mode 'robe-ac-setup)
