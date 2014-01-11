@@ -25,7 +25,8 @@
 (global-set-key (kbd "C-c n") 'sp-select-next-thing-exchange)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 (global-set-key (kbd "C-c s") 'sp-splice-sexp)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "C-c J") 'ace-jump-mode-pop-mark)
 
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-j") 'join-line)
