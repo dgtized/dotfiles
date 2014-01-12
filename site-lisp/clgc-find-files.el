@@ -13,14 +13,10 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "places" user-emacs-directory))
 
-(defun projectile-magit ()
-  (interactive)
-  (magit-status (projectile-project-root)))
-
 (projectile-global-mode)
-(setq projectile-enable-caching t)
-(setq projectile-switch-project-action 'projectile-magit)
-(setq projectile-use-git-grep t)
+(setq projectile-enable-caching t
+      projectile-switch-project-action 'projectile-dired
+      projectile-use-git-grep t)
 (when (file-exists-p "/usr/bin/ack-grep")
   (setq ack-and-a-half-executable "/usr/bin/ack-grep"))
 
