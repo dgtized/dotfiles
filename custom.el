@@ -16,7 +16,10 @@
  '(magit-diff-options (quote ("--patience")))
  '(magit-set-upstream-on-push (quote dontask))
  '(magit-wip-mode nil)
- '(rspec-use-rvm t))
+ '(rspec-use-rvm t)
+ '(yas-prompt-functions
+   (quote
+    (yas-ido-prompt yas-x-prompt yas-dropdown-prompt yas-completing-prompt yas-no-prompt))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
