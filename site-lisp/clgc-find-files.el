@@ -1,5 +1,4 @@
-(eval-when-compile (require 'cl)
-                   (require 'clgc-elpa))
+(eval-when-compile (require 'cl))
 
 ;; Ido
 (require 'ido)
