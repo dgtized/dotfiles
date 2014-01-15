@@ -2,11 +2,16 @@
 
 ;; Ido
 (require 'ido)
+(require 'flx-ido)
 (ido-mode t)
+(ido-everywhere t)
+(flx-ido-mode t)
 (setq ido-enable-flex-matching t ;; enable fuzzy matching
       ido-case-fold t
       ido-create-new-buffer 'always
-      ido-use-virtual-buffers t)
+      ido-use-virtual-buffers t
+      ido-use-faces nil
+      flx-ido-threshhold 8192)
 
 (require 'saveplace)
 (setq-default save-place t)

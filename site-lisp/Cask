@@ -48,6 +48,7 @@
 ;; Files and Projects
 (depends-on "helm")
 (depends-on "find-file-in-project")
+(depends-on "flx-ido")
 (depends-on "projectile")
 (depends-on "helm-projectile")
 (depends-on "ag")
