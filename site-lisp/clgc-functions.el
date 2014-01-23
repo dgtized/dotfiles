@@ -201,6 +201,13 @@ With negative N, comment out original line and use the absolute value."
                                 (magit-file-relative-name (buffer-file-name))
                                 (line-number-at-pos))))))))
 
+(defun clgc-gist-browse ()
+  "Browse url the currently selected gist"
+  (interactive)
+  (let* ((id (tabulated-list-get-id))
+         (gist (gist-list-db-get-gist id)))
+    (browse-url (oref gist :html-url))))
+
 (defun clgc-gist-region (&optional private)
   "Post either the current region, or if mark is not set, the
   current buffer as a new paste at gist.github.com
