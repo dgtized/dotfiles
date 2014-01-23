@@ -39,6 +39,7 @@
 (global-set-key (kbd "C-c B") 'github-browse-file-blame)
 (global-set-key (kbd "C-c l") 'magit-file-log)
 (global-set-key (kbd "C-c G") 'github-browse-file)
+(global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
 (global-set-key (kbd "C-c f") 'find-file-in-project)
 (global-set-key (kbd "C-c g") 'find-grep-in-project)

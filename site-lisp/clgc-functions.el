@@ -201,6 +201,19 @@ With negative N, comment out original line and use the absolute value."
                                 (magit-file-relative-name (buffer-file-name))
                                 (line-number-at-pos))))))))
 
+(defun clgc-gist-region (&optional private)
+  "Post either the current region, or if mark is not set, the
+  current buffer as a new paste at gist.github.com
+
+Copies the URL into the kill ring and calls browse-url
+
+With a prefix argument, makes a private paste."
+  (interactive "P")
+  (let ((gist-view-gist t))
+    (if (use-region-p)
+        (gist-region (point) (mark) private)
+      (gist-buffer private))))
+
 (defun transpose-windows (arg)
   "Transpose the buffers shown in two windows."
   (interactive "p")
