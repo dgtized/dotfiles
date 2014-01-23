@@ -43,6 +43,7 @@
 (global-set-key (kbd "C-c f") 'find-file-in-project)
 (global-set-key (kbd "C-c g") 'find-grep-in-project)
 
+(global-set-key (kbd "C-c i") 'ido-goto-symbol)
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
 
@@ -50,8 +51,6 @@
 (global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
-
-(define-key goto-map (kbd "i") 'imenu)
 
 (let ((map occur-mode-map))
   (define-key map (kbd "v") 'occur-mode-display-occurrence)
