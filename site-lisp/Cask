@@ -1,5 +1,6 @@
 (source marmalade)
 (source melpa)
+(source org)
 
 (depends-on "haml-mode")
 (depends-on "yaml-mode")
@@ -9,7 +10,7 @@
 (depends-on "markdown-mode")
 (depends-on "log4j-mode")
 (depends-on "dna-mode")
-(depends-on "org")
+(depends-on "org-plus-contrib")
 (depends-on "graphviz-dot-mode")
 (depends-on "web-mode")
 

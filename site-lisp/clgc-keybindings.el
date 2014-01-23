@@ -33,11 +33,21 @@
 (global-set-key (kbd "C-c k") 'kill-whole-line)
 (global-set-key (kbd "C-c j") 'join-line)
 
+;; Org Related
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c ;") 'org-capture)
+
+(eval-after-load 'org-mode
+  '(progn
+     (define-key org-mode-map (kbd "C-c ;") nil)
+     (define-key org-mode-map (kbd "M-;") 'org-toggle-comment)))
+
 ;; Git related (really wish I could move this into VC prefix)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c b") 'magit-blame-mode)
 (global-set-key (kbd "C-c B") 'github-browse-file-blame)
-(global-set-key (kbd "C-c l") 'magit-file-log)
+(global-set-key (kbd "C-c L") 'magit-file-log)
 (global-set-key (kbd "C-c G") 'github-browse-file)
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 

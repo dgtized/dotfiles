@@ -32,6 +32,7 @@
 (require 'starter-kit-eshell)
 (require 'clgc-ruby)
 (require 'clgc-major-modes)
+(require 'clgc-org)
 
 (setq gc-cons-threshold (expt 2 24) ;; 16mb instead of 800k
       inhibit-startup-screen t
@@ -90,6 +91,8 @@
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol t)
 (sp-use-smartparens-bindings)
+
+(add-to-list 'sp-ignore-modes-list 'org-mode)
 
 (show-smartparens-global-mode +1)
 (smartparens-global-mode)
