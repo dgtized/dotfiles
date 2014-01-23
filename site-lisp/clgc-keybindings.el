@@ -17,39 +17,41 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
+(global-set-key (kbd "C-c \\") 'align)
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
+(global-set-key (kbd "C-M-y") 'duplicate-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
-(global-set-key (kbd "C-c q") 'comment-dwim)
-(global-set-key (kbd "C-c Q") 'comment-dwim-line)
-(global-set-key (kbd "C-;") 'comment-dwim-line)
+(global-set-key (kbd "C-c W") 'whitespace-mode)
+(global-set-key (kbd "C-c V") 'visual-line-mode)
+(global-set-key (kbd "C-M-;") 'comment-dwim-line)
 (global-set-key (kbd "C-c n") 'sp-select-next-thing-exchange)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
 (global-set-key (kbd "C-c s") 'sp-splice-sexp)
-(global-set-key (kbd "C-c j") 'ace-jump-mode)
-(global-set-key (kbd "C-c J") 'ace-jump-mode-pop-mark)
 
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-j") 'join-line)
+(global-set-key (kbd "C-c k") 'kill-whole-line)
+(global-set-key (kbd "C-c j") 'join-line)
+
+;; Git related (really wish I could move this into VC prefix)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c b") 'magit-blame-mode)
+(global-set-key (kbd "C-c B") 'github-browse-file-blame)
+(global-set-key (kbd "C-c l") 'magit-file-log)
+(global-set-key (kbd "C-c G") 'github-browse-file)
+
+(global-set-key (kbd "C-c f") 'find-file-in-project)
+(global-set-key (kbd "C-c g") 'find-grep-in-project)
+
+(global-set-key (kbd "C-c t") 'visit-term-buffer)
+(global-set-key (kbd "C-c e") 'eshell)
+
+(global-set-key (kbd "C-'") 'ace-jump-mode)
+(global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)
 
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
-(global-set-key (kbd "C-c G") 'github-browse)
-(global-set-key (kbd "C-x g") 'magit-status)
-
-(define-key goto-map (kbd "t") 'visit-term-buffer)
-(define-key goto-map (kbd "e") 'eshell)
-(define-key goto-map (kbd "f") 'helm-find-files)
-(define-key goto-map (kbd "d") 'dired-jump)
-(define-key goto-map (kbd "w") 'whitespace-mode)
-(define-key goto-map (kbd "b") 'magit-blame-mode)
-(define-key goto-map (kbd "l") 'magit-file-log)
-(define-key goto-map (kbd "h") 'github-browse-file)
-(define-key goto-map (kbd "B") 'github-browse-file-blame)
-(define-key goto-map (kbd "j") 'ace-jump-mode)
-(define-key goto-map (kbd "M-j") 'ace-jump-mode)
 (define-key goto-map (kbd "i") 'imenu)
-(define-key goto-map (kbd ".") 'find-file-in-project)
-(define-key goto-map (kbd ",") 'find-grep-in-project)
 
 (let ((map occur-mode-map))
   (define-key map (kbd "v") 'occur-mode-display-occurrence)
@@ -75,9 +77,9 @@
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
+(global-set-key (kbd "<f8>") 'calc-dispatch)
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
-
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
