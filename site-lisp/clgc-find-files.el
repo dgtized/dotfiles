@@ -3,6 +3,7 @@
 ;; Ido
 (require 'ido)
 (require 'flx-ido)
+(require 'ffap)
 (ido-mode t)
 (ido-everywhere t)
 (flx-ido-mode t)
@@ -11,7 +12,15 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t
       ido-use-faces nil
-      flx-ido-threshhold 8192)
+      flx-ido-threshhold 8192
+      ido-use-filename-at-point nil
+      ido-use-url-at-point nil)
+
+(defadvice ido-file-internal (around ffap activate)
+  "When called with a prefix, use `ffap' instead."
+  (if current-prefix-arg
+      (ffap)
+    ad-do-it))
 
 (require 'saveplace)
 (setq-default save-place t)
