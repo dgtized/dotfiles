@@ -42,6 +42,7 @@
       require-final-newline t
       debug-on-error nil
       apropos-do-all t
+      confirm-nonexistent-file-or-buffer nil
       sentence-end-double-space nil)
 
 ;; Clipboard and Selection
@@ -63,6 +64,10 @@
 (add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+;; Stop confirming process kill
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
