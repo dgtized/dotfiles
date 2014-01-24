@@ -1,4 +1,9 @@
 (defun clgc-prog-mode-hook ()
+  (add-to-list 'prettify-symbols-alist '("<=" . ?≤))
+  (add-to-list 'prettify-symbols-alist '(">=" . ?≥))
+  (add-to-list 'prettify-symbols-alist '("!=" . ?≠))
+  (prettify-symbols-mode)
+
   (setq show-trailing-whitespace t
         indicate-empty-lines t))
 
