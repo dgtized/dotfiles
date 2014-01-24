@@ -58,12 +58,6 @@
               sgml-basic-offset 4
               nxml-child-indent 2)
 
-(defun clgc-prog-mode-hook ()
-  (setq show-trailing-whitespace t
-        default-indicate-empty-lines t))
-
-(add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
-
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; Stop confirming process kill
 (setq kill-buffer-query-functions

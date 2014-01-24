@@ -1,3 +1,8 @@
+(defun clgc-prog-mode-hook ()
+  (setq show-trailing-whitespace t
+        indicate-empty-lines t))
+
+(add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
