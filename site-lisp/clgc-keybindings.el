@@ -85,6 +85,7 @@
   (define-key map (kbd "M-J") 'sp-join-sexp)
   (define-key map (kbd "M-?") 'sp-convolute-sexp))
 
+(define-key help-map (kbd "P") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
 (global-set-key (kbd "<f8>") 'calc-dispatch)
