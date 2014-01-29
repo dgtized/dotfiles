@@ -57,6 +57,7 @@
 (global-set-key (kbd "C-c i") 'ido-goto-symbol)
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c o") 'browse-url)
 
 (global-set-key (kbd "C-'") 'ace-jump-mode)
 (global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)
