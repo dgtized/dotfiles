@@ -1,0 +1,13 @@
+--type-add
+ruby=.json.rabl,.rabl
+--type-add
+css=.less,.sass,.scss
+--type-set
+ignorables=.log,.tmp,.pdf
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=coverage
+--ignore-dir=doc
+--ignore-dir=node_modules
+
