@@ -96,4 +96,8 @@
   (setq auto-save-file-name-transforms
         `((".*" ,backup-dir t))))
 
+;; github-browse-file settings
+(setq github-browse-file-show-line-at-point t
+      github-browse-file-visit-url nil)
+
 (provide 'clgc-find-files)
