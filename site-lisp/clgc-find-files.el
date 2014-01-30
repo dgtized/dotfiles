@@ -30,8 +30,6 @@
 (setq projectile-enable-caching t
       projectile-switch-project-action 'projectile-dired
       projectile-use-git-grep t)
-(when (file-exists-p "/usr/bin/ack-grep")
-  (setq ack-and-a-half-executable "/usr/bin/ack-grep"))
 
 (require 'helm-config)
 
