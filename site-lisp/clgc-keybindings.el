@@ -23,6 +23,7 @@
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c W") 'whitespace-mode)
 (global-set-key (kbd "C-c V") 'visual-line-mode)
+(global-set-key (kbd "C-c I") 'color-identifiers-mode)
 (global-set-key (kbd "C-M-;") 'comment-dwim-line)
 (global-set-key (kbd "C-c n") 'sp-select-next-thing-exchange)
 (global-set-key (kbd "C-c r") 'sp-rewrap-sexp)

@@ -35,6 +35,7 @@
 (depends-on "clojure-cheatsheet")
 
 (depends-on "rainbow-delimiters")
+(depends-on "color-identifiers-mode")
 (depends-on "smartparens")
 
 ;; Scheme
