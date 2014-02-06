@@ -67,3 +67,10 @@ pkill notify-osd
 sudo aptitude install git-flow exuberant-ctags
 
 sudo aptitude install w3m silversearcher-ag ack-grep
+
+sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
+cat <<EOF >> /etc/apt/sources.list
+deb http://repo.percona.com/apt saucy main
+deb-src http://repo.percona.com/apt saucy main
+EOF
+sudo aptitude install percona-server-server-5.6 libmysqlclient-dev
