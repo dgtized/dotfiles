@@ -16,8 +16,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-(global-set-key (kbd "C-x \\") 'align-regexp)
-(global-set-key (kbd "C-c \\") 'align)
+(global-set-key (kbd "C-x C-\\") 'align-regexp)
+(global-set-key (kbd "C-x \\") 'align)
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "C-M-y") 'duplicate-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
