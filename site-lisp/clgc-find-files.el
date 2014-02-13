@@ -26,6 +26,7 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "places" user-emacs-directory))
 
+(require 'ack-and-a-half)
 (projectile-global-mode)
 (setq projectile-enable-caching t
       projectile-switch-project-action 'projectile-dired
