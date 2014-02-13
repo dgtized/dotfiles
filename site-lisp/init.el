@@ -127,6 +127,11 @@
                   global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
 
+;; Autocorrect
+(setq default-abbrev-mode t
+      save-abbrevs t
+      abbrev-file-name (concat site-lisp "abbrev_defs.el"))
+
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
 (yas-global-mode)
