@@ -8,5 +8,7 @@
 	st = status
 [push]
 	default = simple
+[pull]
+	rebase = true
 [include]
-    path = ~/.gitconfig.private
+	path = ~/.gitconfig.private
