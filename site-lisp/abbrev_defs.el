@@ -17,6 +17,20 @@
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
 
+(define-abbrev-table 'conf-colon-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-javaprop-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-ppd-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-space-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-unix-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-windows-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-xdefaults-mode-abbrev-table '())
+
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
@@ -41,8 +55,9 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
+    ("jurisdction" "jurisdiction" nil 4)
     ("reponse" "reponse" nil 3)
-    ("teh" "the" nil 2)
+    ("teh" "the" nil 3)
    ))
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
