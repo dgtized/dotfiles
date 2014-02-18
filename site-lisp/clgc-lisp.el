@@ -44,7 +44,7 @@
   (setq cider-popup-stacktraces nil)
 
   (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-  (define-key clojure-mode-map (kbd "C-c C-g") 'clojure-cheatsheet)
+  (define-key clojure-mode-map (kbd "C-c h") 'clojure-cheatsheet)
 
   (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
