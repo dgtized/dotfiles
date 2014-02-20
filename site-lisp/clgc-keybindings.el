@@ -109,6 +109,10 @@
 (eval-after-load 'gist
   (progn '(define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
+(eval-after-load 'smartscan
+  '(progn (define-key smartscan-map (kbd "M-'") nil)
+          (define-key smartscan-map (kbd "M-s r") 'smartscan-symbol-replace)))
+
 (windmove-default-keybindings)
 
 ;; isearch
