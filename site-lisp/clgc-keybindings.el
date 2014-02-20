@@ -2,6 +2,7 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
+(global-set-key (kbd "C-x p") 'proced)
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key (kbd "C-c 7") 'insert-char)
@@ -90,7 +91,6 @@
 (define-key help-map (kbd "P") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
-(global-set-key (kbd "<f8>") 'calc-dispatch)
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
