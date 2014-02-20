@@ -107,7 +107,7 @@
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
 (eval-after-load 'gist
-  (progn '(define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
+  '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
 (eval-after-load 'smartscan
   '(progn (define-key smartscan-map (kbd "M-'") nil)
