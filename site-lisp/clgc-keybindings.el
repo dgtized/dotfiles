@@ -26,11 +26,8 @@
 (global-set-key (kbd "C-c V") 'visual-line-mode)
 (global-set-key (kbd "C-c I") 'color-identifiers-mode)
 (global-set-key (kbd "C-M-;") 'comment-dwim-line)
-
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "C-S-j") 'join-line)
-(global-set-key (kbd "C-c k") 'kill-whole-line)
-(global-set-key (kbd "C-c j") 'join-line)
+(global-set-key (kbd "C-M-j") 'join-line)
 
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
