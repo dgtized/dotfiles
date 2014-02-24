@@ -26,9 +26,6 @@
 (global-set-key (kbd "C-c V") 'visual-line-mode)
 (global-set-key (kbd "C-c I") 'color-identifiers-mode)
 (global-set-key (kbd "C-M-;") 'comment-dwim-line)
-(global-set-key (kbd "C-c n") 'sp-select-next-thing-exchange)
-(global-set-key (kbd "C-c r") 'sp-rewrap-sexp)
-(global-set-key (kbd "C-c s") 'sp-splice-sexp)
 
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-j") 'join-line)
@@ -71,8 +68,8 @@
   (define-key map (kbd "p") 'occur-prev)
   (define-key map (kbd "n") 'occur-next))
 
+(global-set-key (kbd "C-x C-]") 'abort-recursive-edit) ; C-] overriden below
 (let ((map smartparens-mode-map))
-  (define-key map (kbd "C-]") nil) ;; don't override abort recursive edit
   (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
   (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
@@ -80,13 +77,17 @@
   (define-key map (kbd "M-<delete>") 'sp-kill-symbol)
   (define-key map (kbd "M-<backspace>") 'sp-backward-kill-symbol)
   (define-key map (kbd "<delete>") 'sp-delete-char)
-  (define-key map (kbd "M-<up>") 'sp-splice-sexp-killing-backward)
-  (define-key map (kbd "M-<down>") 'sp-splice-sexp-killing-forward)
-  (define-key map (kbd "M-r") 'sp-raise-sexp)
+  (define-key map (kbd "ESC <backspace>") 'sp-splice-sexp-killing-backward)
+  (define-key map (kbd "ESC <delete>") 'sp-splice-sexp-killing-forward)
+  (define-key map (kbd "M-s <backspace>") 'sp-backward-unwrap-sexp)
+  (define-key map (kbd "M-s <delete>") 'sp-unwrap-sexp)
   (define-key map (kbd "C-M-t") 'sp-transpose-sexp)
-  (define-key map (kbd "C-M-j") 'sp-split-sexp)
-  (define-key map (kbd "M-J") 'sp-join-sexp)
-  (define-key map (kbd "M-?") 'sp-convolute-sexp))
+  (define-key map (kbd "M-s r") 'sp-rewrap-sexp)
+  (define-key map (kbd "M-s a") 'sp-absorb-sexp)
+  (define-key map (kbd "M-s e") 'sp-emit-sexp)
+  (define-key map (kbd "M-s s") 'sp-split-sexp)
+  (define-key map (kbd "M-s j") 'sp-join-sexp)
+  (define-key map (kbd "M-s c") 'sp-convolute-sexp))
 
 (define-key help-map (kbd "P") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
