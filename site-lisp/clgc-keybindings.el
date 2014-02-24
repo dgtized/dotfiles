@@ -110,8 +110,13 @@
   '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
 (eval-after-load 'smartscan
-  '(progn (define-key smartscan-map (kbd "M-'") nil)
-          (define-key smartscan-map (kbd "M-s r") 'smartscan-symbol-replace)))
+  '(let ((map smartscan-map))
+     (define-key map (kbd "M-n") nil)
+     (define-key map (kbd "M-p") nil)
+     (define-key map (kbd "M-'") nil)
+     (define-key map (kbd "M-s n") 'smartscan-symbol-go-forward)
+     (define-key map (kbd "M-s p") 'smartscan-symbol-go-backward)
+     (define-key map (kbd "M-s %") 'smartscan-symbol-replace)))
 
 (windmove-default-keybindings)
 
