@@ -74,6 +74,7 @@
 (depends-on "auto-complete")
 (depends-on "fuzzy")
 (depends-on "expand-region")
+(depends-on "multiple-cursors")
 
 (depends-on "yasnippet")
 (depends-on "angular-snippets")
