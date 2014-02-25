@@ -65,6 +65,8 @@
 (depends-on "rvm")
 (depends-on "inf-ruby")
 (depends-on "rinari")
+(depends-on "bundler")
+(depends-on "projectile-rails")
 (depends-on "rspec-mode")
 (depends-on "ruby-tools")
 (depends-on "robe")
