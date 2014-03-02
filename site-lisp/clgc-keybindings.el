@@ -88,7 +88,7 @@
   (define-key map (kbd "M-s [") 'sp-add-to-previous-sexp)
   (define-key map (kbd "M-s ]") 'sp-add-to-next-sexp))
 
-(define-key help-map (kbd "P") 'find-library)
+(define-key help-map (kbd "C-l") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
