@@ -94,7 +94,8 @@
 
 ;; Uniquify buffer
 (require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets
+      uniquify-after-kill-buffer-p t)
 
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
