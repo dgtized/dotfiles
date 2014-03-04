@@ -97,7 +97,7 @@
 
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "M-<f9>") 'org-tree-slide-mode)
-(global-set-key (kbd "C-<f10>") 'menu-bar-mode)
+(global-set-key (kbd "<f12>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
