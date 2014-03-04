@@ -216,10 +216,9 @@ Copies the URL into the kill ring and calls browse-url
 
 With a prefix argument, makes a private paste."
   (interactive "P")
-  (let ((gist-view-gist t))
-    (if (use-region-p)
-        (gist-region (point) (mark) private)
-      (gist-buffer private))))
+  (if (use-region-p)
+      (gist-region (point) (mark) private)
+    (gist-buffer private)))
 
 (defun transpose-windows (arg)
   "Transpose the buffers shown in two windows."
