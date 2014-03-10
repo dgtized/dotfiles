@@ -6,4 +6,6 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+(add-hook 'org-mode-hook 'turn-on-visual-line-mode)
+
 (provide 'clgc-org)
