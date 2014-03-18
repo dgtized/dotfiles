@@ -96,7 +96,9 @@
 (define-key help-map (kbd "C-l") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
-(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
+(global-set-key (kbd "<f9>") 'epresent-run)
+(global-set-key (kbd "C-<f9>") 'org-tree-slide-mode)
+(global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
