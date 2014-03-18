@@ -36,6 +36,7 @@
 
 (eval-after-load 'org-mode
   '(progn
+     (define-key org-mode-map (kbd "C-'") nil)
      (define-key org-mode-map (kbd "C-c ;") nil)
      (define-key org-mode-map (kbd "M-;") 'org-toggle-comment)))
 
