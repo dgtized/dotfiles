@@ -32,13 +32,14 @@
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c ;") 'org-capture)
+(global-set-key (kbd "C-c c") 'org-capture)
 
-(eval-after-load 'org-mode
-  '(progn
-     (define-key org-mode-map (kbd "C-'") nil)
-     (define-key org-mode-map (kbd "C-c ;") nil)
-     (define-key org-mode-map (kbd "M-;") 'org-toggle-comment)))
+(eval-after-load 'org
+  '(let ((map org-mode-map))
+    (define-key map (kbd "C-'") nil) ;; overlaps ace-jump-mode
+    (define-key map (kbd "<f9>") 'epresent-run)
+    (define-key map (kbd "C-<f9>") 'org-tree-slide-mode)
+    (define-key map (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)))
 
 ;; Git related (really wish I could move this into VC prefix)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -96,9 +97,6 @@
 (define-key help-map (kbd "C-l") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
-(global-set-key (kbd "<f9>") 'epresent-run)
-(global-set-key (kbd "C-<f9>") 'org-tree-slide-mode)
-(global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
