@@ -39,7 +39,9 @@
     (define-key map (kbd "C-'") nil) ;; overlaps ace-jump-mode
     (define-key map (kbd "<f9>") 'epresent-run)
     (define-key map (kbd "C-<f9>") 'org-tree-slide-mode)
-    (define-key map (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)))
+    (define-key map (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
+    (define-key map (kbd "M-n") 'outline-next-visible-heading)
+    (define-key map (kbd "M-p") 'outline-previous-visible-heading)))
 
 ;; Git related (really wish I could move this into VC prefix)
 (global-set-key (kbd "C-x g") 'magit-status)
