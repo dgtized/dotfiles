@@ -106,9 +106,21 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; Multiple Cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(let ((map search-map))
+  (define-key map (kbd "ml") 'mc/edit-lines)
+  (define-key map (kbd "mr") 'mc/mark-all-in-region)
+  (define-key map (kbd "mA") 'mc/mark-all-like-this)
+  (define-key map (kbd "m SPC") 'mc/mark-all-like-this-dwim)
+  (define-key map (kbd "mx") 'mc/mark-more-like-this-extended)
+  (define-key map (kbd "ms") 'mc/mark-all-symbols-like-this)
+  (define-key map (kbd "md") 'mc/mark-all-symbols-like-this-in-defun)
+  (define-key map (kbd "mp") 'mc/mark-sgml-tag-pair)
+  (define-key map (kbd "M-s") 'mc/sort-regions)
+  (define-key map (kbd "M-r") 'mc/reverse-regions)
+  (define-key map (kbd "#") 'mc/insert-numbers))
 
 (define-key ctl-x-4-map (kbd "t") 'transpose-windows)
 (define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
