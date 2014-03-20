@@ -7,7 +7,7 @@
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key (kbd "C-c 7") 'insert-char)
 
-(global-unset-key (kbd "C-z")) ;; use C-x C-z instead
+(global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
 
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
