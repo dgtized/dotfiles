@@ -232,4 +232,9 @@ With a prefix argument, makes a private paste."
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
+(defun revert-this-buffer ()
+  (interactive)
+  (revert-buffer nil t t)
+  (message (concat "Reverted buffer " (buffer-name))))
+
 (provide 'clgc-functions)
