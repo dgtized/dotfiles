@@ -43,12 +43,14 @@
     (define-key map (kbd "M-n") 'outline-next-visible-heading)
     (define-key map (kbd "M-p") 'outline-previous-visible-heading)))
 
-;; Git related (really wish I could move this into VC prefix)
+;; Git related
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c b") 'magit-blame-mode)
-(global-set-key (kbd "C-c B") 'github-browse-file-blame)
-(global-set-key (kbd "C-c L") 'magit-file-log)
-(global-set-key (kbd "C-c G") 'github-browse-file)
+(let ((map vc-prefix-map))
+  (define-key map (kbd "S") 'vc-switch-backend) ; rebind from b
+  (define-key map (kbd "b") 'magit-blame-mode)
+  (define-key map (kbd "B") 'github-browse-file-blame)
+  (define-key map (kbd "f") 'magit-file-log)
+  (define-key map (kbd "F") 'github-browse-file))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
 (global-set-key (kbd "C-c f") 'find-file-in-project)
