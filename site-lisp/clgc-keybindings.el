@@ -75,7 +75,7 @@
   (define-key map (kbd "p") 'occur-prev)
   (define-key map (kbd "n") 'occur-next))
 
-(global-set-key (kbd "C-x C-]") 'abort-recursive-edit) ; C-] overriden below
+(global-set-key (kbd "C-M-g") 'abort-recursive-edit) ; C-] overriden below
 (let ((map smartparens-mode-map))
   (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
   (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
