@@ -15,8 +15,6 @@
 (depends-on "web-mode")
 (depends-on "epresent")
 
-(depends-on "w3m")
-
 (depends-on "haskell-mode")
 (depends-on "js2-mode")
 (depends-on "coffee-mode")
