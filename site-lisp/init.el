@@ -117,16 +117,8 @@
 (require 'generic)
 (require 'generic-x)
 (require 'page-ext)
-
+;; enable C-x C-j
 (require 'dired-x)
-
-;; http://repose.cx/conf/.elisp/
-;; Or enable more if you wish
-(setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
-                  global-semanticdb-minor-mode
-                  global-semantic-idle-summary-mode
-                  global-semantic-mru-bookmark-mode))
-(semantic-mode 1)
 
 ;; Autocorrect
 (setq default-abbrev-mode t
@@ -186,10 +178,6 @@
                 ("Cask"           . emacs-lisp-mode)
                 ("gitconfig"      . conf-mode)))
   (add-to-list 'auto-mode-alist mode))
-
-;; FIXME: frequent problem with menubars without this required because
-;; of void-variable senator-kill-ring
-(require 'semantic/senator)
 
 (require 'clgc-keybindings)
 (winner-mode)
