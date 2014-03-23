@@ -187,12 +187,15 @@
   (server-start))
 
 (require 'diminish)
-(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " A"))
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Y"))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
-(eval-after-load "undo-tree" '(diminish 'undo-tree-mode "U"))
-(eval-after-load "projectile" '(diminish 'projectile-mode "P"))
+(eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
+
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " α"))
+(eval-after-load "undo-tree" '(diminish 'undo-tree-mode "Δ"))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Υ"))
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
