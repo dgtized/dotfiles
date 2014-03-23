@@ -197,4 +197,7 @@
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
 
+(if (eq window-system 'x)
+  (set-default-font "Inconsolata-11"))
+
 ;;; init.el ends here
