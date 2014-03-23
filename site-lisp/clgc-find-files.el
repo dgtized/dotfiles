@@ -88,14 +88,6 @@
       '("~" ".aux" ".a" ".bbl" ".blg" ".dvi" ".elc" ".class"
         ".hc" ".hi" ".log" ".mlc" ".o" ".so" ".toc" ".rbc"))
 
-;; make the backup gods obey ME! no more ~ sprinkles all over the place
-(setq version-control nil)
-(let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
-  (setq backup-directory-alist
-        `(("." . ,backup-dir)))
-  (setq auto-save-file-name-transforms
-        `((".*" ,backup-dir t))))
-
 ;; github-browse-file settings
 (setq github-browse-file-show-line-at-point t
       github-browse-file-visit-url nil)

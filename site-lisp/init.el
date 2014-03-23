@@ -97,6 +97,13 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets
       uniquify-after-kill-buffer-p t)
 
+;; make the backup gods obey ME! no more ~ sprinkles all over the place
+(let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
+  (setq version-control nil
+        delete-by-moving-to-trash t
+        backup-directory-alist `(("." . ,backup-dir))
+        auto-save-file-name-transforms `((".*" ,backup-dir t))))
+
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
 (setq-default font-lock-maximum-decoration t)
@@ -107,11 +114,9 @@
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(setq delete-by-moving-to-trash t)
-
-(setq compilation-ask-about-save nil)
-(setq compilation-read-command t)
-(setq compilation-window-height 12)
+(setq compilation-ask-about-save nil
+      compilation-read-command t
+      compilation-window-height 12)
 
 ;; make highlight standard /etc files
 (require 'generic)
