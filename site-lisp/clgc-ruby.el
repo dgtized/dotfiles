@@ -13,6 +13,7 @@
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'subword-mode)
 (add-hook 'ruby-mode-hook 'superword-mode)
+(add-hook 'ruby-mode-hook 'projectile-rails-on)
 
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
