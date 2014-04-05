@@ -237,4 +237,8 @@ With a prefix argument, makes a private paste."
   (revert-buffer nil t t)
   (message (concat "Reverted buffer " (buffer-name))))
 
+(defun ansi-color-apply-buffer ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
 (provide 'clgc-functions)

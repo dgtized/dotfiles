@@ -16,6 +16,7 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (global-set-key (kbd "S-<f5>") 'revert-this-buffer)
+(global-set-key (kbd "C-<f5>") 'ansi-color-apply-buffer)
 
 (global-set-key (kbd "C-x C-\\") 'align-regexp)
 (global-set-key (kbd "C-x \\") 'align)
