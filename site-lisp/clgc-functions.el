@@ -171,7 +171,7 @@ With negative N, comment out original line and use the absolute value."
   (interactive)
   (save-excursion
     (beginning-of-buffer)
-    (while (re-search-forward "^export \\([^=]+\\)=\\(.+\\)")
+    (while (re-search-forward "export \\([^=]+\\)=\\(.+\\)" nil t)
       (let ((var (match-string 1))
             (value (match-string 2)))
         (message "Setting %s to %s" var value)
