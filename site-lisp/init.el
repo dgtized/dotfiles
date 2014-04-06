@@ -206,6 +206,18 @@
 (load-theme 'zenburn t)
 
 (if (eq window-system 'x)
-  (set-default-font "Inconsolata-11"))
+    (set-face-attribute 'default nil
+                    :family "Inconsolata"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal))
+
+(when (functionp 'set-fontset-font)
+  (set-fontset-font "fontset-default"
+                    'unicode
+                    (font-spec :family "DejaVu Sans Mono"
+                               :width 'normal
+                               :size 10.0
+                               :weight 'normal)))
 
 ;;; init.el ends here
