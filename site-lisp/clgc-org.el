@@ -26,4 +26,7 @@
 (setq org-refile-targets (quote ((nil :maxlevel . 2)
                                  (org-agenda-files :maxlevel . 2))))
 
+;; Font highlight babel blocks
+(setq org-src-fontify-natively t)
+
 (provide 'clgc-org)
