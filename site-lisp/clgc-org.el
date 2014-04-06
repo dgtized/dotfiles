@@ -12,6 +12,18 @@
       org-default-notes-file (expand-file-name "incoming.org" org-directory)
       org-completion-use-ido t
       org-return-follows-link t
+      org-use-fast-todo-selection t
+      org-refile-use-outline-path t
       org-log-done t)
+
+(setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE")
+                          (sequence "WAITING(w)" "|" "CANCELED(c)")))
+
+(setq org-agenda-files (mapcar (lambda (x) (expand-file-name x org-directory))
+                               (list "incoming.org" "OpenSource.org"
+                                     "NoRedInk.org" "Intoximeters.org")))
+
+(setq org-refile-targets (quote ((nil :maxlevel . 2)
+                                 (org-agenda-files :maxlevel . 2))))
 
 (provide 'clgc-org)
