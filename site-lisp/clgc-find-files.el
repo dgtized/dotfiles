@@ -92,4 +92,13 @@
 (setq github-browse-file-show-line-at-point t
       github-browse-file-visit-url nil)
 
+(eval-after-load 'webjump
+  '(progn
+     (add-to-list
+      'webjump-sites
+      '("Github" .
+        [simple-query "https://github.com"
+                      "https://github.com/search?q="
+                      "&type=Everything&repo=&langOverride=&start_value=1"]))))
+
 (provide 'clgc-find-files)
