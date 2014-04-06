@@ -34,4 +34,8 @@
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 
+(defun rinari-rake-migrate-up ()
+  (interactive)
+  (rinari-rake "db:migrate"))
+
 (provide 'clgc-ruby)
