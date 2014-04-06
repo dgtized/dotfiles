@@ -208,17 +208,17 @@ With negative N, comment out original line and use the absolute value."
          (gist (gist-list-db-get-gist id)))
     (browse-url (oref gist :html-url))))
 
-(defun clgc-gist-region (&optional private)
+(defun clgc-gist-region (&optional public)
   "Post either the current region, or if mark is not set, the
   current buffer as a new paste at gist.github.com
 
 Copies the URL into the kill ring and calls browse-url
 
-With a prefix argument, makes a private paste."
+With a prefix argument, makes a public paste."
   (interactive "P")
   (if (use-region-p)
-      (gist-region (point) (mark) private)
-    (gist-buffer private)))
+      (gist-region (point) (mark) (not public))
+    (gist-buffer (not public))))
 
 (defun transpose-windows (arg)
   "Transpose the buffers shown in two windows."
