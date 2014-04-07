@@ -161,12 +161,6 @@ With negative N, comment out original line and use the absolute value."
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
 
-(defun ensure-yasnippet-is-first-ac-source ()
-  (when (memq 'ac-source-yasnippet ac-sources)
-    (setq ac-sources
-          (cons 'ac-source-yasnippet
-                (remove 'ac-source-yasnippet ac-sources)))))
-
 (defun load-environment-variables ()
   (interactive)
   (save-excursion

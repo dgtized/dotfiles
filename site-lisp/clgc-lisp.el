@@ -32,27 +32,20 @@
 
   (defun clgc-cider-repl-mode-hook ()
     (subword-mode +1)
-    (ac-nrepl-setup)
-    (ensure-yasnippet-is-first-ac-source)
     (cider-turn-on-eldoc-mode))
 
   (defun clgc-cider-mode-hook ()
-    (ac-nrepl-setup)
-    (ensure-yasnippet-is-first-ac-source)
     (cider-turn-on-eldoc-mode))
 
   (setq cider-popup-stacktraces nil)
 
-  (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
   (define-key clojure-mode-map (kbd "C-c h") 'clojure-cheatsheet)
 
   (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
   (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 
-  (autoload 'ac-nrepl-setup "ac-nrepl" "AC nRepl Mode" t)
-  (eval-after-load "auto-complete"
-    '(add-to-list 'ac-modes 'cider-repl-mode))
+  (eval-after-load 'company '(add-to-list 'company-backends 'company-cider))
 
   (eval-after-load "cider"
     '(when (require 'nrepl-inspect nil 'noerror)

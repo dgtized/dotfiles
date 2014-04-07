@@ -130,10 +130,6 @@
       save-abbrevs t
       abbrev-file-name (concat site-lisp "abbrev_defs.el"))
 
-(require 'yasnippet)
-(add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
-(yas-global-mode)
-
 (global-undo-tree-mode)
 
 (defun clgc-term-mode ()
@@ -141,15 +137,11 @@
 (add-hook 'term-mode-hook 'clgc-term-mode)
 (add-hook 'comint-mode-hook 'clgc-term-mode)
 
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat site-lisp "ac-dict"))
-(ac-config-default)
+(add-hook 'after-init-hook 'global-company-mode)
 
-(setq-default ac-sources
-              '(ac-source-yasnippet
-                ac-source-abbrev
-                ac-source-dictionary
-                ac-source-words-in-same-mode-buffers))
+(require 'yasnippet)
+(add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
+(add-hook 'after-init-hook 'yas-global-mode t)
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'after-init-hook #'global-flycheck-mode)
