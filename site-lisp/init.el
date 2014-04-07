@@ -190,8 +190,8 @@
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 
-(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " α"))
-(eval-after-load "undo-tree" '(diminish 'undo-tree-mode "Δ"))
+(eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Υ"))
 
 (load custom-file 'noerror)
