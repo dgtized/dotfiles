@@ -133,6 +133,9 @@
 (define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
+(eval-after-load 'rvm
+  '(global-set-key (kbd "C-c v") 'rvm-activate-corresponding-ruby))
+
 (eval-after-load 'gist
   '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
