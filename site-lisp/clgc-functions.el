@@ -235,4 +235,11 @@ With a prefix argument, makes a public paste."
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
 
+(defun clgc-prettify-json-region ()
+  "Prettify json in region or buffer"
+  (interactive)
+  (save-restriction
+    (when (use-region-p) (narrow-to-region (region-beginning) (region-end)))
+    (shell-command-on-region (point-min) (point-max) "python -mjson.tool" t t)))
+
 (provide 'clgc-functions)
