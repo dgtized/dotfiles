@@ -137,7 +137,9 @@
 (add-hook 'term-mode-hook 'clgc-term-mode)
 (add-hook 'comint-mode-hook 'clgc-term-mode)
 
+;; Company
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.5)
 
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
