@@ -9,17 +9,17 @@
   (global-rinari-mode t))
 
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
-(add-hook 'ruby-mode-hook 'subword-mode)
+(add-hook 'ruby-mode-hook 'superword-mode)
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
 
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-inf-ruby))
-
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-robe))
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
