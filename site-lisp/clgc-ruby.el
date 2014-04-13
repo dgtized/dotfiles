@@ -18,8 +18,8 @@
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-robe))
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-robe))
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
