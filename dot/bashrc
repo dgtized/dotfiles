@@ -16,6 +16,7 @@ fi
 source $HOME/.site-config
 source $DOTC_DIR/aliases
 source $DOTC_DIR/color-bash
+eval `dircolors $DOTC_DIR/dircolors.solarized.ansi-universal`
 
 pathmunge () {
     if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" && test -d $1; then
