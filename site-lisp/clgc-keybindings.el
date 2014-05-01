@@ -85,6 +85,8 @@
   (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
   (define-key map (kbd "C-}") 'sp-forward-barf-sexp)
+  (define-key map (kbd "C-M-<up>") 'sp-backward-up-sexp)
+  (define-key map (kbd "C-M-<down>") 'sp-down-sexp)
   (define-key map (kbd "M-<delete>") 'sp-kill-symbol)
   (define-key map (kbd "M-<backspace>") 'sp-backward-kill-symbol)
   (define-key map (kbd "<delete>") 'sp-delete-char)
