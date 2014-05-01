@@ -40,7 +40,7 @@
 
 ;; Scheme
 (depends-on "geiser")
-(depends-on "quack")
+;; (depends-on "quack")
 
 ;; Git
 (depends-on "magit")
