@@ -134,6 +134,9 @@
 (define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
+(eval-after-load 'ruby-mode
+  '(define-key ruby-mode-map (kbd "<f5>") 'rspec-verify))
+
 (eval-after-load 'rvm
   '(global-set-key (kbd "C-c v") 'rvm-activate-corresponding-ruby))
 
