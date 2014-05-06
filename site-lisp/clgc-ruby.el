@@ -2,13 +2,12 @@
    "Evaluate the buffer with ruby."
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
 
-(defun my-ruby-mode-hook ()
+(defun clgc-ruby-mode-hook ()
   (require 'rinari)
   (setq rinari-tags-file-name "TAGS")
-  (eval-after-load 'company-mode '(add-to-list 'company-backends 'company-robe))
   (global-rinari-mode t))
 
-(add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+(add-hook 'ruby-mode-hook 'clgc-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'superword-mode)
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
 
