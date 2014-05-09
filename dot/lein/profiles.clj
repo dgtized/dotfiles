@@ -1,6 +1,7 @@
 {:user
  {:plugins [[lein-vanity "0.2.0"]
             [jonase/eastwood "0.0.2"]
+            [cider/cider-nrepl "0.7.0-SNAPSHOT"]
             ;[lein-ritz "0.7.0"]
             [com.palletops/pallet-lein "0.8.0-alpha.1"]]
   :dependencies [;[ritz/ritz-nrepl-middleware "0.7.0"]
