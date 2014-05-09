@@ -28,7 +28,10 @@
   ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
   (defun clgc-clojure-mode-hook ()
     (subword-mode +1)
-    (clojure-test-mode +1))
+    (clojure-test-mode +1)
+    (require 'clj-refactor)
+    (clj-refactor-mode t)
+    (cljr-add-keybindings-with-prefix "C-c r"))
 
   (defun clgc-cider-repl-mode-hook ()
     (subword-mode +1)

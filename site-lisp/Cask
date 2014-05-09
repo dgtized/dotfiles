@@ -33,6 +33,7 @@
 (depends-on "slamhound")
 (depends-on "4clojure")
 (depends-on "clojure-cheatsheet")
+(depends-on "clj-refactor")
 
 (depends-on "rainbow-delimiters")
 (depends-on "color-identifiers-mode")
