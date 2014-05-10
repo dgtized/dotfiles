@@ -112,12 +112,6 @@ if which keychain > /dev/null; then
     source ~/.keychain/$HOSTNAME-sh
 fi
 
-
-# gets called every time need to fix for once it's set
-#if [[! -f ~/.xmodmap ]]; then
-#    xmodmap $DOTC_DIR/xmodmap
-#fi
-
 unset pathmunge
 export PATH
 xset b off > /dev/null 2>&1
