@@ -6,14 +6,16 @@
   (expand-file-name (getenv "DOTC_DIR"))
   "Directory root containing shell configuration.")
 
+(defvar dotc-elisp (concat dotc-dir "/site-lisp/")
+  "Directory root for dotc managed elisp files.")
+
 (require 'cask (expand-file-name "cask/cask.el" dotc-dir))
 (cask-initialize)
 
-(setq site-lisp (concat dotc-dir "/site-lisp/"))
-(setq autoload-file (concat site-lisp "loaddefs.el"))
-(setq custom-file (concat dotc-dir "/custom.el"))
+(setq autoload-file (expand-file-name "loaddefs.el" dotc-elisp))
+(setq custom-file (expand-file-name "custom.el" dotc-elisp))
 
-(add-to-list 'load-path site-lisp)
+(add-to-list 'load-path dotc-elisp)
 
 (setenv "PAGER" (executable-find "cat")) ;; disable pager
 
@@ -129,7 +131,7 @@
 ;; Autocorrect
 (setq default-abbrev-mode t
       save-abbrevs t
-      abbrev-file-name (concat site-lisp "abbrev_defs.el"))
+      abbrev-file-name (expand-file-name "abbrev_defs.el" dotc-elisp))
 
 (global-undo-tree-mode)
 
@@ -143,7 +145,7 @@
 (setq company-idle-delay 0.5)
 
 (require 'yasnippet)
-(add-to-list 'yas-snippet-dirs (concat site-lisp "snippets"))
+(add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotc-elisp))
 (add-hook 'after-init-hook 'yas-global-mode t)
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
