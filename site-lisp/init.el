@@ -33,6 +33,7 @@
 (require 'clgc-ruby)
 (require 'clgc-major-modes)
 (require 'clgc-org)
+(require 'clgc-shell)
 
 (setq gc-cons-threshold (expt 2 24) ;; 16mb instead of 800k
       inhibit-startup-screen t
