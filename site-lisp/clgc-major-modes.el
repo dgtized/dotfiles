@@ -39,10 +39,11 @@
 )
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
-(defun my-text-mode-hook ()
+(defun clgc-text-mode-hook ()
   (flyspell-mode)
-  (auto-fill-mode))
-(add-hook 'text-mode 'my-text-mode-hook)
+  (visual-line-mode))
+(add-hook 'text-mode-hook 'clgc-text-mode-hook)
+(add-hook 'markdown-mode 'clgc-text-mode-hook)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
