@@ -103,10 +103,6 @@ if [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
 fi
 
-if [ -f $DOTC_DIR/bashrc-$DOTC_NAME ]; then
-    . $DOTC_DIR/bashrc-$DOTC_NAME
-fi
-
 if which keychain > /dev/null; then
     keychain --ignore-missing -Q -q id_rsa adjudica
     source ~/.keychain/$HOSTNAME-sh
