@@ -14,6 +14,7 @@
 
 (setq autoload-file (expand-file-name "loaddefs.el" dotc-elisp))
 (setq custom-file (expand-file-name "custom.el" dotc-elisp))
+(setq eshell-aliases-file (expand-file-name "aliases" dotc-elisp))
 
 (add-to-list 'load-path dotc-elisp)
 
