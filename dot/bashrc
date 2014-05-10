@@ -69,15 +69,7 @@ export HISTTIMEFORMAT='%F_%T '
 #pathmunge ${HOME}/.gem/ruby/1.8/bin
 pathmunge ${HOME}/usr/bin
 
-export CLASSPATH=.
-export CPPFLAGS=-I$HOME/usr/include
-export CFLAGS=$CPPFLAGS
-if [[ -z $LD_LIBRARY_PATH ]]; then
-    export LD_LIBRARY_PATH=$HOME/usr/lib
-else
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib
-fi
-export LDFLAGS=-L$HOME/usr/lib
+# source $DOTC_DIR/gcc-lib
 
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
