@@ -53,19 +53,7 @@ esac
 # tailoring 'less'
 export PAGER=less
 export LESSCHARSET='utf-8'
-#export LESSCHARSET='latin1'
-
-#export LESS='-i -M -F -R -w'
-if [ -f /usr/bin/src-hilite-lesspipe.sh ]; then
-    export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-    export LESS=' -R '
-elif [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
-    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-    export LESS=' -R '
-else
-    export LESS=' -M -R ' # Less stuff
-fi
-#LESSEDIT="%E ?lt+%lt. %f"
+export LESS=' -M -R '
 
 export HISTFILE=$HOME/.bashist/`date +%Y-%m-%d_%R`.$$.`hostname`
 touch $HISTFILE && chmod 600 $HISTFILE
@@ -91,8 +79,6 @@ else
 fi
 export LDFLAGS=-L$HOME/usr/lib
 
-export HOSTFILE=$DOTC_DIR/hosts
-
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
 
@@ -104,7 +90,7 @@ if [[ -f /etc/bash_completion ]]; then
 fi
 
 if which keychain > /dev/null; then
-    keychain --ignore-missing -Q -q id_rsa adjudica
+    keychain --ignore-missing -Q -q id_rsa
     source ~/.keychain/$HOSTNAME-sh
 fi
 
