@@ -6,6 +6,7 @@
 [alias]
 	co = checkout
 	st = status
+	snow = !echo \"you know nothing\"
 [push]
 	default = simple
 [pull]
