@@ -48,11 +48,6 @@
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
   (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 
-  (eval-after-load 'company '(add-to-list 'company-backends 'company-cider))
-
-  (eval-after-load "cider"
-    '(when (require 'nrepl-inspect nil 'noerror)
-       (define-key cider-repl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
-       (define-key cider-interaction-mode-map (kbd "C-c C-i") 'nrepl-inspect))))
+  (eval-after-load 'company '(add-to-list 'company-backends 'company-cider)))
 
 (provide 'clgc-lisp)
