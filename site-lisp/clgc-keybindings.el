@@ -32,6 +32,9 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-j") 'join-line)
 
+(eval-after-load 'projectile
+  '(define-key projectile-mode-map (kbd "<menu>") 'projectile-command-map))
+
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
