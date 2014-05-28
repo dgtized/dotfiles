@@ -155,6 +155,9 @@
 
 (windmove-default-keybindings)
 
+(eval-after-load 'ace-window
+  '(global-set-key (kbd "<f12>") 'ace-window))
+
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
   (lambda ()

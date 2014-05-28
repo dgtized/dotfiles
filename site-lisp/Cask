@@ -58,6 +58,7 @@
 (depends-on "ack-and-a-half")
 (depends-on "smex")
 (depends-on "ace-jump-mode")
+(depends-on "ace-window")
 (depends-on "smartscan")
 (depends-on "diminish")
 

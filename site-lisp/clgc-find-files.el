@@ -33,6 +33,8 @@
 
 (require 'helm-config)
 
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
 (add-to-list 'ido-ignore-directories "target")
 
 (require 'find-file-in-project)
