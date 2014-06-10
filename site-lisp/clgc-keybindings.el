@@ -63,12 +63,8 @@
 (global-set-key (kbd "C-c i") 'ido-goto-symbol)
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
-(global-set-key (kbd "C-c o") 'browse-url)
-(global-set-key (kbd "C-c j") 'webjump)
-
-(global-set-key (kbd "C-'") 'ace-jump-mode)
-(global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)
-
+(global-set-key (kbd "C-c B") 'browse-url)
+(global-set-key (kbd "C-c J") 'webjump)
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
 (let ((map compilation-mode-map))
@@ -154,6 +150,13 @@
 
 (eval-after-load 'ace-window
   '(global-set-key (kbd "<f12>") 'ace-window))
+
+(eval-after-load 'ace-jump-mode
+  '(progn
+     (global-set-key (kbd "C-c j") 'ace-jump-mode)
+     (global-set-key (kbd "C-c h") 'ace-jump-mode-pop-mark)
+     (global-set-key (kbd "C-'") 'ace-jump-mode)
+     (global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)))
 
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
