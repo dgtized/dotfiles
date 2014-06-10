@@ -60,9 +60,6 @@
   (define-key map (kbd "F") 'github-browse-file))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
-(global-set-key (kbd "C-c f") 'find-file-in-project)
-(global-set-key (kbd "C-c g") 'find-grep-in-project)
-
 (global-set-key (kbd "C-c i") 'ido-goto-symbol)
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
