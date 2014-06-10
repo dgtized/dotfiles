@@ -10,7 +10,7 @@
 (global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
 
 (global-set-key (kbd "C-x C-m") 'smex)
-(global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-/") 'hippie-expand)
