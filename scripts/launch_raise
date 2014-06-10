@@ -9,7 +9,8 @@ import sys
 name = sys.argv[1]
 command = {
     'emacs': '/home/clgc/usr/bin/ec -c',
-    'Terminal': "gnome-terminal --maximize -e tmux"
+    'Terminal': "gnome-terminal --maximize -e tmux",
+    "Chrome": "google-chrome"
 }[name].split()
 
 screen = wnck.screen_get_default()
@@ -20,7 +21,8 @@ window_list = screen.get_windows_stacked()
 
 last_active = None
 for window in window_list:
-    if window.get_application().get_name() == name:
+    window_name = window.get_application().get_name()
+    if window_name == name or window_name.find(name) >= 0:
         last_active = window
 
 if last_active:
