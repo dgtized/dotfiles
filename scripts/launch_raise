@@ -5,6 +5,7 @@ import wnck
 import gtk
 import time
 import sys
+import re
 
 name = sys.argv[1]
 command = {
@@ -22,7 +23,7 @@ window_list = screen.get_windows_stacked()
 last_active = None
 for window in window_list:
     window_name = window.get_application().get_name()
-    if window_name == name or window_name.find(name) >= 0:
+    if window_name == name or re.search(name + "$", window_name):
         last_active = window
 
 if last_active:
