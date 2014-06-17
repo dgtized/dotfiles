@@ -166,6 +166,7 @@
                 ;; Ruby Bindings
                 ("\\.ruby$"       . ruby-mode)
                 ("\\.rabl$"       . ruby-mode)
+                ("\\Berksfile$"   . ruby-mode)
 
                 ("\\.awk"         . awk-mode)
                 ("\.gradle$"      . groovy-mode)
