@@ -25,10 +25,7 @@
 
 ;; Clojure
 (depends-on "clojure-mode")
-(depends-on "clojure-test-mode")
 (depends-on "cider")
-(depends-on "cider-tracing")
-;; (depends-on "nrepl-ritz")
 (depends-on "company-cider")
 (depends-on "slamhound")
 (depends-on "4clojure")
