@@ -45,8 +45,6 @@
 
   (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
-  (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
-
-  (eval-after-load 'company '(add-to-list 'company-backends 'company-cider)))
+  (add-hook 'cider-mode-hook 'clgc-cider-mode-hook))
 
 (provide 'clgc-lisp)

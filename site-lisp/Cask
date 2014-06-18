@@ -26,7 +26,6 @@
 ;; Clojure
 (depends-on "clojure-mode")
 (depends-on "cider")
-(depends-on "company-cider")
 (depends-on "slamhound")
 (depends-on "4clojure")
 (depends-on "clojure-cheatsheet")
