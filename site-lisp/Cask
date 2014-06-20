@@ -76,7 +76,6 @@
 (depends-on "multiple-cursors")
 
 (depends-on "yasnippet")
-(depends-on "angular-snippets")
 (depends-on "clojure-snippets")
 
 (depends-on "flycheck")
