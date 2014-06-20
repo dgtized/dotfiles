@@ -81,6 +81,7 @@
 
 (depends-on "flycheck")
 (depends-on "undo-tree")
+(depends-on "browse-kill-ring")
 (depends-on "evil")
 
 (depends-on "color-theme")
