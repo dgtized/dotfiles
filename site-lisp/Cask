@@ -25,6 +25,7 @@
 
 ;; Clojure
 (depends-on "clojure-mode")
+(depends-on "clojure-mode-extra-font-locking")
 (depends-on "cider")
 (depends-on "slamhound")
 (depends-on "4clojure")
