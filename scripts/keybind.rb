@@ -5,6 +5,10 @@ DATA.each do |line|
   puts "gsettings set #{schema} #{key} \"#{keybind}\""
 end
 
+replacements = "s/_c022d=zoomin/_c022d=pageup/;s/_c022e=zoomout/_c022e=pagedown/"
+puts "sudo sed -ie '#{replacements}' /lib/udev/hwdb.d/60-keyboard.hwdb"
+puts "sudo udevadm hwdb --update"
+
 __END__
 org.gnome.desktop.input-sources xkb-options ['caps:ctrl_modifier']
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Super>space']
