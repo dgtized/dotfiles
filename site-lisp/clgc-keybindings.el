@@ -158,6 +158,9 @@
      (global-set-key (kbd "C-'") 'ace-jump-mode)
      (global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)))
 
+(eval-after-load 'company
+  '(global-set-key (kbd "C-c TAB") 'company-yasnippet))
+
 ;; isearch
 (define-key isearch-mode-map (kbd "C-o")
   (lambda ()
