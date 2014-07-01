@@ -65,6 +65,7 @@
 (depends-on "bundler")
 (depends-on "projectile-rails")
 (depends-on "rspec-mode")
+(depends-on "feature-mode")
 (depends-on "ruby-tools")
 (depends-on "robe")
 (depends-on "company-inf-ruby")
