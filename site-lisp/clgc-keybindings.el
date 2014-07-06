@@ -136,6 +136,9 @@
 (eval-after-load 'ruby-mode
   '(define-key ruby-mode-map (kbd "<f5>") 'rspec-verify))
 
+(eval-after-load 'feature-mode
+  '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
+
 (eval-after-load 'rvm
   '(global-set-key (kbd "C-c v") 'rvm-activate-corresponding-ruby))
 
