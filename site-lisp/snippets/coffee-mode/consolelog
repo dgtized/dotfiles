@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: clog
+# key: clog
+# binding: direct-keybinding
+# --
+console.log("${1:`(which-function)`}");
