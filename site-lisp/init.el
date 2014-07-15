@@ -60,7 +60,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 2
               c-basic-offset 2
-              sgml-basic-offset 4
+              sgml-basic-offset 2
               nxml-child-indent 2)
 
 (fset 'yes-or-no-p 'y-or-n-p)
