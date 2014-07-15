@@ -2,6 +2,8 @@ import XMonad
 import XMonad.Config.Gnome
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.Spacing (smartSpacing)
 import qualified Data.Map as M
 
 myManageHook = composeAll (
@@ -10,13 +12,18 @@ myManageHook = composeAll (
     , className =? "Unity-2d-shell" --> doFloat
     ])
 
+myLayoutHook = smartSpacing 2 $ smartBorders (layoutHook gnomeConfig)
+
 main = do
-     xmonad $ gnomeConfig {
-     -- use windows as mod instead of meta
-     modMask = mod4Mask
-     , keys = myKeys <+> keys defaultConfig
-     , manageHook = myManageHook
-     , startupHook = setWMName "LG3D"
+  xmonad $ gnomeConfig {
+  -- use windows as mod instead of meta
+  modMask = mod4Mask
+             , keys = myKeys <+> keys defaultConfig
+             , terminal = "gnome-terminal"
+             , manageHook = myManageHook
+             , startupHook = setWMName "LG3D"
+             , layoutHook = myLayoutHook
+             , focusedBorderColor = "#393"
 }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
