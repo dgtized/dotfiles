@@ -31,6 +31,9 @@
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 
+(eval-after-load 'feature-mode
+  '(setq feature-cucumber-command "zeus cucumber {feature}"))
+
 (defun rinari-rake-migrate-up ()
   (interactive)
   (rinari-rake "db:migrate"))
