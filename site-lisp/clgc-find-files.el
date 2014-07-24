@@ -31,6 +31,9 @@
       projectile-switch-project-action 'projectile-dired
       projectile-use-git-grep t)
 
+(add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
+(add-hook 'ack-and-a-half 'next-error-follow-minor-mode)
+
 (require 'helm-config)
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
