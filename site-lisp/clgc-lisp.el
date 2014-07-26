@@ -24,6 +24,11 @@
         (add-hook mode-hook 'rainbow-delimiters-mode)
         (add-hook mode-hook 'smartparens-strict-mode))))
 
+  (defadvice cider-eval-last-sexp (after cider-flash-last activate)
+    (flash-region (save-excursion (backward-sexp) (point)) (point)))
+  (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
+    (apply #'flash-region (cider--region-for-defun-at-point)))
+
   ;; Clojure Specific
   ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
   (defun clgc-clojure-mode-hook ()

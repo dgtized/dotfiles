@@ -22,6 +22,7 @@
 
 ;; Elisp
 (depends-on "elisp-slime-nav")
+(depends-on "flash-region")
 
 ;; Clojure
 (depends-on "clojure-mode")
