@@ -104,6 +104,9 @@
 (define-key help-map (kbd "C-l") 'find-library)
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
+(define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
+(define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
+
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
