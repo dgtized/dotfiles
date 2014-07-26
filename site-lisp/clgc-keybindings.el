@@ -107,6 +107,11 @@
 (define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
 
+(eval-after-load 'clojure-mode
+  '(progn
+     (define-key clojure-mode-map (kbd "C-c M-h") 'clojure-cheatsheet)
+     (define-key clojure-mode-map (kbd "<f5>") 'cider-test-run-tests)))
+
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
