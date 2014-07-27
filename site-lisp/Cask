@@ -86,6 +86,10 @@
 (depends-on "browse-kill-ring")
 (depends-on "evil")
 
+;; Hacking Experiments
+(depends-on "simple-httpd")
+(depends-on "web-server")
+
 (depends-on "color-theme")
 (depends-on "zenburn-theme")
 (depends-on "color-theme-solarized")
