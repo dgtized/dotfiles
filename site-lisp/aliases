@@ -1,1 +1,3 @@
 alias ff find-file $1
+alias vi find-file $1
+alias vim find-file $1
