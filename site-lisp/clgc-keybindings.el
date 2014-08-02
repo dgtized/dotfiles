@@ -32,8 +32,16 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-j") 'join-line)
 
+(define-prefix-command 'menu-map)
 (eval-after-load 'projectile
-  '(define-key projectile-mode-map (kbd "<menu>") 'projectile-command-map))
+  '(set-keymap-parent 'menu-map 'projectile-command-map))
+
+(global-set-key (kbd "<menu>") 'menu-map)
+
+(define-key 'menu-map (kbd "y") 'helm-show-kill-ring)
+(define-key 'menu-map (kbd "x") 'helm-M-x)
+(define-key 'menu-map (kbd "TAB") 'ace-window)
+(define-key 'menu-map (kbd "<menu>") 'helm-M-x)
 
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
