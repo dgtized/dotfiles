@@ -56,6 +56,7 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("jurisdction" "jurisdiction" nil 4)
+    ("recieve" "receive" nil 1)
     ("reponse" "reponse" nil 3)
     ("teh" "the" nil 3)
    ))
