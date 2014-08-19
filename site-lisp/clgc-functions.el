@@ -246,23 +246,4 @@ With a prefix argument, makes a public paste."
   (interactive)
   (ert t))
 
-(defun occur-larger-context ()
-  (interactive)
-  (setcar (cdr occur-revert-arguments)
-          (1+ (or (cadr occur-revert-arguments) 0)))
-  (revert-buffer))
-
-(defun occur-smaller-context (&optional change)
-  (interactive)
-  (let ((nlines (cadr occur-revert-arguments)))
-    (when (> (or nlines 0) 0)
-      (setcar (cdr occur-revert-arguments)
-              (1- nlines))
-      (revert-buffer))))
-
-(defun occur-default-context ()
-  (interactive)
-  (setcar (cdr occur-revert-arguments) nil)
-  (revert-buffer))
-
 (provide 'clgc-functions)
