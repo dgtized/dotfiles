@@ -42,7 +42,6 @@
       inhibit-startup-screen t
       line-number-mode t
       column-number-mode t
-      auto-fill-default t
       visible-bell t
       require-final-newline t
       debug-on-error nil
