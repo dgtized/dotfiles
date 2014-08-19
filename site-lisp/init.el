@@ -48,8 +48,7 @@
       debug-on-error nil
       apropos-do-all t
       confirm-nonexistent-file-or-buffer nil
-      sentence-end-double-space nil
-      list-matching-lines-default-context-lines 1)
+      sentence-end-double-space nil)
 
 ;; Clipboard and Selection
 (setq x-select-enable-clipboard t

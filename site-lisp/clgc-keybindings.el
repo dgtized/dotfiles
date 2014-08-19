@@ -82,7 +82,10 @@
 (let ((map occur-mode-map))
   (define-key map (kbd "v") 'occur-mode-display-occurrence)
   (define-key map (kbd "p") 'occur-prev)
-  (define-key map (kbd "n") 'occur-next))
+  (define-key map (kbd "n") 'occur-next)
+  (define-key map (kbd "+") 'occur-larger-context)
+  (define-key map (kbd "-") 'occur-smaller-context)
+  (define-key map (kbd "0") 'occur-default-context))
 
 (global-set-key (kbd "C-M-g") 'abort-recursive-edit) ; C-] overriden below
 (let ((map smartparens-mode-map))
