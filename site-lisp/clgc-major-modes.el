@@ -72,4 +72,6 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
 
+(add-hook 'occur-mode-hook 'occur-context-resize-mode)
+
 (provide 'clgc-major-modes)
