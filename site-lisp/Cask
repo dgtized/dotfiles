@@ -78,6 +78,7 @@
 (depends-on "fuzzy")
 (depends-on "expand-region")
 (depends-on "multiple-cursors")
+(depends-on "occur-context-resize")
 
 (depends-on "yasnippet")
 (depends-on "clojure-snippets")
