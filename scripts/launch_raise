@@ -10,7 +10,7 @@ import re
 name = sys.argv[1]
 command = {
     'emacs': '/home/clgc/usr/bin/ec -c',
-    'Terminal': "gnome-terminal --maximize -e tmux",
+    'Terminal': "gnome-terminal --maximize -x tmux attach -d",
     "Chrome": "google-chrome"
 }[name].split()
 
