@@ -4,7 +4,7 @@
 # somewhere on your $PATH, like ~/bin. The rest of Leiningen will be
 # installed upon first run into the ~/.lein/self-installs directory.
 
-export LEIN_VERSION="2.4.2"
+export LEIN_VERSION="2.4.3"
 
 case $LEIN_VERSION in
     *SNAPSHOT) SNAPSHOT="YES" ;;
@@ -179,7 +179,7 @@ if [ -r "$BIN_DIR/../src/leiningen/version.clj" ]; then
         ORIG_PWD="$PWD"
         cd "$LEIN_DIR"
 
-        $0 classpath .lein-classpath
+        LEIN_NO_USER_PROFILES=1 $0 classpath .lein-classpath
         sum "$LEIN_DIR/project.clj" "$LEIN_DIR/leiningen-core/project.clj" > \
             .lein-project-checksum
         cd "$ORIG_PWD"

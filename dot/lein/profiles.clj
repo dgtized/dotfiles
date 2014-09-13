@@ -1,7 +1,6 @@
 {:user
  {:plugins [[lein-vanity "0.2.0"]
-            [jonase/eastwood "0.1.3"]
-            [cider/cider-nrepl "0.8.0-SNAPSHOT"]
-            [com.palletops/pallet-lein "0.8.0-alpha.1"]]
+            [jonase/eastwood "0.1.4"]
+            [cider/cider-nrepl "0.8.0-SNAPSHOT"]]
   :dependencies [[slamhound "1.5.0"]]
   :aliases {"slamhound" ["run" "-m" "slam.hound"]}}}
