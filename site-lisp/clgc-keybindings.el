@@ -49,6 +49,9 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-switchb)
 
+(eval-after-load 'graphviz-dot-mode
+  '(define-key graphviz-dot-mode-map (kbd "<f5>") 'graphviz-dot-preview))
+
 (eval-after-load 'org
   '(let ((map org-mode-map))
     (define-key map (kbd "C-'") nil) ;; overlaps ace-jump-mode
