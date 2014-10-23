@@ -29,4 +29,13 @@
 ;; Font highlight babel blocks
 (setq org-src-fontify-natively t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ruby . t)
+   (emacs-lisp . t)
+   (clojure . t)
+   (python . t)
+   (sh . t)
+   (sql . t)))
+
 (provide 'clgc-org)
