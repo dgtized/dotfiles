@@ -10,7 +10,7 @@
   (global-rinari-mode t))
 
 (add-hook 'ruby-mode-hook 'clgc-ruby-mode-hook)
-(add-hook 'ruby-mode-hook 'superword-mode)
+(add-hook 'ruby-mode-hook 'subword-mode)
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
 
 ;; inf-ruby
