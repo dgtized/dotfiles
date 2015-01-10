@@ -1,11 +1,10 @@
 #!/bin/bash
 
 function main () {
-    echo "* running setup.sh from $DOTC_DIR for $DOTC_NAME"
+    echo "* running setup.sh from $DOTC_DIR"
 
     cat <<-EOF > $DOTC_CONFIG
 export DOTC_DIR=$DOTC_DIR
-export DOTC_NAME=$DOTC_NAME
 EOF
 
     for dotdir in `find $DOTC_DIR/dot/ -type d`; do
@@ -59,19 +58,6 @@ function setup_emacs () {
     popd
 }
 
-if [[ $# -ne 1 ]]; then
-    if [ -f /etc/gentoo-release ]; then
-        DOTC_NAME="gentoo"
-    elif [ -f /etc/debian_version ]; then
-        DOTC_NAME="debian"
-    else
-        echo "Usage: setup.sh config-name"
-        exit
-    fi
-else
-    DOTC_NAME=$1
-fi
-
 : ${DOTC_DIR:=$HOME/.home-config}
 : ${DOTC_CONFIG:=$DOTC_DIR/dot/site-config}
 
@@ -104,7 +90,7 @@ if [[ -d $DOTC_DIR ]]; then
 
         test -e $DOTC_CONFIG && source $DOTC_CONFIG
         echo "Reloading setup.sh in case of remote change"
-        exec ./setup.sh ${DOTC_NAME}
+        exec ./setup.sh
     fi
 
     source color-bash
@@ -112,7 +98,7 @@ if [[ -d $DOTC_DIR ]]; then
     main # now that we know everything will get cleaned up
 
     echo
-    echo "Site Config for `hostname`-${DOTC_NAME}:"
+    echo "Site Config for `hostname`:"
     cat $DOTC_CONFIG
 else
     echo "Can't find $DOTC_DIR"
