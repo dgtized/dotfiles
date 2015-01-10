@@ -1,41 +1,15 @@
-Host sandbox
-     HostName sandbox.adjudica.net
-     RemoteForward 1983 localhost:8080
+# Proxy to allow ssh foo.internal to jump through gateway.host
+# Host gateway
+#      HostName gateway.host
+# Host *.internal
+#      Proxycommand ssh -q gateway nc -q0 %h 22
 
-Host vm1
-     HostName vm1.adjudica.net
-     LocalForward 7071 localhost:7071
-
-Host vm2
-     HostName vm2.adjudica.net
-     # jmx and insight respectively
-     LocalForward 6969 localhost:6969
-     LocalForward 8081 localhost:8081
+# Port Forward Examples
+# RemoteForward remote-port localhost:local-port
+# LocalForward local-port remote:port
 
 Host nocturnal
      HostName nocturnal.uk.to
-
-Host vagrant
-     HostName vagrant.adjudica.net
-     LocalForward 1443 localhost:443
-
-# proxy host1 through sandbox
-Host host1
-     ProxyCommand ssh -q sandbox nc -q0 host1.adjudica.hostirian.com 22
-     LocalForward *:5900 localhost:5900
-     LocalForward *:5901 localhost:5901
-     LocalForward *:5902 localhost:5902
-     LocalForward *:5903 localhost:5903
-     LocalForward *:5904 localhost:5904
-     LocalForward *:5905 localhost:5905
-     LocalForward *:5906 localhost:5906
-     User root
-
-Host gateway
-     HostName gateway.adjudica.net
-
-Host *.adjulocal
-     Proxycommand ssh -q gateway nc -q0 %h 22
 
 Host *
      ForwardAgent yes
