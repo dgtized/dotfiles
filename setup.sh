@@ -24,7 +24,8 @@ EOF
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh/control
     touch ~/.ssh/authorized_keys
-    ln -sfv ${DOTC_DIR}/sshconfig $HOME/.ssh/config
+    rm -fv $HOME/.ssh/config # used to be symlinked
+    cat ${DOTC_DIR}/sshconfig.d/*.conf > $HOME/.ssh/config
     chmod 600 $HOME/.ssh/{authorized_keys,config}
 
     # These happen here so they happen after setup.sh reload
