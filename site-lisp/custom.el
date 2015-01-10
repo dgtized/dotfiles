@@ -17,6 +17,7 @@
  '(magit-set-upstream-on-push (quote dontask))
  '(magit-wip-mode nil)
  '(rspec-use-rvm t)
+ '(web-mode-markup-indent-offset 2)
  '(yas-prompt-functions
    (quote
     (yas-ido-prompt yas-x-prompt yas-dropdown-prompt yas-completing-prompt yas-no-prompt))))
