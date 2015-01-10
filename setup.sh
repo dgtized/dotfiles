@@ -16,10 +16,6 @@ EOF
         ln -sfv $dot $HOME/.${dot#*dot/}
     done
 
-    if [[ -d $HOME/.subversion ]]; then
-        ln -sfv ${DOTC_DIR}/svn-config $HOME/.subversion/config
-    fi
-
     # setup fonts for emacs correctly
     if which xrdb > /dev/null; then
         xrdb -merge $HOME/.Xresources
