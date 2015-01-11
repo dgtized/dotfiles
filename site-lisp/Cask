@@ -55,7 +55,6 @@
 (depends-on "helm-projectile")
 (depends-on "ag")
 (depends-on "wgrep-ag")
-(depends-on "ack-and-a-half")
 (depends-on "smex")
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
