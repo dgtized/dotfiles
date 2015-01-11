@@ -72,8 +72,13 @@ if [[ -d $DOTC_DIR ]]; then
         echo "Updating Configuration..."
 
         branch=`git branch | grep '*' | sed -e 's/\* //g'`
-        echo " * saving local changes to stash"
-        git stash save
+        dirty=`git status --porcelain`
+
+        if [[ $dirty ]]; then
+            echo " * saving local changes to stash"
+            git stash save
+        fi
+
         if [[ $branch != "master" ]]; then
             echo " * switching from $branch to master"
             git checkout master
@@ -84,8 +89,12 @@ if [[ -d $DOTC_DIR ]]; then
             echo " * returning to $branch"
             git checkout $branch
         fi
-        echo " * reapplying local changes"
-        git stash pop
+
+        if [[ $dirty ]]; then
+            echo " * reapplying local changes"
+            git stash pop
+        fi
+
         unset branch
 
         test -e $DOTC_CONFIG && source $DOTC_CONFIG
