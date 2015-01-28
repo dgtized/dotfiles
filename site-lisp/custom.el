@@ -16,6 +16,8 @@
  '(magit-diff-options (quote ("--patience")))
  '(magit-set-upstream-on-push (quote dontask))
  '(magit-wip-mode nil)
+ '(rspec-command-options "--format documentation --profile 10")
+ '(rspec-use-opts-file-when-available nil)
  '(rspec-use-rvm t)
  '(web-mode-markup-indent-offset 2)
  '(yas-prompt-functions
