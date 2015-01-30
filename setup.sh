@@ -74,7 +74,7 @@ if [[ -d $DOTC_DIR ]]; then
     elif [[ $1 == "up" || $1 == "update" ]]; then
         echo "Updating Configuration..."
 
-        branch=`git branch | grep '*' | sed -e 's/\* //g'`
+        branch=`git rev-parse --abbrev-ref HEAD`
         dirty=`git status --porcelain`
 
         if [[ $dirty ]]; then
