@@ -25,15 +25,8 @@ EOF
     touch ~/.ssh/authorized_keys
     rm -fv $HOME/.ssh/config # used to be symlinked
     cat ${DOTC_DIR}/sshconfig.d/*.conf > $HOME/.ssh/config
+    echo "Updated ~/.ssh/config"
     chmod 600 $HOME/.ssh/{authorized_keys,config}
-
-    # These happen here so they happen after setup.sh reload
-    git submodule update --init
-
-    setup_emacs
-    if [[ -e /usr/bin/xmonad ]]; then
-        xmonad --recompile
-    fi
 
     mkdir -pv $HOME/.bashist
     mkdir -pv $HOME/usr/bin
@@ -42,6 +35,16 @@ EOF
     done
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
+}
+
+function slow_updates () {
+    # These happen here so they happen after setup.sh reload
+    git submodule update --init
+
+    setup_emacs
+    if [[ -e /usr/bin/xmonad ]]; then
+        xmonad --recompile
+    fi
 }
 
 function setup_emacs () {
@@ -105,6 +108,10 @@ if [[ -d $DOTC_DIR ]]; then
     source color-bash
 
     main # now that we know everything will get cleaned up
+
+    if [[ $1 != "fast" ]]; then
+        slow_updates
+    fi
 
     echo
     echo "Site Config for `hostname`:"
