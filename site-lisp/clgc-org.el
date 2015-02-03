@@ -29,6 +29,8 @@
 ;; Font highlight babel blocks
 (setq org-src-fontify-natively t)
 
+(setq org-babel-sh-command "bash")
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ruby . t)
