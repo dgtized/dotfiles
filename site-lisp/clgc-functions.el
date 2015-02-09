@@ -164,7 +164,7 @@ With negative N, comment out original line and use the absolute value."
 (defun load-environment-variables ()
   (interactive)
   (save-excursion
-    (beginning-of-buffer)
+    (goto-char (point-min))
     (while (re-search-forward "export \\([^=]+\\)=\\(.+\\)" nil t)
       (let ((var (match-string 1))
             (value (match-string 2)))
