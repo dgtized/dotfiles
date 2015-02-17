@@ -62,7 +62,7 @@
 (depends-on "diminish")
 
 ;; Ruby
-(depends-on "rvm")
+(depends-on "rbenv")
 (depends-on "inf-ruby")
 (depends-on "rinari")
 (depends-on "bundler")

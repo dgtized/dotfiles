@@ -23,10 +23,11 @@
 ;;   '(add-to-list 'company-backends 'company-robe))
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
+  (rbenv-use-corresponding))
 
-;; RVM
-(add-hook 'after-init-hook 'rvm-use-default)
+;; rbenv
+(defalias 'rvm-activate-corresponding-ruby 'rbenv-use-corresponding)
+(add-hook 'after-init-hook 'rbenv-use-global)
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
