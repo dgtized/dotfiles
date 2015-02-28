@@ -41,6 +41,14 @@ function slow_updates () {
     # These happen here so they happen after setup.sh reload
     git submodule update --init
 
+    if [ ! -d ~/.rbenv ]; then
+        git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    fi
+
+    if [ ! -d ~/.rbenv/plugins/ruby-build ]; then
+        git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    fi
+
     setup_emacs
     if [[ -e /usr/bin/xmonad ]]; then
         xmonad --recompile
