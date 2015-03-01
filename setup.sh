@@ -39,7 +39,6 @@ EOF
 
 function slow_updates () {
     # These happen here so they happen after setup.sh reload
-    git submodule update --init
 
     if [ ! -d ~/.rbenv ]; then
         git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -56,6 +55,10 @@ function slow_updates () {
 }
 
 function setup_emacs () {
+    if [ ! -d $DOTC_DIR/cask ]; then
+        git clone git@github.com:cask/cask.git $DOTC_DIR/cask
+    fi
+
     mkdir -p ~/.emacs.d
     ln -sfv $DOTC_DIR/site-lisp/Cask ~/.emacs.d/Cask
     pushd ~/.emacs.d
