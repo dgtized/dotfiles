@@ -9,3 +9,5 @@ site-lisp/elpa/*
 compile.log
 site-lisp/loaddefs.el*
 sshconfig.d/*.conf
+/cask/
+/gnome-terminal-colors-solarized/
