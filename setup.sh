@@ -48,6 +48,11 @@ function slow_updates () {
         git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
 
+    PKG=gnome-terminal-colors-solarized
+    if [ ! -d $DOTC_DIR/$PKG ]; then
+        git clone https://github.com/Anthony25/$PKG.git $DOTC_DIR/$PKG
+    fi
+
     setup_emacs
     if [[ -e /usr/bin/xmonad ]]; then
         xmonad --recompile
