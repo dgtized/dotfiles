@@ -16,7 +16,8 @@ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libread
 
 sudo aptitude install redis-server redis-tools
 
-sudo aptitude install graphviz
+sudo aptitude install graphviz dconf-cli gnome-tweak-tool
 
-
-
+sudo apt-get install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
