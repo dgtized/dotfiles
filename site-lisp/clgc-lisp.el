@@ -29,7 +29,6 @@
     (apply #'flash-region (cider--region-for-defun-at-point)))
 
   ;; Clojure Specific
-  ;; (add-hook 'cider-interaction-mode-hook (lambda () (require 'nrepl-ritz)))
   (defun clgc-clojure-mode-hook ()
     (subword-mode +1)
     (require 'clj-refactor)
@@ -38,12 +37,12 @@
 
   (defun clgc-cider-repl-mode-hook ()
     (subword-mode +1)
-    (cider-turn-on-eldoc-mode))
+    (eldoc-mode))
 
   (defun clgc-cider-mode-hook ()
-    (cider-turn-on-eldoc-mode))
+    (eldoc-mode))
 
-  (setq cider-popup-stacktraces nil)
+  (setq 'cider-show-error-buffer nil)
 
   (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
