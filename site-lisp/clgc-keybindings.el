@@ -78,9 +78,10 @@
 (global-set-key (kbd "C-c J") 'webjump)
 (global-set-key (kbd "C-c R") 'rename-file-and-buffer)
 
-(let ((map compilation-mode-map))
-  (define-key map (kbd "n") 'compilation-next-error)
-  (define-key map (kbd "p") 'compilation-previous-error))
+(eval-after-load 'compile
+  '(let ((map compilation-mode-map))
+     (define-key map (kbd "n") 'compilation-next-error)
+     (define-key map (kbd "p") 'compilation-previous-error)))
 
 (let ((map occur-mode-map))
   (define-key map (kbd "v") 'occur-mode-display-occurrence)
