@@ -21,3 +21,6 @@ sudo aptitude install graphviz dconf-cli gnome-tweak-tool
 sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
+
+rbenv install 2.1.1
+rbenv global 2.1.1
