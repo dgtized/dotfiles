@@ -42,7 +42,7 @@
   (defun clgc-cider-mode-hook ()
     (eldoc-mode))
 
-  (setq 'cider-show-error-buffer nil)
+  (setq cider-show-error-buffer nil)
 
   (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
   (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
