@@ -9,6 +9,19 @@ replacements = "s/_c022d=zoomin/_c022d=pageup/;s/_c022e=zoomout/_c022e=pagedown/
 puts "sudo sed -ie '#{replacements}' /lib/udev/hwdb.d/60-keyboard.hwdb"
 puts "sudo udevadm hwdb --update"
 
+custom = "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:" +
+         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom%d/"
+home = ENV["HOME"]
+[
+  ["emacs", "#{home}/usr/bin/launch_raise emacs", "<Super>j"],
+  ["terminal", "#{home}/usr/bin/launch_raise Terminal", "<Super>k"],
+  ["chrome", "#{home}/usr/bin/launch_raise Chrome", "<Super>n"]
+].each_with_index do |commands, command_idx|
+  %w{name command binding}.each_with_index do |key, offset|
+    puts "gsettings set #{custom} %s '%s'" % [command_idx, key, commands[offset]]
+  end
+end
+
 __END__
 org.gnome.desktop.input-sources xkb-options ['caps:ctrl_modifier']
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Super>space']
