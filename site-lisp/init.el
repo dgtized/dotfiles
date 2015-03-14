@@ -207,7 +207,7 @@
 (if (eq window-system 'x)
     (set-face-attribute 'default nil
                     :family "Inconsolata"
-                    :height 110
+                    :height 115
                     :weight 'normal
                     :width 'normal))
 
