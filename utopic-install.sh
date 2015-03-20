@@ -19,3 +19,6 @@ sudo dpkg -i google-chrome*.deb
 
 rbenv install 2.1.1
 rbenv global 2.1.1
+
+sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
+sudo service ssh restart
