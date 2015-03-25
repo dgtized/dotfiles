@@ -61,11 +61,10 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 export HISTTIMEFORMAT='%F_%T '
 
-#pathmunge /var/lib/gems/1.8/bin
-#pathmunge ${HOME}/.gem/ruby/1.8/bin
 pathmunge ${HOME}/usr/bin
-
-# source $DOTC_DIR/gcc-lib
+pathmunge /usr/local/heroku/bin
+pathmunge ${DOTC_DIR}/cask/bin
+pathmunge ${HOME}/.rbenv/bin
 
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
@@ -85,11 +84,5 @@ fi
 unset pathmunge
 export PATH
 xset b off > /dev/null 2>&1
-
-PATH=$PATH:$DOTC_DIR/cask/bin
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
