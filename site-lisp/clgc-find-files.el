@@ -31,7 +31,8 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t
       projectile-switch-project-action 'projectile-dired
-      projectile-use-git-grep t)
+      projectile-use-git-grep t
+      projectile-tags-command "ctags-exuberant -Re %s %s .")
 
 (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 (add-hook 'ack-and-a-half 'next-error-follow-minor-mode)
