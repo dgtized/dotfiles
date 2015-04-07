@@ -11,7 +11,8 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full \
      lm-sensors \
-     openjdk-8-jdk
+     openjdk-8-jdk \
+     gitk
 
 # uncomment localhost for postgres
 
