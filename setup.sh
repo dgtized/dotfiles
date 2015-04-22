@@ -103,7 +103,7 @@ if [[ -d $DOTC_DIR ]]; then
             git checkout master
         fi
         echo " * pulling remote"
-        git pull
+        git pull --rebase
         if [[ $branch != "master" ]]; then
             echo " * returning to $branch"
             git checkout $branch
