@@ -39,4 +39,18 @@
   (interactive)
   (rinari-rake "db:migrate"))
 
+(defun inf-ruby-console-cap (dir)
+  "Run Rails console in DIR."
+  (interactive "D")
+  (let* ((default-directory (file-name-as-directory dir))
+         (envs (inf-ruby-console-rails-envs))
+         (env (completing-read "Capistrano environment: " envs nil t
+                               nil nil (car (member "staging" envs))))
+         (with-bundler (file-exists-p "Gemfile")))
+    (run-ruby (concat (when with-bundler "bundle exec ")
+                      "cap "
+                      env
+                      " rails:console")
+              "rails")))
+
 (provide 'clgc-ruby)
