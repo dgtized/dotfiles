@@ -38,6 +38,7 @@
    (clojure . t)
    (python . t)
    (sh . t)
-   (sql . t)))
+   (sql . t)
+   (http . t)))
 
 (provide 'clgc-org)
