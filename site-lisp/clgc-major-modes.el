@@ -58,6 +58,10 @@
 
 (setq css-indent-offset 2)
 
+;; SQLi Mode
+(defun clgc-sql-interactive-hook () (toggle-truncate-lines t))
+(add-hook 'sql-interactive-mode-hook 'clgc-sql-interactive-hook)
+
 (add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
 (add-to-list
  'auto-mode-alist
