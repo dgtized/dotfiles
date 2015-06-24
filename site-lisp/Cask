@@ -16,6 +16,7 @@
 (depends-on "web-mode")
 (depends-on "epresent")
 (depends-on "free-keys")
+(depends-on "list-environment")
 
 (depends-on "haskell-mode")
 (depends-on "js2-mode")
