@@ -35,6 +35,9 @@
 (eval-after-load 'feature-mode
   '(setq feature-cucumber-command "zeus cucumber {feature}"))
 
+(setq rubocop-check-command "rubocop --format emacs --config .rubocop.yml")
+(setq rubocop-autocorrect-command "rubocop -a --format emacs --config .rubocop.yml")
+
 (defun rinari-rake-migrate-up ()
   (interactive)
   (rinari-rake "db:migrate"))
