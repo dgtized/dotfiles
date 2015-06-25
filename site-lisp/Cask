@@ -96,6 +96,5 @@
 (depends-on "simple-httpd")
 (depends-on "web-server")
 
-(depends-on "color-theme")
 (depends-on "zenburn-theme")
-(depends-on "color-theme-solarized")
+(depends-on "solarized-theme")
