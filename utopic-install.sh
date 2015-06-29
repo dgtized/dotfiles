@@ -20,6 +20,9 @@ sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 
+curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash - && \
+    sudo apt-get install --yes nodejs
+
 rbenv install 2.1.1
 rbenv global 2.1.1
 
