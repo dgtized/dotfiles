@@ -10,6 +10,7 @@
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
  '(js2-use-ast-for-indentation-p t)
+ '(magit-completing-read-function (quote magit-ido-completing-read))
  '(rspec-command-options "--format documentation --profile 10")
  '(rspec-use-opts-file-when-available nil)
  '(rspec-use-rvm t)
