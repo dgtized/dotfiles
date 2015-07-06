@@ -129,15 +129,29 @@ With negative N, comment out original line and use the absolute value."
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil)))))))
 
-(defun visit-term-buffer ()
-  "Create or visit a terminal buffer."
-  (interactive)
-  (if (not (get-buffer "*ansi-term*"))
+;; From http://emacsredux.com/blog/2013/04/29/start-command-or-switch-to-its-buffer/
+(defun start-or-switch-to (function buffer-name)
+  "Invoke FUNCTION if there is no buffer with BUFFER-NAME.
+Otherwise switch to the buffer named BUFFER-NAME.  Don't clobber
+the current buffer."
+  (if (not (get-buffer buffer-name))
       (progn
         (split-window-sensibly (selected-window))
         (other-window 1)
-        (ansi-term (getenv "SHELL")))
-    (switch-to-buffer-other-window "*ansi-term*")))
+        (funcall function))
+    (switch-to-buffer-other-window buffer-name)))
+
+(defun visit-term-buffer ()
+  "Create or visit a terminal buffer."
+  (interactive)
+  (start-or-switch-to (lambda () (ansi-term (getenv "SHELL")))
+                      "*ansi-term*"))
+
+(defun visit-ielm ()
+  "Switch to default `ielm' buffer.
+Start `ielm' if it's not already running."
+  (interactive)
+  (start-or-switch-to 'ielm "*ielm*"))
 
 (defun isearch-other-window ()
   (interactive)
