@@ -69,9 +69,9 @@
 
 (let ((map vc-prefix-map))
   (define-key map (kbd "S") 'vc-switch-backend) ; rebind from b
-  (define-key map (kbd "b") 'magit-blame-mode)
+  (define-key map (kbd "b") 'magit-blame)
   (define-key map (kbd "B") 'github-browse-file-blame)
-  (define-key map (kbd "f") 'magit-file-log)
+  (define-key map (kbd "f") 'magit-log-buffer-file)
   (define-key map (kbd "F") 'github-browse-file))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
