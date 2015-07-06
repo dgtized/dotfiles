@@ -28,3 +28,6 @@ rbenv global 2.1.1
 
 sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
 sudo service ssh restart
+
+#wget https://github.com/github/hub/releases/download/v2.2.1/hub-linux-amd64-2.2.1.tar.gz
+#tar zxf && mv hub ~/usr/bin
