@@ -14,7 +14,9 @@
 	default = simple
 [pull]
 	rebase = true
-[include]
-	path = ~/.gitconfig.private
 [tag]
 	sort = version:refname
+[github]
+	user = dgtized
+[include]
+	path = ~/.gitconfig.private
