@@ -46,6 +46,8 @@
 
 ;; Git
 (depends-on "magit")
+(depends-on "gitignore-mode")
+(depends-on "gitconfig-mode")
 (depends-on "ido-completing-read+")
 (depends-on "gist")
 (depends-on "github-browse-file")
