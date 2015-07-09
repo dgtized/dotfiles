@@ -20,7 +20,6 @@
                          inferior-lisp slime slime-repl cider-repl))
     (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
       (progn
-        (add-hook mode-hook 'rainbow-delimiters-mode)
         (add-hook mode-hook 'smartparens-strict-mode))))
 
   (defadvice cider-eval-last-sexp (after cider-flash-last activate)

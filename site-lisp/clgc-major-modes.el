@@ -9,6 +9,7 @@
         indicate-empty-lines t))
 
 (add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
