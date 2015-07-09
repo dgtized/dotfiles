@@ -5,6 +5,8 @@
         js2-basic-offset 2))
 
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
+(add-hook 'js-mode-hook 'smartparens-strict-mode)
+(add-hook 'js2-mode-hook 'smartparens-strict-mode)
 
 ;; (require 'flymake-jslint)
 ;; (add-hook 'javascript-mode-hook
