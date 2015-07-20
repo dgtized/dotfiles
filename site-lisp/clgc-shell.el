@@ -4,4 +4,5 @@
 (setq eshell-review-quick-commands nil)
 (setq eshell-smart-space-goes-to-end t)
 
+(add-hook 'eshell-mode-hook 'eshell-smart-initialize)
 (provide 'clgc-shell)
