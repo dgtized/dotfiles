@@ -40,6 +40,7 @@
 (require 'clgc-sql)
 
 (setq gc-cons-threshold (expt 2 24) ;; 16mb instead of 800k
+      redisplay-dont-pause t
       inhibit-startup-screen t
       line-number-mode t
       column-number-mode t
