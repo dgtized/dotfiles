@@ -149,7 +149,8 @@
 
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotc-elisp))
-(add-hook 'after-init-hook 'yas-global-mode t)
+(yas-global-mode t)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'after-init-hook #'global-flycheck-mode)
