@@ -61,7 +61,6 @@
 (depends-on "ag")
 (depends-on "wgrep-ag")
 (depends-on "smex")
-(depends-on "ace-jump-mode")
 (depends-on "ace-window")
 (depends-on "smartscan")
 (depends-on "diminish")

@@ -177,11 +177,10 @@
 (windmove-default-keybindings)
 
 (global-set-key (kbd "<f12>") 'ace-window)
-
-(global-set-key (kbd "C-c j") 'ace-jump-mode)
-(global-set-key (kbd "C-c h") 'ace-jump-mode-pop-mark)
-(global-set-key (kbd "C-'") 'ace-jump-mode)
-(global-set-key (kbd "C-M-'") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c j") 'avy-goto-char)
+(global-set-key (kbd "C-c h") 'avy-pop-mark)
+(global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
 (eval-after-load 'company
   '(global-set-key (kbd "C-c y") 'company-yasnippet))
