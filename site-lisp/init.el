@@ -85,7 +85,8 @@
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-(setq tramp-default-method "ssh")
+(setq tramp-default-method "ssh"
+      tramp-ssh-controlmaster-options t)
 
 ;; smart pairing for all
 (require 'smartparens-config)
