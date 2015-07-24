@@ -11,6 +11,7 @@
  '(js2-indent-on-enter-key nil)
  '(js2-use-ast-for-indentation-p t)
  '(magit-completing-read-function (quote magit-ido-completing-read))
+ '(magit-push-always-verify nil)
  '(magit-push-arguments (quote ("--set-upstream")))
  '(magit-revert-buffers 2)
  '(rspec-command-options "--format documentation --profile 10")
