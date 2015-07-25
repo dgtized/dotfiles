@@ -105,7 +105,8 @@
   '(
     ("jurisdction" "jurisdiction" nil 4)
     ("recieve" "receive" nil 1)
-    ("reponse" "reponse" nil 3)
+    ("reponse" "response" nil 3)
+    ("respone" "response" nil 1)
     ("teh" "the" nil 3)
    ))
 
