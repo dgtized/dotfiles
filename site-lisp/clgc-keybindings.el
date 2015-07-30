@@ -178,6 +178,7 @@
 (global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
+(require 'multiple-cursors)
 (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
 (global-set-key (kbd "M-m") 'iy-go-up-to-char)
 (global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
