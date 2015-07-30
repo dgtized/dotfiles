@@ -57,6 +57,7 @@
 (depends-on "flx-ido")
 (depends-on "projectile")
 (depends-on "helm-projectile")
+(depends-on "ibuffer-projectile")
 (depends-on "ag")
 (depends-on "wgrep-ag")
 (depends-on "smex")
