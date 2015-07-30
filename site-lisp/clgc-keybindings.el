@@ -178,6 +178,10 @@
 (global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
+;; remap C-a to `smarter-move-beginning-of-line'
+(global-set-key [remap move-beginning-of-line]
+                'smarter-move-beginning-of-line)
+
 (eval-after-load 'company
   '(global-set-key (kbd "C-c y") 'company-yasnippet))
 
