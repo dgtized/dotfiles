@@ -34,6 +34,8 @@
       projectile-use-git-grep t
       projectile-tags-command "ctags-exuberant -Re %s %s .")
 
+(setq ag-highlight-search t)
+(setq ag-ignore-list '("*.min.js" "vendor/assets/*"))
 (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 
 (require 'helm-config)
