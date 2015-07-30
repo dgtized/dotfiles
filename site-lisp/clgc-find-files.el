@@ -32,7 +32,8 @@
 (setq projectile-enable-caching t
       projectile-switch-project-action 'projectile-dired
       projectile-use-git-grep t
-      projectile-tags-command "ctags-exuberant -Re %s %s .")
+      projectile-tags-command
+      "ctags-exuberant --exclude='*.min.js' --exclude='vendor/assets' -Re -f \"%s\" %s")
 
 (defun clgc-ibuffer-projectile ()
   (ibuffer-projectile-set-filter-groups)
