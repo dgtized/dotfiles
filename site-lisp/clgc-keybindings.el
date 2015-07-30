@@ -178,6 +178,10 @@
 (global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
+(add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
+(global-set-key (kbd "M-m") 'iy-go-up-to-char)
+(global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
+
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)

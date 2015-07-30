@@ -63,6 +63,7 @@
 (depends-on "smex")
 (depends-on "ace-window")
 (depends-on "smartscan")
+(depends-on "iy-go-to-char")
 (depends-on "diminish")
 
 ;; Ruby
