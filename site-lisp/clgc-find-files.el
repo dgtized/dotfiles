@@ -35,7 +35,6 @@
       projectile-tags-command "ctags-exuberant -Re %s %s .")
 
 (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
-(add-hook 'ack-and-a-half 'next-error-follow-minor-mode)
 
 (require 'helm-config)
 
