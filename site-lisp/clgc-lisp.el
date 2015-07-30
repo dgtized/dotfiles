@@ -12,9 +12,6 @@
                 (when (file-exists-p (byte-compile-dest-file buffer-file-name))
                   (byte-compile-file buffer-file-name)))))
 
-  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-    (add-hook hook 'turn-on-elisp-slime-nav-mode))
-
   ;; Enhance Lisp Modes
   (dolist (mode '(scheme emacs-lisp inferior-emacs-lisp lisp clojure
                          inferior-lisp slime slime-repl cider-repl))
