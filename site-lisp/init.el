@@ -158,6 +158,9 @@
 
 (global-magit-file-buffer-mode)
 
+(require 'avy)
+(setq avy-background t)
+
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
 
 ;; setup audo modes
