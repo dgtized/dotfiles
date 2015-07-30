@@ -156,6 +156,8 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(global-magit-file-buffer-mode)
+
 (autoload 'org-tree-slide-mode "org-tree-slide" t)
 
 ;; setup audo modes
