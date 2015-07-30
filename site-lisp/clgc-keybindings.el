@@ -182,6 +182,8 @@
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
 
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
+
 (eval-after-load 'company
   '(global-set-key (kbd "C-c y") 'company-yasnippet))
 
