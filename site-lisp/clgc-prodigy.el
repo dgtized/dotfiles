@@ -14,6 +14,6 @@
 (prodigy-define-tag :name 'resque-pool
   :ready-message "Starting worker")
 
-(global-set-key (kbd "C-c $") 'prodigy)
+(global-set-key (kbd "C-x P") 'prodigy)
 
 (provide 'clgc-prodigy)
