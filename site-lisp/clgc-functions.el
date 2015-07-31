@@ -283,4 +283,11 @@ point reaches the beginning or end of the buffer, stop there."
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
+(defun load-secrets ()
+  (interactive)
+  (if (file-exists-p "~/.emacs.d/secrets.el.gpg")
+      (load-file "~/.emacs.d/secrets.el.gpg")
+    (if (file-exists-p "~/.emacs.d/secrets.el")
+        (load-file "~/.emacs.d/secrets.el"))))
+
 (provide 'clgc-functions)

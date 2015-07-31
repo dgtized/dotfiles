@@ -211,6 +211,7 @@
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
+(load-secrets)
 
 (if (eq window-system 'x)
     (set-face-attribute 'default nil
