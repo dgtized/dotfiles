@@ -6,10 +6,9 @@
 (prodigy-define-tag
   :name 'zeus
   :on-output
-  (lambda (&rest args)
-    (let ((service (plist-get args :service))
-          (poll-zeus "ps aux | grep 'zeus slave' | grep -c environment"))
-      (when (>= (string-to-number (shell-command-to-string poll-zeus)) 2)
+  (prodigy-callback (service)
+    (let ((poll-zeus "ps aux | grep -c 'zeus slave:'"))
+      (when (>= (string-to-number (shell-command-to-string poll-zeus)) 6)
         (prodigy-set-status service 'ready)))))
 
 (prodigy-define-tag :name 'resque-pool
