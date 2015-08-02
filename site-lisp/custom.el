@@ -14,6 +14,7 @@
  '(magit-push-always-verify nil)
  '(magit-push-arguments (quote ("--set-upstream")))
  '(magit-revert-buffers 2)
+ '(magit-save-repository-buffers (quote dontask))
  '(rspec-command-options "--format documentation --profile 10")
  '(rspec-use-opts-file-when-available nil)
  '(rspec-use-rvm t)
