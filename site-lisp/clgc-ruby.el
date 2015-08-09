@@ -38,10 +38,6 @@
 (setq rubocop-check-command "rubocop --format emacs --config .rubocop.yml")
 (setq rubocop-autocorrect-command "rubocop -a --format emacs --config .rubocop.yml")
 
-(defun rinari-rake-migrate-up ()
-  (interactive)
-  (rinari-rake "db:migrate"))
-
 (defun inf-ruby-console-cap (dir)
   "Run Rails console in DIR."
   (interactive "D")

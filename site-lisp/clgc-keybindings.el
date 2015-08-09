@@ -34,6 +34,9 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-j") 'join-line)
 
+(global-set-key (kbd "ESC ESC g") 'projectile-rails-mode-goto-map)
+(global-set-key (kbd "ESC ESC r") 'projectile-rails-mode-run-map)
+
 (define-prefix-command 'menu-map)
 (eval-after-load 'projectile
   '(set-keymap-parent 'menu-map 'projectile-command-map))
