@@ -46,6 +46,8 @@ case $TERM in
         ;;
 esac
 
+unset JAVA_TOOL_OPTIONS
+
 # tailoring 'less'
 export PAGER=less
 export LESSCHARSET='utf-8'
