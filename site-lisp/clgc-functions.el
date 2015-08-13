@@ -245,6 +245,14 @@ With a prefix argument, makes a public paste."
   (revert-buffer nil t t)
   (message (concat "Reverted buffer " (buffer-name))))
 
+(defun rdired (directory)
+  (interactive "D")
+  (find-dired directory
+              "-not -path '*/.svn*' -not -path '*/.git*' -and -not -path '*.o' -and -type f"))
+
+(defun eshell/rdired (&optional directory)
+  (funcall 'rdired (or directory default-directory)))
+
 (defun ansi-color-apply-buffer ()
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
