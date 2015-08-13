@@ -2,5 +2,5 @@ alias ff find-file $1
 alias vi find-file $1
 alias vim find-file $1
 alias ll ls -l $*
-alias la ls -a $*
+alias la ls -Al $*
 alias be bundle exec $*
