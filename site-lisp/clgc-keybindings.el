@@ -3,6 +3,7 @@
 
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
 (global-set-key (kbd "C-x p") 'proced)
+(global-set-key (kbd "C-x P") 'prodigy)
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
 (global-set-key (kbd "C-c 7") 'insert-char)

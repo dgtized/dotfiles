@@ -17,6 +17,4 @@
 ;; ansi-color-apply and filter were causing out-of-range errors for zeus
 (setq prodigy-output-filters (remove 'ansi-color-apply prodigy-output-filters))
 
-(global-set-key (kbd "C-x P") 'prodigy)
-
 (provide 'clgc-prodigy)
