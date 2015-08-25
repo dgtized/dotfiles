@@ -41,6 +41,7 @@ alias remacs='`grep emacs ~/.screenrc`'
 alias more='less'
 alias vi=vim
 alias apti="sudo aptitude install"
+alias apts="aptitude search"
 alias sane='stty sane'
 
 # ruby
