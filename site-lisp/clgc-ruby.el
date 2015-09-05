@@ -35,9 +35,6 @@
 (eval-after-load 'feature-mode
   '(setq feature-cucumber-command "zeus cucumber {feature}"))
 
-(setq rubocop-check-command "rubocop --format emacs --config .rubocop.yml")
-(setq rubocop-autocorrect-command "rubocop -a --format emacs --config .rubocop.yml")
-
 (defun inf-ruby-console-cap (dir)
   "Run Rails console in DIR."
   (interactive "D")
