@@ -1,4 +1,24 @@
-#!/bin/sh
+#!/bin/bash
+
+# script must be run from master branch
+branch=`git rev-parse --abbrev-ref HEAD`
+if [[ $branch != "master" ]]; then
+    echo "Must be run from branch 'master'"
+    exit 1
+fi
 
 git remote prune ${1-origin}
 git branch --merged master | grep -v 'master$' | xargs git branch -d
+
+echo "The following remote branches are fully merged into master and will be removed:"
+git branch -r --merged master | sed 's/ *origin\///' | grep -v 'master$'
+
+read -p "Continue (y/n)? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # Remove remote fully merged branches
+    git branch -r –merged master | sed 's/ *origin\///' | grep -v 'master$' | \
+        xargs -I% git push origin :%
+    echo "Done! Obsolete branches are removed"
+else
+    echo
+fi
