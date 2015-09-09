@@ -14,6 +14,9 @@
 (prodigy-define-tag :name 'resque-pool
   :ready-message "Starting worker")
 
+(prodigy-define-tag :name 'resque-scheduler
+  :ready-message "Schedules Loaded")
+
 ;; ansi-color-apply and filter were causing out-of-range errors for zeus
 (setq prodigy-output-filters (remove 'ansi-color-apply prodigy-output-filters))
 
