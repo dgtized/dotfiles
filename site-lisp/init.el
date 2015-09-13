@@ -91,36 +91,12 @@
 (setq tramp-default-method "ssh"
       tramp-ssh-controlmaster-options t)
 
-;; smart pairing for all
-(require 'smartparens-config)
-(setq sp-autoskip-closing-pair 'always)
-(setq sp-hybrid-kill-entire-symbol t)
-(sp-use-smartparens-bindings)
-
-(add-to-list 'sp-ignore-modes-list 'org-mode)
-
-(show-smartparens-global-mode +1)
-(smartparens-global-mode)
-
-;; Uniquify buffer
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets
-      uniquify-after-kill-buffer-p t)
-
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
 (let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
   (setq version-control nil
         delete-by-moving-to-trash t
         backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,backup-dir t))))
-
-;; Enable font lock (colours) for all modes that support it:
-(require 'font-lock)
-(setq-default font-lock-maximum-decoration t)
-(global-font-lock-mode t)
-
-;; (require 'pretty-mode-plus)
-;; (global-pretty-mode 1)
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 

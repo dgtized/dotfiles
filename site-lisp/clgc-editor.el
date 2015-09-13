@@ -1,3 +1,30 @@
+;; On startup this is run in after-init-hook by default
+
+
+;; Enable font lock (colours) for all modes that support it:
+(require 'font-lock)
+(setq-default font-lock-maximum-decoration t)
+(global-font-lock-mode t)
+
+;; (require 'pretty-mode-plus)
+;; (global-pretty-mode 1)
+
+;; smart pairing for all
+(require 'smartparens-config)
+(setq sp-autoskip-closing-pair 'always)
+(setq sp-hybrid-kill-entire-symbol t)
+(sp-use-smartparens-bindings)
+
+(add-to-list 'sp-ignore-modes-list 'org-mode)
+
+(show-smartparens-global-mode +1)
+(smartparens-global-mode)
+
+;; Uniquify buffer
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets
+      uniquify-after-kill-buffer-p t)
+
 ;; Autocorrect
 (setq default-abbrev-mode t
       save-abbrevs t
