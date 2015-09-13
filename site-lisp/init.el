@@ -159,7 +159,7 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(global-magit-file-buffer-mode)
+(global-magit-file-mode)
 
 (require 'avy)
 (setq avy-background t)
