@@ -1,6 +1,10 @@
 ;;; init.el --- Summary
 ;;; Commentary:
 ;;; Code:
+
+;; Set this first to speed up startup 5.5s -> 2.5s
+(setq gc-cons-threshold (expt 2 24)) ;; 16mb instead of 800k
+
 (makunbound 'dotc-dir)
 (defvar dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
@@ -39,8 +43,7 @@
 (require 'clgc-shell)
 (require 'clgc-sql)
 
-(setq gc-cons-threshold (expt 2 24) ;; 16mb instead of 800k
-      redisplay-dont-pause t
+(setq redisplay-dont-pause t
       inhibit-startup-screen t
       line-number-mode t
       column-number-mode t
