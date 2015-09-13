@@ -32,17 +32,6 @@
 (require 'clgc-elpa)
 (regen-autoloads)
 
-(require 'clgc-functions)
-(require 'clgc-javascript)
-(require 'clgc-lisp)
-(require 'clgc-find-files)
-(require 'starter-kit-eshell)
-(require 'clgc-ruby)
-(require 'clgc-major-modes)
-(require 'clgc-org)
-(require 'clgc-shell)
-(require 'clgc-sql)
-
 (setq redisplay-dont-pause t
       inhibit-startup-screen t
       line-number-mode t
@@ -147,9 +136,6 @@
                 ("gitconfig"      . conf-mode)))
   (add-to-list 'auto-mode-alist mode))
 
-(require 'clgc-keybindings)
-(winner-mode)
-
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -166,7 +152,6 @@
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
-(load-secrets)
 
 (if (eq window-system 'x)
     (set-face-attribute 'default nil

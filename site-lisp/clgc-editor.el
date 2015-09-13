@@ -1,5 +1,15 @@
 ;; On startup this is run in after-init-hook by default
 
+(require 'clgc-functions)
+(require 'clgc-javascript)
+(require 'clgc-lisp)
+(require 'clgc-find-files)
+(require 'starter-kit-eshell)
+(require 'clgc-ruby)
+(require 'clgc-major-modes)
+(require 'clgc-org)
+(require 'clgc-shell)
+(require 'clgc-sql)
 
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
@@ -53,5 +63,10 @@
 
 (require 'avy)
 (setq avy-background t)
+
+(require 'clgc-keybindings)
+(winner-mode)
+
+(load-secrets)
 
 (provide 'clgc-editor)
