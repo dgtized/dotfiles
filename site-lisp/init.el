@@ -93,13 +93,6 @@
       compilation-read-command t
       compilation-window-height 12)
 
-;; make highlight standard /etc files
-(require 'generic)
-(require 'generic-x)
-(require 'page-ext)
-;; enable C-x C-j
-(require 'dired-x)
-
 (defun clgc-after-init-hook ()
     (require 'clgc-editor))
 

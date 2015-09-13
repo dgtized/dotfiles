@@ -11,6 +11,13 @@
 (require 'clgc-shell)
 (require 'clgc-sql)
 
+;; make highlight standard /etc files
+(require 'generic)
+(require 'generic-x)
+(require 'page-ext)
+;; enable C-x C-j
+(require 'dired-x)
+
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
 (setq-default font-lock-maximum-decoration t)
