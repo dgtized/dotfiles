@@ -46,6 +46,7 @@ alias sane='stty sane'
 
 # ruby
 alias be="bundle exec"
+alias zs="zeus rspec"
 
 # intoximeters
 
