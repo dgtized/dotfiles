@@ -11,7 +11,7 @@ name = sys.argv[1]
 command = {
     'emacs': '/home/clgc/usr/bin/ec -c',
     'Terminal': "gnome-terminal --maximize -x tmux -2 attach -d",
-    "Chrome": "google-chrome" #  --force-device-scale-factor=1.25
+    "Chrome": "google-chrome --force-device-scale-factor=1.33"
 }[name].split()
 
 screen = wnck.screen_get_default()
