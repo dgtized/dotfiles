@@ -2,8 +2,9 @@ Emacs.font: Inconsolata-11
 *customization: -color
 
 UXTerm*termName: xterm-256color
-UXTerm*faceName: Inconsolata
-UXTerm*faceSize: 11
+UXTerm*faceName: DejaVu Sans Mono for Powerline
+UXTerm*faceSize: 10
+UXTerm*font: xft:DejaVu Sans Mono for Powerline:size=10
 UXTerm*altSendsEscape: true
 UXTerm*metaSendsEscape: true
 UXTerm*altIsNotMeta: true
