@@ -70,6 +70,8 @@
 ;; Git related
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(eval-after-load 'magit
+  '(define-key magit-file-mode-map "\C-cp" nil))
 
 (let ((map vc-prefix-map))
   (define-key map (kbd "S") 'vc-switch-backend) ; rebind from b
