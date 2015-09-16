@@ -68,6 +68,12 @@
 
 (global-magit-file-mode)
 
+;; Stop demanding confirmation to go over 50 characters on first line
+(remove-hook 'git-commit-finish-query-functions
+             'git-commit-check-style-conventions)
+
+(add-hook 'occur-mode-hook 'occur-context-resize-mode)
+
 (require 'avy)
 (setq avy-background t)
 

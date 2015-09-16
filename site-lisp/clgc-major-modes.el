@@ -82,10 +82,4 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
 
-(add-hook 'occur-mode-hook 'occur-context-resize-mode)
-
-;; Stop demanding confirmation to go over 50 characters on first line
-(remove-hook 'git-commit-finish-query-functions
-             'git-commit-check-style-conventions)
-
 (provide 'clgc-major-modes)
