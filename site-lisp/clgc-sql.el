@@ -13,4 +13,8 @@
 
 (add-hook 'sql-interactive-mode-hook 'clgc-sql-save-history)
 
+;; SQLi Mode
+(defun clgc-sql-interactive-hook () (toggle-truncate-lines t))
+(add-hook 'sql-interactive-mode-hook 'clgc-sql-interactive-hook)
+
 (provide 'clgc-sql)
