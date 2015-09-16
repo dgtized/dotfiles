@@ -22,6 +22,7 @@
 (depends-on "js2-mode")
 (depends-on "coffee-mode")
 (depends-on "elm-mode")
+(depends-on "flycheck-elm")
 
 ;; Elisp
 (depends-on "flash-region")
