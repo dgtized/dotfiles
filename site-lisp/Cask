@@ -8,8 +8,8 @@
 (depends-on "css-mode")
 (depends-on "less-css-mode")
 (depends-on "markdown-mode")
-(depends-on "log4j-mode")
-(depends-on "dna-mode")
+;; (depends-on "log4j-mode")
+;; (depends-on "dna-mode")
 (depends-on "org-plus-contrib")
 (depends-on "ob-http")
 (depends-on "graphviz-dot-mode")
@@ -18,7 +18,7 @@
 (depends-on "free-keys")
 (depends-on "list-environment")
 
-(depends-on "haskell-mode")
+;; (depends-on "haskell-mode")
 (depends-on "js2-mode")
 (depends-on "coffee-mode")
 (depends-on "elm-mode")
@@ -42,7 +42,7 @@
 (depends-on "smartparens")
 
 ;; Scheme
-(depends-on "geiser")
+;; (depends-on "geiser")
 ;; (depends-on "quack")
 
 ;; Git
@@ -64,10 +64,6 @@
 (depends-on "ag")
 (depends-on "wgrep-ag")
 (depends-on "smex")
-(depends-on "ace-window")
-(depends-on "smartscan")
-(depends-on "iy-go-to-char")
-(depends-on "zop-to-char")
 (depends-on "diminish")
 
 (depends-on "prodigy")
@@ -85,6 +81,12 @@
 (depends-on "company-inf-ruby")
 (depends-on "yari")
 (depends-on "rubocop")
+
+;; Editor
+(depends-on "ace-window")
+(depends-on "smartscan")
+(depends-on "iy-go-to-char")
+(depends-on "zop-to-char")
 
 (depends-on "starter-kit-eshell")
 (depends-on "company")
