@@ -165,7 +165,8 @@
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
 (eval-after-load 'ruby-mode
-  '(define-key ruby-mode-map (kbd "<f5>") 'rspec-verify))
+  '(progn (define-key ruby-mode-map (kbd "<f5>") 'rspec-verify)
+          (define-key ruby-mode-map (kbd "<f6>") 'ruby-compilation-this-buffer)))
 
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
