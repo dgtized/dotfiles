@@ -225,7 +225,12 @@
 
 (define-abbrev-table 'ruby-compilation-mode-abbrev-table '())
 
-(define-abbrev-table 'ruby-mode-abbrev-table '())
+(define-abbrev-table 'ruby-mode-abbrev-table
+  '(
+    ("arbl" "ActiveRecord::Base.logger = Logger.new(STDOUT)" nil 3)
+   ))
+
+(define-abbrev-table 'scss-mode-abbrev-table '())
 
 (define-abbrev-table 'select-tags-table-mode-abbrev-table '())
 
@@ -238,6 +243,8 @@
 (define-abbrev-table 'special-mode-abbrev-table '())
 
 (define-abbrev-table 'speedbar-mode-abbrev-table '())
+
+(define-abbrev-table 'sql-mode-abbrev-table '())
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
