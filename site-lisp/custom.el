@@ -18,6 +18,7 @@
  '(rspec-command-options "--format documentation --profile 10")
  '(rspec-use-opts-file-when-available nil)
  '(rspec-use-rvm t)
+ '(split-height-threshold 110)
  '(web-mode-markup-indent-offset 2)
  '(yas-prompt-functions
    (quote
