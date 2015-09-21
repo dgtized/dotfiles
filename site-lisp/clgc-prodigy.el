@@ -5,6 +5,11 @@
 
 (prodigy-define-tag
   :name 'zeus
+  :command "/bin/bash"
+  ;; Strip zeus start of color codes to prevent ansi out-of-bound errors
+  :args '("-c" "zeus start | sed \"s,\x1B\[[0-9;]*[a-zA-Z],,g\"")
+  :stop-signal 'sigkill
+  :kill-process-buffer-on-stop t
   :on-output
   (prodigy-callback (service)
     (let ((poll-zeus "ps aux | grep -c 'zeus slave:'"))
@@ -16,8 +21,5 @@
 
 (prodigy-define-tag :name 'resque-scheduler
   :ready-message "Schedules Loaded")
-
-;; ansi-color-apply and filter were causing out-of-range errors for zeus
-(setq prodigy-output-filters (remove 'ansi-color-apply prodigy-output-filters))
 
 (provide 'clgc-prodigy)
