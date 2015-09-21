@@ -227,7 +227,9 @@
 
 (define-abbrev-table 'ruby-mode-abbrev-table
   '(
+    ("arb" "ActiveRecord::Base" nil 0)
     ("arbl" "ActiveRecord::Base.logger = Logger.new(STDOUT)" nil 3)
+    ("rrep" "ReadReplica" nil 0)
    ))
 
 (define-abbrev-table 'scss-mode-abbrev-table '())
