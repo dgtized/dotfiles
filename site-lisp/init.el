@@ -136,7 +136,6 @@
 (require 'diminish)
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 
 (eval-after-load "company" '(diminish 'company-mode))
