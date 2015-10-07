@@ -67,10 +67,11 @@
 (if (fboundp 'horizontal-scroll-bar-mode) (horizontal-scroll-bar-mode -1))
 (menu-bar-mode -1)
 
-(put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(put 'set-goal-column 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;; remove vc peskiness while editing .emacs file
 (setq vc-follow-symlinks nil)
