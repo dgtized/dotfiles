@@ -8,9 +8,15 @@ import sys
 import re
 
 name = sys.argv[1]
+cmd_name = {
+    'emacs': 'emacs',
+    'Terminal': 'uxterm',
+    'Chrome': 'Chrome'
+}[name]
+
 command = {
     'emacs': '/home/clgc/usr/bin/ec -c',
-    'Terminal': "gnome-terminal --maximize -x tmux -2 attach -d",
+    'Terminal': "uxterm -e ",
     "Chrome": "google-chrome --force-device-scale-factor=1.33"
 }[name].split()
 
@@ -23,7 +29,7 @@ window_list = screen.get_windows_stacked()
 last_active = None
 for window in window_list:
     window_name = window.get_application().get_name()
-    if window_name == name or re.search(name + "$", window_name):
+    if window_name == cmd_name or re.search(cmd_name + "$", window_name):
         last_active = window
 
 if last_active:
@@ -31,4 +37,4 @@ if last_active:
     last_active.activate(timestamp)
 
 else:
-    subprocess.Popen(command)
+    subprocess.Popen(command, shell=True)
