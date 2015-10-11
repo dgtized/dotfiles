@@ -149,7 +149,7 @@
 (if (eq window-system 'x)
     (set-face-attribute 'default nil
                     :family "Inconsolata"
-                    :height 115
+                    :height (if (string= (system-name) "nocturnal") 120 115)
                     :weight 'normal
                     :width 'normal))
 
