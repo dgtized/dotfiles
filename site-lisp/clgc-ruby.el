@@ -7,7 +7,8 @@
   (setq rinari-tags-file-name "TAGS")
   (setq ruby-insert-encoding-magic-comment nil)
   (setq ruby-align-to-stmt-keywords '(def if case))
-  (global-rinari-mode t))
+  ;;(global-rinari-mode t)
+  )
 
 (add-hook 'ruby-mode-hook 'clgc-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'subword-mode)
