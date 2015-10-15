@@ -12,8 +12,8 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Elm
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
