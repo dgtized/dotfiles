@@ -41,4 +41,13 @@
    (sql . t)
    (http . t)))
 
+(defun org-md-example-block (example-block contents info)
+  "Transcode EXAMPLE-BLOCK element into Markdown format.
+CONTENTS is nil.  INFO is a plist used as a communication
+channel."
+  (format "```\n%s```\n"
+   (org-remove-indentation
+    (org-export-format-code-default example-block info))))
+
+
 (provide 'clgc-org)
