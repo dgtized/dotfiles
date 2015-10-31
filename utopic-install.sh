@@ -23,8 +23,8 @@ sudo dpkg -i google-chrome*.deb
 curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash - && \
     sudo apt-get install --yes nodejs
 
-rbenv install 2.1.1
-rbenv global 2.1.1
+#rbenv install 2.1.1
+#rbenv global 2.1.1
 
 sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
 sudo service ssh restart
