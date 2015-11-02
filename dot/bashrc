@@ -93,3 +93,4 @@ fi
 
 #eval "$(rbenv init -)"
 source /usr/local/share/chruby/chruby.sh
+chruby 2.2.3
