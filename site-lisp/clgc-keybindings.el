@@ -170,8 +170,8 @@
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
 
-(eval-after-load 'rbenv
-  '(global-set-key (kbd "C-c v") 'rbenv-use-corresponding))
+(eval-after-load 'chruby
+  '(global-set-key (kbd "C-c v") 'chruby-use-corresponding))
 
 (eval-after-load 'gist
   '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))

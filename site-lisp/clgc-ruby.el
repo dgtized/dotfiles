@@ -24,11 +24,13 @@
 ;;   '(add-to-list 'company-backends 'company-robe))
 
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rbenv-use-corresponding))
+  (chruby-use-corresponding))
 
-;; rbenv
-(defalias 'rvm-activate-corresponding-ruby 'rbenv-use-corresponding)
-(add-hook 'after-init-hook 'rbenv-use-global)
+(defun clgc-chruby-default () (chruby "ruby-2.2.3"))
+
+;; chruby
+(defalias 'rvm-activate-corresponding-ruby 'chruby-use-corresponding)
+(add-hook 'after-init-hook 'clgc-chruby-default)
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))

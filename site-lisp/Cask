@@ -69,7 +69,7 @@
 (depends-on "prodigy")
 
 ;; Ruby
-(depends-on "rbenv")
+(depends-on "chruby")
 (depends-on "inf-ruby")
 (depends-on "rinari")
 (depends-on "bundler")
