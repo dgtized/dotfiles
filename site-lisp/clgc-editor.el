@@ -55,13 +55,26 @@
 (add-hook 'comint-mode-hook 'clgc-term-mode)
 
 ;; Company
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay 0.5)
+(global-company-mode)
+(setq company-idle-delay 0.5
+      company-transformers '(company-sort-by-occurrence))
 
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotc-elisp))
 (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; Add yasnippet support for all company backends
+;; https://github.com/syl20bnr/spacemacs/pull/179
+(defvar company-mode/enable-yas t "Enable yasnippet for all backends.")
+
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend)    (member 'company-yasnippet backend)))
+  backend
+(append (if (consp backend) backend (list backend))
+        '(:with company-yasnippet))))
+
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (global-flycheck-mode)
