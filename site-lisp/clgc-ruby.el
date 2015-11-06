@@ -23,6 +23,8 @@
 ;; (eval-after-load 'company
 ;;   '(add-to-list 'company-backends 'company-robe))
 
+(require 'chruby)
+
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (chruby-use-corresponding))
 
