@@ -10,6 +10,7 @@
 	st = status
 	snow = !echo \"you know nothing\"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  tagcommit = rev-list -n 1
 [push]
 	default = simple
 [pull]
