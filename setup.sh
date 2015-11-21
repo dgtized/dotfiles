@@ -66,6 +66,8 @@ function setup_emacs () {
 
     mkdir -p ~/.emacs.d
     ln -sfv $DOTC_DIR/site-lisp/Cask ~/.emacs.d/Cask
+    ln -sfv $DOTC_DIR/site-lisp/init.el ~/.emacs.d/init.el
+
     pushd ~/.emacs.d
     echo "Initializing Cask ... (see .emacs.d/cask.log)"
     ($DOTC_DIR/cask/bin/cask 2>&1) > cask.log
