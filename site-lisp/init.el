@@ -12,6 +12,6 @@
           (setenv (match-string 1) (match-string 2)))
         (kill-buffer site-config-buf))))
 
-(load (concat (getenv "DOTC_DIR") "/site-lisp/init.el"))
+(load (concat (getenv "DOTC_DIR") "/site-lisp/clgc-init.el"))
 
 ;;; .emacs ends here
