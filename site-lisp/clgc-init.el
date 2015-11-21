@@ -1,4 +1,4 @@
-;;; init.el --- Summary
+;;; clgc-init.el --- Summary
 ;;; Commentary:
 ;;; Code:
 
@@ -161,4 +161,4 @@
                                :size 10.0
                                :weight 'normal)))
 
-;;; init.el ends here
+;;; clgc-init.el ends here
