@@ -4,7 +4,7 @@
 (require 'clgc-javascript)
 (require 'clgc-lisp)
 (require 'clgc-find-files)
-(require 'starter-kit-eshell)
+;; (require 'starter-kit-eshell)
 (require 'clgc-ruby)
 (require 'clgc-major-modes)
 (require 'clgc-org)
