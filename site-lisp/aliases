@@ -4,3 +4,4 @@ alias vim find-file $1
 alias ll ls -l $*
 alias la ls -Al $*
 alias be bundle exec $*
+alias ber bundle exec rake $*
