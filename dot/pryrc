@@ -1,2 +1,6 @@
 Pry.config.pager = false if ENV["INSIDE_EMACS"]
 Pry.config.correct_indent = false if ENV["INSIDE_EMACS"]
+
+def sql(query)
+  ActiveRecord::Base.connection.select_all(query)
+end
