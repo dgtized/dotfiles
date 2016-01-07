@@ -47,6 +47,8 @@ alias sane='stty sane'
 # ruby
 alias be="bundle exec"
 alias ber="bundle exec rake"
+alias berdm="bundle exec rake db:migrate"
+alias berdr="bundle exec rake db:rollback"
 alias bec="bundle exec cap"
 alias zs="zeus rspec"
 
