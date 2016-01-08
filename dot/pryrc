@@ -4,3 +4,7 @@ Pry.config.correct_indent = false if ENV["INSIDE_EMACS"]
 def sql(query)
   ActiveRecord::Base.connection.select_all(query)
 end
+
+# Local Variables:
+# mode: ruby
+# End:
