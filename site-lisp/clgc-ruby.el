@@ -35,7 +35,10 @@
 (add-hook 'after-init-hook 'clgc-chruby-default)
 
 (eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
+  '(progn (rspec-install-snippets)
+          (setq rspec-command-options "--format documentation --profile 10"
+                rspec-use-opts-file-when-available nil
+                rspec-use-rvm t)))
 
 (eval-after-load 'feature-mode
   '(setq feature-cucumber-command "zeus cucumber {feature}"))
