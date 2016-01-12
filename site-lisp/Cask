@@ -106,6 +106,8 @@
 (depends-on "browse-kill-ring")
 (depends-on "evil")
 
+(depends-on "crux")
+
 ;; Hacking Experiments
 (depends-on "simple-httpd")
 (depends-on "web-server")
