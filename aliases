@@ -51,6 +51,7 @@ alias berdm="bundle exec rake db:migrate"
 alias berdr="bundle exec rake db:rollback"
 alias bec="bundle exec cap"
 alias zs="zeus rspec"
+alias zr="zeus rake"
 
 # intoximeters
 
