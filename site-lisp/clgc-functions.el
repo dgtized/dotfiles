@@ -21,12 +21,6 @@
       (insert (format "%4d %c\n" i i))))
   (goto-line 0))
 
-;insert date into buffer
-(defun insert-date ()
-  "Insert date at point."
-  (interactive)
-  (insert (format-time-string "%a %b %e, %Y %l:%M %p")))
-
 ;convert a buffer from dos ^M end of lines to unix end of lines
 (defun dos2unix ()
   (interactive)
