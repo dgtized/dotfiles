@@ -1,29 +1,29 @@
 [core]
   excludesfile = ~/.gitignore
 [color]
-	ui = true
+  ui = true
 [user]
-	name = Charles Comstock
-	email = dgtized@gmail.com
+  name = Charles Comstock
+  email = dgtized@gmail.com
 [alias]
-	co = checkout
-	st = status
-	snow = !echo \"you know nothing\"
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  co = checkout
+  st = status
+  snow = !echo \"you know nothing\"
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   tagcommit = rev-list -n 1
   tagcontains = git tag -l --contains HEAD
   cleanbranches = "!sh -c 'git branch --merged master | grep -v master | grep -v \"*\" | xargs git branch -d'"
 [push]
-	default = simple
+  default = simple
 [pull]
-	rebase = true
+  rebase = true
 [tag]
-	sort = version:refname
+  sort = version:refname
 [github]
-	user = dgtized
+  user = dgtized
 [include]
-	path = ~/.gitconfig.private
+  path = ~/.gitconfig.private
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
