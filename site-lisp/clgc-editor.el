@@ -88,7 +88,8 @@
 (add-hook 'occur-mode-hook 'occur-context-resize-mode)
 
 (require 'avy)
-(setq avy-background t)
+(setq avy-background t
+      avy-style 'at-full)
 
 (require 'clgc-keybindings)
 (winner-mode)
