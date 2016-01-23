@@ -5,7 +5,7 @@ DATE=`date`
 HOST=`hostname`
 MESSAGE="${DATE} ${HOST} ${IP}"
 if [[ -n $1 ]]; then
-    echo $MESSAGE | ssh $1 "cat >> files.dgtized.net/whatismyip.log"
+    echo $MESSAGE | ssh $1 "cat >> whatismyip.log"
 else
     echo $IP
 fi
