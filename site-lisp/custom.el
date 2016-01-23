@@ -6,14 +6,16 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(erc-nick "dgtized")
+ '(global-magit-file-mode t)
  '(js2-auto-indent-p t)
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
  '(js2-use-ast-for-indentation-p t)
+ '(magit-auto-revert-immediately t)
+ '(magit-auto-revert-mode t)
  '(magit-completing-read-function (quote magit-ido-completing-read))
  '(magit-push-always-verify nil)
  '(magit-push-arguments (quote ("--set-upstream")))
- '(magit-revert-buffers 2)
  '(magit-save-repository-buffers (quote dontask))
  '(package-selected-packages
    (quote
