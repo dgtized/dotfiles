@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP=`curl -s http://automation.whatismyip.com/n09230945.asp`
+IP=`curl -s curlmyip.com`
 DATE=`date`
 HOST=`hostname`
 MESSAGE="${DATE} ${HOST} ${IP}"
