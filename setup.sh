@@ -23,7 +23,6 @@ EOF
     # ssh related config
     mkdir -pv -m 700 $HOME/.ssh/control
     touch ~/.ssh/authorized_keys
-    rm -fv $HOME/.ssh/config # used to be symlinked
     cat ${DOTC_DIR}/sshconfig.d/*.conf > $HOME/.ssh/config
     echo "Updated ~/.ssh/config"
     chmod 600 $HOME/.ssh/{authorized_keys,config}
