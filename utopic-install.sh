@@ -11,7 +11,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree \
      lm-sensors \
-     openjdk-8-jdk \
+     default-jdk \
      gitk\
      gnutls-bin
 
