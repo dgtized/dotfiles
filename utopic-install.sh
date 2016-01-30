@@ -12,7 +12,8 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      p7zip-full tree \
      lm-sensors \
      default-jdk \
-     gitk\
+     gitk \
+     httpie \
      gnutls-bin
 
 # uncomment localhost for postgres
