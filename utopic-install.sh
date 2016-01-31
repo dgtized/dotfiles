@@ -25,8 +25,20 @@ sudo dpkg -i google-chrome*.deb
 curl --silent --location https://deb.nodesource.com/setup_4.x | sudo bash - && \
     sudo apt-get install --yes nodejs
 
-#rbenv install 2.1.1
-#rbenv global 2.1.1
+# install chruby
+wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+tar -xzvf ruby-install-0.6.0.tar.gz
+pushd ruby-install-0.6.0/
+sudo make install
+popd
+
+wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+tar -xzvf chruby-0.3.9.tar.gz
+pushd chruby-0.3.9/
+sudo make install
+popd
+
+ruby-install ruby 2.2.3
 
 sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
 sudo service ssh restart

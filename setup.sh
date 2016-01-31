@@ -39,14 +39,6 @@ EOF
 function slow_updates () {
     # These happen here so they happen after setup.sh reload
 
-    # if [ ! -d ~/.rbenv ]; then
-    #     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    # fi
-
-    # if [ ! -d ~/.rbenv/plugins/ruby-build ]; then
-    #     git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-    # fi
-
     PKG=gnome-terminal-colors-solarized
     if [ ! -d $DOTC_DIR/$PKG ]; then
         git clone https://github.com/Anthony25/$PKG.git $DOTC_DIR/$PKG

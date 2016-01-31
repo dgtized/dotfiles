@@ -66,7 +66,6 @@ export HISTTIMEFORMAT='%F_%T '
 pathmunge ${HOME}/usr/bin
 pathmunge /usr/local/heroku/bin
 pathmunge ${DOTC_DIR}/cask/bin
-#pathmunge ${HOME}/.rbenv/bin
 
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
@@ -91,7 +90,6 @@ if [[ -f $HOME/.bashrc.local ]]; then
     source $HOME/.bashrc.local
 fi
 
-#eval "$(rbenv init -)"
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 chruby 2.2.3
