@@ -88,6 +88,8 @@
         backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,backup-dir t))))
 
+(setq initial-scratch-message ";; What are you doing in there?\n\n")
+
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq compilation-ask-about-save nil
