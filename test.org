@@ -1,0 +1,11 @@
+#+BEGIN_SRC http :pretty
+GET https://api.github.com/repos/zweifisch/ob-http/languages
+Accept: application/vnd.github.moondragon+json
+#+END_SRC
+
+#+RESULTS:
+: {
+:   "Emacs Lisp": 13054,
+:   "Shell": 139
+: }
+
