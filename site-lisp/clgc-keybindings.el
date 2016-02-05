@@ -76,7 +76,8 @@
   (define-key map (kbd "b") 'magit-blame)
   (define-key map (kbd "B") 'github-browse-file-blame)
   (define-key map (kbd "f") 'magit-log-buffer-file)
-  (define-key map (kbd "F") 'github-browse-file))
+  (define-key map (kbd "F") 'github-browse-file)
+  (define-key map (kbd "C") 'github-browse-commit))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
 (global-set-key (kbd "C-c i") 'ido-goto-symbol)
