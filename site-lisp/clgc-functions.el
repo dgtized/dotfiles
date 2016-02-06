@@ -148,19 +148,6 @@ Start `ielm' if it's not already running."
         (message "Setting %s to %s" var value)
         (setenv var value)))))
 
-(defun github-browse ()
-  (interactive)
-  (let ((url (magit-get "remote" (magit-get-current-remote) "url")))
-    (save-match-data
-      (if (string-match "github.com:\\([^/]+\\)/\\([^\.]+\\).git" url)
-          (let ((owner (match-string 1 url))
-                (repo (match-string 2 url)))
-            (browse-url (format "https://github.com/%s/%s/blob/%s/%s#L%d"
-                                owner repo
-                                (magit-get-current-branch)
-                                (magit-file-relative-name (buffer-file-name))
-                                (line-number-at-pos))))))))
-
 (defun clgc-gist-browse ()
   "Browse url the currently selected gist"
   (interactive)
