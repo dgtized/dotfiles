@@ -15,10 +15,8 @@
   (switch-to-buffer "*ASCII*")
   (erase-buffer)
   (insert (format "ASCII characters up to number %d.\n" 254))
-  (let ((i 0))
-    (while (< i 254)
-      (setq i (+ i 1))
-      (insert (format "%4d %c\n" i i))))
+  (loop for i from 0 to 254 do
+        (insert (format "%4d %c\n" i i)))
   (goto-line 0))
 
 ;; from http://stackoverflow.com/a/4717026/34450
