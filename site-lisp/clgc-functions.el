@@ -21,18 +21,6 @@
       (insert (format "%4d %c\n" i i))))
   (goto-line 0))
 
-;convert a buffer from dos ^M end of lines to unix end of lines
-(defun dos2unix ()
-  (interactive)
-    (goto-char (point-min))
-      (while (search-forward "\r" nil t) (replace-match "")))
-
-;vice versa
-(defun unix2dos ()
-  (interactive)
-    (goto-char (point-min))
-      (while (search-forward "\n" nil t) (replace-match "\r\n")))
-
 ;; from http://stackoverflow.com/a/4717026/34450
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
