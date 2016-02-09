@@ -115,15 +115,6 @@ Start `ielm' if it's not already running."
       (ediff-windows-wordwise t)
     (ediff-windows-linewise t)))
 
-(defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (equal 'fullboth current-value)
-                             (if (boundp 'old-fullscreen) old-fullscreen nil)
-                           (progn (setq old-fullscreen current-value)
-                                  'fullboth)))))
-
 (defun load-environment-variables ()
   (interactive)
   (save-excursion
