@@ -9,3 +9,19 @@ Accept: application/vnd.github.moondragon+json
 :   "Shell": 139
 : }
 
+#+BEGIN_SRC http :file dgtized.json
+GET https://api.github.com/users/dgtized
+Accept: application/vnd.github.v3+json
+#+END_SRC
+
+#+RESULTS:
+[[file:dgtized.json]]
+
+#+BEGIN_SRC http :file me.jpeg
+GET https://avatars.githubusercontent.com/u/6784?v=3
+Accept: image/jpeg
+#+END_SRC
+
+#+RESULTS:
+[[file:me.jpeg]]
+
