@@ -31,7 +31,8 @@
 (global-set-key (kbd "C-c V") 'visual-line-mode)
 (global-set-key (kbd "C-c I") 'color-identifiers-mode)
 (global-set-key (kbd "C-c L") 'linum-mode)
-(global-set-key (kbd "C-M-;") 'comment-dwim-line)
+(crux-with-region-or-line comment-or-uncomment-region)
+(global-set-key (kbd "C-M-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-j") 'join-line)
 
