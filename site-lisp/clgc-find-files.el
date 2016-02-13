@@ -11,7 +11,7 @@
       ido-case-fold t
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t
-      ido-use-faces nil
+      ido-use-faces t
       flx-ido-threshhold 8192
       ido-use-filename-at-point nil
       ido-use-url-at-point nil)
