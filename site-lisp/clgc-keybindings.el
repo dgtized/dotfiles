@@ -160,7 +160,7 @@
   (define-key map (kbd "M-r") 'mc/reverse-regions)
   (define-key map (kbd "#") 'mc/insert-numbers))
 
-(define-key ctl-x-4-map (kbd "t") 'transpose-windows)
+(define-key ctl-x-4-map (kbd "t") 'crux-transpose-windows)
 (define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 
