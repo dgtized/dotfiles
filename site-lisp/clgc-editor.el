@@ -23,9 +23,6 @@
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
 
-;; (require 'pretty-mode-plus)
-;; (global-pretty-mode 1)
-
 ;; smart pairing for all
 (require 'smartparens-config)
 (setq sp-autoskip-closing-pair 'always)
