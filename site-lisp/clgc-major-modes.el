@@ -1,12 +1,14 @@
 (defun clgc-prog-mode-hook ()
-  (when (fboundp 'prettify-symbols-mode)
-    (add-to-list 'prettify-symbols-alist '("<=" . ?≤))
-    (add-to-list 'prettify-symbols-alist '(">=" . ?≥))
-    (add-to-list 'prettify-symbols-alist '("!=" . ?≠))
-    (prettify-symbols-mode))
+  (add-to-list 'prettify-symbols-alist '("<=" . ?≤))
+  (add-to-list 'prettify-symbols-alist '(">=" . ?≥))
+  (add-to-list 'prettify-symbols-alist '("!=" . ?≠))
 
   (setq show-trailing-whitespace t
         indicate-empty-lines t))
+
+;; Reveals the original string when point is on the symbol
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+(global-prettify-symbols-mode)
 
 (add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
