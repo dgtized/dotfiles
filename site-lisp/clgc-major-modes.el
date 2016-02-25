@@ -17,6 +17,10 @@
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
 
+;; Elixir
+(setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
+      alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp"))
+
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
 (add-hook 'groovy-mode-hook

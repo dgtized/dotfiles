@@ -45,3 +45,8 @@ sudo service ssh restart
 
 #wget https://github.com/github/hub/releases/download/v2.2.1/hub-linux-amd64-2.2.1.tar.gz
 #tar zxf && mv hub ~/usr/bin
+
+# wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+# sudo aptitude update
+# sudo aptitude install esl-erlang elixir
+# git clone elixir source + download otp for alchemist reference

@@ -41,6 +41,12 @@
 (depends-on "color-identifiers-mode")
 (depends-on "smartparens")
 
+;; Erlang/Elixir
+(depends-on "erlang")
+(depends-on "edts")
+(depends-on "elixir-mode")
+(depends-on "alchemist")
+
 ;; Scheme
 ;; (depends-on "geiser")
 ;; (depends-on "quack")
