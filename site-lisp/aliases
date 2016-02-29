@@ -5,3 +5,4 @@ alias ll ls -l $*
 alias la ls -Al $*
 alias be bundle exec $*
 alias ber bundle exec rake $*
+alias bec bundle exec cap $*
