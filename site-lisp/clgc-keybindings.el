@@ -81,7 +81,6 @@
   (define-key map (kbd "C") 'github-browse-commit))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 
-(global-set-key (kbd "C-c i") 'ido-goto-symbol)
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
 (global-set-key (kbd "C-c B") 'browse-url)
