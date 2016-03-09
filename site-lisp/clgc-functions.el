@@ -129,4 +129,11 @@ With a prefix argument, makes a public paste."
     (if (file-exists-p "~/.emacs.d/secrets.el")
         (load-file "~/.emacs.d/secrets.el"))))
 
+(require 'request)
+(defun slack-webhook (json)
+  (request (getenv "SLACK_WEBHOOK")
+           :type "POST"
+           :headers '(("Content-Type" . "application/json"))
+           :data json))
+
 (provide 'clgc-functions)
