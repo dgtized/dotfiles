@@ -36,6 +36,10 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-j") 'join-line)
 
+;; Projectile
+(global-set-key (kbd "C-.") 'projectile-find-file-dwim)
+(global-set-key (kbd "C-,") 'projectile-ag)
+
 (global-set-key (kbd "ESC ESC g") 'projectile-rails-mode-goto-map)
 (global-set-key (kbd "ESC ESC r") 'projectile-rails-mode-run-map)
 
