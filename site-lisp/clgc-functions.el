@@ -97,11 +97,9 @@ With a prefix argument, makes a public paste."
    (format "https://github.com/%s/pull/new/%s"
            (replace-regexp-in-string
             "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
-            (magit-get "remote"
-                       (magit-get-remote)
-                       "url"))
-           (cdr (or (magit-get-remote-branch)
-                    (user-error "No remote branch"))))))
+            (magit-get "remote" (magit-get-remote) "url"))
+           (or (magit-get-push-branch)
+               (user-error "No remote branch")))))
 
 (defun revert-this-buffer ()
   (interactive)
