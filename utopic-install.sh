@@ -14,7 +14,8 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      default-jdk \
      gitk \
      httpie awscli \
-     gnutls-bin
+     gnutls-bin \
+     mailutils # local, so cron can report errors
 
 # uncomment localhost for postgres
 
