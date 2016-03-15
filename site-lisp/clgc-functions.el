@@ -90,6 +90,19 @@ With a prefix argument, makes a public paste."
       (gist-region (point) (mark) (not public))
     (gist-buffer (not public))))
 
+(defun endless/visit-pull-request-url ()
+  "Visit the current branch's PR on Github."
+  (interactive)
+  (browse-url
+   (format "https://github.com/%s/pull/new/%s"
+           (replace-regexp-in-string
+            "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
+            (magit-get "remote"
+                       (magit-get-remote)
+                       "url"))
+           (cdr (or (magit-get-remote-branch)
+                    (user-error "No remote branch"))))))
+
 (defun revert-this-buffer ()
   (interactive)
   (revert-buffer nil t t)
