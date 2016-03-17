@@ -54,3 +54,5 @@ sudo service ssh restart
 # for alchemist reference
 # git clone git@github.com:elixir-lang/elixir.git
 # download otp from https://www.erlang.org/downloads
+# mix local.hex
+# mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
