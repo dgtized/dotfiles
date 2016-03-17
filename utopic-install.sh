@@ -50,4 +50,7 @@ sudo service ssh restart
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
 # sudo aptitude install esl-erlang elixir
-# git clone elixir source + download otp for alchemist reference
+
+# for alchemist reference
+# git clone git@github.com:elixir-lang/elixir.git
+# download otp from https://www.erlang.org/downloads
