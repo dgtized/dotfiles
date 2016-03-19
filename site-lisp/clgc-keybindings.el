@@ -88,6 +88,9 @@
   '(define-key magit-mode-map "v"
      #'endless/visit-pull-request-url))
 
+(eval-after-load 'gist
+  '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
+
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
 (global-set-key (kbd "C-c B") 'browse-url)
@@ -180,9 +183,6 @@
 
 (eval-after-load 'chruby
   '(global-set-key (kbd "C-c v") 'chruby-use-corresponding))
-
-(eval-after-load 'gist
-  '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
 (global-set-key (kbd "M-N") 'smartscan-symbol-go-forward)
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
