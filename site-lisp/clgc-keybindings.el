@@ -172,6 +172,7 @@
 (define-key ctl-x-4-map (kbd "t") 'crux-transpose-windows)
 (define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
+(define-key ctl-x-4-map (kbd "i") 'projectile-find-implementation-or-test-other-window)
 
 (eval-after-load 'ruby-mode
   '(progn (define-key ruby-mode-map (kbd "<f5>") 'rspec-verify)
