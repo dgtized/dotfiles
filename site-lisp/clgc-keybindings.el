@@ -179,11 +179,11 @@
           (define-key ruby-mode-map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
           (define-key ruby-mode-map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)))
 
-(eval-after-load 'feature-mode
-  '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
-
 (eval-after-load 'chruby
   '(global-set-key (kbd "C-c v") 'chruby-use-corresponding))
+
+(eval-after-load 'feature-mode
+  '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
 
 (global-set-key (kbd "M-N") 'smartscan-symbol-go-forward)
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
