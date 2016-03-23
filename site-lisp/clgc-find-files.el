@@ -14,7 +14,8 @@
       ido-use-faces t
       flx-ido-threshhold 8192
       ido-use-filename-at-point nil
-      ido-use-url-at-point nil)
+      ido-use-url-at-point nil
+      smex-history-length 16)
 
 (defadvice ido-file-internal (around ffap activate)
   "When called with a prefix, use `ffap' instead."
