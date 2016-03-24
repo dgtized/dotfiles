@@ -1,5 +1,7 @@
 Pry.config.pager = false if ENV["INSIDE_EMACS"]
 Pry.config.correct_indent = false if ENV["INSIDE_EMACS"]
+Pry.config.editor =
+  proc { |file, line| format('emacsclient +%d %s', file, line) }
 
 def sql(query)
   ActiveRecord::Base.connection.select_all(query)
