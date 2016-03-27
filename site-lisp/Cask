@@ -93,6 +93,7 @@
 (depends-on "smartscan")
 (depends-on "iy-go-to-char")
 (depends-on "zop-to-char")
+(depends-on "visual-fill-column")
 
 ;; (depends-on "starter-kit-eshell"
 ;;             :git "https://github.com/technomancy/emacs-starter-kit"
