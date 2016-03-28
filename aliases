@@ -37,7 +37,6 @@ alias tree='tree -Csu' # nice alternative to 'ls'
 alias grep='grep --color=auto'
 
 # defaults
-alias more='less'
 alias vi=vim
 alias aptu="sudo aptitude update"
 alias apti="sudo aptitude install"
