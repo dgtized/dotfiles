@@ -85,7 +85,7 @@
   (define-key map (kbd "C") 'github-browse-commit))
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 (eval-after-load 'magit
-  '(define-key magit-mode-map "v"
+  '(define-key magit-mode-map "#"
      #'endless/visit-pull-request-url))
 
 (eval-after-load 'gist
