@@ -1,3 +1,4 @@
 #!/bin/bash
 
+# called from launch_raise
 /usr/bin/emacsclient -a '' -F "((fullscreen . maximized))" $*
