@@ -36,7 +36,7 @@
 
 (eval-after-load 'rspec-mode
   '(progn (rspec-install-snippets)
-          (setq rspec-command-options "--format documentation --profile 10"
+          (setq rspec-command-options "--format documentation --profile 20"
                 rspec-use-opts-file-when-available nil
                 rspec-use-rvm t)))
 
