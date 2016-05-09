@@ -51,7 +51,3 @@ alias berdr="bundle exec rake db:rollback"
 alias bec="bundle exec cap"
 alias zs="zeus rspec"
 alias zr="zeus rake"
-
-# intoximeters
-
-alias intoxlogin='http localhost:3000/api/session username=admin password=password --session admin'
