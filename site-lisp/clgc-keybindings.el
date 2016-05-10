@@ -139,6 +139,8 @@
 (define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
 
+(setq alchemist-key-command-prefix (kbd "C-c ."))
+
 (eval-after-load 'clojure-mode
   '(progn
      (define-key clojure-mode-map (kbd "C-c M-h") 'clojure-cheatsheet)
