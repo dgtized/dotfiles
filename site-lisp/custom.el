@@ -7,6 +7,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(erc-nick "dgtized")
  '(global-magit-file-mode t)
+ '(js-indent-level 2)
  '(js2-auto-indent-p t)
  '(js2-cleanup-whitespace t)
  '(js2-indent-on-enter-key nil)
