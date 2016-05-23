@@ -5,7 +5,6 @@
  ;; If there is more than one, they won't work right.
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(elm-indent-offset 4)
  '(erc-nick "dgtized")
  '(global-magit-file-mode t)
  '(js-indent-level 2)

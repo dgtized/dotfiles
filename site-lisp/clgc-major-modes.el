@@ -16,6 +16,10 @@
 ;; Elm
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+(eval-after-load 'elm-mode
+  (progn
+    (setq elm-indent-offset 4
+          elm-format-on-save t)))
 
 ;; Elixir
 (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
