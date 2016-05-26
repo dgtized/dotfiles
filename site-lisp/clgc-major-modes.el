@@ -25,7 +25,9 @@
 (eval-after-load 'alchemist-mode
   (progn
     (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
-          alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp"))))
+          alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp")
+          alchemist-hooks-compile-on-save t
+          alchemist-hooks-test-on-save t)))
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
