@@ -6,6 +6,10 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(erc-nick "dgtized")
+ '(git-commit-setup-hook
+   (quote
+    (git-commit-save-message git-commit-setup-changelog-support git-commit-turn-on-auto-fill git-commit-turn-on-flyspell git-commit-propertize-diff with-editor-usage-message)))
+ '(git-commit-summary-max-length 60)
  '(global-magit-file-mode t)
  '(js-indent-level 2)
  '(js2-auto-indent-p t)
