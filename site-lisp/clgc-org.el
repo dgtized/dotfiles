@@ -21,7 +21,7 @@
 
 (setq org-agenda-files (mapcar (lambda (x) (expand-file-name x org-directory))
                                (list "incoming.org" "OpenSource.org"
-                                     "NoRedInk.org" "Intoximeters.org")))
+                                     "NoRedInk.org")))
 
 (setq org-refile-targets (quote ((nil :maxlevel . 2)
                                  (org-agenda-files :maxlevel . 2))))
