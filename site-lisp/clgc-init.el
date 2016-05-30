@@ -97,7 +97,8 @@
       compilation-window-height 12)
 
 (defun clgc-after-init-hook ()
-    (require 'clgc-editor))
+  (require 'clgc-editor)
+  (toggle-frame-maximized))
 
 (add-hook 'after-init-hook #'clgc-after-init-hook)
 
