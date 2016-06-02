@@ -21,6 +21,11 @@
     (setq elm-indent-offset 4
           elm-format-on-save t)))
 
+;; Standard ML
+(eval-after-load 'sml-mode
+  (progn
+    (setq sml-indent-level 2)))
+
 ;; Elixir
 (eval-after-load 'alchemist-mode
   (progn

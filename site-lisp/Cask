@@ -23,6 +23,8 @@
 (depends-on "coffee-mode")
 (depends-on "elm-mode")
 (depends-on "flycheck-elm")
+(depends-on "sml-mode")
+(depends-on "ob-sml")
 
 ;; Elisp
 (depends-on "flash-region")

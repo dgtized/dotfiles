@@ -38,6 +38,7 @@
    (clojure . t)
    (python . t)
    (sh . t)
+   (sml . t)
    (sql . t)
    (http . t)))
 
