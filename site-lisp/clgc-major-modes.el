@@ -27,31 +27,31 @@
     (setq sml-indent-level 2)))
 
 ;; Elixir
-(eval-after-load 'alchemist-mode
-  (progn
-    (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
-          alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp")
-          alchemist-hooks-compile-on-save t
-          alchemist-hooks-test-on-save t)))
-
 (defun my-elixir-do-end-close-action (id action context)
   (when (eq action 'insert)
     (newline-and-indent)
     (forward-line -1)
     (indent-according-to-mode)))
 
-(sp-with-modes '(elixir-mode)
-  (sp-local-pair "fn" "end"
-                 :when '(("SPC" "RET"))
-                 :actions '(insert))
-  (sp-local-pair "->" "end"
-                 :when '(("RET"))
-                 :post-handlers '(:add my-elixir-do-end-close-action)
-                 :actions '(insert))
-  (sp-local-pair "do" "end"
-                 :when '(("SPC" "RET"))
-                 :post-handlers '(:add my-elixir-do-end-close-action)
-                 :actions '(insert)))
+(eval-after-load 'alchemist-mode
+  (progn
+    (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
+          alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp")
+          alchemist-hooks-compile-on-save t
+          alchemist-hooks-test-on-save t)
+    (require 'smartparens)
+    (sp-with-modes '(elixir-mode)
+      (sp-local-pair "fn" "end"
+                     :when '(("SPC" "RET"))
+                     :actions '(insert))
+      (sp-local-pair "->" "end"
+                     :when '(("RET"))
+                     :post-handlers '(:add my-elixir-do-end-close-action)
+                     :actions '(insert))
+      (sp-local-pair "do" "end"
+                     :when '(("SPC" "RET"))
+                     :post-handlers '(:add my-elixir-do-end-close-action)
+                     :actions '(insert)))))
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
