@@ -55,11 +55,9 @@
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-(add-hook 'groovy-mode-hook
-          '(lambda ()
-             (setq c-basic-offset 4)
-             (require 'groovy-electric)
-             (groovy-electric-mode)))
+(eval-after-load 'groovy-mode
+  (progn (setq c-basic-offset 2)))
+(add-to-list 'auto-mode-alist '("\\Jenkinsfile" . groovy-mode))
 
 ;; Perl Stuff (for the horrible times when I can't use ruby)
 (defalias 'perl-mode 'cperl-mode)
