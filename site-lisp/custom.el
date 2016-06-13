@@ -11,6 +11,7 @@
     (git-commit-save-message git-commit-setup-changelog-support git-commit-turn-on-auto-fill git-commit-turn-on-flyspell git-commit-propertize-diff with-editor-usage-message)))
  '(git-commit-summary-max-length 60)
  '(global-magit-file-mode t)
+ '(idle-update-delay 0.25)
  '(js-indent-level 2)
  '(js2-auto-indent-p t)
  '(js2-cleanup-whitespace t)
