@@ -76,8 +76,6 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (global-flycheck-mode)
 
-(global-magit-file-mode)
-
 ;; Stop demanding confirmation to go over 50 characters on first line
 (remove-hook 'git-commit-finish-query-functions
              'git-commit-check-style-conventions)
