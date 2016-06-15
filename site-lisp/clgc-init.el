@@ -52,6 +52,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 2
               c-basic-offset 2
+              standard-indent 2
               sgml-basic-offset 2
               nxml-child-indent 2
               fill-column 80)
