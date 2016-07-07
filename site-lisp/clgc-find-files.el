@@ -42,8 +42,9 @@
     (ibuffer-do-sort-by-alphabetic)))
 (add-hook 'ibuffer-hook 'clgc-ibuffer-projectile)
 
-(setq ag-highlight-search t)
-(setq ag-ignore-list '("*.min.js" "vendor/assets/*"))
+(setq ag-highlight-search t
+      ag-group-matches nil
+      ag-ignore-list '("*.min.js" "vendor/assets/*"))
 (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 
 (require 'crux)
