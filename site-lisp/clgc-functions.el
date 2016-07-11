@@ -124,4 +124,15 @@ With a prefix argument, makes a public paste."
            :headers '(("Content-Type" . "application/json"))
            :data json))
 
+(defvar jenkins-url "jenkins/%s"
+  "Url to jenkins with a format argument to replace with the branch name")
+
+(defun jenkins-visit-branch ()
+  "Visit the current branch on Jenkins"
+  (interactive)
+  (browse-url
+   (format jenkins-url
+           (or (github-browse-file--remote-branch)
+               (user-error "No remote branch")))))
+
 (provide 'clgc-functions)

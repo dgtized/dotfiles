@@ -81,7 +81,9 @@
   (define-key map (kbd "B") 'github-browse-file-blame)
   (define-key map (kbd "f") 'magit-log-buffer-file)
   (define-key map (kbd "F") 'github-browse-file)
-  (define-key map (kbd "C") 'github-browse-commit))
+  (define-key map (kbd "C") 'github-browse-commit)
+  (define-key map (kbd "j") 'jenkins-visit-branch))
+
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 (eval-after-load 'magit
   '(define-key magit-mode-map "#"
