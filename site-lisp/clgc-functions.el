@@ -132,7 +132,7 @@ With a prefix argument, makes a public paste."
   (interactive)
   (browse-url
    (format jenkins-url
-           (or (github-browse-file--remote-branch)
+           (or (magit-get-current-branch)
                (user-error "No remote branch")))))
 
 (provide 'clgc-functions)
