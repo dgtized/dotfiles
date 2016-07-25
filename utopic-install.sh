@@ -9,7 +9,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      postgresql-9.4 libpq-dev redis-server redis-tools \
      git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties \
      graphviz dconf-cli gnome-tweak-tool \
-     p7zip-full tree parallel gawk \
+     p7zip-full tree parallel pv gawk \
      lm-sensors htop iotop linux-tools-common linux-tools-generic \ # perf
      default-jdk \
      gitk \
@@ -50,6 +50,7 @@ sudo service ssh restart
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
 # sudo aptitude install esl-erlang elixir
+# sudo aptitude install inotify-tools
 
 # for alchemist reference
 # git clone git@github.com:elixir-lang/elixir.git
