@@ -17,6 +17,7 @@
 (require 'page-ext)
 ;; enable C-x C-j
 (require 'dired-x)
+(require 'command-log-mode)
 
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
