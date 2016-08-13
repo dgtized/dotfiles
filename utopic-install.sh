@@ -67,3 +67,5 @@ sudo service ssh restart
 # sudo apt-get install docker-engine
 # sudo service docker start
 
+mkdir -p $HOME/gocode
+go get -u github.com/ddollar/forego
