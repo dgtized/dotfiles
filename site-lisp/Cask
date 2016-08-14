@@ -51,6 +51,9 @@
 (depends-on "edts")
 (depends-on "elixir-mode")
 (depends-on "alchemist")
+(depends-on "flycheck-dialyzer")
+(depends-on "flycheck-elixir")
+(depends-on "ob-elixir")
 
 ;; Scheme
 ;; (depends-on "geiser")

@@ -33,14 +33,15 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ruby . t)
+ '((clojure . t)
    (emacs-lisp . t)
-   (clojure . t)
+   (elixir . t)
+   (http . t)
    (python . t)
+   (ruby . t)
    (sh . t)
    (sml . t)
-   (sql . t)
-   (http . t)))
+   (sql . t)))
 
 (defun org-md-example-block (example-block contents info)
   "Transcode EXAMPLE-BLOCK element into Markdown format.
