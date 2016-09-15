@@ -124,6 +124,9 @@ With a prefix argument, makes a public paste."
            :headers '(("Content-Type" . "application/json"))
            :data json))
 
+(defun slack-attachment (username channel attachments)
+  (json-encode `(:username ,username :channel ,channel :attachments ,attachments)))
+
 (defvar jenkins-url "jenkins/%s"
   "Url to jenkins with a format argument to replace with the branch name")
 
