@@ -42,6 +42,7 @@ alias aptu="sudo aptitude update"
 alias apti="sudo aptitude install"
 alias apts="aptitude search"
 alias sane='stty sane'
+alias e="emacsclient"
 
 # ruby
 alias be="bundle exec"
