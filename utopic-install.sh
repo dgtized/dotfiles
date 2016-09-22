@@ -11,7 +11,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
      lm-sensors htop iotop linux-tools-common linux-tools-generic \ # perf
-     default-jdk golang-go \
+     default-jdk golang-go racket sbcl \
      gitk \
      httpie awscli \
      gnutls-bin \
