@@ -122,6 +122,7 @@
 (depends-on "evil")
 
 (depends-on "crux")
+(depends-on "request")
 
 ;; Hacking Experiments
 (depends-on "simple-httpd")
