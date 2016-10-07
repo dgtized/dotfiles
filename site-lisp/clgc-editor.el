@@ -42,7 +42,7 @@
 
 ;; Autocorrect
 (setq default-abbrev-mode t
-      save-abbrevs t
+      save-abbrevs 'silently
       abbrev-file-name (expand-file-name "abbrev_defs.el" dotc-elisp))
 
 (global-undo-tree-mode)
