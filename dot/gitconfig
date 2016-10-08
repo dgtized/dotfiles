@@ -2,6 +2,8 @@
   excludesfile = ~/.gitignore
 [color]
   ui = true
+[diff]
+  rename = copy
 [user]
   name = Charles Comstock
   email = dgtized@gmail.com
