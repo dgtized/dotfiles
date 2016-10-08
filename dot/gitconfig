@@ -4,6 +4,7 @@
   ui = true
 [diff]
   rename = copy
+  algorithm = patience
 [user]
   name = Charles Comstock
   email = dgtized@gmail.com
