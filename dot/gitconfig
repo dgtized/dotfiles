@@ -1,13 +1,3 @@
-[core]
-  excludesfile = ~/.gitignore
-[color]
-  ui = true
-[diff]
-  rename = copy
-  algorithm = patience
-[user]
-  name = Charles Comstock
-  email = dgtized@gmail.com
 [alias]
   co = checkout
   st = status
@@ -16,17 +6,27 @@
   tagcommit = rev-list -n 1
   tagcontains = git tag -l --contains HEAD
   cleanbranches = "!sh -c 'git branch --merged master | grep -v master | grep -v \"*\" | xargs git branch -d'"
+[color]
+  ui = true
+[core]
+  excludesfile = ~/.gitignore
+[diff]
+  rename = copy
+  algorithm = patience
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[github]
+  user = dgtized
+[include]
+  path = ~/.gitconfig.private
+[user]
+  name = Charles Comstock
+  email = dgtized@gmail.com
 [push]
   default = simple
 [pull]
   rebase = true
 [tag]
   sort = version:refname
-[github]
-  user = dgtized
-[include]
-  path = ~/.gitconfig.private
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
