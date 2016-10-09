@@ -21,6 +21,9 @@
   user = dgtized
 [include]
   path = ~/.gitconfig.private
+[log]
+  abbrevCommit = true
+  follow = true
 [user]
   name = Charles Comstock
   email = dgtized@gmail.com
