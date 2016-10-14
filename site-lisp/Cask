@@ -128,5 +128,7 @@
 (depends-on "simple-httpd")
 (depends-on "web-server")
 
+(depends-on "request")
+
 (depends-on "zenburn-theme")
 (depends-on "solarized-theme")
