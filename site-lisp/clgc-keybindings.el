@@ -27,6 +27,7 @@
 (global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c W") 'whitespace-mode)
+(global-set-key (kbd "C-c n") 'crux-cleanup-buffer-or-region)
 (global-set-key (kbd "C-c V") 'visual-line-mode)
 (global-set-key (kbd "C-c I") 'color-identifiers-mode)
 (global-set-key (kbd "C-c L") 'linum-mode)
