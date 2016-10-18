@@ -4,7 +4,7 @@
   snow = !echo \"you know nothing\"
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   tagcommit = rev-list -n 1
-  tagcontains = git tag -l --contains HEAD
+  tagcontains = tag -l --contains HEAD
   cleanbranches = "!sh -c 'git branch --merged master | grep -v master | grep -v \"*\" | xargs git branch -d'"
 [color]
   ui = true
