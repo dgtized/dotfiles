@@ -5,6 +5,9 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   tagcommit = rev-list -n 1
   tagcontains = tag -l --contains HEAD
+  deploy = log --format='%h %s (%an @ %ai) [%p]' --merges -m --first-parent
+  deploy-coverage = log --format='%n%h %s (%an @ %ai) [%p]' --merges -m --first-parent --dirstat=lines,cumulative
+  deploy-files = log --format='%n%h %s (%an @ %ai) [%p]' --merges -m --first-parent --stat
   cleanbranches = "!sh -c 'git branch --merged master | grep -v master | grep -v \"*\" | xargs git branch -d'"
 [color]
   ui = true
