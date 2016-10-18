@@ -95,6 +95,7 @@
 (depends-on "company-inf-ruby")
 (depends-on "yari")
 (depends-on "rubocop")
+(depends-on "coverage")
 
 ;; Editor
 (depends-on "ace-window")
