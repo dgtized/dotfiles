@@ -41,6 +41,8 @@ popd
 
 ruby-install ruby 2.2.3
 
+gem install gist
+
 sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
 sudo service ssh restart
 
