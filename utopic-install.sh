@@ -13,7 +13,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \ # perf
      default-jdk golang-go racket sbcl \
      gitk \
-     httpie awscli \
+     httpie awscli xclip \
      gnutls-bin \
      mailutils # local, so cron can report errors
 
