@@ -55,6 +55,9 @@
 (depends-on "flycheck-elixir")
 (depends-on "ob-elixir")
 
+;; Redis
+(depends-on "redis")
+
 ;; Scheme
 ;; (depends-on "geiser")
 ;; (depends-on "quack")
