@@ -87,6 +87,9 @@
 (setq avy-background t
       avy-style 'at-full)
 
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
+
 (require 'clgc-keybindings)
 (winner-mode)
 

@@ -107,6 +107,8 @@
 (depends-on "zop-to-char")
 (depends-on "visual-fill-column")
 
+(depends-on "atomic-chrome")
+
 ;; (depends-on "starter-kit-eshell"
 ;;             :git "https://github.com/technomancy/emacs-starter-kit"
 ;;             :branch "v2")
