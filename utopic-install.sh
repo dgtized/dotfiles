@@ -71,3 +71,9 @@ sudo service ssh restart
 
 mkdir -p $HOME/gocode
 go get -u github.com/ddollar/forego
+
+# chromedriver
+CHROME=https://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
+mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
+    unzip $HOME/Downloads/chromedriver.zip && mv -f chromedriver $HOME/usr/bin/chromedriver
+
