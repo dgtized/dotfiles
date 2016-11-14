@@ -49,6 +49,8 @@ sudo service ssh restart
 #wget https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz
 #tar zxf && mv hub ~/usr/bin
 
+# visit https://www.terraform.io/downloads.html and unpack into ~/usr/bin
+
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
 # sudo aptitude install esl-erlang elixir
