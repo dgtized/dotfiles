@@ -13,6 +13,7 @@
 (depends-on "org-plus-contrib")
 (depends-on "ob-http")
 (depends-on "graphviz-dot-mode")
+(depends-on "terraform-mode")
 (depends-on "web-mode")
 (depends-on "command-log-mode")
 (depends-on "epresent")
