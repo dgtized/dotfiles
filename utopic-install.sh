@@ -50,6 +50,7 @@ sudo service ssh restart
 #tar zxf && mv hub ~/usr/bin
 
 # visit https://www.terraform.io/downloads.html and unpack into ~/usr/bin
+# visit https://github.com/gruntwork-io/terragrunt/releases and copy into ~/usr/bin + chmod +x
 
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
