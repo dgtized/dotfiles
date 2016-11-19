@@ -47,10 +47,6 @@
       ag-ignore-list '("*.min.js" "vendor/assets/*"))
 (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 
-(require 'crux)
-;; until it stops mucking with xref-find-definitions
-(remove-hook 'find-file-hook 'crux-reopen-as-root)
-
 (require 'helm-config)
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
