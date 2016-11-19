@@ -80,3 +80,5 @@ CHROME=https://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
 mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
     unzip $HOME/Downloads/chromedriver.zip && mv -f chromedriver $HOME/usr/bin/chromedriver
 
+# sudo add-apt-repository ppa:supercollider/ppa && sudo apt-get update
+# sudo apt-get install supercollider
