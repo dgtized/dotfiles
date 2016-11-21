@@ -143,6 +143,8 @@
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
 
 (setq alchemist-key-command-prefix (kbd "C-c ."))
+(eval-after-load 'alchemist-mode
+  '(progn (define-key alchemist-mode-map (kbd "C-c C-c") 'alchemist-compile-this-buffer)))
 
 (eval-after-load 'clojure-mode
   '(progn
