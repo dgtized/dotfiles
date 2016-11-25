@@ -46,7 +46,7 @@ gem install gist
 sudo sed -i.bak '/PasswordAuthentication /c\PasswordAuthentication no' /etc/ssh/sshd_config
 sudo service ssh restart
 
-#wget https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz
+#wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
 #tar zxf && mv hub ~/usr/bin
 
 # visit https://www.terraform.io/downloads.html and unpack into ~/usr/bin
