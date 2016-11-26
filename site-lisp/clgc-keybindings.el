@@ -154,6 +154,7 @@
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "M-+") 'er/expand-region)
 
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
