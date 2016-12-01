@@ -71,6 +71,10 @@ pathmunge ${HOME}/gocode/bin
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
 
+# go
+export GOPATH=$HOME/gocode
+pathmunge ${GOPATH}/bin
+
 set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 

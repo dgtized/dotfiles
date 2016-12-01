@@ -32,6 +32,7 @@ EOF
     for script in `find ${DOTC_DIR}/scripts -type f`; do
         ln -sfv $script $HOME/usr/bin;
     done
+    mkdir -pv $HOME/gocode
     # this would be cool but then it forgets where it's from
     #ln -sfv ${DOTC_DIR}/setup.sh ~/usr/bin/home-config.sh
 }
