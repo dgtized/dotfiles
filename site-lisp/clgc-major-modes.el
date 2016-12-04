@@ -33,6 +33,7 @@
     (forward-line -1)
     (indent-according-to-mode)))
 
+(add-hook 'elixir-mode-hook 'alchemist-mode)
 (eval-after-load 'alchemist-mode
   (progn
     (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
