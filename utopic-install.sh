@@ -74,6 +74,8 @@ sudo service ssh restart
 
 mkdir -p $HOME/gocode
 go get -u github.com/ddollar/forego
+# pup is like jq, but for html with css selectors
+go get https://github.com/ericchiang/pup
 
 # chromedriver
 CHROME=https://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
