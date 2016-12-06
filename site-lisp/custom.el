@@ -3,6 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(erc-nick "dgtized")
@@ -25,7 +28,7 @@
  '(magit-save-repository-buffers (quote dontask))
  '(package-selected-packages
    (quote
-    (terraform-mode atomic-chrome redis coverage request ob-elixir flycheck-dialyzer flycheck-elixir command-log-mode zop-to-char zenburn-theme yari yaml-mode wgrep-ag web-server web-mode starter-kit-eshell solarized-theme smex smartscan smartparens slamhound simple-httpd sass-mode ruby-tools rubocop rspec-mode robe rinari rainbow-delimiters projectile-rails prodigy org-plus-contrib ob-http markdown-mode less-css-mode js2-mode iy-go-to-char ido-completing-read+ ibuffer-projectile helm-projectile helm-ag graphviz-dot-mode gitignore-mode github-clone github-browse-file gitconfig-mode gist fuzzy free-keys flycheck-elm flycheck-clojure flx-ido flash-region feature-mode expand-region evil epresent elm-mode diminish company-inf-ruby color-identifiers-mode coffee-mode clojure-snippets clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor chruby bundler browse-kill-ring ag ace-window 4clojure)))
+    (terraform-mode atomic-chrome redis coverage request ob-elixir flycheck-dialyzer flycheck-elixir command-log-mode visual-fill-column zop-to-char zenburn-theme yari yaml-mode wgrep-ag web-server web-mode starter-kit-eshell solarized-theme smex smartscan smartparens slamhound simple-httpd sass-mode ruby-tools rubocop rspec-mode robe rinari rainbow-delimiters projectile-rails prodigy org-plus-contrib ob-http markdown-mode less-css-mode js2-mode iy-go-to-char ido-completing-read+ ibuffer-projectile helm-projectile helm-ag graphviz-dot-mode gitignore-mode github-clone github-browse-file gitconfig-mode gist fuzzy free-keys flycheck-elm flycheck-clojure flx-ido flash-region feature-mode expand-region evil epresent elm-mode diminish company-inf-ruby color-identifiers-mode coffee-mode clojure-snippets clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor chruby bundler browse-kill-ring ag ace-window 4clojure)))
  '(smie-indent-basic 2)
  '(split-height-threshold 110)
  '(web-mode-markup-indent-offset 2)
