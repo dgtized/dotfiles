@@ -46,7 +46,9 @@
       (js-mode)
       )))
 
-(define-key sql-interactive-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)
-(define-key sql-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)
+(eval-after-load 'sql-mode
+  '(progn
+     (define-key sql-interactive-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)
+     (define-key sql-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)))
 
 (provide 'clgc-sql)
