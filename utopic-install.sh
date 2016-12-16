@@ -49,8 +49,13 @@ sudo service ssh restart
 #wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
 #tar zxf && mv hub ~/usr/bin
 
-# visit https://www.terraform.io/downloads.html and unpack into ~/usr/bin
-# visit https://github.com/gruntwork-io/terragrunt/releases and copy into ~/usr/bin + chmod +x
+# terraform
+wget https://releases.hashicorp.com/terraform/0.8.1/terraform_0.8.1_linux_amd64.zip && \
+    unzip terraform_0.8.1_linux_amd64.zip && rm terraform_0.8.1_linux_amd64.zip && \
+    mov terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
+# visit https://github.com/gruntwork-io/terragrunt/releases
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.6.3/terragrunt_linux_amd64 && \
+    mv terragrunt_linux_amd64 ~/usr/bin/terragrunt && chmod +x ~/usr/bin/terragrunt
 
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
