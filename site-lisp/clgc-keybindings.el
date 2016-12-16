@@ -77,6 +77,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
+(define-key git-commit-mode-map (kbd "C-c k") 'markdown-insert-gfm-code-block)
+
 (let ((map vc-prefix-map))
   (define-key map (kbd "S") 'vc-switch-backend) ; rebind from b
   (define-key map (kbd "b") 'magit-blame)
