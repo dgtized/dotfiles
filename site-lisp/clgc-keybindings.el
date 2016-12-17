@@ -15,6 +15,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x B") 'bury-buffer)
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-\\") 'ace-window)
 (global-set-key (kbd "M-/") 'hippie-expand)
 
