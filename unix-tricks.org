@@ -1,0 +1,16 @@
+* AWK
+
+** Select on columns
+
+Show top 5 processes created by me with pid < 4000 pid, and started.
+
+#+BEGIN_SRC bash :exports results
+  ps -aux | gawk '$1 ~ /clgc/ && $2 < 4000 { print $2 " " $9 }' | head -5
+#+END_SRC
+
+#+RESULTS:
+| 1080 | Dec10 |
+| 2167 | Dec08 |
+| 2170 | Dec08 |
+| 2175 | Dec08 |
+| 2177 | Dec08 |
