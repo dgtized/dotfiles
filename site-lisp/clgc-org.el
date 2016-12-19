@@ -39,7 +39,7 @@
    (http . t)
    (python . t)
    (ruby . t)
-   (sh . t)
+   (shell . t)
    (sml . t)
    (sql . t)))
 
