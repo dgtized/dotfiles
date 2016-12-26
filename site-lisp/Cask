@@ -43,7 +43,7 @@
 (depends-on "clojure-cheatsheet")
 (depends-on "clj-refactor")
 (depends-on "flycheck-clojure")
-(depends-on "sayid")
+;; (depends-on "sayid")
 
 (depends-on "rainbow-delimiters")
 (depends-on "color-identifiers-mode")
