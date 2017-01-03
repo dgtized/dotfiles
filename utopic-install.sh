@@ -55,7 +55,7 @@ zip=terraform_$version_linux_amd64.zip
 wget https://releases.hashicorp.com/terraform/$version/$zip &&
     unzip $zip && rm $zip && mv terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
 # visit https://github.com/gruntwork-io/terragrunt/releases
-wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.6.3/terragrunt_linux_amd64 && \
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.7.2/terragrunt_linux_amd64 && \
     mv terragrunt_linux_amd64 ~/usr/bin/terragrunt && chmod +x ~/usr/bin/terragrunt
 
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
