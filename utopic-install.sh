@@ -50,9 +50,10 @@ sudo service ssh restart
 #tar zxf && mv hub ~/usr/bin
 
 # terraform
-wget https://releases.hashicorp.com/terraform/0.8.1/terraform_0.8.1_linux_amd64.zip && \
-    unzip terraform_0.8.1_linux_amd64.zip && rm terraform_0.8.1_linux_amd64.zip && \
-    mov terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
+version=0.8.2
+zip=terraform_$version_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/$version/$zip &&
+    unzip $zip && rm $zip && mv terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
 # visit https://github.com/gruntwork-io/terragrunt/releases
 wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.6.3/terragrunt_linux_amd64 && \
     mv terragrunt_linux_amd64 ~/usr/bin/terragrunt && chmod +x ~/usr/bin/terragrunt
