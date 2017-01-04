@@ -16,10 +16,6 @@
 [diff]
   rename = copy
   algorithm = patience
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
 [github]
   user = dgtized
 [include]
