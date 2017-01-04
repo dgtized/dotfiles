@@ -10,6 +10,7 @@
 (require 'clgc-org)
 (require 'clgc-shell)
 (require 'clgc-sql)
+(require 'clgc-magit)
 
 ;; make highlight standard /etc files
 (require 'generic)
