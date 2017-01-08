@@ -3,6 +3,7 @@
    (shell-command-on-region (point-min) (point-max) "ruby -w "))
 
 (defun clgc-ruby-mode-hook ()
+  (require 'smartparens-ruby)
   (require 'rinari)
   (setq rinari-tags-file-name "TAGS")
   (setq ruby-insert-encoding-magic-comment nil)
