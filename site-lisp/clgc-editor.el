@@ -34,7 +34,7 @@
 (add-to-list 'sp-ignore-modes-list 'org-mode)
 
 (show-smartparens-global-mode +1)
-(smartparens-global-strict-mode)
+(smartparens-global-mode)
 
 ;; Uniquify buffer
 (require 'uniquify)
