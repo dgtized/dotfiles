@@ -8,7 +8,7 @@
 
 (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
 
-(setq org-directory (expand-file-name "~/Dropbox/org")
+(setq org-directory (expand-file-name "~/org")
       org-default-notes-file (expand-file-name "incoming.org" org-directory)
       org-completion-use-ido t
       org-return-follows-link t
