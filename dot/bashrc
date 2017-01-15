@@ -63,6 +63,8 @@ export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 export HISTTIMEFORMAT='%F_%T '
 
+stty -ixon # disable flow control so C-s search works
+
 pathmunge ${HOME}/usr/bin
 pathmunge /usr/local/heroku/bin
 pathmunge ${DOTC_DIR}/cask/bin
