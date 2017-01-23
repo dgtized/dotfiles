@@ -95,6 +95,7 @@ With a prefix argument, makes a public paste."
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
 
+;; see builtin json-pretty-print-?{buffer,ordered,buffer-ordered}
 (defun clgc-prettify-json-region ()
   "Prettify json in region or buffer"
   (interactive)
