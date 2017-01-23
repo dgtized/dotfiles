@@ -77,6 +77,7 @@
 ;; Files and Projects
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "helm-unicode")
 (depends-on "flx-ido")
 (depends-on "projectile")
 (depends-on "helm-projectile")
