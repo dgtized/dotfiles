@@ -150,19 +150,26 @@
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
 
-(if (eq window-system 'x)
-    (set-face-attribute 'default nil
-                    :family "Inconsolata"
-                    :height (if (string= (system-name) "nocturnal") 120 110)
-                    :weight 'normal
-                    :width 'normal))
+(defun clgc-set-font-size (size)
+  "Change font size uniformly & on the fly"
+  (interactive "nFont size in points: ")
+  (set-face-attribute 'default nil
+                      :family "Inconsolata"
+                      :height (truncate (* size 10))
+                      :weight 'normal
+                      :width 'normal)
+  (when (functionp 'set-fontset-font)
+    (set-fontset-font "fontset-default"
+                      'unicode
+                      (font-spec :family "DejaVu Sans Mono"
+                                  :width 'normal
+                                  :size (float size)
+                                  :weight 'normal))))
 
-(when (functionp 'set-fontset-font)
-  (set-fontset-font "fontset-default"
-                    'unicode
-                    (font-spec :family "DejaVu Sans Mono"
-                               :width 'normal
-                               :size 10.0
-                               :weight 'normal)))
+(when (eq window-system 'x)
+  (clgc-set-font-size
+   (if (string= (system-name) "nocturnal") 12.0 11.0)))
+
+
 
 ;;; clgc-init.el ends here
