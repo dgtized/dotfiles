@@ -139,4 +139,9 @@ With a prefix argument, makes a public paste."
            (or (magit-get-current-branch)
                (user-error "No remote branch")))))
 
+(defun clgc-toggle-monitor ()
+  "Toggle display resolution from 3840x2160 to 1920x1080"
+  (interactive)
+  (async-shell-command "toggle-monitor.sh"))
+
 (provide 'clgc-functions)

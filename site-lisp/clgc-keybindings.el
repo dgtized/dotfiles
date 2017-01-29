@@ -155,6 +155,7 @@
      (define-key clojure-mode-map (kbd "<f5>") 'cider-test-run-tests)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
+(global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "M-+") 'er/expand-region)
