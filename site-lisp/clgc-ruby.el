@@ -39,7 +39,8 @@
   '(progn (rspec-install-snippets)
           (setq rspec-command-options "--format documentation --profile 30"
                 rspec-use-opts-file-when-available nil
-                rspec-use-rvm t)))
+                rspec-use-rvm t
+                rspec-primary-source-dirs '("app"))))
 
 (eval-after-load 'feature-mode
   '(setq feature-cucumber-command "zeus cucumber {feature}"))
