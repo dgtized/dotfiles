@@ -26,6 +26,18 @@
   (progn
     (setq sml-indent-level 2)))
 
+;; Haskell
+
+(defun clgc-haskell-mode-hook ()
+  (set (make-local-variable 'company-backends)
+       (append '((company-capf company-dabbrev-code))
+               company-backends))
+  (require 'haskell-interactive-mode)
+  (require 'haskell-process)
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
+
+(add-hook 'haskell-mode-hook 'clgc-haskell-mode-hook)
+
 ;; Elixir
 (defun my-elixir-do-end-close-action (id action context)
   (when (eq action 'insert)
