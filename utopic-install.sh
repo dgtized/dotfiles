@@ -90,3 +90,5 @@ mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
 
 # sudo add-apt-repository ppa:supercollider/ppa && sudo apt-get update
 # sudo apt-get install supercollider
+
+# sudo apt-get install haskell-platform
