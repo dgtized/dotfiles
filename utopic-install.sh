@@ -94,3 +94,7 @@ mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
 # sudo apt-get install haskell-platform
 
 # sudo apt-get install gnuplot-x11
+
+# sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
+# gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 &&  gpg -a --export E084DAB9 | sudo apt-key add -
+# sudo aptitude update && sudo apt-get install r-base r-base-dev
