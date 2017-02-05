@@ -23,6 +23,7 @@
 
 (depends-on "haskell-mode")
 (depends-on "groovy-mode")
+(depends-on "gnuplot-mode")
 (depends-on "js2-mode")
 (depends-on "coffee-mode")
 (depends-on "elm-mode")

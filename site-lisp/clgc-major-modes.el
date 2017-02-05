@@ -66,6 +66,14 @@
                      :post-handlers '(:add my-elixir-do-end-close-action)
                      :actions '(insert)))))
 
+;; Gnuplot
+(eval-after-load 'gnuplot-mode
+  '(add-hook 'gnuplot-mode-hook
+             (lambda ()
+               (flyspell-prog-mode)
+               (add-hook 'before-save-hook
+                         'whitespace-cleanup nil t))))
+
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\\Jenkinsfile" . groovy-mode))

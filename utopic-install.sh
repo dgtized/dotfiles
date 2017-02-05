@@ -92,3 +92,5 @@ mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
 # sudo apt-get install supercollider
 
 # sudo apt-get install haskell-platform
+
+# sudo apt-get install gnuplot-x11

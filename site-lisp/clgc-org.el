@@ -36,6 +36,7 @@
  '((clojure . t)
    (emacs-lisp . t)
    (elixir . t)
+   (gnuplot . t)
    (http . t)
    (python . t)
    (ruby . t)
