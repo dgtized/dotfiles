@@ -15,26 +15,26 @@ Accept: application/vnd.github.moondragon+json
 :   "Shell": 139
 : }
 
-#+BEGIN_SRC http :file dgtized.json
+#+BEGIN_SRC http :file tmp/dgtized.json
 GET https://api.github.com/users/dgtized
 Accept: application/vnd.github.v3+json
 #+END_SRC
 
 #+RESULTS:
-[[file:dgtized.json]]
+[[file:tmp/dgtized.json]]
 
-#+BEGIN_SRC http :file me.jpeg
+#+BEGIN_SRC http :file tmp/me.jpeg
 GET https://avatars.githubusercontent.com/u/6784?v=3
 Accept: image/jpeg
 #+END_SRC
 
 #+RESULTS:
-[[file:me.jpeg]]
+[[file:tmp/me.jpeg]]
 
 
 From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
 
-#+BEGIN_SRC gnuplot :exports code :file plot.png
+#+BEGIN_SRC gnuplot :exports code :file tmp/plot.png
   reset
   set title "Putting it All Together"
 
@@ -54,4 +54,4 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
 #+END_SRC
 
 #+RESULTS:
-[[file:plot.png]]
+[[file:tmp/plot.png]]

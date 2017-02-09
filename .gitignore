@@ -12,3 +12,4 @@ sshconfig.d/*.conf
 /cask/
 /gnome-terminal-colors-solarized/
 /fonts/
+/tmp/*
