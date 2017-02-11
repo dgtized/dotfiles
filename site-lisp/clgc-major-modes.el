@@ -18,7 +18,7 @@
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
 (eval-after-load 'elm-mode
   (progn
-    (add-to-list 'company-backends 'company-elm)
+    ;; (add-to-list 'company-backends 'company-elm)
     (setq elm-indent-offset 4
           elm-format-on-save t)))
 
