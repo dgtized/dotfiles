@@ -34,6 +34,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((clojure . t)
+   (dot . t)
    (emacs-lisp . t)
    (elixir . t)
    (gnuplot . t)

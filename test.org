@@ -55,3 +55,14 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
 
 #+RESULTS:
 [[file:tmp/plot.png]]
+
+#+BEGIN_SRC dot :file tmp/dot.png
+  digraph {
+    a -> b
+    b -> c
+    c -> a
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:tmp/dot.png]]
