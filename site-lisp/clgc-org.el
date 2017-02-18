@@ -29,6 +29,11 @@
 ;; Font highlight babel blocks
 (setq org-src-fontify-natively t)
 
+(defun turn-on-org-show-all-inline-images ()
+  (org-display-inline-images t t))
+
+(add-hook 'org-mode-hook 'turn-on-org-show-all-inline-images)
+
 (setq org-babel-sh-command "bash")
 
 (org-babel-do-load-languages
