@@ -58,5 +58,7 @@ channel."
    (org-remove-indentation
     (org-export-format-code-default example-block info))))
 
+(setq org-babel-clojure-backend 'cider)
+(require 'cider)
 
 (provide 'clgc-org)
