@@ -66,3 +66,25 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
 
 #+RESULTS:
 [[file:tmp/dot.png]]
+
+See http://plantuml.com/PlantUML_Language_Reference_Guide.pdf
+
+#+BEGIN_SRC plantuml :file tryout.png
+actor User
+participant WebServer as W
+participant Service as S
+
+User -> W: initiate request
+activate W
+
+W -> S: initiate work
+S --> W: completed
+
+deactivate W
+
+W --> User: furnish response
+#+END_SRC
+
+#+RESULTS:
+[[file:tryout.png]]
+

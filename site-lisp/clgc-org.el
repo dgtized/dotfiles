@@ -48,7 +48,8 @@
    (ruby . t)
    (shell . t)
    (sml . t)
-   (sql . t)))
+   (sql . t)
+   (plantuml . t)))
 
 (defun org-md-example-block (example-block contents info)
   "Transcode EXAMPLE-BLOCK element into Markdown format.
@@ -60,5 +61,7 @@ channel."
 
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
+
+(setq org-plantuml-jar-path (expand-file-name "~/usr/plantuml.jar"))
 
 (provide 'clgc-org)

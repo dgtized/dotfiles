@@ -49,6 +49,10 @@ function slow_updates () {
     if [[ -e /usr/bin/xmonad ]]; then
         xmonad --recompile
     fi
+
+    if [ ! -e ~/usr/plantuml.jar ]; then
+        wget https://cytranet.dl.sourceforge.net/project/plantuml/plantuml.jar -O ~/usr/plantuml.jar
+    fi
 }
 
 function setup_emacs () {
