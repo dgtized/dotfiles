@@ -69,7 +69,7 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
 
 See http://plantuml.com/PlantUML_Language_Reference_Guide.pdf
 
-#+BEGIN_SRC plantuml :file tryout.png
+#+BEGIN_SRC plantuml :file tmp/tryout.png
 actor User
 participant WebServer as W
 participant Service as S
@@ -86,5 +86,5 @@ W --> User: furnish response
 #+END_SRC
 
 #+RESULTS:
-[[file:tryout.png]]
+[[file:tmp/tryout.png]]
 
