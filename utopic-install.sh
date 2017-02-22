@@ -23,7 +23,7 @@ sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 
-curl --silent --location https://deb.nodesource.com/setup_5.x | sudo bash - && \
+curl --silent --location https://deb.nodesource.com/setup_7.x | sudo bash - && \
     sudo apt-get install --yes nodejs
 
 # install chruby
