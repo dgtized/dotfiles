@@ -144,4 +144,13 @@ With a prefix argument, makes a public paste."
   (interactive)
   (async-shell-command "toggle-monitor.sh"))
 
+(defun clgc-ruby-string->symbol ()
+  "Change string at point into a symbol"
+  (interactive)
+  (when (ruby-string-at-point-p)
+    (save-excursion
+      (sp-beginning-of-sexp)
+      (sp-splice-sexp)
+      (insert ":"))))
+
 (provide 'clgc-functions)

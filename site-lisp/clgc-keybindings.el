@@ -191,7 +191,8 @@
           (define-key ruby-mode-map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
           (define-key ruby-mode-map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)
           (define-key ruby-mode-map (kbd "C-c v") 'chruby-use-corresponding)
-          (define-key ruby-mode-map (kbd "S-<f6>") 'coverage-mode)))
+          (define-key ruby-mode-map (kbd "S-<f6>") 'coverage-mode)
+          (define-key ruby-mode-map (kbd "C-c :") 'clgc-ruby-string->symbol)))
 
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
