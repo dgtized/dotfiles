@@ -15,7 +15,6 @@ alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 #alias print='/usr/bin/lp -o nobanner -d $LPDEST'   # Assumes LPDEST is defined
 #alias pjet='enscript -h -G -fCourier9 -d $LPDEST'  # Pretty-print using enscript
-#alias background='xv -root -quit -max -rmode 5'    # Put a picture in the background
 alias du='du -kh'
 alias df='df -kTh'
 alias quota='quota -s'
