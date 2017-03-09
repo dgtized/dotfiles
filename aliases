@@ -15,10 +15,9 @@ alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 #alias print='/usr/bin/lp -o nobanner -d $LPDEST'   # Assumes LPDEST is defined
 #alias pjet='enscript -h -G -fCourier9 -d $LPDEST'  # Pretty-print using enscript
+#alias a2ps='a2ps -M Letter '
 alias du='du -kh'
 alias df='df -kTh'
-alias quota='quota -s'
-alias a2ps='a2ps -M Letter '
 
 # The 'ls' family (this assumes you use the GNU ls)
 alias ll='ls -l'               # show hidden files
