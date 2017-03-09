@@ -102,6 +102,7 @@
 (global-set-key (kbd "C-c B") 'browse-url)
 (global-set-key (kbd "C-c J") 'webjump)
 (global-set-key (kbd "C-c R") 'crux-rename-buffer-and-file)
+(global-set-key (kbd "C-c D") 'crux-delete-buffer-and-file)
 
 (eval-after-load 'compile
   '(let ((map compilation-mode-map))
