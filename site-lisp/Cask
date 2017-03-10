@@ -139,6 +139,7 @@
 ;; Hacking Experiments
 (depends-on "simple-httpd")
 (depends-on "web-server")
+(depends-on "camcorder")
 
 (depends-on "request")
 
