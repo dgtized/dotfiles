@@ -1,0 +1,3 @@
+#!/bin/bash
+
+uxterm -e 'tmux attach -t default || tmux -2 new -s default'

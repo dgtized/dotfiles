@@ -16,7 +16,7 @@ cmd_name = {
 
 command = {
     'emacs': '/home/clgc/usr/bin/ec -c',
-    'Terminal': "uxterm -e ",
+    'Terminal': "/home/clgc/usr/bin/terminal-launch",
     "Chrome": "google-chrome --force-device-scale-factor=1.33"
 }[name].split()
 
