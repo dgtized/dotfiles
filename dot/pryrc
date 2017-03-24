@@ -3,6 +3,12 @@ Pry.config.correct_indent = false if ENV["INSIDE_EMACS"]
 Pry.config.editor =
   proc { |file, line| format('emacsclient +%d %s', file, line) }
 
+def log_stdout(cache: true, ar: true)
+  stdout = Logger.new(STDOUT)
+  ActiveRecord::Base.logger = stdout if ar
+  Rails.cache.logger = stdout if cache
+end
+
 def sql(query)
   ActiveRecord::Base.connection.select_all(query)
 end
