@@ -23,6 +23,8 @@
 [log]
   abbrevCommit = true
   follow = true
+[merge]
+  conflictstyle = diff3
 [user]
   name = Charles Comstock
   email = dgtized@gmail.com
