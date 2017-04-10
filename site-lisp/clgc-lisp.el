@@ -41,7 +41,11 @@
 
 (eval-after-load 'cider
   (setq cider-show-error-buffer nil
-        cider-prompt-for-symbol nil))
+        cider-prompt-for-symbol nil
+        cider-cljs-lein-repl
+        "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))"))
 
 (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
 (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
