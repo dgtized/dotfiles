@@ -41,6 +41,7 @@
 (depends-on "cider")
 (depends-on "cider-decompile")
 (depends-on "slamhound")
+(depends-on "kibit-helper")
 (depends-on "4clojure")
 (depends-on "clojure-cheatsheet")
 (depends-on "clj-refactor")
