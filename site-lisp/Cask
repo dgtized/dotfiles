@@ -47,6 +47,7 @@
 (depends-on "flycheck-clojure")
 ;; (depends-on "sayid")
 
+(depends-on "aggressive-indent")
 (depends-on "rainbow-delimiters")
 (depends-on "color-identifiers-mode")
 (depends-on "smartparens")
