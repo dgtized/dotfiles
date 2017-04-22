@@ -14,6 +14,7 @@
 (add-hook 'ruby-mode-hook 'clgc-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'subword-mode)
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
+(add-hook 'ruby-mode-hook 'aggressive-indent-mode)
 
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
