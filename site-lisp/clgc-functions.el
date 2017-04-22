@@ -153,4 +153,10 @@ With a prefix argument, makes a public paste."
       (sp-splice-sexp)
       (insert ":"))))
 
+(defun nri-insert-date ()
+  "Insert a timestamp according to locale's date and time format."
+  (interactive)
+  (insert (format-time-string "%H:%M:%S %Z %Y-%m-%d" (current-time) "UTC")))
+
+
 (provide 'clgc-functions)
