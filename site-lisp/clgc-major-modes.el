@@ -13,6 +13,13 @@
 (add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(setq compilation-ask-about-save nil
+      compilation-read-command t
+      compilation-window-height 12)
+
 ;; Elm
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))

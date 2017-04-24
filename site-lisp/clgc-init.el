@@ -77,8 +77,6 @@
 ;; remove vc peskiness while editing .emacs file
 (setq vc-follow-symlinks nil)
 
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
 (setq tramp-default-method "ssh"
       tramp-ssh-controlmaster-options t)
 
@@ -90,12 +88,6 @@
         auto-save-file-name-transforms `((".*" ,backup-dir t))))
 
 (setq initial-scratch-message ";; What are you doing in there?\n\n")
-
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-(setq compilation-ask-about-save nil
-      compilation-read-command t
-      compilation-window-height 12)
 
 (defun clgc-after-init-hook ()
   (require 'clgc-editor)
