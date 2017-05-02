@@ -17,9 +17,12 @@
 (dolist (mode '(scheme emacs-lisp inferior-emacs-lisp lisp clojure
                        inferior-lisp slime slime-repl cider-repl))
   (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
-    (progn
-      (add-hook mode-hook 'smartparens-strict-mode)
-      (add-hook mode-hook 'aggressive-indent-mode))))
+    (add-hook mode-hook 'smartparens-strict-mode)))
+
+;; Aggressive indent in buffer, but not repl
+(dolist (mode '(scheme emacs-lisp lisp clojure))
+  (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
+    (add-hook mode-hook 'aggressive-indent-mode)))
 
 (defadvice cider-eval-last-sexp (after cider-flash-last activate)
   (flash-region (save-excursion (backward-sexp) (point)) (point)))
