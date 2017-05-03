@@ -41,8 +41,8 @@
       uniquify-after-kill-buffer-p t)
 
 ;; Autocorrect
-(setq save-abbrevs 'silently
-      abbrev-file-name (expand-file-name "abbrev_defs.el" dotc-elisp))
+(setq save-abbrevs 'silently)
+(require 'clgc-abbrev)
 (add-hook 'text-mode-hook 'abbrev-mode)
 (add-hook 'prog-mode-hook 'abbrev-mode)
 
