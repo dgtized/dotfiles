@@ -11,6 +11,8 @@
   '(("arb" "ActiveRecord::Base" nil 0)
     ("arbl" "ActiveRecord::Base.logger = Logger.new(STDOUT)" nil 0)
     ("rrep" "ReadReplica" nil 0)
+    ("nramt" "add_method_tracer" nil 0)
+    ("scamt" "singleton_class.add_method_tracer" nil 0)
     ))
 
 (provide 'clgc-abbrev)
