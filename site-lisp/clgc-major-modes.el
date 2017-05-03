@@ -12,6 +12,7 @@
 
 (add-hook 'prog-mode-hook 'clgc-prog-mode-hook)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
