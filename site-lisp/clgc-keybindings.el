@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-c $") 'crux-ispell-word-then-abbrev)
 (global-set-key (kbd "C-c V") 'visual-line-mode)
 (global-set-key (kbd "C-c I") 'color-identifiers-mode)
+(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
 (global-set-key (kbd "C-c L") 'linum-mode)
 (crux-with-region-or-line comment-or-uncomment-region)
 (global-set-key (kbd "C-M-;") 'comment-or-uncomment-region)
@@ -193,7 +194,8 @@
           (define-key ruby-mode-map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)
           (define-key ruby-mode-map (kbd "C-c v") 'chruby-use-corresponding)
           (define-key ruby-mode-map (kbd "S-<f6>") 'coverage-mode)
-          (define-key ruby-mode-map (kbd "C-c :") 'clgc-ruby-string->symbol)))
+          (define-key ruby-mode-map (kbd "C-c :") 'clgc-ruby-string->symbol)
+          (define-key ruby-mode-map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
 
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
