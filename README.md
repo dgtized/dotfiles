@@ -7,15 +7,16 @@ A collection of dotfiles that I have accumulated over many years.
 
 ### Secrets
 
-For emacs:
+<dl>
 
-Symlink or create `~/.emacs.d/secrets.el{.gpg}` for local emacs config (see load-secrets in [clgc-functions.el](https://github.com/dgtized/dotfiles/blob/master/site-lisp/clgc-functions.el)).
+<dt>emacs</dt><dd>Symlink or create <code>~/.emacs.d/secrets.el{.gpg}</code>
+for local emacs config (see load-secrets in <a href
+="https://github.com/dgtized/dotfiles/blob/master/site-lisp/clgc-functions.el">clgc-functions.el</a>).
+</dd>
 
-For bash:
+<dt>bash</dt><dd>symlink or create `~/.bashrc.local` and it will be sourced at
+start for environment variables and functions.</dd>
 
-symlink or create `~/.bashrc.local` and it will be sourced at start for
-environment variables and functions.
+<dt>gitconfig</dt><dd>Symlink or create `~/.gitconfig.private`</dd>
 
-For gitconfig
-
-Symlink or create `~/.gitconfig.private`
+</dl>
