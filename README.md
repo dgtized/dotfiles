@@ -20,3 +20,7 @@ start for environment variables and functions.</dd>
 <dt>gitconfig</dt><dd>Symlink or create `~/.gitconfig.private`</dd>
 
 </dl>
+
+## License
+
+Distributed under the BSD License, see LICENSE file
