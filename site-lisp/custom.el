@@ -15,11 +15,6 @@
  '(git-commit-summary-max-length 60)
  '(global-magit-file-mode t)
  '(idle-update-delay 0.25)
- '(js-indent-level 2)
- '(js2-auto-indent-p t)
- '(js2-cleanup-whitespace t)
- '(js2-indent-on-enter-key nil)
- '(js2-use-ast-for-indentation-p t)
  '(package-selected-packages
    (quote
     (string-inflection aggressive-indent kibit-helper camcorder gnuplot gnuplot-mode helm-unicode terraform-mode atomic-chrome redis coverage request ob-elixir flycheck-dialyzer flycheck-elixir command-log-mode visual-fill-column zop-to-char zenburn-theme yari yaml-mode wgrep-ag web-server web-mode starter-kit-eshell solarized-theme smex smartscan smartparens slamhound simple-httpd sass-mode ruby-tools rubocop rspec-mode robe rinari rainbow-delimiters projectile-rails prodigy org-plus-contrib ob-http markdown-mode less-css-mode js2-mode iy-go-to-char ido-completing-read+ ibuffer-projectile helm-projectile helm-ag graphviz-dot-mode gitignore-mode github-clone github-browse-file gitconfig-mode gist fuzzy free-keys flycheck-elm flycheck-clojure flx-ido flash-region feature-mode expand-region evil epresent elm-mode diminish company-inf-ruby color-identifiers-mode coffee-mode clojure-snippets clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor chruby bundler browse-kill-ring ag ace-window 4clojure)))
