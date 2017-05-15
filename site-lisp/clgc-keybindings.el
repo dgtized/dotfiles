@@ -25,6 +25,7 @@
 
 (global-set-key (kbd "C-x C-\\") 'align-regexp)
 (global-set-key (kbd "C-x \\") 'align)
+(global-set-key (kbd "C-c g") 'aggressive-indent-mode)
 (global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c W") 'whitespace-mode)
