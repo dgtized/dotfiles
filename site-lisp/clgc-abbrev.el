@@ -14,6 +14,7 @@
     ("rrep" "ReadReplica" nil 0)
     ("nramt" "add_method_tracer" nil 0)
     ("scamt" "singleton_class.add_method_tracer" nil 0)
+    ("mdq" "make_database_queries" nil 0)
     ))
 
 (provide 'clgc-abbrev)
