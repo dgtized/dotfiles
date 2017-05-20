@@ -69,6 +69,7 @@ pathmunge ${HOME}/usr/bin
 pathmunge /usr/local/heroku/bin
 pathmunge ${DOTC_DIR}/cask/bin
 pathmunge ${HOME}/gocode/bin
+pathmunge ${HOME}/.local/bin # python pip packages
 
 export OUTPUT_OPTION=""
 export EDITOR=emacsclient
