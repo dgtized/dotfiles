@@ -4,6 +4,14 @@
 
 #+RESULTS:
 
+#+BEGIN_SRC sh
+  echo '{"text": "foobar", "username": "test", "channel": "@charles"}' |
+      curl -X POST -H "Content-type: application/json" $SLACK_WEBHOOK --data @-
+#+END_SRC
+
+#+RESULTS:
+: ok
+
 #+BEGIN_SRC http :pretty
 GET https://api.github.com/repos/zweifisch/ob-http/languages
 Accept: application/vnd.github.moondragon+json
