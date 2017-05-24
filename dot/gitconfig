@@ -9,6 +9,7 @@
   deploy-coverage = log --format='%n%h %s (%an @ %ai) [%p]' --merges -m --first-parent --dirstat=lines,cumulative
   deploy-files = log --format='%n%h %s (%an @ %ai) [%p]' --merges -m --first-parent --stat
   cleanbranches = "!sh -c 'git branch --merged master | grep -v master | grep -v \"*\" | xargs git branch -d'"
+  recent = "for-each-ref --count=20 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\""
 [color]
   ui = true
 [core]
