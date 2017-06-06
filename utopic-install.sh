@@ -9,7 +9,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      postgresql-9.4 libpq-dev redis-server redis-tools \
      git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties \
      graphviz dconf-cli gnome-tweak-tool \
-     p7zip-full tree parallel pv gawk netcat-openbsd mutt jq \
+     p7zip-full tree parallel pv gawk netcat-openbsd jq \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \ # perf
      default-jdk golang-go racket sbcl rlwrap \
      gitk \
@@ -17,7 +17,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      python-pip awscli \
      gnutls-bin \
      recordmydesktop mplayer imagemagick gifsicle byzaz \
-     mailutils # local, so cron can report errors
+     mailutils mutt # local, so cron can report errors
 
 # uncomment localhost for postgres
 
