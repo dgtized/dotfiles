@@ -218,8 +218,7 @@
 (global-set-key (kbd "M-m") 'iy-go-up-to-char)
 (global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
 
-(global-set-key (kbd "M-z") 'zop-to-char)
-(global-set-key (kbd "C-M-z") 'zap-to-char)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
