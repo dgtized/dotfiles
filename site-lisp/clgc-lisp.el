@@ -41,6 +41,7 @@
   (eldoc-mode))
 
 (defun clgc-cider-mode-hook ()
+  (cider-auto-test-mode t)
   (eldoc-mode))
 
 (eval-after-load 'cider

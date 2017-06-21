@@ -157,7 +157,8 @@
 (eval-after-load 'clojure-mode
   '(progn
      (define-key clojure-mode-map (kbd "C-c M-h") 'clojure-cheatsheet)
-     (define-key clojure-mode-map (kbd "<f5>") 'cider-test-run-ns-tests)))
+     (define-key clojure-mode-map (kbd "<f5>") 'cider-test-run-ns-tests)
+     (define-key cider-mode-map (kbd "C-c T") 'cider-auto-test-mode)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 (global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
