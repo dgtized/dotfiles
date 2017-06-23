@@ -64,15 +64,8 @@
           alchemist-hooks-test-on-save t)
     (require 'smartparens)
     (sp-with-modes '(elixir-mode)
-      (sp-local-pair "fn" "end"
-                     :when '(("SPC" "RET"))
-                     :actions '(insert))
       (sp-local-pair "->" "end"
                      :when '(("RET"))
-                     :post-handlers '(:add my-elixir-do-end-close-action)
-                     :actions '(insert))
-      (sp-local-pair "do" "end"
-                     :when '(("SPC" "RET"))
                      :post-handlers '(:add my-elixir-do-end-close-action)
                      :actions '(insert)))))
 
