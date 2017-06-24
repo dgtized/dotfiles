@@ -60,4 +60,8 @@
                       " rails:console")
               "rails")))
 
+(defun clgc-rails-db-test ()
+  (interactive)
+  (projectile-rails-rake "db:migrate db:test:prepare"))
+
 (provide 'clgc-ruby)
