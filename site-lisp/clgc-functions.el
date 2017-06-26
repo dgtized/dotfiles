@@ -16,8 +16,11 @@
   (erase-buffer)
   (insert (format "ASCII characters up to number %d.\n" 254))
   (loop for i from 0 to 254 do
-        (insert (format "%4d %c\n" i i)))
-  (goto-line 0))
+        (progn
+          (insert (format "%4d %c" i i))
+          (insert (if (= (mod (1+ i) 4) 0) "\n" "    "))))
+  (goto-line 0)
+  (read-only-mode))
 
 (defun visit-ielm ()
   "Switch to default `ielm' buffer.
