@@ -20,7 +20,7 @@
           (insert (format "%4d %c" i i))
           (insert (if (= (mod (1+ i) 4) 0) "\n" "    "))))
   (goto-line 0)
-  (read-only-mode))
+  (read-only-mode)) ;; is there a default read only mode with q to exit?
 
 (defun visit-ielm ()
   "Switch to default `ielm' buffer.
