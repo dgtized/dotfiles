@@ -23,8 +23,7 @@
   (view-mode t))
 
 (defun visit-ielm ()
-  "Switch to default `ielm' buffer.
-Start `ielm' if it's not already running."
+  "Switch to default `ielm' buffer. Start `ielm' if it's not already running."
   (interactive)
   (crux-start-or-switch-to 'ielm "*ielm*"))
 
