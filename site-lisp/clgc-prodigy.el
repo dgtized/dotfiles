@@ -22,4 +22,7 @@
 (prodigy-define-tag :name 'resque-scheduler
   :ready-message "Schedules Loaded")
 
+(prodigy-define-tag :name 'dynamo-db
+  :ready-message "Initializing DynamoDB Local with the following configuration:")
+
 (provide 'clgc-prodigy)
