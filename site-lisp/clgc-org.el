@@ -23,8 +23,14 @@
                                (list "incoming.org" "OpenSource.org"
                                      "NoRedInk.org")))
 
-(setq org-refile-targets (quote ((nil :maxlevel . 2)
-                                 (org-agenda-files :maxlevel . 2))))
+(setq org-refile-targets
+      (quote ((nil :maxlevel . 2)
+              (org-agenda-files :maxlevel . 2)))
+      org-capture-templates
+      (quote (("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+               "* TODO %?\n %U\n  %i\n %a")
+              ("n" "Note" entry (file+headline org-default-notes-file "Notes")
+               "* %?\n %U\n  %i\n %a"))))
 
 ;; Font highlight babel blocks
 (setq org-src-fontify-natively t)
