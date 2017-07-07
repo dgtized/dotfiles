@@ -29,6 +29,8 @@
       org-capture-templates
       (quote (("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
                "* TODO %?\n %U\n  %i\n %a")
+              ("i" "Idea" entry (file+headline org-default-notes-file "Ideas")
+               "* %?\n %U\n  %i\n")
               ("n" "Note" entry (file+headline org-default-notes-file "Notes")
                "* %?\n %U\n  %i\n %a"))))
 
