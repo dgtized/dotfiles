@@ -1,4 +1,4 @@
-Emacs.font: Inconsolata-11
+Emacs.font: Inconsolata-12
 *customization: -color
 
 UXTerm*termName: xterm-256color
