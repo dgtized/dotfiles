@@ -41,7 +41,8 @@
       debug-on-error nil
       apropos-do-all t
       confirm-nonexistent-file-or-buffer nil
-      sentence-end-double-space nil)
+      sentence-end-double-space nil
+      split-height-threshold 140)
 
 ;; Clipboard and Selection
 (setq x-select-enable-clipboard t
