@@ -14,6 +14,7 @@
       org-return-follows-link t
       org-use-fast-todo-selection t
       org-refile-use-outline-path t
+      org-confirm-babel-evaluate nil ;; DANGEROUS: allows babel evaluation by default
       org-log-done t)
 
 (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE")
