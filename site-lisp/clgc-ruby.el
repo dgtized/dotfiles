@@ -19,6 +19,13 @@
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
+;; From: https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Blang/ruby/funcs.el#L43
+;; and: https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Blang/ruby/packages.el#L172
+(defun spacemacs//inf-ruby-auto-enter ()
+  "Automatically enters inf-ruby-mode in ruby modes' debugger breakpoints."
+  (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter nil t))
+(add-hook 'rspec-compilation-mode-hook 'spacemacs//inf-ruby-auto-enter)
+
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 
