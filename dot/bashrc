@@ -53,12 +53,13 @@ export PAGER=less
 export LESSCHARSET='utf-8'
 export LESS=' -M -R '
 
+shopt -s cmdhist
 export HISTFILE=$HOME/.bashist/`date +%Y-%m-%d_%R`.$$.`hostname`
 touch $HISTFILE && chmod 600 $HISTFILE
 
 export PROMPT_COMMAND='history -w' #write to history whenever the prompt is displayed
-export HISTSIZE=1000 # Long history
-export HISTFILESIZE=10000 # Size of historyfile
+export HISTSIZE=10000 # Long history
+export HISTFILESIZE=100000 # Size of historyfile
 export HISTCONTROL="ignoreboth" # Ignore duplicates
 export HISTIGNORE="&:ls:ll:dir:la:[bf]g:exit"
 export HISTTIMEFORMAT='%F_%T '
