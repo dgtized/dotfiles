@@ -53,10 +53,13 @@ export PAGER=less
 export LESSCHARSET='utf-8'
 export LESS=' -M -R '
 
+shopt -s histappend
 shopt -s cmdhist
-export HISTFILE=$HOME/.bashist/`date +%Y-%m-%d_%R`.$$.`hostname`
+export HISTFILE=$HOME/.bashist/`hostname`.`date +%Y-%m`
 touch $HISTFILE && chmod 600 $HISTFILE
 
+# consider for sharing across terminals
+#export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
 export PROMPT_COMMAND='history -w' #write to history whenever the prompt is displayed
 export HISTSIZE=10000 # Long history
 export HISTFILESIZE=100000 # Size of historyfile
