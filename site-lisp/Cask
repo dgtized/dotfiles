@@ -116,7 +116,8 @@
 (depends-on "visual-fill-column")
 
 (depends-on "atomic-chrome")
-
+(depends-on "json-mode")
+(depends-on "json-navigator")
 ;; (depends-on "starter-kit-eshell"
 ;;             :git "https://github.com/technomancy/emacs-starter-kit"
 ;;             :branch "v2")
