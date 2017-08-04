@@ -200,7 +200,8 @@
           (define-key ruby-mode-map (kbd "C-c v") 'chruby-use-corresponding)
           (define-key ruby-mode-map (kbd "S-<f6>") 'coverage-mode)
           (define-key ruby-mode-map (kbd "C-c :") 'clgc-ruby-string->symbol)
-          (define-key ruby-mode-map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
+          (define-key ruby-mode-map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)
+          (define-key rspec-dired-mode-map (kbd "<f5>") 'rspec-dired-verify)))
 
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))

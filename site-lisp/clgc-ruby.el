@@ -15,6 +15,7 @@
 (add-hook 'ruby-mode-hook 'subword-mode)
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
 (add-hook 'ruby-mode-hook 'aggressive-indent-mode)
+(add-hook 'dired-mode-hook 'rspec-dired-mode)
 
 ;; inf-ruby
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
