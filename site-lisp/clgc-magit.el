@@ -17,7 +17,7 @@
         ))
 
 ;; modified from https://github.com/kyleam/emacs.d/blob/master/lisp/km-hydra.el
-(defhydra hydra-smerge (:hint nil)
+(defhydra hydra-smerge (:hint nil :pre (smerge-mode 1))
   "
 _b_ keep base  (middle)  _d_ diff     _n_ next
 _u_ keep upper (mine)    _e_ ediff    _p_ previous
@@ -42,7 +42,7 @@ _a_ keep all             _r_ resolve  _c_ keep current
           (?< #'smerge-diff-base-mine)
           (?> #'smerge-diff-base-other)
           (?= #'smerge-diff-mine-other))))
-  ("l" recenter-top-bottom "recenter")
+  ("L" recenter-top-bottom "recenter")
   ("u" undo "undo")
   ("q" nil "quit"))
 
