@@ -16,21 +16,24 @@
         ;; magit-insert-tags
         ))
 
-;; stolen from https://github.com/kyleam/emacs.d/blob/master/lisp/km-hydra.el
+;; modified from https://github.com/kyleam/emacs.d/blob/master/lisp/km-hydra.el
 (defhydra hydra-smerge (:hint nil)
   "
-_b_ keep base    _d_ diff     _n_ next
-_m_ keep mine    _e_ ediff    _p_ previous
-_o_ keep other   _h_ refine
-_a_ keep all
+_b_ keep base  (middle)  _d_ diff     _n_ next
+_u_ keep upper (mine)    _e_ ediff    _p_ previous
+_l_ keep lower (other)   _h_ refine   _C_ combine with next
+_a_ keep all             _r_ resolve  _c_ keep current
 \n"
   ("b" smerge-keep-base)
-  ("m" smerge-keep-mine)
-  ("o" smerge-keep-other)
+  ("u" smerge-keep-upper)
+  ("l" smerge-keep-lower)
   ("a" smerge-keep-all)
   ("n" smerge-next)
   ("p" smerge-prev)
+  ("C" smerge-combine-with-next)
+  ("c" smerge-keep-current)
   ("h" smerge-refine)
+  ("r" smerge-resolve)
   ("e" smerge-ediff :color blue)
   ("d" (call-interactively
         (pcase (read-char-choice
