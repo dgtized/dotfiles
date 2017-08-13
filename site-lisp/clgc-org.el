@@ -71,6 +71,9 @@ channel."
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
 
+(require 'sql)
+(require 'ob-sql)
+
 (setq org-plantuml-jar-path (expand-file-name "~/usr/plantuml.jar"))
 
 (provide 'clgc-org)
