@@ -15,7 +15,8 @@
       flx-ido-threshhold 8192
       ido-use-filename-at-point nil
       ido-use-url-at-point nil
-      smex-history-length 16)
+      smex-history-length 32 ;; might need to be set before smex starts to work
+      )
 
 (defadvice ido-file-internal (around ffap activate)
   "When called with a prefix, use `ffap' instead."
