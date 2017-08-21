@@ -1,5 +1,7 @@
 (require 'org)
 
+(autoload 'org-tree-slide-mode "org-tree-slide" t)
+
 ;; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
 (add-hook 'org-shiftleft-final-hook 'windmove-left)

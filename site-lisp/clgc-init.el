@@ -95,8 +95,6 @@
 
 (add-hook 'after-init-hook #'clgc-after-init-hook)
 
-(autoload 'org-tree-slide-mode "org-tree-slide" t)
-
 ;; setup audo modes
 (dolist (mode '(("\\.C$"          . c++-mode)
                 ("\\.cc$"         . c++-mode)
