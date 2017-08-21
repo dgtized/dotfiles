@@ -32,8 +32,7 @@
 (require 'clgc-elpa)
 (regen-autoloads)
 
-(setq redisplay-dont-pause t
-      inhibit-startup-screen t
+(setq inhibit-startup-screen t
       line-number-mode t
       column-number-mode t
       visible-bell t
