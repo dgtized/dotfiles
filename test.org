@@ -1,8 +1,6 @@
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :results none
 (org-display-inline-images)
 #+END_SRC
-
-#+RESULTS:
 
 #+BEGIN_SRC sh
   echo '{"text": "foobar", "username": "test", "channel": "@charles"}' |
