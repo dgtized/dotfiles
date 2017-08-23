@@ -1,5 +1,6 @@
 #+BEGIN_SRC elisp :results none
 (org-display-inline-images)
+(setq default-tab-width 2)
 #+END_SRC
 
 #+BEGIN_SRC sh
