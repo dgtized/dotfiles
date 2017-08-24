@@ -77,6 +77,9 @@ channel."
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
 
+;; for graphviz-dot-mode
+(setq default-tab-width 2)
+
 (require 'sql)
 (require 'ob-sql)
 (require 'ox-md)
