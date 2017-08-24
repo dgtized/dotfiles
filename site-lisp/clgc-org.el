@@ -75,6 +75,7 @@ channel."
 
 (require 'sql)
 (require 'ob-sql)
+(require 'ox-md)
 
 (setq org-plantuml-jar-path (expand-file-name "~/usr/plantuml.jar"))
 
