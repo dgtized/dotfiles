@@ -44,6 +44,10 @@
   (org-display-inline-images t t))
 
 (add-hook 'org-mode-hook 'turn-on-org-show-all-inline-images)
+(defun clgc-org-fix-inline-images ()
+  (when org-inline-image-overlays
+    (org-display-inline-images)))
+(add-hook 'org-babel-after-execute-hook 'clgc-org-fix-inline-images)
 
 (setq org-babel-sh-command "bash")
 
