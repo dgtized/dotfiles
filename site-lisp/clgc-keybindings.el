@@ -99,7 +99,7 @@
 (eval-after-load 'gist
   '(progn (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse)))
 
-(global-set-key (kbd "C-c t") 'visit-term-buffer)
+(global-set-key (kbd "C-c t") 'crux-visit-term-buffer)
 (global-set-key (kbd "C-c e") 'eshell)
 (global-set-key (kbd "C-c B") 'browse-url)
 (global-set-key (kbd "C-c J") 'webjump)
