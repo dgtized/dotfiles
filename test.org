@@ -1,3 +1,12 @@
+Because emacs has the kitchen sink;
+
+#+BEGIN_SRC elisp
+(lunar-phases)
+#+END_SRC
+
+#+RESULTS:
+: Computing phases of the moon...done
+
 #+BEGIN_SRC sh
   echo '{"text": "foobar", "username": "test", "channel": "@charles"}' |
       curl -X POST -H "Content-type: application/json" $SLACK_WEBHOOK --data @-
