@@ -1,8 +1,3 @@
-#+BEGIN_SRC elisp :results none
-(org-display-inline-images)
-(setq default-tab-width 2)
-#+END_SRC
-
 #+BEGIN_SRC sh
   echo '{"text": "foobar", "username": "test", "channel": "@charles"}' |
       curl -X POST -H "Content-type: application/json" $SLACK_WEBHOOK --data @-
