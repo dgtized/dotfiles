@@ -100,3 +100,9 @@ mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
 # sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
 # gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 &&  gpg -a --export E084DAB9 | sudo apt-key add -
 # sudo aptitude update && sudo apt-get install r-base r-base-dev
+
+# screencast to gif tools
+sudo add-apt-repository ppa:sethj/silentcast
+sudo add-apt-repository ppa:peek-developers/stable
+sudo aptitude update
+sudo aptitude install peek silentcast
