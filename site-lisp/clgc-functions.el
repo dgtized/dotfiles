@@ -22,6 +22,15 @@
   (goto-line 0)
   (view-mode t))
 
+(defun unfill-paragraph ()
+  "Folds a multi-line paragraph into a single line of text.
+
+In other words, the opposite of fill paragraph.
+Borrowed from Stefan Monnier <foo at acm.org>"
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
 (defun visit-ielm ()
   "Switch to default `ielm' buffer. Start `ielm' if it's not already running."
   (interactive)
