@@ -35,6 +35,7 @@
 
 ;; Elisp
 (depends-on "flash-region")
+(depends-on "package-lint")
 
 ;; Clojure
 (depends-on "clojure-mode")
