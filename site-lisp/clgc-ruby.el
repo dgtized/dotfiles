@@ -30,8 +30,8 @@
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-;; (eval-after-load 'company
-;;   '(add-to-list 'company-backends 'company-robe))
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-robe))
 
 (require 'chruby)
 
