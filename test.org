@@ -72,6 +72,11 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
     a -> b
     b -> c
     c -> a
+    subgraph {
+      rank=same
+      a b c
+    }
+    d -> a
   }
 #+END_SRC
 
