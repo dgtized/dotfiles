@@ -38,18 +38,13 @@
                "* %?\n %U\n  %i\n %a"))))
 
 ;; Font highlight babel blocks
-(setq org-src-fontify-natively t)
+(setq org-src-fontify-natively t
+      org-startup-with-inline-images t
+      org-startup-with-latex-preview t
+      org-babel-sh-command "bash")
 
-(defun turn-on-org-show-all-inline-images ()
-  (org-display-inline-images t t))
-
-(add-hook 'org-mode-hook 'turn-on-org-show-all-inline-images)
-(defun clgc-org-fix-inline-images ()
-  (when org-inline-image-overlays
-    (org-display-inline-images)))
-(add-hook 'org-babel-after-execute-hook 'clgc-org-fix-inline-images)
-
-(setq org-babel-sh-command "bash")
+;; Force redisplay after each execute so images update inline
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
