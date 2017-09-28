@@ -108,3 +108,27 @@ W --> User: furnish response
 #+RESULTS:
 [[file:tmp/tryout.png]]
 
+#+BEGIN_SRC plantuml :file tmp/class_diagram.png
+@startuml 
+abstract Top {
+  +foo()
+  +bar()
+  __ class methods __
+  +gazorbazorb(blah)
+}
+class Child {
+  +foo()
+  -private_foo(arg)
+}
+
+class Delegate {
+}
+
+Top <|-- Child
+Top -right..> Delegate
+
+@enduml
+#+END_SRC
+
+#+RESULTS:
+[[file:tmp/class_diagram.png]]
