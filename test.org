@@ -80,6 +80,7 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
       c [ style=filled, fillcolor=green ]
     }
     d -> a [ arrowhead=box, color=darkgreen, label="on_stuff" ]
+    d -> d [ label="self" ]
   }
 #+END_SRC
 
