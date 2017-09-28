@@ -75,8 +75,11 @@ From: http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-gnuplot.html
     subgraph {
       rank=same
       a b c
+      a [ shape=diamond ]
+      b [ color=blue ]
+      c [ style=filled, fillcolor=green ]
     }
-    d -> a
+    d -> a [ arrowhead=box, color=darkgreen, label="on_stuff" ]
   }
 #+END_SRC
 
