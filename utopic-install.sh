@@ -106,3 +106,7 @@ sudo add-apt-repository ppa:sethj/silentcast
 sudo add-apt-repository ppa:peek-developers/stable
 sudo aptitude update
 sudo aptitude install peek silentcast
+
+# wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
+#
+

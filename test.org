@@ -132,3 +132,11 @@ Top -right..> Delegate
 
 #+RESULTS:
 [[file:tmp/class_diagram.png]]
+
+#+PLOT: title:"Foo" ind:1 deps:(2) type:2d with:histograms set:"yrange [0:]" file:tmp/plot2.png
+| A   | B | C |
+|-----+---+---|
+| foo | 1 | 2 |
+| bar | 2 | 6 |
+| baz | 3 | 9 |
+
