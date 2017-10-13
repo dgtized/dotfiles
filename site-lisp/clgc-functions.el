@@ -155,6 +155,31 @@ With a prefix argument, makes a public paste."
   (interactive)
   (async-shell-command "toggle-monitor.sh"))
 
+;; ag/read-file-type in interactive is not autoloaded
+(require 'ag)
+
+(defun projectile-ag-files (search-term file-type)
+  "Run an ag search with SEARCH-TERM in the project.
+
+With an optional prefix argument ARG SEARCH-TERM is interpreted as a
+regular expression."
+  (interactive
+   (list (projectile--read-search-string-with-default (format "Ag search files for" ))
+         (ag/read-file-type)))
+  (let ((ag-ignore-list (delq nil
+                              (delete-dups
+                               (append
+                                ag-ignore-list
+                                (projectile--globally-ignored-file-suffixes-glob)
+                                ;; ag supports git ignore files directly
+                                (unless (eq (projectile-project-vcs) 'git)
+                                  (append (projectile-ignored-files-rel)
+                                          (projectile-ignored-directories-rel)
+                                          grep-find-ignored-files
+                                          grep-find-ignored-directories)))))))
+    (funcall 'ag-files search-term file-type (projectile-project-root))))
+
+
 (defun clgc-ruby-string->symbol ()
   "Change string at point into a symbol"
   (interactive)

@@ -49,7 +49,9 @@
 
 (define-prefix-command 'menu-map)
 (eval-after-load 'projectile
-  '(set-keymap-parent 'menu-map 'projectile-command-map))
+  '(progn
+     (set-keymap-parent 'menu-map 'projectile-command-map)
+     (define-key 'projectile-command-map (kbd "s f") 'projectile-ag-files)))
 
 (global-set-key (kbd "<menu>") 'menu-map)
 
