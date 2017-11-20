@@ -11,7 +11,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \ # perf
-     default-jdk golang-go racket sbcl rlwrap \
+     default-jdk visualvm golang-go racket sbcl rlwrap \
      gitk \
      httpie xclip \
      python-pip awscli \
