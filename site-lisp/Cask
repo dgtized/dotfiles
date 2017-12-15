@@ -110,6 +110,7 @@
 (depends-on "yari")
 (depends-on "rubocop")
 (depends-on "coverage")
+(depends-on "yard-mode")
 
 ;; Editor
 (depends-on "ace-window")
