@@ -17,7 +17,14 @@
         (remove-text-properties s e '(face nil))
       (add-face-text-property s e '(:strike-through t)))))
 
-(define-key text-mode-map (kbd "C-c u") 'bundle-outdated-update)
-(define-key text-mode-map (kbd "C-c i") 'bundle-outdated-toggle-strike)
+;;;###autoload
+(define-minor-mode bundle-outdated-mode
+  "Run updates directly from bundle outdated output
+
+\\{bundle-outdated-mode-map\}"
+  :keymap (let ((map (make-sparse-keymap)))
+            (define-key map (kbd "C-c u") 'bundle-outdated-update)
+            (define-key map (kbd "C-c i") 'bundle-outdated-toggle-strike)
+            map))
 
 (provide 'bundle-outdated)
