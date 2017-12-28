@@ -140,6 +140,11 @@
 (load custom-file 'noerror)
 (load-theme 'zenburn t)
 
+;; reduce contrast on non-selected buffers
+(require 'dimmer)
+(setq dimmer-percent 0.10) ; really low, so mostly shows highlight shift
+(dimmer-activate)
+
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
