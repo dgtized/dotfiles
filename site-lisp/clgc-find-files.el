@@ -1,28 +1,30 @@
 (eval-when-compile (require 'cl))
 
-;; Ido
-(require 'ido)
-(require 'flx-ido)
-(require 'ffap)
-(ido-mode t)
-(ido-everywhere t)
-(flx-ido-mode t)
-(setq ido-enable-flex-matching t ;; enable fuzzy matching
-      ido-case-fold t
-      ido-create-new-buffer 'always
-      ido-use-virtual-buffers t
-      ido-use-faces t
-      flx-ido-threshhold 8192
-      ido-use-filename-at-point nil
-      ido-use-url-at-point nil
-      smex-history-length 32 ;; might need to be set before smex starts to work
-      )
+(require 'ivy)
+(setq ivy-use-virtual-buffers t
+      ivy-height 16
+      ivy-count-format "(%d/%d) "
+      projectile-completion-system 'ivy)
 
-(defadvice ido-file-internal (around ffap activate)
-  "When called with a prefix, use `ffap' instead."
-  (if current-prefix-arg
-      (ffap)
-    ad-do-it))
+(ivy-mode t)
+(require 'ivy-hydra)
+(counsel-mode t)
+
+;; I don't like rebindings for consel-projectile-switch-project or
+;; counsel-projectile-ag. If switch project can actually just jump to project
+;; then i would use it, but it wants to do two actions, similarly the ag search
+;; ditches occur buffers for a ivy-occur buffer which may be useful but is not
+;; what I want. This overrides the upstream bindings.
+(require 'projectile)
+(setq counsel-projectile-mode-map
+      (let ((map (make-sparse-keymap)))
+        (define-key map projectile-keymap-prefix 'counsel-projectile-command-map)
+        (define-key map [remap projectile-find-file] 'counsel-projectile-find-file)
+        (define-key map [remap projectile-find-dir] 'counsel-projectile-find-dir)
+        (define-key map [remap projectile-switch-to-buffer] 'counsel-projectile-switch-to-buffer)
+        map))
+
+(counsel-projectile-mode t)
 
 (setq recentf-max-saved-items 50)
 (recentf-mode t)

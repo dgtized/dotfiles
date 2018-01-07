@@ -94,6 +94,13 @@
 (depends-on "smex")
 (depends-on "diminish")
 
+;; Ivy
+(depends-on "ivy")
+(depends-on "ivy-hydra")
+(depends-on "counsel")
+(depends-on "swiper")
+(depends-on "counsel-projectile")
+
 (depends-on "prodigy")
 
 ;; Ruby

@@ -5,13 +5,10 @@
 (global-set-key (kbd "C-x p") 'proced)
 (global-set-key (kbd "C-x P") 'prodigy)
 
-;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
-(global-set-key (kbd "C-c 7") 'insert-char)
-
 (global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
 
-(global-set-key (kbd "C-x C-m") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
+(global-set-key (kbd "C-c 7") 'insert-char)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x B") 'bury-buffer)
@@ -42,7 +39,7 @@
 
 ;; Projectile
 (global-set-key (kbd "C-.") 'helm-projectile)
-(global-set-key (kbd "C-,") 'helm-projectile-ag)
+(global-set-key (kbd "C-,") 'counsel-projectile-ag)
 
 (global-set-key (kbd "ESC ESC g") 'projectile-rails-mode-goto-map)
 (global-set-key (kbd "ESC ESC r") 'projectile-rails-mode-run-map)
@@ -59,6 +56,10 @@
 (define-key 'menu-map (kbd "x") 'helm-M-x)
 (define-key 'menu-map (kbd "TAB") 'ace-window)
 (define-key 'menu-map (kbd "<menu>") 'helm-M-x)
+
+(global-set-key (kbd "C-x C-m") 'counsel-M-x)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
