@@ -20,6 +20,8 @@
 (depends-on "epresent")
 (depends-on "free-keys")
 (depends-on "list-environment")
+(depends-on "org-download")
+(depends-on "ox-reveal")
 
 (depends-on "haskell-mode")
 (depends-on "groovy-mode")

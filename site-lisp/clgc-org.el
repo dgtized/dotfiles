@@ -81,4 +81,10 @@ channel."
 
 (setq org-plantuml-jar-path (expand-file-name "~/usr/plantuml.jar"))
 
+(setq-default org-download-image-dir "~/org/downloads")
+(require 'org-download)
+
+(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+(require 'ox-reveal)
+
 (provide 'clgc-org)

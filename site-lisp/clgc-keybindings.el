@@ -76,6 +76,7 @@
      (define-key map (kbd "<f9>") 'epresent-run)
      (define-key map (kbd "C-<f9>") 'org-tree-slide-mode)
      (define-key map (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
+     (define-key map (kbd "C-<f9>") 'org-reveal-export-to-html-and-browse)
      (define-key map (kbd "M-n") 'outline-next-visible-heading)
      (define-key map (kbd "M-p") 'outline-previous-visible-heading)))
 
