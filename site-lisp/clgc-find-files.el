@@ -6,6 +6,12 @@
       ivy-count-format "(%d/%d) "
       projectile-completion-system 'ivy)
 
+(require 'flx)
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-plus))
+      ivy-initial-inputs-alist nil
+      )
+
 (ivy-mode t)
 (require 'ivy-hydra)
 (counsel-mode t)
