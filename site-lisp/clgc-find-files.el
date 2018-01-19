@@ -8,7 +8,7 @@
 
 (require 'flx)
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-plus))
+      '((t . ivy--regex-fuzzy))
       ivy-initial-inputs-alist nil
       )
 
