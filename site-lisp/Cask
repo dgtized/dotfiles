@@ -15,6 +15,7 @@
 (depends-on "ob-http")
 (depends-on "graphviz-dot-mode")
 (depends-on "terraform-mode")
+(depends-on "dockerfile-mode")
 (depends-on "web-mode")
 (depends-on "command-log-mode")
 (depends-on "epresent")
