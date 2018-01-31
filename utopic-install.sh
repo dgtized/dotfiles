@@ -86,7 +86,7 @@ go get -u github.com/ddollar/forego
 go get https://github.com/ericchiang/pup
 
 # chromedriver
-CHROME=https://chromedriver.storage.googleapis.com/2.26/chromedriver_linux64.zip
+CHROME=https://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip
 mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
     unzip $HOME/Downloads/chromedriver.zip && mv -f chromedriver $HOME/usr/bin/chromedriver
 
