@@ -59,7 +59,7 @@
 
 (global-set-key (kbd "C-x C-m") 'counsel-M-x)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "C-c m") 'ivy-resume)
 
 ;; Org Related
 (global-set-key (kbd "C-c l") 'org-store-link)
