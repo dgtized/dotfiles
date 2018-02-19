@@ -138,7 +138,7 @@
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Υ"))
 
 (load custom-file 'noerror)
-(load-theme 'zenburn t)
+(load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
 
 ;; reduce contrast on non-selected buffers
 (require 'dimmer)
@@ -163,8 +163,8 @@
 
 (when (eq window-system 'x)
   (clgc-set-font-size
-   (if (string= (system-name) "nocturnal") 12.0 11.0)))
-
-
-
+   (pcase (system-name)
+     ("nocturnal" 13.0)
+     ("anthem" 13.0)
+     (_ 13.0))))
 ;;; clgc-init.el ends here
