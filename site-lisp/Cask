@@ -127,7 +127,6 @@
 (depends-on "smartscan")
 (depends-on "iy-go-to-char")
 (depends-on "visual-fill-column")
-(depends-on "dimmer")
 
 (depends-on "atomic-chrome")
 (depends-on "json-mode")
