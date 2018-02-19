@@ -162,4 +162,7 @@
 (depends-on "request")
 
 (depends-on "zenburn-theme")
+(depends-on "hc-zenburn-theme")
 (depends-on "solarized-theme")
+(depends-on "material-theme") ; google?
+(depends-on "leuven-theme") ; high contrast
