@@ -135,7 +135,7 @@
 
 (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "Υ"))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "ys"))
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
