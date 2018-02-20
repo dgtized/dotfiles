@@ -38,7 +38,7 @@
 (global-set-key (kbd "C-M-j") 'join-line)
 
 ;; Projectile
-(global-set-key (kbd "C-.") 'helm-projectile)
+(global-set-key (kbd "C-.") 'counsel-projectile)
 (global-set-key (kbd "C-,") 'counsel-projectile-ag)
 
 (global-set-key (kbd "ESC ESC g") 'projectile-rails-mode-goto-map)
