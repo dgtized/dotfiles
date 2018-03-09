@@ -23,16 +23,17 @@
       compilation-window-height 12)
 
 ;; Elm
-;; (eval-after-load 'flycheck
-;;   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
-(eval-after-load 'elm-mode
+;; (with-eval-after-load 'flycheck
+;;   (add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+(eval-when-compile (require 'elm-mode))
+(with-eval-after-load 'elm-mode
   (progn
     ;; (add-to-list 'company-backends 'company-elm)
     (setq elm-indent-offset 4
           elm-format-on-save t)))
 
 ;; Standard ML
-(eval-after-load 'sml-mode
+(with-eval-after-load 'sml-mode
   (progn
     (setq sml-indent-level 2)))
 
@@ -56,7 +57,7 @@
     (indent-according-to-mode)))
 
 (add-hook 'elixir-mode-hook 'alchemist-mode)
-(eval-after-load 'alchemist-mode
+(with-eval-after-load 'alchemist-mode
   (progn
     (setq alchemist-goto-elixir-source-dir (expand-file-name "~/code/elixir/elixir")
           alchemist-goto-erlang-source-dir (expand-file-name "~/code/erlang-otp-src")
@@ -70,12 +71,12 @@
                      :actions '(insert)))))
 
 ;; Gnuplot
-(eval-after-load 'gnuplot-mode
-  '(add-hook 'gnuplot-mode-hook
-             (lambda ()
-               (flyspell-prog-mode)
-               (add-hook 'before-save-hook
-                         'whitespace-cleanup nil t))))
+(with-eval-after-load 'gnuplot-mode
+  (add-hook 'gnuplot-mode-hook
+            (lambda ()
+              (flyspell-prog-mode)
+              (add-hook 'before-save-hook
+                        'whitespace-cleanup nil t))))
 
 ;;; make Groovy mode electric by default.
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))

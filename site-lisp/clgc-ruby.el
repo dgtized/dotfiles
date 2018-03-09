@@ -32,8 +32,9 @@
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-robe))
+(eval-when-compile (require 'company))
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-robe))
 
 (require 'chruby)
 
@@ -46,15 +47,16 @@
 (defalias 'rvm-activate-corresponding-ruby 'chruby-use-corresponding)
 (add-hook 'after-init-hook 'clgc-chruby-default)
 
-(eval-after-load 'rspec-mode
-  '(progn (rspec-install-snippets)
-          (setq rspec-command-options "--format documentation --profile 30"
-                rspec-use-opts-file-when-available nil
-                rspec-use-rvm t
-                rspec-primary-source-dirs '("app"))))
+(with-eval-after-load 'rspec-mode
+  (progn (rspec-install-snippets)
+         (setq rspec-command-options "--format documentation --profile 30"
+               rspec-use-opts-file-when-available nil
+               rspec-use-rvm t
+               rspec-primary-source-dirs '("app"))))
 
-(eval-after-load 'feature-mode
-  '(setq feature-cucumber-command "zeus cucumber {feature}"))
+(eval-when-compile (require 'feature-mode))
+(with-eval-after-load 'feature-mode
+  (setq feature-cucumber-command "zeus cucumber {feature}"))
 
 (defun inf-ruby-console-cap (dir)
   "Run Rails console in DIR."

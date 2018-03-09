@@ -44,7 +44,8 @@
   (cider-auto-test-mode t)
   (eldoc-mode))
 
-(eval-after-load 'cider
+(eval-when-compile (require 'cider))
+(with-eval-after-load 'cider
   (setq cider-show-error-buffer nil
         cider-prompt-for-symbol nil
         cider-cljs-lein-repl
@@ -55,6 +56,6 @@
 (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
 (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
 (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
-;;(eval-after-load 'clojure-mode '(flycheck-clojure-setup))
+;;(with-eval-after-load 'clojure-mode (flycheck-clojure-setup))
 
 (provide 'clgc-lisp)

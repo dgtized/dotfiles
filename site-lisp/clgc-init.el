@@ -129,14 +129,13 @@
   (server-start))
 
 (require 'diminish)
-(eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "projectile" '(diminish 'projectile-mode))
-
-(eval-after-load "company" '(diminish 'company-mode))
-(eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode "ys"))
-(eval-after-load "counsel" '(diminish 'counsel-mode "Co"))
+(with-eval-after-load "abbrev" (diminish 'abbrev-mode))
+(with-eval-after-load "eldoc" (diminish 'eldoc-mode))
+(with-eval-after-load "projectile" (diminish 'projectile-mode))
+(with-eval-after-load "company" (diminish 'company-mode))
+(with-eval-after-load "undo-tree" (diminish 'undo-tree-mode))
+(with-eval-after-load "yasnippet" (diminish 'yas-minor-mode "ys"))
+(with-eval-after-load "counsel" (diminish 'counsel-mode "Co"))
 
 (load custom-file 'noerror)
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
