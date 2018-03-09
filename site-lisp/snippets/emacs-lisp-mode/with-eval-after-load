@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: eval-after-load
+# name: with-eval-after-load
 # key: eal
 # --
-(eval-after-load '${1:mode}
+(with-eval-after-load '${1:mode}
    '($2))
