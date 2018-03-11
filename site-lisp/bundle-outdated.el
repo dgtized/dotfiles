@@ -3,19 +3,21 @@
 
 (defun bundle-outdated-update ()
   (interactive)
-  (let* ((line (thing-at-point 'line t))
-         (package (nth 2 (s-split-up-to "\s+" line 3))))
-    (compilation-start (concat "bundle update " package " | grep -i install"))
-    (bundle-outdated-toggle-strike)))
+  (let ((line (thing-at-point 'line t)))
+    (if (string-match "^  \\* \\([^\s]+\\).*$" line)
+        (let* ((package (match-string 1 line))
+               (cmd (concat "bundle update " package " | grep -i install")))
+          (async-shell-command cmd "*Bundler update*")
+          (bundle-outdated-toggle-strike)))))
 
 (defun bundle-outdated-toggle-strike ()
   (interactive)
-  (let* ((s (+ 2 (point-at-bol)))
-         (e (point-at-eol))
-         (properties (get-text-property (1+ s) 'face)))
+  (let* ((s (+ 2 (line-beginning-position)))
+         (e (line-end-position))
+         (properties (get-text-property (1+ s) 'font-lock-face)))
     (if properties
-        (remove-text-properties s e '(face nil))
-      (add-face-text-property s e '(:strike-through t)))))
+        (remove-text-properties s e '(font-lock-face nil))
+      (put-text-property s e 'font-lock-face '(:strike-through t)))))
 
 ;;;###autoload
 (define-minor-mode bundle-outdated-mode
