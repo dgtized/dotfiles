@@ -1,3 +1,4 @@
 #!/bin/bash
 
+xrdb -load $HOME./.Xresources
 uxterm -e 'tmux attach -t default || tmux -2 new -s default'
