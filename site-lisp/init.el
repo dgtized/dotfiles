@@ -1,7 +1,6 @@
 ;;; .emacs --- initialization
 ;; Please be -*- emacs-lisp -*-
 ;;; Code:
-; (package-initialize)
 
 (if (file-exists-p "~/.site-config")
     (save-excursion
