@@ -24,10 +24,10 @@
   (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
     (add-hook mode-hook 'aggressive-indent-mode)))
 
-(defadvice cider-eval-last-sexp (after cider-flash-last activate)
-  (flash-region (save-excursion (backward-sexp) (point)) (point)))
-(defadvice cider-eval-defun-at-point (after cider-flash-at activate)
-  (apply #'flash-region (cider--region-for-defun-at-point)))
+;; (defadvice cider-eval-last-sexp (after cider-flash-last activate)
+;;   (flash-region (save-excursion (backward-sexp) (point)) (point)))
+;; (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
+;;   (apply #'flash-region (cider--region-for-defun-at-point)))
 
 ;; Clojure Specific
 (defun clgc-clojure-mode-hook ()
