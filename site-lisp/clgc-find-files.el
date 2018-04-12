@@ -55,7 +55,7 @@
 (setq ag-highlight-search t
       ag-group-matches nil
       ag-ignore-list '("*.min.js" "vendor/assets/*"))
-(add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
+;; (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 
 (add-hook 'compilation-mode-hook 'winnow-mode)
 

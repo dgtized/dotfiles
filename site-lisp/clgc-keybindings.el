@@ -115,6 +115,7 @@
 
 (with-eval-after-load 'compile
   (let ((map compilation-mode-map))
+    (define-key map (kbd "v") 'compilation-display-error)
     (define-key map (kbd "n") 'compilation-next-error)
     (define-key map (kbd "p") 'compilation-previous-error)))
 
