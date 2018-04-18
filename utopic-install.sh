@@ -15,7 +15,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      gitk \
      httpie xclip \
      python-pip awscli \
-     gnutls-bin \
+     gnutls-bin shellcheck \
      recordmydesktop mplayer imagemagick gifsicle byzaz \
      mailutils mutt # local, so cron can report errors
 
