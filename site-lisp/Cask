@@ -158,6 +158,7 @@
 (depends-on "web-server")
 (depends-on "camcorder")
 
+(depends-on "pcre2el")
 (depends-on "request")
 
 (depends-on "zenburn-theme")
