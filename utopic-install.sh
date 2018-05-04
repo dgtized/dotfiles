@@ -25,8 +25,8 @@ sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 
-curl --silent --location https://deb.nodesource.com/setup_7.x | sudo bash - && \
-    sudo apt-get install --yes nodejs
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - &&
+    sudo apt-get install --yes nodejs nodejs-doc
 
 # install chruby
 wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
