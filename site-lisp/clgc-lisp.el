@@ -58,4 +58,6 @@
 (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 ;;(with-eval-after-load 'clojure-mode (flycheck-clojure-setup))
 
+(setq inferior-lisp-program "sbcl")
+
 (provide 'clgc-lisp)
