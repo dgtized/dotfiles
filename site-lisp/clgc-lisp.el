@@ -59,5 +59,6 @@
 ;;(with-eval-after-load 'clojure-mode (flycheck-clojure-setup))
 
 (setq inferior-lisp-program "sbcl")
+(require 'sly-autoloads)
 
 (provide 'clgc-lisp)
