@@ -24,6 +24,8 @@
 (depends-on "org-download")
 (depends-on "ox-reveal")
 
+(depends-on "synosaurus")
+
 (depends-on "haskell-mode")
 (depends-on "groovy-mode")
 (depends-on "gnuplot")

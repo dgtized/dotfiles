@@ -10,6 +10,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
+     wordnet \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \ # perf
      default-jdk visualvm golang-go racket sbcl rlwrap \
      gitk \
