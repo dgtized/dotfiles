@@ -53,12 +53,12 @@ sudo service ssh restart
 #tar zxf && mv hub ~/usr/bin
 
 # terraform
-version=0.9.5
-zip=terraform_$version_linux_amd64.zip
+version=0.11.7
+zip=terraform_${version}_linux_amd64.zip
 wget https://releases.hashicorp.com/terraform/$version/$zip &&
     unzip $zip && rm $zip && mv terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
 # visit https://github.com/gruntwork-io/terragrunt/releases
-wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.12.16/terragrunt_linux_amd64 && \
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.10/terragrunt_linux_amd64 && \
     mv terragrunt_linux_amd64 ~/usr/bin/terragrunt && chmod +x ~/usr/bin/terragrunt
 
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
