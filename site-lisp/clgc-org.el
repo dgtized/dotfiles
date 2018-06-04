@@ -79,7 +79,9 @@ channel."
 (require 'ob-sql)
 (require 'ox-md)
 
-(setq org-plantuml-jar-path (expand-file-name "~/usr/plantuml.jar"))
+(let ((path (expand-file-name "~/usr/plantuml.jar")))
+  (setq org-plantuml-jar-path path
+        plantuml-jar-path path))
 
 (setq-default org-download-image-dir "~/org/downloads")
 (require 'org-download)
