@@ -80,7 +80,7 @@
 (depends-on "redis")
 
 ;; Scheme
-;; (depends-on "geiser")
+(depends-on "geiser")
 ;; (depends-on "quack")
 
 ;; Git
