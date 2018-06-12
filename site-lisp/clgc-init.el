@@ -73,6 +73,7 @@
 (put 'scroll-left 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'list-timers 'disabled nil)
 
 ;; remove vc peskiness while editing .emacs file
 (setq vc-follow-symlinks nil)
