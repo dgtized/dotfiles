@@ -3,4 +3,5 @@
 # grep every revision for a keyword
 # Usage: git-grep-history dgtized
 
-git grep "$1" $(git rev-list --all)
+# from https://stackoverflow.com/questions/2928584/how-to-grep-search-committed-code-in-the-git-history
+git rev-list --all | xargs git grep "$1"
