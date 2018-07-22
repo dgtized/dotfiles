@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# grep every revision for a keyword
+# Usage: git-grep-history dgtized
+
+git grep "$1" $(git rev-list --all)
