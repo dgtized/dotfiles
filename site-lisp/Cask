@@ -38,6 +38,7 @@
 (depends-on "flycheck-elm")
 (depends-on "sml-mode")
 (depends-on "ob-sml")
+(depends-on "auctex")
 
 ;; Elisp
 (depends-on "flash-region")
@@ -66,6 +67,10 @@
 (depends-on "rainbow-delimiters")
 (depends-on "color-identifiers-mode")
 (depends-on "smartparens")
+
+;; Scala
+(depends-on "sbt-mode")
+(depends-on "scala-mode")
 
 ;; Erlang/Elixir
 (depends-on "erlang")
