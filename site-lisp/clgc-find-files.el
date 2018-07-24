@@ -21,6 +21,7 @@
 ;; then i would use it, but it wants to do two actions, similarly the ag search
 ;; ditches occur buffers for a ivy-occur buffer which may be useful but is not
 ;; what I want. This overrides the upstream bindings.
+(setq projectile-keymap-prefix (kbd "C-c p"))
 (require 'projectile)
 (setq counsel-projectile-mode-map
       (let ((map (make-sparse-keymap)))
