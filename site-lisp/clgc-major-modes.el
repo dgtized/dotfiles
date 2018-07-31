@@ -129,7 +129,7 @@
  '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
 (add-hook 'dna-mode-hook 'turn-on-font-lock)
 
-(defun auctex nil
+(defun auctex ()
   (interactive)
   (add-to-list 'load-path "/usr/share/emacs/site-lisp/auctex/")
   (load "auctex.el" nil t t)
