@@ -117,3 +117,7 @@ sudo ./linux-install-1.9.0.381.sh
 
 # LaTeX
 # apt install texlive-full
+
+# ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.9.0/ripgrep_0.9.0_amd64.deb
+sudo dpkg -i ripgrep_0.9.0_amd64.deb

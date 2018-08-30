@@ -58,6 +58,10 @@
       ag-ignore-list '("*.min.js" "vendor/assets/*"))
 ;; (add-hook 'ag-mode-hook 'next-error-follow-minor-mode)
 
+(require 'rg)
+(rg-enable-default-bindings (kbd "C-c s"))
+(add-hook 'rg-mode-hook 'wgrep-ag-setup)
+
 (add-hook 'compilation-mode-hook 'winnow-mode)
 
 (require 'helm-config)
