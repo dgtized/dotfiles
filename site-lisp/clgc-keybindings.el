@@ -38,6 +38,7 @@
 (global-set-key (kbd "C-M-j") 'join-line)
 
 ;; Projectile
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-.") 'counsel-projectile)
 (global-set-key (kbd "C-,") 'counsel-projectile-ag)
 

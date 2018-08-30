@@ -21,7 +21,6 @@
 ;; then i would use it, but it wants to do two actions, similarly the ag search
 ;; ditches occur buffers for a ivy-occur buffer which may be useful but is not
 ;; what I want. This overrides the upstream bindings.
-(setq projectile-keymap-prefix (kbd "C-c p"))
 (require 'projectile)
 (setq counsel-projectile-mode-map
       (let ((map (make-sparse-keymap)))
@@ -31,7 +30,6 @@
         (define-key map [remap projectile-switch-to-buffer] 'counsel-projectile-switch-to-buffer)
         map))
 
-(counsel-projectile-mode t)
 
 (setq recentf-max-saved-items 50)
 (recentf-mode t)
@@ -46,6 +44,8 @@
       projectile-use-git-grep t
       projectile-tags-command
       "ctags-exuberant --exclude='*.min.js' --exclude='vendor/assets' -Re -f \"%s\" %s")
+
+(counsel-projectile-mode t)
 
 (defun clgc-ibuffer-projectile ()
   (ibuffer-projectile-set-filter-groups)
