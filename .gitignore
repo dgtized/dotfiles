@@ -1,4 +1,3 @@
-site-lisp/**.elc
 dot/site-config
 site-lisp/psvn.el
 site-lisp/ruby
