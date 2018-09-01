@@ -50,6 +50,7 @@
 (with-eval-after-load 'rspec-mode
   (progn (rspec-install-snippets)
          (setq rspec-command-options "--format documentation --profile 30"
+               rspec-use-bundler-when-possible nil
                rspec-use-opts-file-when-available nil
                rspec-use-rvm t
                rspec-primary-source-dirs '("app"))))
