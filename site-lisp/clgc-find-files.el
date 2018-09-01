@@ -16,20 +16,27 @@
 (require 'ivy-hydra)
 (counsel-mode t)
 
+(require 'projectile)
+
 ;; I don't like rebindings for consel-projectile-switch-project or
 ;; counsel-projectile-ag. If switch project can actually just jump to project
 ;; then i would use it, but it wants to do two actions, similarly the ag search
 ;; ditches occur buffers for a ivy-occur buffer which may be useful but is not
 ;; what I want. This overrides the upstream bindings.
-(require 'projectile)
-(setq counsel-projectile-mode-map
-      (let ((map (make-sparse-keymap)))
-        (define-key map projectile-keymap-prefix 'counsel-projectile-command-map)
-        (define-key map [remap projectile-find-file] 'counsel-projectile-find-file)
-        (define-key map [remap projectile-find-dir] 'counsel-projectile-find-dir)
-        (define-key map [remap projectile-switch-to-buffer] 'counsel-projectile-switch-to-buffer)
-        map))
-
+(setq counsel-projectile-key-bindings
+      '((projectile-find-file        . counsel-projectile-find-file)
+        (projectile-find-file-dwim   . counsel-projectile-find-file-dwim)
+        (projectile-find-dir         . counsel-projectile-find-dir)
+        (projectile-switch-to-buffer . counsel-projectile-switch-to-buffer)
+        ;; (projectile-grep             . counsel-projectile-grep)
+        ;; (projectile-ag               . counsel-projectile-ag)
+        ;; (projectile-ripgrep          . counsel-projectile-rg)
+        ;; (projectile-switch-project   . counsel-projectile-switch-project)
+        (" "                         . counsel-projectile)
+        ;; ("si"                        . counsel-projectile-git-grep)
+        ;; ("Oc"                        . counsel-projectile-org-capture)
+        ;; ("Oa"                        . counsel-projectile-org-agenda)
+        ))
 
 (setq recentf-max-saved-items 50)
 (recentf-mode t)
