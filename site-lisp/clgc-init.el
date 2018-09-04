@@ -120,6 +120,8 @@
                 ("\\.ha?ml$"      . haml-mode)
                 ("\\.md$"         . markdown-mode)
 
+                ("\\.clje$"       . clojure-mode)
+
                 ("\\.js$"         . js2-mode)
                 ("Cask"           . emacs-lisp-mode)
                 ("gitconfig"      . conf-mode)))
