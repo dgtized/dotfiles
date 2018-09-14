@@ -125,3 +125,8 @@ sudo ./linux-install-1.9.0.381.sh
 # ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.9.0/ripgrep_0.9.0_amd64.deb
 sudo dpkg -i ripgrep_0.9.0_amd64.deb
+
+# aws vault
+curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
+chmod +x ~/usr/bin/aws-vault
+# aws-vault add default for key setup
