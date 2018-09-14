@@ -91,6 +91,10 @@ CHROME=https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip
 mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
     unzip $HOME/Downloads/chromedriver.zip && mv -f chromedriver $HOME/usr/bin/chromedriver
 
+# firefox driver
+FIREFOX=https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz
+curl -sLO $FIREFOX && tar zxf ${FIREFOX##*/} && mv -f geckodriver ~/usr/bin && rm -f ${FIREFOX##*/}
+
 # sudo add-apt-repository ppa:supercollider/ppa && sudo apt-get update
 # sudo apt-get install supercollider
 
