@@ -194,5 +194,10 @@ regular expression."
   (interactive)
   (insert (format-time-string "%H:%M:%S %Z %Y-%m-%d" (current-time) "UTC")))
 
+(defun rubocop-auto-gen-config ()
+  "Regenerate .rubocop_todo.yml with settings from .rubocop.yml"
+  (interactive)
+  (let ((cmd "rubocop -c .rubocop.yml --format emacs --auto-gen-config"))
+    (rubocop--dir-command cmd (rubocop-project-root))))
 
 (provide 'clgc-functions)
