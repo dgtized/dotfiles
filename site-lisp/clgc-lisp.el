@@ -46,7 +46,7 @@
 
 (eval-when-compile (require 'cider))
 (with-eval-after-load 'cider
-  (setq cider-show-error-buffer nil
+  (setq cider-show-error-buffer t
         cider-prompt-for-symbol nil
         cider-cljs-lein-repl
         "(do (require 'figwheel-sidecar.repl-api)
