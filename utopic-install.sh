@@ -115,9 +115,9 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl -O https://download.clojure.org/install/linux-install-1.9.0.381.sh
-chmod +x linux-install-1.9.0.381.sh
-sudo ./linux-install-1.9.0.381.sh
+curl -O https://download.clojure.org/install/linux-install-1.9.0.394.sh
+chmod +x linux-install-1.9.0.394.sh
+sudo ./linux-install-1.9.0.394.sh
 
 # LaTeX
 # apt install texlive-full
