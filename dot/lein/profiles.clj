@@ -4,8 +4,8 @@
             [lein-hiera "1.0.0"]
             [lein-kibit "0.1.6"]
             [lein-pprint "1.2.0"]
-            [jonase/eastwood "0.2.9"]
+            [jonase/eastwood "0.3.1"]
             ;;[com.billpiel/sayid "0.0.10"]
-            [lein-cljfmt "0.6.0"]]
+            [lein-cljfmt "0.6.1"]]
   :dependencies [[slamhound "1.5.5"]]
   :aliases {"slamhound" ["run" "-m" "slam.hound"]}}}
