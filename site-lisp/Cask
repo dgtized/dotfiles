@@ -1,7 +1,6 @@
 (source gnu)
 (source melpa)
 (source org)
-(source "billpiel" "http://billpiel.com/emacs-packages/")
 
 (depends-on "haml-mode")
 (depends-on "yaml-mode")
@@ -61,7 +60,7 @@
 (depends-on "clojure-cheatsheet")
 (depends-on "clj-refactor")
 (depends-on "flycheck-clojure")
-;; (depends-on "sayid")
+(depends-on "sayid")
 
 (depends-on "aggressive-indent")
 (depends-on "rainbow-delimiters")

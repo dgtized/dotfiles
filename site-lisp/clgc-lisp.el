@@ -58,6 +58,9 @@
 (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 ;;(with-eval-after-load 'clojure-mode (flycheck-clojure-setup))
 
+(eval-after-load 'clojure-mode
+  '(sayid-setup-package))
+
 (setq inferior-lisp-program "sbcl")
 (require 'sly-autoloads)
 
