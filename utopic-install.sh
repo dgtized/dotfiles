@@ -18,6 +18,7 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      python-pip awscli \
      gnutls-bin shellcheck \
      recordmydesktop mplayer imagemagick gifsicle byzaz \
+     gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
 
 # uncomment localhost for postgres
