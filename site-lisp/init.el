@@ -2,6 +2,8 @@
 ;; Please be -*- emacs-lisp -*-
 ;;; Code:
 
+(package-initialize)
+
 (if (file-exists-p "~/.site-config")
     (save-excursion
       (let ((site-config-buf (find-file-noselect "~/.site-config")))
