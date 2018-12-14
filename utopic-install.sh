@@ -21,6 +21,8 @@ sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
      gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
 
+sudo apt install perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
+
 # uncomment localhost for postgres
 
 sudo apt-get install libxss1 libappindicator1 libindicator7
