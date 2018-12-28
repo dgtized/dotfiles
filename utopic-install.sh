@@ -2,22 +2,22 @@ sudo apt-get install aptitude git openssh-server tmux build-essential
 
 sudo apt-add-repository ppa:ubuntu-elisp/ppa
 sudo aptitude update
-sudo aptitude install emacs-snapshot emacs-snapshot-el vim \
+sudo apt install emacs-snapshot emacs-snapshot-el vim \
      fonts-inconsolata fonts-dejavu \
-     python-wnck silversearcher-ag ack-grep exuberant-ctags \
-     mysql-client-5.6 mysql-server-5.6 libmysqlclient-dev \
-     postgresql-9.4 libpq-dev redis-server redis-tools \
-     git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties \
+     silversearcher-ag ack exuberant-ctags \
+     mysql-client-5.7 mysql-server-5.7 libmysqlclient-dev \
+     postgresql-10 libpq-dev redis-server redis-tools \
+     git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
      wordnet \
-     lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \ # perf
+     lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \
      default-jdk visualvm golang-go racket sbcl rlwrap \
      gitk \
      httpie xclip \
      python-pip awscli \
      gnutls-bin shellcheck \
-     recordmydesktop mplayer imagemagick gifsicle byzaz \
+     recordmydesktop mplayer imagemagick gifsicle \
      gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
 
