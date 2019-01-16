@@ -56,17 +56,25 @@ sudo service ssh restart
 #tar zxf && mv hub ~/usr/bin
 
 # terraform
-version=0.11.7
+version=0.11.11
 zip=terraform_${version}_linux_amd64.zip
 wget https://releases.hashicorp.com/terraform/$version/$zip &&
     unzip $zip && rm $zip && mv terraform ~/usr/bin && chmod +x ~/usr/bin/terraform
 # visit https://github.com/gruntwork-io/terragrunt/releases
-wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.10/terragrunt_linux_amd64 && \
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.17.4/terragrunt_linux_amd64 && \
     mv terragrunt_linux_amd64 ~/usr/bin/terragrunt && chmod +x ~/usr/bin/terragrunt
+
+# chamber
+# curl -s https://packagecloud.io/install/repositories/segment/chamber/script.deb.sh | sudo bash
+# sudo apt-get install -y chamber
+version=v2.3.2
+curl -LOs https://github.com/segmentio/chamber/releases/download/${version}/chamber-${version}-linux-amd64 &&
+    mv chamber-${version}-linux-amd64 ~/usr/bin/chamber && chmod +x ~/usr/bin/chamber
+
 
 # wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 # sudo aptitude update
-# sudo aptitude install esl-erlang elixir
+# sudo aptitude install esl-erlang elixir erlang-dev erlang-parsetools
 # sudo aptitude install inotify-tools
 
 # for alchemist reference
