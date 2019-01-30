@@ -60,3 +60,5 @@ alias recop="bundle exec rubocop -c .rubocop.yml --auto-gen-config"
 alias prettyjson='python -m json.tool'
 alias slackit="curl -X POST -H 'Content-type: application/json' \$SLACK_WEBHOOK --data @-"
 alias clean_m2_snapshots='find ~/.m2/ -type d -iname "*SNAPSHOT" -exec rm -rfv {} +'
+
+alias actsudo="aws-vault exec sudo -- chamber exec terraforming -- "
