@@ -200,4 +200,21 @@ regular expression."
   (let ((cmd "rubocop -c .rubocop.yml --format emacs --auto-gen-config"))
     (rubocop--dir-command cmd (rubocop-project-root))))
 
+;; (require 'eww)
+
+;; (defun eww-render-current-buffer ()
+;;   "Render HTML in the current buffer with EWW"
+;;   (interactive)
+;;   (beginning-of-buffer)
+;;   (eww-display-html 'utf8 (buffer-name)))
+
+;; (defun html2text ()
+;;   "Replacement for standard html2text using shr."
+;;   (interactive)
+;;   (let ((dom (libxml-parse-html-region (point-min) (point-max))))
+;;     (switch-to-buffer "*html*")
+;;     (erase-buffer)
+;;     (shr-insert-document dom)
+;;     (goto-char (point-min))))
+
 (provide 'clgc-functions)
