@@ -17,7 +17,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      httpie xclip \
      python-pip awscli \
      gnutls-bin shellcheck \
-     recordmydesktop mplayer imagemagick gifsicle \
+     recordmydesktop mplayer imagemagick gifsicle vlc \
      gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
 
