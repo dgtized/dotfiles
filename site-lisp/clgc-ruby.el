@@ -53,7 +53,16 @@
                rspec-use-bundler-when-possible nil
                rspec-use-opts-file-when-available nil
                rspec-use-rvm t
-               rspec-primary-source-dirs '("app"))))
+               rspec-primary-source-dirs '("app")
+               ;; fix compilation-error-regexp-alist for
+               ;; https://github.com/mattheworiordan/capybara-screenshot/commit/c2c7b067ba88bef94fd4f24a146a365a10e28c12
+               rspec-compilation-error-regexp-alist-alist
+               '((rspec-capybara-html "HTML screenshot: \\([0-9A-Za-z@_./\:-]+\\.html\\)" 1 nil nil 0 1)
+                 (rspec-capybara-screenshot "Image screenshot: \\([0-9A-Za-z@_./\:-]+\\.png\\)" 1 nil nil 0 1)
+                 (rspec "^ +# \\([0-9A-Za-z@_./:-]+\\.rb\\):\\([0-9]+\\):in" 1 2 nil 2 1)
+                 (rspec-pendings "^ +# \\([0-9A-Za-z@_./:-]+\\.rb\\):\\([0-9]+\\)" 1 2 nil 1 1)
+                 (rspec-summary "^rspec \\([0-9A-Za-z@_./:-]+\\.rb\\):\\([0-9]+\\)" 1 2 nil 2 1))
+               )))
 
 (eval-when-compile (require 'feature-mode))
 (with-eval-after-load 'feature-mode
