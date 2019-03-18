@@ -3,6 +3,7 @@
         :main-opts ["-m" "clj-new.create"]}
   :perf
   {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "0.3.0"}
+                com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.2.1"}
                 criterium {:mvn/version "0.4.4"}
                 com.taoensso/tufte {:mvn/version "2.0.1"}
                 nodisassemble {:mvn/version "0.1.3"}}
