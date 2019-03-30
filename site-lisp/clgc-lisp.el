@@ -48,6 +48,9 @@
 (with-eval-after-load 'cider
   (setq cider-show-error-buffer t
         cider-prompt-for-symbol nil
+        cider-repl-pop-to-buffer-on-connect 'display-only
+        cider-repl-history-file (expand-file-name "clojure_repl_history" user-emacs-directory)
+        cider-repl-history-size 1000
         cider-cljs-lein-repl
         "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
