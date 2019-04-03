@@ -16,7 +16,6 @@
 (add-hook 'ruby-mode-hook 'projectile-rails-on)
 (add-hook 'ruby-mode-hook 'aggressive-indent-mode)
 (add-hook 'ruby-mode-hook 'yard-mode)
-(add-hook 'ruby-mode-hook 'eldoc-mode)
 (add-hook 'dired-mode-hook 'rspec-dired-mode)
 
 ;; inf-ruby

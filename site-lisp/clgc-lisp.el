@@ -1,8 +1,5 @@
 (require 'clj-refactor)
 
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook 'auto-recompile-el-buffer)
 
 (defun auto-recompile-el-buffer ()
@@ -37,12 +34,10 @@
   (cljr-add-keybindings-with-prefix "C-c r"))
 
 (defun clgc-cider-repl-mode-hook ()
-  (subword-mode +1)
-  (eldoc-mode))
+  (subword-mode +1))
 
 (defun clgc-cider-mode-hook ()
-  (cider-auto-test-mode t)
-  (eldoc-mode))
+  (cider-auto-test-mode t))
 
 (eval-when-compile (require 'cider))
 (with-eval-after-load 'cider
