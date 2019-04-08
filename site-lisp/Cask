@@ -17,7 +17,8 @@
 (depends-on "terraform-mode")
 (depends-on "dockerfile-mode")
 (depends-on "web-mode")
-(depends-on "command-log-mode")
+(depends-on "command-log-mode") ;; saves timestamp in text-properties!
+
 (depends-on "epresent")
 (depends-on "free-keys")
 (depends-on "list-environment")
@@ -28,6 +29,8 @@
 
 (depends-on "haskell-mode")
 (depends-on "groovy-mode")
+(depends-on "processing-mode")
+(depends-on "rust-mode")
 (depends-on "gnuplot")
 (depends-on "gnuplot-mode")
 (depends-on "js2-mode")
@@ -38,6 +41,11 @@
 (depends-on "sml-mode")
 (depends-on "ob-sml")
 (depends-on "auctex")
+
+;; Scala
+(depends-on "sbt-mode")
+(depends-on "scala-mode")
+
 
 ;; Elisp
 (depends-on "flash-region")
