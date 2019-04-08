@@ -12,9 +12,16 @@
 
 ;; Enhance Lisp Modes
 (dolist (mode '(scheme emacs-lisp inferior-emacs-lisp lisp clojure
-                       inferior-lisp slime slime-repl cider-repl))
+                       inferior-lisp cider-repl))
   (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
     (add-hook mode-hook 'smartparens-strict-mode)))
+
+(with-eval-after-load 'slime
+  (add-hook slime 'smartparens-strict-mode)
+  (add-hook slime-repl 'smartparens-strict-mode))
+
+(with-eval-after-load 'sly
+  (add-hook sly 'smartparens-strict-mode))
 
 ;; Aggressive indent in buffer, but not repl
 (dolist (mode '(scheme emacs-lisp lisp clojure))
@@ -60,6 +67,5 @@
 ;;   '(sayid-setup-package))
 
 (setq inferior-lisp-program "sbcl")
-(require 'sly-autoloads)
 
 (provide 'clgc-lisp)
