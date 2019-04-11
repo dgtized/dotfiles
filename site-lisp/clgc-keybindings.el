@@ -157,7 +157,8 @@
 
 (setq alchemist-key-command-prefix (kbd "C-c ."))
 (with-eval-after-load 'alchemist-mode
-  (define-key alchemist-mode-map (kbd "C-c C-c") 'alchemist-compile-this-buffer))
+  (define-key alchemist-mode-map (kbd "C-c C-c") 'alchemist-compile-this-buffer)
+  (define-key alchemist-mode-map (kbd "C-x C-e") 'alchemist-iex-send-last-sexp))
 
 (with-eval-after-load 'clojure-mode
   (progn
