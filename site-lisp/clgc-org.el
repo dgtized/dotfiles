@@ -26,6 +26,11 @@
                                (list "incoming.org" "OpenSource.org"
                                      "NoRedInk.org")))
 
+;; something is adding in notes in old template format
+(setq org-structure-template-alist (assoc-delete-all "n" org-structure-template-alist))
+;; re-enable <s, <v, <e text macros
+(require 'org-tempo)
+
 (setq org-refile-targets
       (quote ((nil :maxlevel . 2)
               (org-agenda-files :maxlevel . 2)))
