@@ -164,6 +164,8 @@
 (depends-on "occur-context-resize")
 (depends-on "string-inflection")
 
+(depends-on "helpful")
+
 (depends-on "yasnippet")
 (depends-on "clojure-snippets")
 

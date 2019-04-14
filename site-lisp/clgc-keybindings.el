@@ -155,6 +155,11 @@
 (define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
 
+(define-key help-map (kbd "f") 'helpful-callable) ;; counsel-describe-function
+(define-key help-map (kbd "v") 'helpful-variable) ;; counsel-describe-variable
+(define-key help-map (kbd "k") 'helpful-key) ;; describe-key
+(define-key help-map (kbd "y") 'helpful-at-point)
+
 (setq alchemist-key-command-prefix (kbd "C-c ."))
 (with-eval-after-load 'alchemist-mode
   (define-key alchemist-mode-map (kbd "C-c C-c") 'alchemist-compile-this-buffer)
