@@ -16,6 +16,7 @@
 (depends-on "plantuml-mode")
 (depends-on "terraform-mode")
 (depends-on "dockerfile-mode")
+(depends-on "docker-tramp")
 (depends-on "web-mode")
 (depends-on "command-log-mode") ;; saves timestamp in text-properties!
 
