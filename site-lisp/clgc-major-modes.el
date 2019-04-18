@@ -66,7 +66,7 @@
     (require 'smartparens)
     (sp-with-modes '(elixir-mode)
       (sp-local-pair "->" "end"
-                     :when '(("RET"))
+                     :when '(("SPC" "RET" "<evil-ret>"))
                      :post-handlers '(:add my-elixir-do-end-close-action)
                      :actions '(insert)))))
 
