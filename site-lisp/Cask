@@ -87,6 +87,8 @@
 (depends-on "alchemist")
 (depends-on "flycheck-dialyzer")
 (depends-on "flycheck-elixir")
+(depends-on "flycheck-credo")
+(depends-on "flycheck-dialyxir")
 (depends-on "ob-elixir")
 
 ;; Redis

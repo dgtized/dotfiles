@@ -70,6 +70,15 @@
                      :post-handlers '(:add my-elixir-do-end-close-action)
                      :actions '(insert)))))
 
+;; auto-format on save
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
+(eval-after-load 'flycheck
+  '(progn (flycheck-credo-setup)
+          (flycheck-dialyxir-setup)))
+
+
 ;; Gnuplot
 (with-eval-after-load 'gnuplot-mode
   (add-hook 'gnuplot-mode-hook
