@@ -78,7 +78,6 @@
   '(progn (flycheck-credo-setup)
           (flycheck-dialyxir-setup)))
 
-
 ;; Gnuplot
 (with-eval-after-load 'gnuplot-mode
   (add-hook 'gnuplot-mode-hook
