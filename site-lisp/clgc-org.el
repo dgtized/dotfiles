@@ -26,8 +26,6 @@
                                (list "incoming.org" "OpenSource.org"
                                      "NoRedInk.org")))
 
-;; something is adding in notes in old template format
-(setq org-structure-template-alist (assoc-delete-all "n" org-structure-template-alist))
 ;; re-enable <s, <v, <e text macros
 (require 'org-tempo)
 
@@ -93,5 +91,7 @@ channel."
 
 (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
 (require 'ox-reveal)
+;; ox-reveal is adding notes to org-structure-template-alist and it breaks things
+(setq org-structure-template-alist (assoc-delete-all "n" org-structure-template-alist))
 
 (provide 'clgc-org)
