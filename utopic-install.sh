@@ -134,8 +134,8 @@ sudo ./linux-install-1.9.0.394.sh
 # apt install texlive-full
 
 # ripgrep
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.9.0/ripgrep_0.9.0_amd64.deb
-sudo dpkg -i ripgrep_0.9.0_amd64.deb
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
+sudo dpkg -i ripgrep_11.0.1_amd64.deb
 
 # aws vault
 curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
