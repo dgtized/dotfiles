@@ -1,6 +1,15 @@
 (require 'magit)
 
-(setq magit-auto-revert-immediately t
+(setq git-commit-setup-hook '(git-commit-save-message
+                              git-commit-setup-changelog-support
+                              git-commit-turn-on-auto-fill
+                              git-commit-turn-on-flyspell
+                              git-commit-propertize-diff
+                              with-editor-usage-message)
+      git-commit-summary-max-length 60)
+
+(setq global-magit-file-mode t
+      magit-auto-revert-immediately t
       magit-auto-revert-mode t
       magit-completing-read-function 'ivy-completing-read
       magit-push-always-verify nil
