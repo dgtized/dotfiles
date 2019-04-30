@@ -55,6 +55,8 @@
               standard-indent 2
               sgml-basic-offset 2
               nxml-child-indent 2
+              smie-indent-basic 2
+              web-mode-markup-indent-offset 2
               fill-column 80)
 
 (fset 'yes-or-no-p 'y-or-n-p)
