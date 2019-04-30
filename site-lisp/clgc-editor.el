@@ -60,6 +60,11 @@
 
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotc-elisp))
+(setq yas-prompt-functions '(yas-ido-prompt
+                             yas-x-prompt
+                             yas-dropdown-prompt
+                             yas-completing-prompt
+                             yas-no-prompt))
 (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
