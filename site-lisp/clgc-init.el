@@ -41,7 +41,8 @@
       apropos-do-all t
       confirm-nonexistent-file-or-buffer nil
       sentence-end-double-space nil
-      split-height-threshold 140)
+      split-height-threshold 140
+      idle-update-delay 0.25)
 
 ;; Clipboard and Selection
 (setq x-select-enable-clipboard t
