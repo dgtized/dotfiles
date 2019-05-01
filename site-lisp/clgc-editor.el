@@ -116,4 +116,9 @@
 
 (load-secrets)
 
+;; helpful will display C source if find-function-C-source-directory is set.
+(let ((emacs-src-dir (expand-file-name "~/code/elisp/emacs/src")))
+  (when (file-exists-p emacs-src-dir)
+    (setq find-function-C-source-directory emacs-src-dir)))
+
 (provide 'clgc-editor)
