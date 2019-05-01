@@ -19,7 +19,8 @@
 
 ;; enable C-x C-j
 (require 'dired-x)
-(setq dired-listing-switches "-alh")
+(setq dired-listing-switches "-alh"
+      wdired-allow-to-change-permissions t)
 
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
