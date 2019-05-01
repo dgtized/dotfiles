@@ -15,9 +15,11 @@
 (require 'generic)
 (require 'generic-x)
 (require 'page-ext)
+(require 'command-log-mode)
+
 ;; enable C-x C-j
 (require 'dired-x)
-(require 'command-log-mode)
+(setq dired-listing-switches "-alh")
 
 ;; Enable font lock (colours) for all modes that support it:
 (require 'font-lock)
