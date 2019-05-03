@@ -9,6 +9,7 @@
       git-commit-summary-max-length 60)
 
 (setq global-magit-file-mode t
+      magit-refresh-verbose t
       magit-auto-revert-immediately t
       magit-auto-revert-mode t
       magit-completing-read-function 'ivy-completing-read
