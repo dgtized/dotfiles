@@ -97,6 +97,7 @@
 
 ;; Scheme
 (depends-on "geiser")
+(depends-on "racket-mode")
 ;; (depends-on "quack")
 
 ;; Git
