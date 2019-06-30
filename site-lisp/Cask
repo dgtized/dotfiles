@@ -145,6 +145,7 @@
 (depends-on "company-inf-ruby")
 (depends-on "yari")
 (depends-on "rubocop")
+(depends-on "cov")
 (depends-on "coverage")
 (depends-on "yard-mode")
 
@@ -190,7 +191,14 @@
 (depends-on "request")
 
 (depends-on "zenburn-theme")
+(depends-on "anti-zenburn-theme")
 (depends-on "hc-zenburn-theme")
 (depends-on "solarized-theme")
+(depends-on "espresso-theme")
+(depends-on "flatui-theme")
+(depends-on "plan9-theme")
 (depends-on "material-theme") ; google?
 (depends-on "leuven-theme") ; high contrast
+
+;; Rust
+(depends-on "tuareg")
