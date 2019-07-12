@@ -141,3 +141,6 @@ sudo dpkg -i ripgrep_11.0.1_amd64.deb
 curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
 chmod +x ~/usr/bin/aws-vault
 # aws-vault add default for key setup
+
+sudo systemctl disable cups
+sudo systemctl disable avahi-daemon
