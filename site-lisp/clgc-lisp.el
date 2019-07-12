@@ -68,4 +68,25 @@
 
 (setq inferior-lisp-program "sbcl")
 
+(defun clj-import-profiling ()
+  (interactive)
+  (cider-interactive-eval
+   "(require '[clj-async-profiler.core :as prof]
+           '[clj-java-decompiler.core :refer [decompile disassemble]]
+           '[criterium.core :as crit])"))
+
+(defun clj-decompile ()
+  "Use clj-java-decompiler to decompile sexp-at-point"
+  (interactive)
+  (clj-import-profiling)
+  (let ((sexp (cider-sexp-at-point)))
+    (cider-interactive-eval (format "(decompile %s)" sexp))))
+
+(defun clj-disassemble ()
+  "Use clj-java-decompiler to disassemble sexp-at-point"
+  (interactive)
+  (clj-import-profiling)
+  (let ((sexp (cider-sexp-at-point)))
+    (cider-interactive-eval (format "(disassemble %s)" sexp))))
+
 (provide 'clgc-lisp)
