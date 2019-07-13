@@ -102,13 +102,13 @@ This is used by pretty-printing commands."
         (buf (cider-popup-buffer (format "*%s result*" operation)
                                  nil mode 'ancillary)))
     (cider-interactive-eval
-     (format "(%s %s)" operation sexp)
+     (format "(do (require '[clj-java-decompiler.core :refer [decompile disassemble]]) (%s %s) :ok)"
+             operation sexp)
      (clj-decompile-popup-eval-handler buf complete-handler))))
 
 (defun clj-decompile ()
   "Use clj-java-decompiler to decompile sexp-at-point"
   (interactive)
-  (clj-import-profiling)
   (clj-decompile-render
    "decompile"
    'java-mode
@@ -119,7 +119,6 @@ This is used by pretty-printing commands."
 (defun clj-disassemble ()
   "Use clj-java-decompiler to disassemble sexp-at-point"
   (interactive)
-  (clj-import-profiling)
   (clj-decompile-render
    "disassemble"
    'javap-mode
