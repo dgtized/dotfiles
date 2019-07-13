@@ -133,14 +133,10 @@ This is used by pretty-printing commands."
         (buf (cider-popup-buffer "*cider-quick-benchmark*"
                                  nil 'text-mode 'ancillary)))
     (cider-interactive-eval
-     (format "(require 'criterium.core)
-            (criterium.core/quick-bench %s)"
+     (format "(do (require 'criterium.core) (criterium.core/quick-bench %s) :ok)"
              sexp)
      (clj-decompile-popup-eval-handler
       buf
-      (lambda ()
-        (beginning-of-buffer)
-        (while (re-search-forward "nil" nil t)
-          (replace-match "" nil)))))))
+      (lambda () nil)))))
 
 (provide 'clgc-lisp)
