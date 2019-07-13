@@ -75,41 +75,53 @@
            '[clj-java-decompiler.core :refer [decompile disassemble]]
            '[criterium.core :as crit])"))
 
-(defun clj-decompile-popup-eval-handler (&optional buffer)
+(defun clj-decompile-popup-eval-handler (buffer complete-handler)
   "Make a handler for printing evaluation results in popup BUFFER.
 This is used by pretty-printing commands."
   (nrepl-make-response-handler
-   (or buffer (current-buffer))
+   buffer
    (lambda (buffer value)
      (cider-emit-into-popup-buffer buffer value nil t))
    (lambda (buffer value)
      (cider-emit-into-popup-buffer buffer value nil t))
    (lambda (buffer value)
      (cider-emit-into-popup-buffer buffer value nil t))
-   nil
+   (lexical-let ((complete-handler complete-handler))
+     (lambda (buffer)
+       (with-current-buffer buffer
+         (setq buffer-read-only nil)
+         (funcall complete-handler)
+         (setq buffer-read-only t))))
    nil
    nil
    (lambda (buffer warning)
      (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t))))
 
-(defun clj-decompile-render (operation)
+(defun clj-decompile-render (operation complete-handler)
   (let ((sexp (cider-sexp-at-point))
         (buf (cider-popup-buffer (format "*%s result*" operation)
                                  nil 'java-mode 'ancillary)))
     (cider-interactive-eval
      (format "(%s %s)" operation sexp)
-     (clj-decompile-popup-eval-handler buf))))
+     (clj-decompile-popup-eval-handler buf complete-handler))))
 
 (defun clj-decompile ()
   "Use clj-java-decompiler to decompile sexp-at-point"
   (interactive)
   (clj-import-profiling)
-  (clj-decompile-render "decompile"))
+  (clj-decompile-render
+   "decompile"
+   (lambda ()
+     (indent-region (point-min) (point-max))
+     (whitespace-cleanup))))
 
 (defun clj-disassemble ()
   "Use clj-java-decompiler to disassemble sexp-at-point"
   (interactive)
   (clj-import-profiling)
-  (clj-decompile-render "disassemble"))
+  (clj-decompile-render
+   "disassemble"
+   (lambda ()
+     (whitespace-cleanup))))
 
 (provide 'clgc-lisp)
