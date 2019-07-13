@@ -75,18 +75,41 @@
            '[clj-java-decompiler.core :refer [decompile disassemble]]
            '[criterium.core :as crit])"))
 
+(defun clj-decompile-popup-eval-handler (&optional buffer)
+  "Make a handler for printing evaluation results in popup BUFFER.
+This is used by pretty-printing commands."
+  (nrepl-make-response-handler
+   (or buffer (current-buffer))
+   (lambda (buffer value)
+     (cider-emit-into-popup-buffer buffer value nil t))
+   (lambda (buffer value)
+     (cider-emit-into-popup-buffer buffer value nil t))
+   (lambda (buffer value)
+     (cider-emit-into-popup-buffer buffer value nil t))
+   nil
+   nil
+   nil
+   (lambda (buffer warning)
+     (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t))))
+
+(defun clj-decompile-render (operation)
+  (let ((sexp (cider-sexp-at-point))
+        (buf (cider-popup-buffer (format "*%s result*" operation)
+                                 nil 'java-mode 'ancillary)))
+    (cider-interactive-eval
+     (format "(%s %s)" operation sexp)
+     (clj-decompile-popup-eval-handler buf))))
+
 (defun clj-decompile ()
   "Use clj-java-decompiler to decompile sexp-at-point"
   (interactive)
   (clj-import-profiling)
-  (let ((sexp (cider-sexp-at-point)))
-    (cider-interactive-eval (format "(decompile %s)" sexp))))
+  (clj-decompile-render "decompile"))
 
 (defun clj-disassemble ()
   "Use clj-java-decompiler to disassemble sexp-at-point"
   (interactive)
   (clj-import-profiling)
-  (let ((sexp (cider-sexp-at-point)))
-    (cider-interactive-eval (format "(disassemble %s)" sexp))))
+  (clj-decompile-render "disassemble"))
 
 (provide 'clgc-lisp)
