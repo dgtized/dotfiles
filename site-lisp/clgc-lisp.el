@@ -126,4 +126,21 @@ This is used by pretty-printing commands."
    (lambda ()
      (whitespace-cleanup))))
 
+;; adapted from http://adereth.github.io/blog/2014/05/29/custom-clojure-evaluation-keybindings-in-emacs/
+(defun clj-quick-benchmark ()
+  (interactive)
+  (let ((sexp (cider-sexp-at-point))
+        (buf (cider-popup-buffer "*cider-quick-benchmark*"
+                                 nil 'text-mode 'ancillary)))
+    (cider-interactive-eval
+     (format "(require 'criterium.core)
+            (criterium.core/quick-bench %s)"
+             sexp)
+     (clj-decompile-popup-eval-handler
+      buf
+      (lambda ()
+        (beginning-of-buffer)
+        (while (re-search-forward "nil" nil t)
+          (replace-match "" nil)))))))
+
 (provide 'clgc-lisp)
