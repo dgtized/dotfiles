@@ -97,10 +97,10 @@ This is used by pretty-printing commands."
    (lambda (buffer warning)
      (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t))))
 
-(defun clj-decompile-render (operation complete-handler)
+(defun clj-decompile-render (operation mode complete-handler)
   (let ((sexp (cider-sexp-at-point))
         (buf (cider-popup-buffer (format "*%s result*" operation)
-                                 nil 'java-mode 'ancillary)))
+                                 nil mode 'ancillary)))
     (cider-interactive-eval
      (format "(%s %s)" operation sexp)
      (clj-decompile-popup-eval-handler buf complete-handler))))
@@ -111,6 +111,7 @@ This is used by pretty-printing commands."
   (clj-import-profiling)
   (clj-decompile-render
    "decompile"
+   'java-mode
    (lambda ()
      (indent-region (point-min) (point-max))
      (whitespace-cleanup))))
@@ -121,6 +122,7 @@ This is used by pretty-printing commands."
   (clj-import-profiling)
   (clj-decompile-render
    "disassemble"
+   'javap-mode
    (lambda ()
      (whitespace-cleanup))))
 
