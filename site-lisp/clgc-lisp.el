@@ -138,4 +138,18 @@ This is used by pretty-printing commands."
       buf
       (lambda () nil)))))
 
+;; requires spec-provider {:mvn/version "0.4.14"}
+(defun clj-infer-specs ()
+  (interactive)
+  (let ((sexp (cider-sexp-at-point))
+        (buf (cider-popup-buffer "*cider-infer-specs*"
+                                 nil 'clojure-mode 'ancillary)))
+    (cider-interactive-eval
+     (format (concat "(do (require '[spec-provider.provider :as ispec]) "
+                     "(ispec/pprint-specs (ispec/infer-specs %s :emacs/cider-value) 'emacs 's))")
+             sexp)
+     (clj-decompile-popup-eval-handler
+      buf
+      (lambda () nil)))))
+
 (provide 'clgc-lisp)
