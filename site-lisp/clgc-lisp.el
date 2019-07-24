@@ -75,9 +75,10 @@
            '[clj-java-decompiler.core :refer [decompile disassemble]]
            '[criterium.core :as crit])"))
 
-(defun clj-decompile-popup-eval-handler (buffer complete-handler)
-  "Make a handler for printing evaluation results in popup BUFFER.
-This is used by pretty-printing commands."
+;; TODO: add helper for popup view image from clojure?
+(defun clj-combined-popup-eval-handler (buffer complete-handler)
+  "Make a handler for combining evaluation, stdout, and stderr results in popup BUFFER.
+This is used to generate mode specific popups."
   (nrepl-make-response-handler
    buffer
    (lambda (buffer value)
@@ -104,7 +105,7 @@ This is used by pretty-printing commands."
     (cider-interactive-eval
      (format "(do (require '[clj-java-decompiler.core :refer [decompile disassemble]]) (%s %s) :ok)"
              operation sexp)
-     (clj-decompile-popup-eval-handler buf complete-handler))))
+     (clj-combined-popup-eval-handler buf complete-handler))))
 
 (defun clj-decompile ()
   "Use clj-java-decompiler to decompile sexp-at-point"
@@ -134,7 +135,7 @@ This is used by pretty-printing commands."
     (cider-interactive-eval
      (format "(do (require 'criterium.core) (criterium.core/quick-bench %s) :ok)"
              sexp)
-     (clj-decompile-popup-eval-handler
+     (clj-combined-popup-eval-handler
       buf
       (lambda () nil)))))
 
@@ -148,7 +149,7 @@ This is used by pretty-printing commands."
      (format (concat "(do (require '[spec-provider.provider :as ispec]) "
                      "(ispec/pprint-specs (ispec/infer-specs %s :emacs/cider-value) 'emacs 's))")
              sexp)
-     (clj-decompile-popup-eval-handler
+     (clj-combined-popup-eval-handler
       buf
       (lambda () nil)))))
 
