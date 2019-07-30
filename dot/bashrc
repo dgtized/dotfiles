@@ -72,6 +72,7 @@ stty -ixon # disable flow control so C-s search works
 pathmunge ${HOME}/usr/bin
 pathmunge /usr/local/heroku/bin
 pathmunge ${DOTC_DIR}/cask/bin
+pathmunge ${HOME}/.cargo/bin # Rust cargo
 pathmunge ${HOME}/gocode/bin
 pathmunge ${HOME}/.local/bin # python pip packages
 
