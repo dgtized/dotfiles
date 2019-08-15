@@ -212,6 +212,17 @@ regular expression."
   (interactive)
   (jetpack-compile (buffer-file-name)))
 
+(defun jetpack ()
+  (interactive)
+  (let ((default-directory (locate-dominating-file (buffer-file-name) "jetpack.json"))
+        (entrypoints (directory-files-recursively "app/assets/modules/" ".*\\.js$")))
+    (ivy-read "Jetpack: " entrypoints
+              :require-match t
+              :history 'jetpack-history
+              :sort t
+              :action 'jetpack-compile
+              :caller 'jetpack)))
+
 ;; (require 'eww)
 
 ;; (defun eww-render-current-buffer ()
