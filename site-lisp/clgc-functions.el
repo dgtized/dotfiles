@@ -217,8 +217,8 @@ regular expression."
 
 (defun jetpack ()
   (interactive)
-  (let ((default-directory (locate-dominating-file (buffer-file-name) "jetpack.json"))
-        (entrypoints (directory-files-recursively "app/assets/modules/" ".*\\.js$")))
+  (let* ((default-directory (locate-dominating-file (buffer-file-name) "jetpack.json"))
+         (entrypoints (directory-files-recursively "app/assets/modules/" ".*\\.js$")))
     (ivy-read "Jetpack: " entrypoints
               :require-match t
               :history 'jetpack-history
