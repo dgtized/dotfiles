@@ -200,6 +200,13 @@ regular expression."
   (let ((cmd "rubocop -c .rubocop.yml --format emacs --auto-gen-config"))
     (rubocop--dir-command cmd (rubocop-project-root))))
 
+(defun compile-jetpack (file)
+  (interactive "fJetpack: ")
+  (let ((root-dir (locate-dominating-file file "jetpack.json")))
+    (cd root-dir)
+    (shell-command (concat "/usr/bin/npx jetpack " (file-relative-name file root-dir))
+                   (get-buffer-create "*compile-jetpack*"))))
+
 ;; (require 'eww)
 
 ;; (defun eww-render-current-buffer ()
