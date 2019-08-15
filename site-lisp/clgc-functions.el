@@ -212,6 +212,9 @@ regular expression."
   (interactive)
   (jetpack-compile (buffer-file-name)))
 
+(defvar jetpack-history nil
+  "History of recent jetpack invocations.")
+
 (defun jetpack ()
   (interactive)
   (let ((default-directory (locate-dominating-file (buffer-file-name) "jetpack.json"))
