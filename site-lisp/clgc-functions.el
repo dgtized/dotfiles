@@ -200,12 +200,13 @@ regular expression."
   (let ((cmd "rubocop -c .rubocop.yml --format emacs --auto-gen-config"))
     (rubocop--dir-command cmd (rubocop-project-root))))
 
-(defun compile-jetpack (file)
+(defun jetpack-compile (file)
   (interactive "fJetpack: ")
-  (let ((root-dir (locate-dominating-file file "jetpack.json")))
-    (cd root-dir)
-    (shell-command (concat "/usr/bin/npx jetpack " (file-relative-name file root-dir))
-                   (get-buffer-create "*compile-jetpack*"))))
+  (let ((default-directory (locate-dominating-file file "jetpack.json")))
+    (compilation-start
+     (concat "/usr/bin/npx jetpack " (file-relative-name file))
+     'elm-compilation-mode
+     (lambda (_) "*jetpack*"))))
 
 ;; (require 'eww)
 
