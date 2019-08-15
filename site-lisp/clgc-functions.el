@@ -208,6 +208,10 @@ regular expression."
      'elm-compilation-mode
      (lambda (_) "*jetpack*"))))
 
+(defun jetpack-compile-buffer ()
+  (interactive)
+  (jetpack-compile (buffer-file-name)))
+
 ;; (require 'eww)
 
 ;; (defun eww-render-current-buffer ()
