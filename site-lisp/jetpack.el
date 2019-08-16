@@ -30,6 +30,12 @@
 ;;; Code:
 
 
+(defvar jetpack-history nil
+  "History of recent jetpack invocations.")
+
+(defvar jetpack-last-compiled nil
+  "Remember last file jetpack compiled for default re-run.")
+
 ;;;###autoload
 (defun jetpack-compile-file (file)
   (interactive "fJetpack: ")
@@ -43,12 +49,6 @@
 (defun jetpack-compile-buffer ()
   (interactive)
   (jetpack-compile (buffer-file-name)))
-
-(defvar jetpack-history nil
-  "History of recent jetpack invocations.")
-
-(defvar jetpack-last-compiled nil
-  "Remember last file jetpack compiled for default re-run.")
 
 (defun jetpack-preselect ()
   (or (if (buffer-file-name)
