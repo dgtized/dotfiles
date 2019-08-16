@@ -223,7 +223,7 @@ regular expression."
     (ivy-read "Jetpack: " entrypoints
               :require-match t
               :history 'jetpack-history
-              :preselect (file-relative-name (buffer-file-name))
+              :preselect (file-relative-name current-file)
               :sort t
               :action 'jetpack-compile
               :caller 'jetpack)))
