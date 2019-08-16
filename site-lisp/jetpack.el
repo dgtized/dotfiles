@@ -27,6 +27,9 @@
 ;; jetpack entrypoints and compiling, or running jetpack on a specific
 ;; entrypoint.
 
+;; Re-uses `elm-compilation-mode' for parsing the compilation output from
+;; jetpack as it wraps `elm-make'.
+
 ;;; Code:
 
 
