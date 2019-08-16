@@ -232,15 +232,18 @@ regular expression."
 (defun jetpack ()
   (interactive)
   (let* ((current-file (or (buffer-file-name) default-directory))
-         (default-directory (locate-dominating-file current-file "jetpack.json"))
-         (entrypoints (directory-files-recursively "app/assets/modules/" ".*\\.js$")))
-    (ivy-read "Jetpack: " entrypoints
-              :require-match t
-              :history 'jetpack-history
-              :preselect (jetpack-preselect)
-              :sort t
-              :action 'jetpack-action
-              :caller 'jetpack)))
+         (root-dir (locate-dominating-file current-file "jetpack.json")))
+    (if root-dir
+        (let ((default-directory root-dir))
+          (ivy-read "Jetpack: "
+                    (directory-files-recursively "app/assets/modules/" ".*\\.js$")
+                    :require-match t
+                    :history 'jetpack-history
+                    :preselect (jetpack-preselect)
+                    :sort t
+                    :action 'jetpack-action
+                    :caller 'jetpack))
+      (message "Error: unable to find jetpack.json at project root."))))
 
 ;; (require 'eww)
 
