@@ -234,15 +234,20 @@ regular expression."
   (let* ((current-file (or (buffer-file-name) default-directory))
          (root-dir (locate-dominating-file current-file "jetpack.json")))
     (if root-dir
-        (let ((default-directory root-dir))
-          (ivy-read "Jetpack: "
-                    (directory-files-recursively "app/assets/modules/" ".*\\.js$")
-                    :require-match t
-                    :history 'jetpack-history
-                    :preselect (jetpack-preselect)
-                    :sort t
-                    :action 'jetpack-action
-                    :caller 'jetpack))
+        (let* ((default-directory root-dir)
+               (json-object-type 'hash-table)
+               (json (json-read-file (expand-file-name "jetpack.json")))
+               (entry-point (gethash "entry_points" json)))
+          (if entry-point
+              (ivy-read "Jetpack: "
+                        (directory-files-recursively entry-point ".*\\.js$")
+                        :require-match t
+                        :history 'jetpack-history
+                        :preselect (jetpack-preselect)
+                        :sort t
+                        :action 'jetpack-action
+                        :caller 'jetpack)
+            (message "No entry_points directory defined in jetpack.json")))
       (message "Error: unable to find jetpack.json at project root."))))
 
 ;; (require 'eww)
