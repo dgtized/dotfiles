@@ -219,7 +219,6 @@ regular expression."
   "Remember last file jetpack compiled for default re-run.")
 
 (defun jetpack-preselect ()
-  (message "preselecting")
   (or (if (buffer-file-name)
           (let ((current-file (file-relative-name (buffer-file-name))))
             (if (string-match-p "\.js$" current-file) current-file))
