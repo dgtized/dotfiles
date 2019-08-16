@@ -215,6 +215,20 @@ regular expression."
 (defvar jetpack-history nil
   "History of recent jetpack invocations.")
 
+(defvar jetpack-last-compiled nil
+  "Remember last file jetpack compiled for default re-run.")
+
+(defun jetpack-preselect ()
+  (message "preselecting")
+  (or (if (buffer-file-name)
+          (let ((current-file (file-relative-name (buffer-file-name))))
+            (if (string-match-p "\.js$" current-file) current-file))
+        jetpack-last-compiled)))
+
+(defun jetpack-action (file)
+  (setq jetpack-last-compiled file)
+  (jetpack-compile file))
+
 (defun jetpack ()
   (interactive)
   (let* ((current-file (or (buffer-file-name) default-directory))
@@ -223,9 +237,9 @@ regular expression."
     (ivy-read "Jetpack: " entrypoints
               :require-match t
               :history 'jetpack-history
-              :preselect (file-relative-name current-file)
+              :preselect (jetpack-preselect)
               :sort t
-              :action 'jetpack-compile
+              :action 'jetpack-action
               :caller 'jetpack)))
 
 ;; (require 'eww)
