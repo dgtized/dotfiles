@@ -50,12 +50,6 @@
      'elm-compilation-mode
      (lambda (_) "*jetpack*"))))
 
-;;;###autoload
-(defun jetpack-compile-buffer ()
-  "Compile the current-buffer using Jetpack."
-  (interactive)
-  (jetpack-compile (buffer-file-name)))
-
 (defun jetpack-preselect ()
   "Preselect filename of current buffer or re-use last compiled."
   (or (if (buffer-file-name)
