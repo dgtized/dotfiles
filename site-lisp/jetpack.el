@@ -50,12 +50,11 @@
      'elm-compilation-mode
      (lambda (_) "*jetpack*"))))
 
-(defun jetpack-preselect ()
-  "Preselect filename of current buffer or re-use last compiled."
-  (or (if (buffer-file-name)
-          (let ((current-file (file-relative-name (buffer-file-name))))
-            (if (string-match-p "\.js$" current-file) current-file))
-        jetpack-last-compiled)))
+(defun jetpack--recommend-file ()
+  "Filename of current buffer."
+  (if (buffer-file-name)
+      (let ((current-file (file-relative-name (buffer-file-name))))
+        (if (string-match-p "\.js$" current-file) current-file))))
 
 (defun jetpack--project-root (&optional file)
   (let* ((file (or file (buffer-file-name) default-directory)))
@@ -81,7 +80,8 @@
                           (jetpack--entry-points)
                           nil t nil
                           'jetpack-history
-                          (jetpack-preselect))))
+                          (or (jetpack--recommend-file)
+                              jetpack-last-compiled))))
     (setq jetpack-last-compiled entry-point)
     (jetpack-compile-file entry-point)))
 
