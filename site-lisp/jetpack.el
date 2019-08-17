@@ -4,7 +4,7 @@
 
 ;; Author: Charles Comstock <dgtized@gmail.com>
 ;; Version: 0.5.0
-;; Package-Requires: ((elm-mode "20190815") (ivy "0.12.0") (emacs "24.4"))
+;; Package-Requires: ((elm-mode "20190815") (emacs "24.4"))
 ;; Keywords: tools
 
 ;; This file is not part of GNU Emacs.
@@ -80,14 +80,12 @@
                (json (json-read-file (expand-file-name "jetpack.json")))
                (entry-point (gethash "entry_points" json)))
           (if entry-point
-              (ivy-read "Jetpack: "
-                        (directory-files-recursively entry-point ".*\\.js$")
-                        :require-match t
-                        :history 'jetpack-history
-                        :preselect (jetpack-preselect)
-                        :sort t
-                        :action 'jetpack-action
-                        :caller 'jetpack)
+              (jetpack-action
+               (completing-read "Jetpack: "
+                                (directory-files-recursively entry-point ".*\\.js$")
+                                nil t nil
+                                'jetpack-history
+                                (jetpack-preselect)))
             (message "No entry_points directory defined in jetpack.json")))
       (message "Error: unable to find jetpack.json at project root."))))
 
