@@ -44,7 +44,7 @@
 (defun jetpack-compile-file (file)
   "Compile a file using Jetpack and show compilation results."
   (interactive "fJetpack: ")
-  (let ((default-directory (locate-dominating-file file "jetpack.json")))
+  (let ((default-directory (jetpack--project-root file)))
     (compilation-start
      (concat "/usr/bin/npx jetpack " (file-relative-name file))
      'elm-compilation-mode
@@ -57,6 +57,10 @@
             (if (string-match-p "\.js$" current-file) current-file))
         jetpack-last-compiled)))
 
+(defun jetpack--project-root (&optional file)
+  (let* ((file (or file (buffer-file-name) default-directory)))
+    (locate-dominating-file file "jetpack.json")))
+
 (defun jetpack-action (file)
   "Helper function to compile file and save last-compiled."
   (setq jetpack-last-compiled file)
@@ -66,8 +70,7 @@
 (defun jetpack-compile ()
   "Complete entrypoint and compile with Jetpack."
   (interactive)
-  (let* ((current-file (or (buffer-file-name) default-directory))
-         (root-dir (locate-dominating-file current-file "jetpack.json")))
+  (let ((root-dir (jetpack--project-root)))
     (if root-dir
         (let* ((default-directory root-dir)
                (json-object-type 'hash-table)
