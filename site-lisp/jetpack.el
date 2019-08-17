@@ -3,6 +3,7 @@
 ;; Copyright (C) 2019  Charles Comstock
 
 ;; Author: Charles Comstock <dgtized@gmail.com>
+;; Version: 0.5.0
 ;; Package-Requires: ((elm-mode "20190815") (ivy "0.12.0") (emacs "24.4"))
 ;; Keywords: tools
 
