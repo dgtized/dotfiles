@@ -65,7 +65,7 @@
   (let ((root-dir (jetpack--project-root)))
     (if root-dir
         (let* ((json-object-type 'hash-table)
-               (json (json-read-file (expand-file-name "jetpack.json")))
+               (json (json-read-file (expand-file-name "jetpack.json" root-dir)))
                (entry-point (gethash "entry_points" json)))
           (if entry-point
               (directory-files-recursively (expand-file-name entry-point root-dir) ".*\\.js$")
