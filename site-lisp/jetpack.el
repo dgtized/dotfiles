@@ -42,6 +42,7 @@
 
 ;;;###autoload
 (defun jetpack-compile-file (file)
+  "Compile a file using Jetpack and show compilation results."
   (interactive "fJetpack: ")
   (let ((default-directory (locate-dominating-file file "jetpack.json")))
     (compilation-start
@@ -51,21 +52,25 @@
 
 ;;;###autoload
 (defun jetpack-compile-buffer ()
+  "Compile the current-buffer using Jetpack."
   (interactive)
   (jetpack-compile (buffer-file-name)))
 
 (defun jetpack-preselect ()
+  "Preselect filename of current buffer or re-use last compiled."
   (or (if (buffer-file-name)
           (let ((current-file (file-relative-name (buffer-file-name))))
             (if (string-match-p "\.js$" current-file) current-file))
         jetpack-last-compiled)))
 
 (defun jetpack-action (file)
+  "Helper function to compile file and save last-compiled."
   (setq jetpack-last-compiled file)
   (jetpack-compile-file file))
 
 ;;;###autoload
 (defun jetpack-compile ()
+  "Complete entrypoint and compile with Jetpack."
   (interactive)
   (let* ((current-file (or (buffer-file-name) default-directory))
          (root-dir (locate-dominating-file current-file "jetpack.json")))
