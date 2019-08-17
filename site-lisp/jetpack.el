@@ -61,11 +61,6 @@
   (let* ((file (or file (buffer-file-name) default-directory)))
     (locate-dominating-file file "jetpack.json")))
 
-(defun jetpack-action (file)
-  "Helper function to compile file and save last-compiled."
-  (setq jetpack-last-compiled file)
-  (jetpack-compile-file file))
-
 (defun jetpack--entry-points ()
   (let ((root-dir (jetpack--project-root)))
     (if root-dir
@@ -81,12 +76,14 @@
 (defun jetpack-compile ()
   "Complete entrypoint and compile with Jetpack."
   (interactive)
-  (jetpack-action
-   (completing-read "Jetpack: "
-                    (jetpack--entry-points)
-                    nil t nil
-                    'jetpack-history
-                    (jetpack-preselect))))
+  (let ((entry-point
+         (completing-read "Jetpack: "
+                          (jetpack--entry-points)
+                          nil t nil
+                          'jetpack-history
+                          (jetpack-preselect))))
+    (setq jetpack-last-compiled entry-point)
+    (jetpack-compile-file entry-point)))
 
 (provide 'jetpack)
 ;;; jetpack.el ends here
