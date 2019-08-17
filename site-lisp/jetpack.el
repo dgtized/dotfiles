@@ -86,8 +86,8 @@
                                 nil t nil
                                 'jetpack-history
                                 (jetpack-preselect)))
-            (message "No entry_points directory defined in jetpack.json")))
-      (message "Error: unable to find jetpack.json at project root."))))
+            (error "No entry_points directory defined in jetpack.json")))
+      (error "Error: unable to find jetpack.json at project root."))))
 
 (provide 'jetpack)
 ;;; jetpack.el ends here
