@@ -66,25 +66,27 @@
   (setq jetpack-last-compiled file)
   (jetpack-compile-file file))
 
+(defun jetpack--entry-points ()
+  (let ((root-dir (jetpack--project-root)))
+    (if root-dir
+        (let* ((json-object-type 'hash-table)
+               (json (json-read-file (expand-file-name "jetpack.json")))
+               (entry-point (gethash "entry_points" json)))
+          (if entry-point
+              (directory-files-recursively (expand-file-name entry-point root-dir) ".*\\.js$")
+            (error "No entry_points directory defined in jetpack.json")))
+      (error "Error: unable to find jetpack.json at project root."))))
+
 ;;;###autoload
 (defun jetpack-compile ()
   "Complete entrypoint and compile with Jetpack."
   (interactive)
-  (let ((root-dir (jetpack--project-root)))
-    (if root-dir
-        (let* ((default-directory root-dir)
-               (json-object-type 'hash-table)
-               (json (json-read-file (expand-file-name "jetpack.json")))
-               (entry-point (gethash "entry_points" json)))
-          (if entry-point
-              (jetpack-action
-               (completing-read "Jetpack: "
-                                (directory-files-recursively entry-point ".*\\.js$")
-                                nil t nil
-                                'jetpack-history
-                                (jetpack-preselect)))
-            (error "No entry_points directory defined in jetpack.json")))
-      (error "Error: unable to find jetpack.json at project root."))))
+  (jetpack-action
+   (completing-read "Jetpack: "
+                    (jetpack--entry-points)
+                    nil t nil
+                    'jetpack-history
+                    (jetpack-preselect))))
 
 (provide 'jetpack)
 ;;; jetpack.el ends here
