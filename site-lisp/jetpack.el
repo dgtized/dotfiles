@@ -33,6 +33,9 @@
 
 ;;; Code:
 
+(require 'compile)
+(require 'json)
+(require 'elm-interactive) ;; elm-compilation-mode
 
 (defvar jetpack-history nil
   "History of recent jetpack invocations.")
