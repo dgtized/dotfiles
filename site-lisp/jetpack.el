@@ -57,7 +57,7 @@
   "Filename of current buffer."
   (if (buffer-file-name)
       (let ((current-file (file-relative-name (buffer-file-name))))
-        (if (string-match-p "\.js$" current-file) current-file))))
+        (if (string-match-p "\\.js$" current-file) current-file))))
 
 (defun jetpack--project-root (&optional file)
   (let* ((file (or file (buffer-file-name) default-directory)))
