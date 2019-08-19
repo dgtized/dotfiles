@@ -51,7 +51,7 @@
     (compilation-start
      (concat "/usr/bin/npx jetpack " (file-relative-name file))
      'elm-compilation-mode
-     (lambda (_) "*jetpack*"))))
+     (lambda (_) (format "*jetpack %s*" (file-relative-name file))))))
 
 (defun jetpack--recommend-file ()
   "Filename of current buffer."
