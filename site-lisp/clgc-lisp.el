@@ -153,4 +153,14 @@ This is used to generate mode specific popups."
       buf
       (lambda () nil)))))
 
+(defun depot-outdated ()
+  "List out of date deps.edn dependencies"
+  (interactive)
+  (compile "clojure -Aoutdated"))
+
+(defun depot-upgrade ()
+  "Upgrade deps.edn dependencies"
+  (interactive)
+  (compile "clojure -Aoutdated -update"))
+
 (provide 'clgc-lisp)
