@@ -97,5 +97,9 @@ This is used to generate mode specific popups."
   (interactive)
   (compile "clojure -Aoutdated -update"))
 
+(defun clj-deps-tree ()
+  "List dependency tree from deps.edn"
+  (interactive)
+  (compile "clojure -Stree"))
 
 (provide 'clgc-clojure)
