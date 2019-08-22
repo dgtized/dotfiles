@@ -97,9 +97,13 @@ This is used to generate mode specific popups."
   (interactive)
   (compile "clojure -Aoutdated -update"))
 
+(defun clj-deps-root ()
+  (locate-dominating-file default-directory "deps.edn"))
+
 (defun clj-deps-tree ()
   "List dependency tree from deps.edn"
   (interactive)
-  (compile "clojure -Stree"))
+  (let ((default-directory (clj-deps-root)))
+    (compile "clojure -Stree")))
 
 (provide 'clgc-clojure)
