@@ -87,23 +87,29 @@ This is used to generate mode specific popups."
       buf
       (lambda () nil)))))
 
+(defun clj-deps-root ()
+  (locate-dominating-file default-directory "deps.edn"))
+
+(defmacro in-clj-root (&rest body)
+  `(let ((default-directory (clj-deps-root)))
+     ,@body))
+
 (defun depot-outdated ()
   "List out of date deps.edn dependencies"
   (interactive)
-  (compile "clojure -Aoutdated"))
+  (in-clj-root
+   (compile "clojure -Aoutdated")))
 
 (defun depot-upgrade ()
   "Upgrade deps.edn dependencies"
   (interactive)
-  (compile "clojure -Aoutdated -update"))
-
-(defun clj-deps-root ()
-  (locate-dominating-file default-directory "deps.edn"))
+  (in-clj-root
+   (compile "clojure -Aoutdated -update")))
 
 (defun clj-deps-tree ()
   "List dependency tree from deps.edn"
   (interactive)
-  (let ((default-directory (clj-deps-root)))
-    (compile "clojure -Stree")))
+  (in-clj-root
+   (compile "clojure -Stree")))
 
 (provide 'clgc-clojure)
