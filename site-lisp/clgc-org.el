@@ -23,8 +23,7 @@
                           (sequence "WAITING(w)" "|" "CANCELED(c)")))
 
 (setq org-agenda-files (mapcar (lambda (x) (expand-file-name x org-directory))
-                               (list "incoming.org" "OpenSource.org"
-                                     "NoRedInk.org")))
+                               (list "incoming.org" "apartment.org")))
 
 ;; re-enable <s, <v, <e text macros
 (require 'org-tempo)
