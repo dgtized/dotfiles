@@ -28,6 +28,9 @@
 ;; re-enable <s, <v, <e text macros
 (require 'org-tempo)
 
+;; <g renders graphviz src
+(add-to-list 'org-structure-template-alist (cons "g" "src dot :file graphviz.png"))
+
 (setq org-refile-targets
       (quote ((nil :maxlevel . 2)
               (org-agenda-files :maxlevel . 2)))
