@@ -7,4 +7,6 @@
                            > "}\n"
                            > "#+end_src\n"))
 
+(define-abbrev org-mode-abbrev-table "dotgraph" "" 'tempo-template-org-digraph)
+
 (provide 'clgc-tempo)
