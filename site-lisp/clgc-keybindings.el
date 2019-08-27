@@ -224,10 +224,12 @@
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
 (global-set-key (kbd "M-s %") 'smartscan-symbol-replace)
 
-(define-key symbol-overlay-map (kbd "o") 'symbol-overlay-remove-all)
-(define-key symbol-overlay-map (kbd "f") 'symbol-overlay-switch-forward)
-(define-key symbol-overlay-map (kbd "b") 'symbol-overlay-switch-backward)
-(fset 'symbol-overlay-map symbol-overlay-map)
+(let ((map symbol-overlay-map))
+  (define-key map (kbd "o") 'symbol-overlay-remove-all)
+  (define-key map (kbd "f") 'symbol-overlay-switch-forward)
+  (define-key map (kbd "b") 'symbol-overlay-switch-backward)
+  (fset 'symbol-overlay-map map))
+
 (define-key symbol-overlay-mode-map (kbd "C-c o") 'symbol-overlay-map)
 (global-set-key (kbd "C-O") 'symbol-overlay-mode)
 
