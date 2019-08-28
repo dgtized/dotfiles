@@ -27,6 +27,7 @@
 
 ;; re-enable <s, <v, <e text macros
 (require 'org-tempo)
+(require 'clgc-tempo)
 
 ;; <g renders graphviz src
 (add-to-list 'org-structure-template-alist (cons "g" "src dot :file graphviz.png"))
