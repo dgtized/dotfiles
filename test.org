@@ -140,3 +140,19 @@ Top -right..> Delegate
 | bar | 2 | 6 |
 | baz | 3 | 9 |
 
+
+** Awk
+
+For more examples see: https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-awk.org.html
+
+#+name: awk-input
+| a | 1 |
+| b | 2 |
+| c | 3 |
+
+#+begin_src awk :stdin awk-input
+/b/ { print $2 }
+#+end_src
+
+#+RESULTS:
+: 2

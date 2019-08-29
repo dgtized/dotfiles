@@ -54,7 +54,8 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((clojure . t)
+ '((awk . t)
+   (clojure . t)
    (dot . t)
    (emacs-lisp . t)
    (elixir . t)
