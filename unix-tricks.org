@@ -14,3 +14,12 @@ Show top 5 processes created by me with pid < 4000 pid, and started.
 | 2170 | Dec08 |
 | 2175 | Dec08 |
 | 2177 | Dec08 |
+
+** Split on alternate
+
+   #+begin_src bash :exports results
+     echo "foo,bar,baz" | gawk -F, '{ print $2 }' 
+   #+end_src
+
+   #+RESULTS:
+   : bar
