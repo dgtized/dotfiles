@@ -224,6 +224,7 @@
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
 (global-set-key (kbd "M-s %") 'smartscan-symbol-replace)
 
+(require 'symbol-overlay)
 (let ((map symbol-overlay-map))
   (define-key map (kbd "o") 'symbol-overlay-remove-all)
   (define-key map (kbd "f") 'symbol-overlay-switch-forward)
