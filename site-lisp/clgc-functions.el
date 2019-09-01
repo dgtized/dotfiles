@@ -217,4 +217,7 @@ regular expression."
 ;;     (shr-insert-document dom)
 ;;     (goto-char (point-min))))
 
+;; Ideas:
+;; Parse ag matches for files / contents for graphviz tricks
+
 (provide 'clgc-functions)
