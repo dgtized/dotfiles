@@ -144,6 +144,7 @@
 (with-eval-after-load "counsel" (diminish 'counsel-mode "Co"))
 
 (load custom-file 'noerror)
+(setq custom-theme-directory user-emacs-directory) ;; fix error in custom-theme--load-path
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
 
 (defun clgc-set-font-size (size)
