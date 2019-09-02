@@ -88,9 +88,11 @@ This is used to generate mode specific popups."
       (lambda () nil)))))
 
 (defun clj-deps-root ()
+  "Locate the root directory of a deps.edn based Clojure project."
   (locate-dominating-file default-directory "deps.edn"))
 
 (defmacro in-clj-root (&rest body)
+  "Run commands in root of Clojure project."
   `(let ((default-directory (clj-deps-root)))
      ,@body))
 
