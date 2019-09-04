@@ -70,8 +70,8 @@
                (entry-point (cdr (assoc 'entry_points json))))
           (if entry-point
               (directory-files-recursively (expand-file-name entry-point root-dir) ".*\\.js$")
-            (error "No entry_points directory defined in jetpack.json")))
-      (error "Error: unable to find jetpack.json at project root."))))
+            (user-error "No entry_points directory defined in jetpack.json")))
+      (user-error "Error: unable to find jetpack.json at project root."))))
 
 ;;;###autoload
 (defun jetpack-compile ()

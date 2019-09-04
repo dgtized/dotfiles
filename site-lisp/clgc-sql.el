@@ -7,9 +7,8 @@
                        (symbol-name (symbol-value rval))
                        "-history.sql")))
           (set (make-local-variable lval) filename))
-      (error
-       (format "SQL history will not be saved because %s is nil"
-               (symbol-name rval))))))
+      (user-error "SQL history will not be saved because %s is nil"
+                  (symbol-name rval)))))
 
 (add-hook 'sql-interactive-mode-hook 'clgc-sql-save-history)
 
