@@ -156,3 +156,41 @@ For more examples see: https://orgmode.org/worg/org-contrib/babel/languages/ob-d
 
 #+RESULTS:
 : 2
+
+* Elisp Cookbook
+
+** Buttons
+
+Toy example to play with creating lines in a buffer in response to button
+clicks.
+
+#+begin_src elisp
+  (defun test-action (args)
+    (save-excursion
+      (let ((inhibit-read-only t))
+        (end-of-buffer)
+        (insert "New Message!\n"))))
+
+  (define-button-type 'test-button
+    'action #'test-action
+    'help-echo "Testing 1 2 3")
+
+  (defun test-buttons ()
+    (interactive)
+    (switch-to-buffer-other-window "*buttons*")
+    (save-excursion
+      (insert "foo bar baz\n\n")
+      (insert-text-button "Button 1" :type 'test-button)
+      (insert "\n\n")
+      (read-only-mode)))
+#+end_src
+
+#+RESULTS:
+: test-buttons
+
+#+begin_src elisp
+  (test-buttons)
+#+end_src
+
+#+RESULTS:
+: #<buffer *button>
