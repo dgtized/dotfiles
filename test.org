@@ -167,9 +167,11 @@ clicks.
 #+begin_src elisp
   (defun test-action (args)
     (save-excursion
-      (let ((inhibit-read-only t))
-        (end-of-buffer)
-        (insert "New Message!\n"))))
+      (let ((inhibit-read-only t)
+            (s (point-max)))
+        (goto-char s)
+        (insert "New Message!\n")
+        (add-face-text-property s (+ s 3) '(:background "darkgreen")))))
 
   (defun test-buttons ()
     (interactive)
