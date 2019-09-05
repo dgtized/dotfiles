@@ -171,16 +171,12 @@ clicks.
         (end-of-buffer)
         (insert "New Message!\n"))))
 
-  (define-button-type 'test-button
-    'action #'test-action
-    'help-echo "Testing 1 2 3")
-
   (defun test-buttons ()
     (interactive)
     (switch-to-buffer-other-window "*buttons*")
     (save-excursion
       (insert "foo bar baz\n\n")
-      (insert-text-button "Button 1" :type 'test-button)
+      (insert-text-button "Button 1" 'action #'test-action)
       (insert "\n\n")
       (read-only-mode)))
 #+end_src
