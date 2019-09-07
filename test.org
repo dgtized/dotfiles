@@ -179,7 +179,8 @@ clicks.
     (save-excursion
       (insert "foo bar baz\n\n")
       (add-face-text-property 5 8 '(:underline (:color "white" :style wave)))
-      (insert-text-button "Button 1" 'action #'test-action)
+      (insert-text-button "Button 1" 'action #'test-action
+                          'help-echo "Add message")
       (insert "\n\n")
       (read-only-mode)))
 #+end_src
