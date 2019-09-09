@@ -170,7 +170,7 @@ clicks.
       (let ((inhibit-read-only t)
             (s (point-max)))
         (goto-char s)
-        (insert "New Message!\n")
+        (insert "New " (propertize "Message!" 'face '(:background "black")) "\n")
         (add-face-text-property s (+ s 3) '(:background "darkgreen")))))
 
   (defun test-buttons ()
