@@ -170,7 +170,12 @@
     (define-key clojure-mode-map (kbd "C-c M-h") 'clojure-cheatsheet)
     (define-key clojure-mode-map (kbd "<f5>") 'cider-test-run-ns-tests)
     (define-key cider-mode-map (kbd "C-c T") 'cider-auto-test-mode)
-    (define-key cider-mode-map (kbd "C-c .") 'cider-pprint-eval-last-sexp)))
+    (define-key cider-mode-map (kbd "C-c .") 'cider-pprint-eval-last-sexp)
+    (define-key clojure-mode-map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
+    (define-key clojure-mode-map (kbd "C-c k r") 'kaocha-runner-run-tests)
+    (define-key clojure-mode-map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
+    (define-key clojure-mode-map (kbd "C-c k w") 'kaocha-runner-show-warnings)
+    (define-key clojure-mode-map (kbd "C-c k h") 'kaocha-runner-hide-windows)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 (global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
