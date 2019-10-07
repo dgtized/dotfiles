@@ -62,3 +62,9 @@ alias slackit="curl -X POST -H 'Content-type: application/json' \$SLACK_WEBHOOK 
 alias clean_m2_snapshots='find ~/.m2/ -type d -iname "*SNAPSHOT" -exec rm -rfv {} +'
 
 alias actsudo="aws-vault exec sudo -- chamber exec terraforming -- "
+
+# ruby -e '100.times { puts rand(100)} ' | boxplot && evince Rplots.pdf
+alias stats='Rscript -e "summary(as.numeric(readLines(\"stdin\")))"'
+alias boxplot='Rscript -e "boxplot(as.numeric(readLines(\"stdin\")))"'
+alias histogram='Rscript -e "hist(as.numeric(readLines(\"stdin\")))"'
+alias vrplot='evince Rplots.pdf'
