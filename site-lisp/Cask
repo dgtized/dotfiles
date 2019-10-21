@@ -145,6 +145,7 @@
 (depends-on "ruby-tools")
 (depends-on "robe")
 (depends-on "company-inf-ruby")
+(depends-on "ruby-hash-syntax")
 (depends-on "yari")
 (depends-on "rubocop")
 (depends-on "cov")
