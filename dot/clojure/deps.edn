@@ -19,4 +19,18 @@
               {find-deps
                {:git/url "https://github.com/hagmonk/find-deps",
                 :sha "6fc73813aafdd2288260abb2160ce0d4cdbac8be"}},
-              :main-opts ["-m" "find-deps.core"]}}}
+              :main-opts ["-m" "find-deps.core"]}
+
+  ;; clj -Aclj-kondo --lint src
+  :clj-kondo
+  {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "clj-kondo.main"]}
+
+  ;; clj -Akaocha -m kaocha.runner
+  :kaocha
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "0.0-554"}
+                lambdaisland/kaocha-junit-xml {:mvn/version "0.0-70"}
+                lambdaisland/kaocha-cloverage {:mvn/version "0.0-41"}}}
+
+  }}
