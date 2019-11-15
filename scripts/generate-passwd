@@ -1,3 +1,5 @@
 #!/bin/bash
 
-< /dev/urandom tr -dc A-Za-z0-9_ | head -c9 && echo
+len=${1:-10}
+
+< /dev/urandom tr -dc 'A-Za-z0-9!@$^*+=_-' | head -c$len && echo
