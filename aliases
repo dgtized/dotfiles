@@ -45,6 +45,8 @@ alias e="emacsclient"
 # ruby
 alias be="bundle exec"
 alias ber="bundle exec rake"
+alias rmigrate="bin/rails db:migrate db:test:prepare"
+alias rserver="bin/rails server"
 alias berdm="bundle exec rake db:migrate"
 alias berdr="bundle exec rake db:rollback"
 alias bec="bundle exec cap"
