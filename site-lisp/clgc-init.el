@@ -125,6 +125,8 @@
 
                 ("\\.clje$"       . clojure-mode)
 
+                ("\\.rkt$"        . racket-mode)
+
                 ("\\.js$"         . js2-mode)
                 ("Cask"           . emacs-lisp-mode)
                 ("gitconfig"      . conf-mode)))
