@@ -43,6 +43,7 @@
 (depends-on "sml-mode")
 (depends-on "ob-sml")
 (depends-on "auctex")
+(depends-on "go-mode")
 
 ;; Scala
 (depends-on "sbt-mode")
