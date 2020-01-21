@@ -76,4 +76,29 @@
   (interactive)
   (projectile-rails-rake "db:migrate db:test:prepare"))
 
+;; overriding rubocop build-command to specify relative config if available
+(defvar rubocop-config-paths '("monolith/.rubocop.yml" ".rubocop.yml"))
+
+(defun rubocop-detect-config ()
+  (when rubocop-config-paths
+    (let ((root (rubocop-project-root 'no-error)))
+      (car (delq nil
+                 (mapcar (lambda (f)
+                           (let ((pconfig (expand-file-name f root)))
+                             (when (file-exists-p pconfig) pconfig)))
+                         rubocop-config-paths))))))
+
+(defun rubocop-build-command (command path)
+  "Build the full command to be run based on COMMAND and PATH.
+The command will be prefixed with `bundle exec` if RuboCop is bundled."
+  (concat
+   (if (and (not rubocop-prefer-system-executable) (rubocop-bundled-p)) "bundle exec " "")
+   command
+   (if-let ((config-file (rubocop-detect-config)))
+       (concat " --config " config-file " ")
+     "")
+   (rubocop-build-requires)
+   " "
+   path))
+
 (provide 'clgc-ruby)
