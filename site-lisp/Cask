@@ -122,6 +122,7 @@
 (depends-on "ag")
 (depends-on "wgrep-ag")
 (depends-on "rg")
+(depends-on "ripgrep")
 (depends-on "winnow")
 (depends-on "smex")
 (depends-on "diminish")
