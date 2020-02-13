@@ -61,7 +61,7 @@
 
 (defun jetpack--project-root (&optional file)
   (let* ((file (or file (buffer-file-name) default-directory)))
-    (locate-dominating-file file "jetpack.json")))
+    (expand-file-name "monolith" (locate-dominating-file file "monolith/jetpack.json"))))
 
 (defun jetpack--entry-points ()
   (let ((root-dir (jetpack--project-root)))
