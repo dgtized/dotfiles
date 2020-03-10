@@ -45,7 +45,7 @@ pushd chruby-0.3.9/
 sudo make install
 popd
 
-ruby-install ruby 2.5.3
+ruby-install ruby 2.5.7
 
 gem install gist
 
