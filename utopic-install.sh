@@ -33,9 +33,9 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - &&
     sudo apt-get install --yes nodejs nodejs-doc
 
 # install chruby
-wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
-tar -xzvf ruby-install-0.6.0.tar.gz
-pushd ruby-install-0.6.0/
+wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
+tar -xzvf ruby-install-0.7.0.tar.gz
+pushd ruby-install-0.7.0/
 sudo make install
 popd
 
