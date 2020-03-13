@@ -5,8 +5,7 @@ sudo aptitude update
 sudo apt install emacs-snapshot emacs-snapshot-el vim \
      fonts-inconsolata fonts-dejavu \
      silversearcher-ag ack exuberant-ctags \
-     mysql-client-5.7 mysql-server-5.7 libmysqlclient-dev \
-     postgresql-10 libpq-dev redis-server redis-tools \
+     postgresql libpq-dev redis-server redis-tools \
      git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
      graphviz dconf-cli gnome-tweak-tool \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
@@ -20,6 +19,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      recordmydesktop mplayer imagemagick gifsicle vlc \
      gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
+     # mysql-client-5.7 mysql-server-5.7 libmysqlclient-dev \
 
 sudo apt install perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
 
