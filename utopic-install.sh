@@ -144,3 +144,5 @@ chmod +x ~/usr/bin/aws-vault
 
 sudo systemctl disable cups
 sudo systemctl disable avahi-daemon
+
+# install slack, xoom from webpage
