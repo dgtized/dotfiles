@@ -95,6 +95,10 @@ curl -LOs https://github.com/segmentio/chamber/releases/download/${version}/cham
 # sudo apt-get install docker-engine
 # sudo service docker start
 
+sudo apt install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+
 mkdir -p $HOME/gocode
 go get -u github.com/ddollar/forego
 # pup is like jq, but for html with css selectors
@@ -156,3 +160,4 @@ sed -i s/^scaleFactor=.*$/scaleFactor=2/ .config/zoomus.conf
 
 # install git-lfs
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-install git-lfs
