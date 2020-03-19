@@ -146,3 +146,7 @@ sudo systemctl disable cups
 sudo systemctl disable avahi-daemon
 
 # install slack, xoom from webpage
+
+# change zoom to a reasonable scaleFactor on HiDPI
+# https://superuser.com/questions/1381054/how-to-enable-hidpi-support-on-zoom-us-linux-client
+sed -i s/^scaleFactor=.*$/scaleFactor=2/ .config/zoomus.conf
