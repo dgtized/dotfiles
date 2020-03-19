@@ -22,6 +22,10 @@ home = ENV["HOME"]
   end
 end
 
+# fractional scaling for 125% display scale
+# https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04
+puts "gsettings set org.gnome.mutter experimental-features \"['x11-randr-fractional-scaling']\""
+
 __END__
 org.gnome.desktop.input-sources xkb-options ['caps:ctrl_modifier']
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Super>space']
