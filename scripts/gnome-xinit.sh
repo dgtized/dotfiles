@@ -4,11 +4,11 @@
 # to script applications to launch at initial login
 
 xrdb -merge $HOME/.Xresources
-source ~/.bashrc
+source "$HOME/.bashrc"
 
 # initial apps
 uxterm -e "tmux -2 new-session -A -s default" &
-$HOME/usr/bin/ec -c &
+"$HOME/usr/bin/ec" -c &
 google-chrome-beta &
 slack &
 
