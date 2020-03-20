@@ -13,7 +13,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      default-jdk visualvm golang-go racket sbcl rlwrap \
      gitk \
      httpie xclip \
-     python-pip awscli \
+     python-pip awscli python3-venv \
      gnutls-bin shellcheck \
      recordmydesktop mplayer imagemagick gifsicle vlc \
      gnome-startup-applications \
