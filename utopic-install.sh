@@ -161,3 +161,5 @@ sed -i s/^scaleFactor=.*$/scaleFactor=2/ .config/zoomus.conf
 # install git-lfs
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-install git-lfs
+
+# use gnome-session-properties to add script/gnome-xinit.sh at startup
