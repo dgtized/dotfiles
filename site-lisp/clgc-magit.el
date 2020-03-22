@@ -18,6 +18,16 @@
       magit-save-repository-buffers (quote dontask))
 
 ;; disable magit-insert-tags as it's a performance hog for magit-refs
+
+(setq magit-status-headers-hook
+      '(magit-insert-error-header
+        magit-insert-diff-filter-header
+        magit-insert-head-branch-header
+        magit-insert-upstream-branch-header
+        magit-insert-push-branch-header
+        ;; magit-insert-tags-header
+        ))
+
 (setq magit-refs-sections-hook
       '(magit-insert-error-header
         magit-insert-branch-description
