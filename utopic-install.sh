@@ -133,16 +133,16 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl -O https://download.clojure.org/install/linux-install-1.10.1.536.sh
-chmod +x linux-install-1.10.1.536.sh
-sudo ./linux-install-1.10.1.536.sh
+curl -O https://download.clojure.org/install/linux-install-1.10.1.536.sh &&
+    chmod +x linux-install-1.10.1.536.sh &&
+    sudo ./linux-install-1.10.1.536.sh
 
 # LaTeX
 # apt install texlive-full
 
 # ripgrep
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-sudo dpkg -i ripgrep_11.0.1_amd64.deb
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb &&
+    sudo dpkg -i ripgrep_11.0.1_amd64.deb
 
 # aws vault
 curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
