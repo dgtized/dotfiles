@@ -49,7 +49,8 @@ function slow_updates () {
     fi
 
     if [ ! -e ~/usr/plantuml.jar ]; then
-        wget https://cytranet.dl.sourceforge.net/project/plantuml/plantuml.jar -O ~/usr/plantuml.jar
+        echo "install plantuml"
+        # wget https://cytranet.dl.sourceforge.net/project/plantuml/plantuml.jar -O ~/usr/plantuml.jar
     fi
 }
 
