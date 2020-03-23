@@ -156,7 +156,7 @@ sudo systemctl disable avahi-daemon
 
 # change zoom to a reasonable scaleFactor on HiDPI
 # https://superuser.com/questions/1381054/how-to-enable-hidpi-support-on-zoom-us-linux-client
-sed -i s/^scaleFactor=.*$/scaleFactor=2/ .config/zoomus.conf
+sed -i s/^scaleFactor=.*$/scaleFactor=2/ "$HOME/.config/zoomus.conf"
 
 # install git-lfs
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
