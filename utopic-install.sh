@@ -1,4 +1,4 @@
-sudo apt-get install aptitude git openssh-server tmux build-essential
+sudo apt-get install aptitude git openssh-server tmux build-essential xterm
 
 sudo apt-add-repository ppa:ubuntu-elisp/ppa
 sudo aptitude update
