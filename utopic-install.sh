@@ -162,4 +162,7 @@ sed -i s/^scaleFactor=.*$/scaleFactor=2/ "$HOME/.config/zoomus.conf"
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt install git-lfs
 
+# [optional] Linux Audio Setup
+sudo apt install pavucontrol
+
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
