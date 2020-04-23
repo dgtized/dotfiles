@@ -10,23 +10,23 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      p7zip-full tree parallel pv gawk netcat-openbsd jq \
      wordnet \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \
-     default-jdk visualvm golang-go racket sbcl rlwrap \
-     gitk \
-     httpie xclip \
+     gitk httpie xclip \
      python-pip awscli python3-venv \
      gnutls-bin shellcheck \
      recordmydesktop mplayer imagemagick gifsicle vlc \
      gnome-startup-applications \
      mailutils mutt # local, so cron can report errors
 
+# languages & documentation
+sudo apt install golang-go racket sbcl rlwrap \
+     default-jdk visualvm openjdk-8-jdk \
+     perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
+
 # databases
 sudo apt install mysql-client mysql-server libmysqlclient-dev \
      postgresql libpq-dev redis-server redis-tools
 # uncomment listen_address=localhost for postgres in postgresql.conf
 sudo service postgresql restart
-
-# documentation
-sudo apt install perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
 
 sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
