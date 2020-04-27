@@ -15,7 +15,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      gnutls-bin shellcheck \
      recordmydesktop mplayer imagemagick gifsicle vlc \
      gnome-startup-applications \
-     mailutils mutt # local, so cron can report errors
+     mlocate mailutils mutt # local, so cron can report errors
 
 # languages & documentation
 sudo apt install golang-go racket sbcl rlwrap \
