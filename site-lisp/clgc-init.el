@@ -170,6 +170,6 @@
    (pcase (system-name)
      ("reason" 14.0)
      ("nocturnal" 14.0)
-     ("anthem" 13.0)
+     ("anathem" 13.0)
      (_ 13.0))))
 ;;; clgc-init.el ends here
