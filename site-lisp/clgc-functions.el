@@ -220,4 +220,18 @@ regular expression."
 ;; Ideas:
 ;; Parse ag matches for files / contents for graphviz tricks
 
+(defun clgc-font-examples ()
+  (interactive)
+  (switch-to-buffer "*Font Examples*")
+  (erase-buffer)
+  (let ((str "The quick brown fox jumps over the lazy dog ´`''\"\"1lI|¦!Ø0Oo{[()]}.,:; ")
+        (font-families (cl-remove-duplicates
+                        (sort (font-family-list)
+                              (lambda(x y) (string< (upcase x) (upcase y))))
+                        :test 'string=)))
+    (dolist (ff font-families)
+      (insert (propertize str 'font-lock-face `(:family ,ff)) ff "\n")))
+  (goto-line 0)
+  (view-mode t))
+
 (provide 'clgc-functions)
