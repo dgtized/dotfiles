@@ -48,7 +48,7 @@ wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.
     sudo make install &&
     popd
 
-ruby-install ruby 2.5.7
+ruby-install ruby 2.6.6
 
 gem install gist
 
