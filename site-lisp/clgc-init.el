@@ -27,7 +27,7 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
 
-(require 'cl)
+(require 'cl-lib)
 
 (require 'clgc-elpa)
 (regen-autoloads)
