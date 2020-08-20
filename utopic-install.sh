@@ -22,6 +22,8 @@ sudo apt install golang-go racket sbcl rlwrap \
      default-jdk visualvm openjdk-8-jdk \
      perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
 
+# install quicklisp after sbcl: https://www.quicklisp.org/beta/
+
 # databases
 sudo apt install mysql-client mysql-server libmysqlclient-dev \
      postgresql libpq-dev redis-server redis-tools
