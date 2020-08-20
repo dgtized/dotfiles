@@ -56,7 +56,6 @@
 
 ;; Common Lisp
 (depends-on "sly")
-(depends-on "sly-company")
 (depends-on "sly-macrostep")
 (depends-on "sly-quicklisp")
 
