@@ -1,5 +1,5 @@
 {:aliases
- {:new {:extra-deps {seancorfield/clj-new {:mvn/version "0.5.5"}}
+ {:new {:extra-deps {seancorfield/clj-new {:mvn/version "1.0.211"}}
         :main-opts ["-m" "clj-new.create"]}
   :perf
   {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "0.4.0"}
