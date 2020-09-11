@@ -53,6 +53,7 @@
 ;; Elisp
 (depends-on "flash-region")
 (depends-on "package-lint")
+(depends-on "elmacro")
 
 ;; Common Lisp
 (depends-on "sly")
