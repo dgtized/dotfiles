@@ -164,6 +164,12 @@ sed -i s/^scaleFactor=.*$/scaleFactor=2/ "$HOME/.config/zoomus.conf"
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt install git-lfs
 
+# install gh
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install gh
+
 # [optional] Linux Audio Setup
 sudo apt install pavucontrol
 
