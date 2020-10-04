@@ -139,6 +139,10 @@ curl -O https://download.clojure.org/install/linux-install-1.10.1.536.sh &&
     chmod +x linux-install-1.10.1.536.sh &&
     sudo ./linux-install-1.10.1.536.sh
 
+# babashka
+# https://github.com/borkdude/babashka/releases
+# unzip & mv bb ~/usr/bin
+
 # LaTeX
 # apt install texlive-full
 
