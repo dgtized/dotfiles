@@ -96,6 +96,7 @@
         try-complete-lisp-symbol))
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+(setq flycheck-emacs-lisp-load-path 'inherit)
 (global-flycheck-mode)
 
 ;; Stop demanding confirmation to go over 50 characters on first line
