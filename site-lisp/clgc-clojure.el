@@ -106,7 +106,7 @@ This is used to generate mode specific popups."
   "Upgrade deps.edn dependencies"
   (interactive)
   (in-clj-root
-   (compile "clojure -Aoutdated -update")))
+   (compile "clojure -Aoutdated --write")))
 
 (defun clj-deps-tree ()
   "List dependency tree from deps.edn"
