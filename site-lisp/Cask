@@ -72,7 +72,7 @@
 (depends-on "4clojure")
 (depends-on "clj-refactor")
 (depends-on "flycheck-clojure")
-(depends-on "sayid")
+;; (depends-on "sayid")
 (depends-on "kaocha-runner")
 
 (depends-on "aggressive-indent")

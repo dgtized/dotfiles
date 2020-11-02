@@ -67,7 +67,7 @@
 ;; (eval-after-load 'clojure-mode
 ;;   '(sayid-setup-package))
 ;; Disable sayid
-(setq sayid-inject-dependencies-at-jack-in nil)
+;; (setq sayid-inject-dependencies-at-jack-in nil)
 
 (setq inferior-lisp-program "sbcl")
 
