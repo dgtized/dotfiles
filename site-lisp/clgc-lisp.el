@@ -39,7 +39,9 @@
   (require 'smartparens-clojure)
   (subword-mode +1)
   (clj-refactor-mode t)
-  (cljr-add-keybindings-with-prefix "C-c r"))
+  (cljr-add-keybindings-with-prefix "C-c r")
+  (put-clojure-indent 'c-for 1)
+  (put-clojure-indent 'loop/c-for 1))
 
 (defun clgc-cider-repl-mode-hook ()
   (subword-mode +1))
