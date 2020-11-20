@@ -41,7 +41,8 @@
   (clj-refactor-mode t)
   (cljr-add-keybindings-with-prefix "C-c r")
   (put-clojure-indent 'c-for 1)
-  (put-clojure-indent 'loop/c-for 1))
+  (put-clojure-indent 'loop/c-for 1)
+  (add-to-list 'prettify-symbols-alist '("Math/PI" . ?π)))
 
 (defun clgc-cider-repl-mode-hook ()
   (subword-mode +1))
