@@ -34,8 +34,12 @@ sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - &&
-    sudo apt-get install --yes nodejs nodejs-doc
+# nodejs, npm, and yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash - &&
+    sudo apt install --yes nodejs nodejs-doc yarn
 
 # install chruby
 wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz &&
