@@ -13,9 +13,11 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      gitk httpie xclip \
      python-pip awscli python3-venv \
      gnutls-bin shellcheck \
-     recordmydesktop mplayer imagemagick gifsicle vlc \
+     recordmydesktop mplayer mpv imagemagick gifsicle vlc \
      gnome-startup-applications \
      mlocate mailutils mutt # local, so cron can report errors
+
+# mpv allows generating movies from PPM frames as described in https://nullprogram.com/blog/2020/06/29/
 
 # languages & documentation
 sudo apt install golang-go racket sbcl rlwrap \
