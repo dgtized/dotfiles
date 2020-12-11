@@ -6,13 +6,12 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      fonts-inconsolata fonts-dejavu \
      silversearcher-ag ack exuberant-ctags \
      git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
-     graphviz dconf-cli gnome-tweak-tool \
-     p7zip-full tree parallel pv gawk netcat-openbsd jq \
+     dconf-cli gnome-tweak-tool \
+     p7zip-full tree parallel pv netcat-openbsd jq \
      wordnet \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \
      gitk httpie xclip \
-     python-pip awscli python3-venv \
-     gnutls-bin shellcheck \
+     awscli gnutls-bin \
      recordmydesktop mplayer mpv imagemagick gifsicle vlc \
      gnome-startup-applications \
      mlocate mailutils mutt # local, so cron can report errors
@@ -20,9 +19,11 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
 # mpv allows generating movies from PPM frames as described in https://nullprogram.com/blog/2020/06/29/
 
 # languages & documentation
-sudo apt install golang-go racket sbcl rlwrap \
-     default-jdk visualvm openjdk-8-jdk \
-     perl-doc python3-doc gawk-doc sbcl-doc guile-2.2 guile-2.2-doc scala scala-doc
+sudo apt install rlwrap shellcheck graphviz \
+     racket guile-3.0 guile-3.0-doc sbcl sbcl-doc \
+     default-jdk visualvm openjdk-8-jdk scala scala-doc \
+     golang-go perl-doc gawk gawk-doc \
+     python-pip python3-venv python3-doc
 
 # install quicklisp after sbcl: https://www.quicklisp.org/beta/
 
