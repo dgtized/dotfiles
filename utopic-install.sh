@@ -20,7 +20,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
 
 # languages & documentation
 sudo apt install rlwrap shellcheck graphviz \
-     racket guile-3.0 guile-3.0-doc sbcl sbcl-doc \
+     racket guile-3.0 guile-3.0-doc sbcl sbcl-doc swi-prolog \
      default-jdk visualvm openjdk-8-jdk scala scala-doc \
      golang-go perl-doc gawk gawk-doc \
      python-pip python3-venv python3-doc

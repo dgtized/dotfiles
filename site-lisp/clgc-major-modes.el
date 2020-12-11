@@ -78,6 +78,11 @@
   '(progn (flycheck-credo-setup)
           (flycheck-dialyxir-setup)))
 
+(setq-default prolog-system 'swi
+              prolog-program-switches '((swi ("-G128M" "-T128M" "-L128M" "-O"))
+                                        (t nil))
+              prolog-electric-if-then-else-flag t)
+
 ;; Gnuplot
 (with-eval-after-load 'gnuplot-mode
   (add-hook 'gnuplot-mode-hook
