@@ -9,7 +9,8 @@
  '(package-selected-packages
    '(csharp-mode elmacro sly-asdf ripgrep go-mode ruby-hash-syntax kaocha-runner symbol-overlay jetpack racket-mode cov tuareg plan9-theme anti-zenburn-theme espresso-theme flatui-theme leuven-theme org-tree-slide flycheck-credo flycheck-dialyxir docker-tramp helpful processing-mode rust-mode rg auctex sbt-mode scala-mode geiser plantuml-mode sly sly-macrostep sly-quicklisp slime pcre2el material-theme hc-zenburn-theme dockerfile-mode ox-reveal org-download yard-mode package-lint winnow json-mode json-navigator lua-mode string-inflection aggressive-indent kibit-helper camcorder gnuplot gnuplot-mode helm-unicode terraform-mode atomic-chrome redis coverage request ob-elixir flycheck-dialyzer flycheck-elixir command-log-mode visual-fill-column zenburn-theme yari yaml-mode wgrep-ag web-server starter-kit-eshell solarized-theme smex smartscan smartparens slamhound simple-httpd sass-mode ruby-tools rubocop rspec-mode rinari rainbow-delimiters projectile-rails prodigy ob-http markdown-mode less-css-mode js2-mode iy-go-to-char ido-completing-read+ ibuffer-projectile helm-projectile helm-ag graphviz-dot-mode gitignore-mode github-clone github-browse-file gitconfig-mode gist fuzzy free-keys flycheck-elm flycheck-clojure flx-ido flash-region feature-mode expand-region evil epresent elm-mode diminish company-inf-ruby color-identifiers-mode coffee-mode clojure-snippets clojure-mode-extra-font-locking clj-refactor chruby bundler browse-kill-ring ag ace-window 4clojure))
  '(safe-local-variable-values
-   '((cider-clojure-cli-global-options . -A:perf)
+   '((kaocha-runner-extra-configuration . "{:config-file \"test/tests.edn\"}")
+     (cider-clojure-cli-global-options . -A:perf)
      (ruby-compilation-executable . "ruby")
      (ruby-compilation-executable . "ruby1.8")
      (ruby-compilation-executable . "ruby1.9")
