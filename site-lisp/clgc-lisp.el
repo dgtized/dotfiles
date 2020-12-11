@@ -17,10 +17,6 @@
   (let ((mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
     (add-hook mode-hook 'smartparens-strict-mode)))
 
-(with-eval-after-load 'slime
-  (add-hook slime 'smartparens-strict-mode)
-  (add-hook slime-repl 'smartparens-strict-mode))
-
 (with-eval-after-load 'sly
   (add-hook sly 'smartparens-strict-mode))
 
