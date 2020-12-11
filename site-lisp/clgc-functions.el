@@ -8,7 +8,8 @@
   (when (fboundp function)
     (apply function args)))
 
-;show ascii table
+;; show ascii table, but probably worth investigating
+;; `describe-current-display-table'.
 (defun ascii-table ()
   "Print the ascii table. Based on a defun by Alex Schroeder <asc@bsiag.com>"
   (interactive)
@@ -17,8 +18,8 @@
   (insert (format "ASCII characters up to number %d.\n" 254))
   (cl-loop for i from 0 to 254 do
            (progn
-             (insert (format "%4d %c" i i))
-             (insert (if (= (mod (1+ i) 4) 0) "\n" "    "))))
+             (insert (format "%5d %-4c" i i))
+             (if (= (mod (1+ i) 6) 0) (insert "\n"))))
   (goto-line 0)
   (view-mode t))
 
