@@ -15,10 +15,10 @@
   (switch-to-buffer "*ASCII*")
   (erase-buffer)
   (insert (format "ASCII characters up to number %d.\n" 254))
-  (loop for i from 0 to 254 do
-        (progn
-          (insert (format "%4d %c" i i))
-          (insert (if (= (mod (1+ i) 4) 0) "\n" "    "))))
+  (cl-loop for i from 0 to 254 do
+           (progn
+             (insert (format "%4d %c" i i))
+             (insert (if (= (mod (1+ i) 4) 0) "\n" "    "))))
   (goto-line 0)
   (view-mode t))
 
