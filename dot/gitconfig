@@ -1,4 +1,5 @@
 [alias]
+  amend = commit --amend
   co = checkout
   st = status
   snow = !echo \"you know nothing\"
