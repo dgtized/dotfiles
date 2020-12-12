@@ -207,6 +207,8 @@
 (define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
 (define-key ctl-x-4-map (kbd "i") 'projectile-find-implementation-or-test-other-window)
 
+(define-key prog-mode-map (kbd "<f5>") 'compile)
+
 (with-eval-after-load 'ruby-mode
   (progn (define-key ruby-mode-map (kbd "<f5>") 'rspec-verify)
          (define-key ruby-mode-map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
