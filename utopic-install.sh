@@ -142,9 +142,9 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl -O https://download.clojure.org/install/linux-install-1.10.1.716.sh &&
-    chmod +x linux-install-1.10.1.716.sh &&
-    sudo ./linux-install-1.10.1.716.sh
+curl -O https://download.clojure.org/install/linux-install-1.10.1.754.sh &&
+    chmod +x linux-install-1.10.1.754.sh &&
+    sudo ./linux-install-1.10.1.754.sh
 
 # babashka
 # https://github.com/borkdude/babashka/releases
