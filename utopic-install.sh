@@ -108,10 +108,14 @@ sudo apt install docker.io &&
     sudo systemctl start docker &&
     sudo systemctl enable docker
 
+# golang
 mkdir -p $HOME/gocode
 go get -u github.com/ddollar/forego
 # pup is like jq, but for html with css selectors
 go get https://github.com/ericchiang/pup
+
+#rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # chromedriver
 CHROME=https://chromedriver.storage.googleapis.com/81.0.4044.20/chromedriver_linux64.zip
