@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # outline from https://www.masteringemacs.org/article/speed-up-emacs-libjansson-native-elisp-compilation
 # assumes install in 20.04 focal
