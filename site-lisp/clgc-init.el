@@ -5,6 +5,11 @@
 ;; Set this first to speed up startup 5.5s -> 2.5s
 (setq gc-cons-threshold (expt 2 24)) ;; 16mb instead of 800k
 
+;; Enable native compilation if available
+(when (and (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
+  (setq package-native-compile t))
+
 (makunbound 'dotc-dir)
 (defvar dotc-dir
   (expand-file-name (getenv "DOTC_DIR"))
