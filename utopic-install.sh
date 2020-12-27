@@ -150,6 +150,9 @@ curl --output clj-linux-install.sh -O \
      https://download.clojure.org/install/linux-install-1.10.1.763.sh &&
     chmod +x clj-linux-install.sh && sudo ./clj-linux-install.sh
 
+curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo &&
+    chmod +x install-clj-kondo && ./install-clj-kondo --dir $HOME/usr/bin
+
 # babashka
 # https://github.com/borkdude/babashka/releases
 # unzip & mv bb ~/usr/bin

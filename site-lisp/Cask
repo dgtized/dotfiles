@@ -72,6 +72,7 @@
 (depends-on "4clojure")
 (depends-on "clj-refactor")
 (depends-on "flycheck-clojure")
+(depends-on "flycheck-clj-kondo")
 ;; (depends-on "sayid")
 (depends-on "kaocha-runner")
 
