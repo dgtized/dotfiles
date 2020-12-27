@@ -24,8 +24,6 @@ JOBS=$((JOBS>2 ? JOBS : 2))
 
 make clean extraclean distclean
 
-./autogen.sh
-
 # Flags trimmed from ppa/emacs-snapshot `system-configuration-options` variable
 # TODO: remove debug & try -O3 ?
 ./autogen.sh &&
