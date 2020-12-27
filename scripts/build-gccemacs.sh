@@ -36,4 +36,4 @@ JOBS=$((JOBS>2 ? JOBS : 2))
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
 
-make -j "$JOBS" && make install
+/usr/bin/time make -j "$JOBS" && /usr/bin/time make install
