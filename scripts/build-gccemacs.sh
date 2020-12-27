@@ -18,9 +18,11 @@ sudo apt install -y gcc-10 libgccjit0 libgccjit-10-dev
 sudo apt install -y libjansson4 libjansson-dev
 sudo apt build-dep -y emacs-snapshot
 
-CC="gcc-10"
+export CC="gcc-10"
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
 JOBS=$((JOBS>2 ? JOBS : 2))
+
+make clean extraclean distclean
 
 ./autogen.sh
 
@@ -28,9 +30,8 @@ JOBS=$((JOBS>2 ? JOBS : 2))
 # TODO: remove debug & try -O3 ?
 ./autogen.sh &&
     ./configure --build=x86_64-linux-gnu \
-     --prefix="$HOME/usr" --program-transform-name='s/^emacs/gmacs/' \
-     --disable-silent-rules --disable-maintainer-mode --disable-dependency-tracking \
-     --with-modules=yes --with-x=yes --with-x-toolkit=gtk3 --with-xwidgets=yes \
+     --prefix="$HOME/usr" --program-transform-name='s/^emacs/gccmacs/' \
+     --disable-silent-rules --with-modules=yes --with-x=yes --with-x-toolkit=gtk3 --with-xwidgets=yes \
      --with-nativecomp --with-mailutils \
      'CFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
