@@ -8,10 +8,11 @@ pushd ~/code/upstream
 
 if ! test -d emacs; then
     git clone https://git.savannah.gnu.org/git/emacs.git
-    git checkout -b native-comp origin/feature/native-comp
 fi
 
 pushd emacs
+
+git checkout -b native-comp origin/feature/native-comp
 
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
 sudo apt install -y gcc-10 libgccjit0 libgccjit-10-dev
