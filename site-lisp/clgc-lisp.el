@@ -34,6 +34,7 @@
 ;; Clojure Specific
 (defun clgc-clojure-mode-hook ()
   (require 'smartparens-clojure)
+  (require 'flycheck-clj-kondo)
   (subword-mode +1)
   (clj-refactor-mode t)
   (cljr-add-keybindings-with-prefix "C-c r")
