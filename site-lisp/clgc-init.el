@@ -170,6 +170,9 @@
                                  :size (float size)
                                  :weight 'normal))))
 
+;; Just force the font size manually
+;; (set-face-attribute 'default nil :height 160)
+
 (when (eq window-system 'x)
   (clgc-set-font-size
    (pcase (system-name)
