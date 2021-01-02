@@ -157,18 +157,14 @@
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
+  (set-frame-font "Inconsolata-15")
   (set-face-attribute 'default nil
-                      :family "Inconsolata"
-                      :height (truncate (* size 10))
-                      :weight 'normal
-                      :width 'normal)
+                      :height (truncate (* size 10)))
   (when (functionp 'set-fontset-font)
     (set-fontset-font "fontset-default"
                       'unicode
                       (font-spec :family "DejaVu Sans Mono"
-                                 :width 'normal
-                                 :size (float size)
-                                 :weight 'normal))))
+                                 :size (float size)))))
 
 ;; Just force the font size manually
 ;; (set-face-attribute 'default nil :height 160)
@@ -176,8 +172,8 @@
 (when (eq window-system 'x)
   (clgc-set-font-size
    (pcase (system-name)
-     ("reason" 16.0)
-     ("nocturnal" 16.0)
-     ("anathem" 16.0)
-     (_ 16.0))))
+     ("reason" 15.0)
+     ("nocturnal" 15.0)
+     ("anathem" 15.0)
+     (_ 15.0))))
 ;;; clgc-init.el ends here
