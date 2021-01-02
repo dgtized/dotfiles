@@ -23,7 +23,9 @@ export CC="gcc-10"
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
 JOBS=$((JOBS>2 ? JOBS : 2))
 
-make clean extraclean distclean
+if [[ "$1" == '--clean' ]]; then
+    make clean extraclean distclean
+fi
 
 # Flags trimmed from ppa/emacs-snapshot `system-configuration-options` variable
 # TODO: remove debug & try -O3 ?
@@ -37,3 +39,6 @@ make clean extraclean distclean
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
 
 /usr/bin/time make -j "$JOBS" && /usr/bin/time make install
+
+ln -sfv ~/usr/bin/emacs ~/usr/bin/gccmacs
+ln -sfv ~/usr/bin/emacsclient ~/usr/bin/gccmacsclient
