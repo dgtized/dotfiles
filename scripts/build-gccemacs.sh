@@ -42,4 +42,4 @@ fi
 /usr/bin/time make -j "$JOBS" && /usr/bin/time make install
 
 ln -sfv ~/usr/bin/gccmacs ~/usr/bin/emacs
-ln -sfv ~/usr/bin/gccmacsclient ~/usr/bin/emacsclient 
+ln -sfv ~/usr/bin/gccmacsclient ~/usr/bin/emacsclient
