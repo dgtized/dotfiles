@@ -147,8 +147,13 @@
   (define-key map (kbd "M-s ]") 'sp-add-to-next-sexp))
 
 (define-key help-map (kbd "C-l") 'find-library)
-(define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
-(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'visit-ielm)
+
+;; https://www.emacswiki.org/emacs/EvaluatingExpressions
+(let ((map emacs-lisp-mode-map))
+  (define-key map (kbd "C-c C-k") 'eval-buffer)
+  (define-key map (kbd "C-c C-p") 'pp-eval-last-sexp)
+  (define-key map (kbd "C-c :") 'pp-eval-expression)
+  (define-key map (kbd "C-c C-z") 'visit-ielm))
 
 (define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
