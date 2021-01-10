@@ -158,9 +158,9 @@
   (define-key map (kbd "C-c C-k") 'eval-buffer)
   (define-key map (kbd "C-c C-p") 'pp-eval-last-sexp)
   (define-key map (kbd "C-c :") 'pp-eval-expression)
-  (define-key map (kbd "C-c C-z") 'visit-ielm))
+  (define-key map (kbd "C-c C-z") 'visit-ielm)
+  (define-key map (kbd "<f5>") 'ert-silently))
 
-(define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
 
 (setq alchemist-key-command-prefix (kbd "C-c ."))
