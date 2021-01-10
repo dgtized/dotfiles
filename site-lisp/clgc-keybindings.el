@@ -170,18 +170,19 @@
   (define-key alchemist-mode-map (kbd "C-x C-e") 'alchemist-iex-send-last-sexp))
 
 (with-eval-after-load 'clojure-mode
-  (progn
-    (let ((map cider-mode-map))
-      (define-key map (kbd "C-c T") 'cider-auto-test-mode)
-      (define-key map (kbd "C-c .") 'cider-pprint-eval-last-sexp))
-    (let ((map clojure-mode-map))
-      (define-key map (kbd "C-c M-h") 'clojure-cheatsheet)
-      (define-key map (kbd "<f5>") 'cider-test-run-ns-tests)
-      (define-key map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
-      (define-key map (kbd "C-c k r") 'kaocha-runner-run-tests)
-      (define-key map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
-      (define-key map (kbd "C-c k w") 'kaocha-runner-show-warnings)
-      (define-key map (kbd "C-c k h") 'kaocha-runner-hide-windows))))
+  (let ((map clojure-mode-map))
+    (define-key map (kbd "C-c M-h") 'clojure-cheatsheet)
+    (define-key map (kbd "<f5>") 'cider-test-run-ns-tests)
+    (define-key map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
+    (define-key map (kbd "C-c k r") 'kaocha-runner-run-tests)
+    (define-key map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
+    (define-key map (kbd "C-c k w") 'kaocha-runner-show-warnings)
+    (define-key map (kbd "C-c k h") 'kaocha-runner-hide-windows)))
+
+(with-eval-after-load 'cider-mode
+  (let ((map cider-mode-map))
+    (define-key map (kbd "C-c T") 'cider-auto-test-mode)
+    (define-key map (kbd "C-c .") 'cider-pprint-eval-last-sexp)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 (global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
