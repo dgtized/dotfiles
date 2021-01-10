@@ -208,10 +208,11 @@
   (define-key map (kbd "M-r") 'mc/reverse-regions)
   (define-key map (kbd "#") 'mc/insert-numbers))
 
-(define-key ctl-x-4-map (kbd "t") 'crux-transpose-windows)
-(define-key ctl-x-4-map (kbd "e") 'ediff-other-window)
-(define-key ctl-x-4-map (kbd "s") 'isearch-other-window)
-(define-key ctl-x-4-map (kbd "i") 'projectile-find-implementation-or-test-other-window)
+(let ((map ctl-x-4-map))
+  (define-key map (kbd "t") 'crux-transpose-windows)
+  (define-key map (kbd "e") 'ediff-other-window)
+  (define-key map (kbd "s") 'isearch-other-window)
+  (define-key map (kbd "i") 'projectile-find-implementation-or-test-other-window))
 
 (define-key prog-mode-map (kbd "<f5>") 'compile)
 
