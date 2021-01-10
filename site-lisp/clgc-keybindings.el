@@ -53,10 +53,11 @@
 
 (global-set-key (kbd "<menu>") 'menu-map)
 
-(define-key 'menu-map (kbd "y") 'helm-show-kill-ring)
-(define-key 'menu-map (kbd "x") 'helm-M-x)
-(define-key 'menu-map (kbd "TAB") 'ace-window)
-(define-key 'menu-map (kbd "<menu>") 'helm-M-x)
+(let ((map menu-map))
+  (define-key map (kbd "y") 'helm-show-kill-ring)
+  (define-key map (kbd "x") 'helm-M-x)
+  (define-key map (kbd "TAB") 'ace-window)
+  (define-key map (kbd "<menu>") 'helm-M-x))
 
 (global-set-key (kbd "C-x C-m") 'counsel-M-x)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
