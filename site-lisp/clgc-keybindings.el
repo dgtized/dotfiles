@@ -146,7 +146,12 @@
   (define-key map (kbd "M-s [") 'sp-add-to-previous-sexp)
   (define-key map (kbd "M-s ]") 'sp-add-to-next-sexp))
 
-(define-key help-map (kbd "C-l") 'find-library)
+(let ((map help-map))
+  (define-key map (kbd "C-l") 'find-library)
+  (define-key map (kbd "f") 'helpful-callable) ;; counsel-describe-function
+  (define-key map (kbd "v") 'helpful-variable) ;; counsel-describe-variable
+  (define-key map (kbd "k") 'helpful-key) ;; describe-key
+  (define-key map (kbd "y") 'helpful-at-point))
 
 ;; https://www.emacswiki.org/emacs/EvaluatingExpressions
 (let ((map emacs-lisp-mode-map))
@@ -157,11 +162,6 @@
 
 (define-key emacs-lisp-mode-map (kbd "<f5>") 'ert-silently)
 (define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
-
-(define-key help-map (kbd "f") 'helpful-callable) ;; counsel-describe-function
-(define-key help-map (kbd "v") 'helpful-variable) ;; counsel-describe-variable
-(define-key help-map (kbd "k") 'helpful-key) ;; describe-key
-(define-key help-map (kbd "y") 'helpful-at-point)
 
 (setq alchemist-key-command-prefix (kbd "C-c ."))
 (with-eval-after-load 'alchemist-mode
