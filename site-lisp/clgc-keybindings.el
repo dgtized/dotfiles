@@ -215,15 +215,16 @@
 (define-key prog-mode-map (kbd "<f5>") 'compile)
 
 (with-eval-after-load 'ruby-mode
-  (progn (define-key ruby-mode-map (kbd "<f5>") 'rspec-verify)
-         (define-key ruby-mode-map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
-         (define-key ruby-mode-map (kbd "<f7>") 'rubocop-check-current-file)
-         (define-key ruby-mode-map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)
-         (define-key ruby-mode-map (kbd "C-c v") 'chruby-use-corresponding)
-         (define-key ruby-mode-map (kbd "S-<f6>") 'coverage-mode)
-         (define-key ruby-mode-map (kbd "C-c :") 'clgc-ruby-string->symbol)
-         (define-key ruby-mode-map (kbd "C-c #") 'ruby-toggle-hash-syntax)
-         (define-key ruby-mode-map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
+  (let ((map ruby-mode-map))
+    (define-key map (kbd "<f5>") 'rspec-verify)
+    (define-key map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
+    (define-key map (kbd "<f7>") 'rubocop-check-current-file)
+    (define-key map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)
+    (define-key map (kbd "C-c v") 'chruby-use-corresponding)
+    (define-key map (kbd "S-<f6>") 'coverage-mode)
+    (define-key map (kbd "C-c :") 'clgc-ruby-string->symbol)
+    (define-key map (kbd "C-c #") 'ruby-toggle-hash-syntax)
+    (define-key map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
 
 (with-eval-after-load 'rspec-dired-mode
   (define-key rspec-dired-mode-map (kbd "<f5>") 'rspec-dired-verify))
