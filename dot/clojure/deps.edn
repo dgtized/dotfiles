@@ -21,12 +21,12 @@
                 :sha "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}},
               :main-opts ["-m" "find-deps.core"]}
 
-  ;; clj -Aclj-kondo --lint src
+  ;; clj -Mclj-kondo --lint src
   :clj-kondo
   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2020.12.12"}}
    :main-opts ["-m" "clj-kondo.main"]}
 
-  ;; clj -Akaocha -m kaocha.runner
+  ;; clj -Mkaocha -m kaocha.runner
   :kaocha
   {:extra-paths ["test"]
    :extra-deps {lambdaisland/kaocha {:mvn/version "1.0.732"}
