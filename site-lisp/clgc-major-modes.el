@@ -151,4 +151,10 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
 
+;; Github pages refuses to serve .vert or .frag as anything but
+;; application/octet-stream, which breaks fetch when loading shaders from a url.
+;; As a hack, just add the .c suffix so it has mime-type for text/x-c which
+;; fetch can read, and then remap the automode selection for Emacs to match.
+(add-to-list 'auto-mode-alist '("\\.\\(vert\\|frag\\).c\\'" . glsl-mode))
+
 (provide 'clgc-major-modes)
