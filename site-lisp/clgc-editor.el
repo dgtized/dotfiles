@@ -27,6 +27,10 @@
 (setq-default font-lock-maximum-decoration t)
 (global-font-lock-mode t)
 
+;; Ediff
+(setq ediff-split-window-function 'split-window-horizontally
+      ediff-window-setup-function 'ediff-setup-windows-plain)
+
 ;; smart pairing for all
 (require 'smartparens-config)
 (setq sp-autoskip-closing-pair 'always)
