@@ -100,13 +100,13 @@ This is used to generate mode specific popups."
   "List out of date deps.edn dependencies"
   (interactive)
   (in-clj-root
-   (compile "clojure -Moutdated")))
+   (compile "clojure -Moutdated --every")))
 
 (defun depot-upgrade ()
   "Upgrade deps.edn dependencies"
   (interactive)
   (in-clj-root
-   (compile "clojure -Moutdated --write")))
+   (compile "clojure -Moutdated --every --write")))
 
 (defun clj-deps-tree ()
   "List dependency tree from deps.edn"
