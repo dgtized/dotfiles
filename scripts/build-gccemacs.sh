@@ -12,7 +12,7 @@ fi
 
 pushd emacs
 
-git checkout -b native-comp origin/feature/native-comp
+git checkout master
 git pull --rebase
 
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
