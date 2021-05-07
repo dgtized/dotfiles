@@ -154,8 +154,9 @@ curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/ins
     chmod +x install-clj-kondo && ./install-clj-kondo --dir $HOME/usr/bin
 
 # babashka
-# https://github.com/borkdude/babashka/releases
-# unzip & mv bb ~/usr/bin
+# download and unpack from https://github.com/borkdude/babashka/releases
+wget https://github.com/babashka/babashka/releases/download/v0.3.8/babashka-0.3.8-linux-amd64-static.tar.gz -O babashka.tgz &&
+    tar -zxf babashka.tgz && mv -vf bb ~/usr/bin && rm -vf babashka.tgz
 
 # LaTeX
 # apt install texlive-full
