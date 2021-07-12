@@ -183,7 +183,8 @@
   (let ((map cider-mode-map))
     (define-key map (kbd "C-c T") 'cider-auto-test-mode)
     (define-key map (kbd "C-c .") 'cider-pprint-eval-last-sexp)
-    (define-key map (kbd "C-x 4 M-.") 'cider-find-dwim-other-window)))
+    (define-key map (kbd "C-x 4 M-.") 'cider-find-dwim-other-window)
+    (define-key map (kbd "C-c , g") 'cider-eval-to-test-example)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 (global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
