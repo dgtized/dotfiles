@@ -141,6 +141,8 @@ This is used to generate mode specific popups."
 ;; pretty printing, however that results in evaluation errors. Using pr request
 ;; map works so long as the output example does not have reader symbols like
 ;; #vec3[0 0 0]. Need a way to both pretty print and ensure output can be evaluated.
+;;
+;; TODO: experiment with cider-eval-sexp-up-to-point to evaluate inside let statements
 (defun cider-eval-to-test-example (&optional copy-to-kill)
   "Evaluate the preceding sexp and generate a clj-test form ala (is (= evaluation (sexp))).
 
