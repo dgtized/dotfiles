@@ -128,6 +128,8 @@ This is used to generate mode specific popups."
    (lambda (buffer)
      (cider-emit-into-popup-buffer buffer (concat "\n       " sexp "))"))
      (with-current-buffer buffer
+       (let ((inhibit-read-only t))
+         (cider-format-buffer))
        (when copy-to-kill
          (kill-ring-save (point-min) (point-max)))))
    nil
