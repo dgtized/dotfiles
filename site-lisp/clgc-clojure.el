@@ -115,14 +115,16 @@ This is used to generate mode specific popups."
    (compile "clojure -Stree")))
 
 ;; WIP, need to generalize better
-(defun cider-eval-to-test-handler (sexp &optional buffer)
+(defun cider-eval-to-test-handler (sexp copy-to-kill &optional buffer)
   "Make a handler for evaluating and printing result in BUFFER along with evaluated SEXP in test form."
   (nrepl-make-response-handler (or buffer (current-buffer))
                                (lambda (buffer value)
                                  (with-current-buffer buffer
                                    (setq buffer-read-only nil)
                                    (insert (format "(is (= %s %s))" value sexp))
-                                   (setq buffer-read-only t)))
+                                   (setq buffer-read-only t)
+                                   (when copy-to-kill
+                                     (kill-ring-save (point-min) (point-max)))))
                                (lambda (_buffer out)
                                  (cider-emit-interactive-eval-output out))
                                (lambda (_buffer err)
@@ -133,13 +135,16 @@ This is used to generate mode specific popups."
 ;; pretty printing, however that results in evaluation errors. Using pr request
 ;; map works so long as the output example does not have reader symbols like
 ;; #vec3[0 0 0]. Need a way to both pretty print and ensure output can be evaluated.
-(defun cider-eval-to-test-example ()
-  "Evaluate the preceding sexp and generate a clj-test form ala (is (= evaluation (sexp)))"
-  (interactive)
+(defun cider-eval-to-test-example (&optional copy-to-kill)
+  "Evaluate the preceding sexp and generate a clj-test form ala (is (= evaluation (sexp))).
+
+  With a prefix argument, copies the result to kill ring after
+  evaluation completes."
+  (interactive "P")
   (let ((sexp (cider-last-sexp))
         (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary)))
     (cider-interactive-eval nil
-                            (cider-eval-to-test-handler sexp result-buffer)
+                            (cider-eval-to-test-handler sexp copy-to-kill result-buffer)
                             (cider-last-sexp 'bounds)
                             (cider--nrepl-pr-request-map))))
 
