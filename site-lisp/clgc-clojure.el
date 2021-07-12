@@ -147,10 +147,10 @@ This is used to generate mode specific popups."
   (interactive "P")
   (let ((sexp (cider-last-sexp))
         (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary)))
-    (cider-emit-into-popup-buffer result-buffer "(is (= ")
-    (cider-interactive-eval nil
+    (cider-emit-into-popup-buffer result-buffer "(is (= '")
+    (cider-interactive-eval sexp
                             (cider-eval-to-test-handler sexp copy-to-kill result-buffer)
-                            (cider-last-sexp 'bounds)
+                            nil
                             (cider--nrepl-pr-request-map))))
 
 (provide 'clgc-clojure)
