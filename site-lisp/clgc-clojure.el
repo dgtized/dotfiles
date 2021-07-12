@@ -120,7 +120,7 @@ This is used to generate mode specific popups."
   (nrepl-make-response-handler
    buffer
    (lambda (buffer value)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply value) nil t))
+     (cider-emit-into-popup-buffer buffer value nil t))
    (lambda (_buffer out)
      (cider-emit-interactive-eval-output out))
    (lambda (_buffer err)
