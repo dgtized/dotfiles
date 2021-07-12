@@ -115,21 +115,25 @@ This is used to generate mode specific popups."
    (compile "clojure -Stree")))
 
 ;; WIP, need to generalize better
-(defun cider-eval-to-test-handler (sexp copy-to-kill &optional buffer)
+(defun cider-eval-to-test-handler (sexp copy-to-kill buffer)
   "Make a handler for evaluating and printing result in BUFFER along with evaluated SEXP in test form."
-  (nrepl-make-response-handler (or buffer (current-buffer))
-                               (lambda (buffer value)
-                                 (with-current-buffer buffer
-                                   (setq buffer-read-only nil)
-                                   (insert (format "(is (= %s %s))" value sexp))
-                                   (setq buffer-read-only t)
-                                   (when copy-to-kill
-                                     (kill-ring-save (point-min) (point-max)))))
-                               (lambda (_buffer out)
-                                 (cider-emit-interactive-eval-output out))
-                               (lambda (_buffer err)
-                                 (cider-emit-interactive-eval-err-output err))
-                               '()))
+  (nrepl-make-response-handler
+   buffer
+   (lambda (buffer value)
+     (cider-emit-into-popup-buffer buffer (ansi-color-apply value) nil t))
+   (lambda (_buffer out)
+     (cider-emit-interactive-eval-output out))
+   (lambda (_buffer err)
+     (cider-emit-interactive-eval-err-output err))
+   (lambda (buffer)
+     (cider-emit-into-popup-buffer buffer (concat "\n       " sexp "))"))
+     (with-current-buffer buffer
+       (when copy-to-kill
+         (kill-ring-save (point-min) (point-max)))))
+   nil
+   nil
+   (lambda (buffer warning)
+     (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t))))
 
 ;; I would prefer to use cider--nrepl-print-request-map as it should handle
 ;; pretty printing, however that results in evaluation errors. Using pr request
@@ -143,6 +147,7 @@ This is used to generate mode specific popups."
   (interactive "P")
   (let ((sexp (cider-last-sexp))
         (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary)))
+    (cider-emit-into-popup-buffer result-buffer "(is (= ")
     (cider-interactive-eval nil
                             (cider-eval-to-test-handler sexp copy-to-kill result-buffer)
                             (cider-last-sexp 'bounds)
