@@ -154,6 +154,7 @@ This is used to generate mode specific popups."
   (interactive "P")
   (let* ((sexp (cider-last-sexp))
          (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary))
+         ;; the evaluated result is quoted to ensure paren pairs are interpreted as lists
          (leader "(is (= '")
          (suffix (concat "\n       " sexp "))")))
     (cider-emit-into-popup-buffer result-buffer leader)
