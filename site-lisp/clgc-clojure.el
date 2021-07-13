@@ -2,6 +2,9 @@
 
 ;;; Code:
 
+(require 'cider-eval)
+(require 'cider-format)
+
 (defun clj-import-profiling ()
   (interactive)
   (cider-interactive-eval
