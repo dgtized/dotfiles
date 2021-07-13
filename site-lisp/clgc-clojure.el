@@ -129,7 +129,7 @@ This is used to generate mode specific popups."
    (lambda (_buffer err)
      (cider-emit-interactive-eval-err-output err))
    (lambda (buffer)
-     (cider-emit-into-popup-buffer buffer (concat "\n       " sexp "))"))
+     (cider-emit-into-popup-buffer buffer sexp)
      (with-current-buffer buffer
        (let ((inhibit-read-only t))
          (cider-format-buffer))
@@ -152,11 +152,13 @@ This is used to generate mode specific popups."
   With a prefix argument, copies the result to kill ring after
   evaluation completes."
   (interactive "P")
-  (let ((sexp (cider-last-sexp))
-        (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary)))
-    (cider-emit-into-popup-buffer result-buffer "(is (= '")
+  (let* ((sexp (cider-last-sexp))
+         (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary))
+         (leader "(is (= '")
+         (suffix (concat "\n       " sexp "))")))
+    (cider-emit-into-popup-buffer result-buffer leader)
     (cider-interactive-eval sexp
-                            (cider-eval-to-test-handler sexp copy-to-kill result-buffer)
+                            (cider-eval-to-test-handler suffix copy-to-kill result-buffer)
                             nil
                             (cider--nrepl-pr-request-map))))
 
