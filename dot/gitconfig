@@ -19,6 +19,11 @@
 [diff]
   rename = copy
   algorithm = patience
+#   tool = difftastic # https://github.com/Wilfred/difftastic
+# [difftool]
+#   prompt = false
+# [difftool "difftastic"]
+#   cmd = difftastic "$LOCAL" "$REMOTE"
 [github]
   user = dgtized
 [include]
