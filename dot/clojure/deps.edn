@@ -26,6 +26,11 @@
   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2020.12.12"}}
    :main-opts ["-m" "clj-kondo.main"]}
 
+  ;; clojure -Meastwood
+  :eastwood
+  {:extra-deps {jonase/eastwood {:mvn/version "0.9.3"}}
+   :main-opts ["-m" "eastwood.lint" {}]}
+
   ;; clj -Mkaocha -m kaocha.runner
   :kaocha
   {:extra-paths ["test"]
