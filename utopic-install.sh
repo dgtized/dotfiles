@@ -147,7 +147,7 @@ sudo aptitude install peek silentcast
 #
 
 curl --output clj-linux-install.sh -O \
-     https://download.clojure.org/install/linux-install-1.10.2.774.sh &&
+     https://download.clojure.org/install/linux-install-1.10.3.933.sh &&
     chmod +x clj-linux-install.sh && sudo ./clj-linux-install.sh
 
 curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo &&
