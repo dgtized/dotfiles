@@ -1,0 +1,10 @@
+#!/usr/bin/env bb
+;; -*- mode: clojure-mode *-*
+;; Test example for bb
+
+(def now (java.time.ZonedDateTime/now))
+(def LA-timezone (java.time.ZoneId/of "America/Los_Angeles"))
+(def LA-time (.withZoneSameInstant now LA-timezone))
+(def pattern (java.time.format.DateTimeFormatter/ofPattern "HH:mm:ss"))
+(println (.format LA-time pattern))
+
