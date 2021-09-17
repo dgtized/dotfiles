@@ -162,8 +162,9 @@ wget https://github.com/babashka/babashka/releases/download/v0.6.0/babashka-0.6.
 # apt install texlive-full
 
 # ripgrep
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb &&
-    sudo dpkg -i ripgrep_11.0.1_amd64.deb
+(export v='13.0.0' && export d="ripgrep_${v}_amd64.deb" &&
+     curl -LO "https://github.com/BurntSushi/ripgrep/releases/download/${v}/${d}" &&
+     sudo dpkg -i "${d}")
 
 # aws vault
 curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
