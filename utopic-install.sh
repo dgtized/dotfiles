@@ -151,7 +151,7 @@ curl --output clj-linux-install.sh -O \
     chmod +x clj-linux-install.sh && sudo ./clj-linux-install.sh
 
 curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo &&
-    chmod +x install-clj-kondo && ./install-clj-kondo --dir $HOME/usr/bin
+    chmod +x install-clj-kondo && ./install-clj-kondo --dir "$HOME/usr/bin"
 
 # babashka
 # download and unpack from https://github.com/borkdude/babashka/releases
