@@ -121,8 +121,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 (export CHROME=https://chromedriver.storage.googleapis.com/94.0.4606.41/chromedriver_linux64.zip &&
      export ZIP="$HOME/Downloads/chromedriver.zip"
-     mkdir -p "$HOME/usr/bin" && wget "${CHROME}" -O "${ZIP}" &&
-     unzip "${ZIP}" && mv -f chromedriver "$HOME/usr/bin/chromedriver" && rm -vf "${ZIP}")
+     mkdir -p "$HOME/usr/bin" && curl "${CHROME}" -o "${ZIP}" &&
+     unzip "${ZIP}" && mv -vf chromedriver "$HOME/usr/bin/chromedriver" && rm -vf "${ZIP}")
 
 # firefox driver
 (export V='v0.30.0' &&
