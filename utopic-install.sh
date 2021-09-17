@@ -118,9 +118,11 @@ go get https://github.com/ericchiang/pup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # chromedriver
-CHROME=https://chromedriver.storage.googleapis.com/81.0.4044.20/chromedriver_linux64.zip
-mkdir -p $HOME/usr/bin && wget $CHROME -O $HOME/Downloads/chromedriver.zip &&
-    unzip $HOME/Downloads/chromedriver.zip && mv -f chromedriver $HOME/usr/bin/chromedriver
+
+(export CHROME=https://chromedriver.storage.googleapis.com/94.0.4606.41/chromedriver_linux64.zip &&
+     export ZIP="$HOME/Downloads/chromedriver.zip"
+     mkdir -p "$HOME/usr/bin" && wget "${CHROME}" -O "${ZIP}" &&
+     unzip "${ZIP}" && mv -f chromedriver "$HOME/usr/bin/chromedriver" && rm -vf "${ZIP}")
 
 # firefox driver
 FIREFOX=https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
