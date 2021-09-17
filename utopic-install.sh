@@ -125,8 +125,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
      unzip "${ZIP}" && mv -f chromedriver "$HOME/usr/bin/chromedriver" && rm -vf "${ZIP}")
 
 # firefox driver
-FIREFOX=https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
-curl -sLO $FIREFOX && tar zxf ${FIREFOX##*/} && mv -f geckodriver ~/usr/bin && rm -f ${FIREFOX##*/}
+(export V='v0.30.0' &&
+     export FIREFOX=https://github.com/mozilla/geckodriver/releases/download/${V}/geckodriver-${V}-linux64.tar.gz &&
+     curl -sLO $FIREFOX && tar zxf ${FIREFOX##*/} && mv -vf geckodriver ~/usr/bin && rm -vf ${FIREFOX##*/})
 
 # sudo add-apt-repository ppa:supercollider/ppa && sudo apt-get update
 # sudo apt-get install supercollider
