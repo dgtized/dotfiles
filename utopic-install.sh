@@ -146,12 +146,12 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl --output clj-linux-install.sh -O \
-     https://download.clojure.org/install/linux-install-1.10.3.967.sh &&
-    chmod +x clj-linux-install.sh && sudo ./clj-linux-install.sh
+curl --output clj.sh -O https://download.clojure.org/install/linux-install-1.10.3.967.sh &&
+    chmod +x clj.sh && sudo ./clj.sh && rm -vf clj.sh
 
 curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo &&
-    chmod +x install-clj-kondo && ./install-clj-kondo --dir "$HOME/usr/bin"
+    chmod +x install-clj-kondo && ./install-clj-kondo --dir "$HOME/usr/bin" &&
+    rm -vf install-clj-kondo
 
 # babashka
 # download and unpack from https://github.com/borkdude/babashka/releases
@@ -164,7 +164,7 @@ wget https://github.com/babashka/babashka/releases/download/v0.6.0/babashka-0.6.
 # ripgrep
 (export v='13.0.0' && export d="ripgrep_${v}_amd64.deb" &&
      curl -LO "https://github.com/BurntSushi/ripgrep/releases/download/${v}/${d}" &&
-     sudo dpkg -i "${d}")
+     sudo dpkg -i "${d}" && rm -vf "${d}")
 
 # aws vault
 curl -sL https://github.com/99designs/aws-vault/releases/download/v4.3.0/aws-vault-linux-amd64 > ~/usr/bin/aws-vault
