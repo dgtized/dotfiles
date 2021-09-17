@@ -263,9 +263,9 @@
 (global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
 (require 'multiple-cursors)
-(add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
-(global-set-key (kbd "M-m") 'iy-go-up-to-char)
-(global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
+;; (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
+;; (global-set-key (kbd "M-m") 'iy-go-up-to-char)
+;; (global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
 
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 

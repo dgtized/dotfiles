@@ -161,7 +161,7 @@
 (depends-on "ace-window")
 (depends-on "smartscan")
 (depends-on "symbol-overlay")
-(depends-on "iy-go-to-char")
+;; (depends-on "iy-go-to-char")
 (depends-on "visual-fill-column")
 
 (depends-on "atomic-chrome")
