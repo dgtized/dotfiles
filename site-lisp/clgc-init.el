@@ -158,17 +158,22 @@
 (setq custom-theme-directory user-emacs-directory) ;; fix error in custom-theme--load-path
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
 
+;; https://idiocy.org/emacs-fonts-and-fontsets.html
+;; (list-fontsets t)
+(list-fonts (font-spec :size 16))
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
-  (set-frame-font "Inconsolata-16")
   (set-face-attribute 'default nil
+                      :font "Inconsolata-16"
                       :height (truncate (* size 10)))
   (when (functionp 'set-fontset-font)
-    (set-fontset-font "fontset-default"
-                      'unicode
+    (set-fontset-font "fontset-default" 'symbol "Noto Color Emoji")
+    (set-fontset-font "fontset-default" 'symbol "Symbola" nil 'append)
+    (set-fontset-font t nil
                       (font-spec :family "DejaVu Sans Mono"
-                                 :size (float size)))))
+                                 :size (float size))
+                      nil 'append)))
 
 ;; Just force the font size manually
 ;; (set-face-attribute 'default nil :height 160)
