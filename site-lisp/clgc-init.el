@@ -161,7 +161,7 @@
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
-  (set-frame-font "Inconsolata-15")
+  (set-frame-font "Inconsolata-16")
   (set-face-attribute 'default nil
                       :height (truncate (* size 10)))
   (when (functionp 'set-fontset-font)
@@ -176,8 +176,8 @@
 (when (eq window-system 'x)
   (clgc-set-font-size
    (pcase (system-name)
-     ("reason" 15.0)
-     ("nocturnal" 15.0)
-     ("anathem" 15.0)
-     (_ 15.0))))
+     ("reason" 16.0)
+     ("nocturnal" 16.0)
+     ("anathem" 16.0)
+     (_ 16.0))))
 ;;; clgc-init.el ends here
