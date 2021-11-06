@@ -160,7 +160,7 @@
 
 ;; https://idiocy.org/emacs-fonts-and-fontsets.html
 ;; (list-fontsets t)
-(list-fonts (font-spec :size 16))
+;; (list-fonts (font-spec :size 16))
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
