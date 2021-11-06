@@ -158,14 +158,18 @@
 (setq custom-theme-directory user-emacs-directory) ;; fix error in custom-theme--load-path
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
 
+;; Experiment with Cascadia from https://github.com/microsoft/cascadia-code/releases
+
 ;; https://idiocy.org/emacs-fonts-and-fontsets.html
 ;; (list-fontsets t)
 ;; (list-fonts (font-spec :size 16))
+
+;; (list-fonts (font-spec :font "Cascadia"))
 (defun clgc-set-font-size (size)
   "Change font size uniformly & on the fly"
   (interactive "nFont size in points: ")
   (set-face-attribute 'default nil
-                      :font "Inconsolata-16"
+                      :font "Cascadia Code" ;; "Inconsolata-16"
                       :height (truncate (* size 10)))
   (when (functionp 'set-fontset-font)
     (set-fontset-font "fontset-default" 'symbol "Noto Color Emoji")
@@ -181,8 +185,8 @@
 (when (eq window-system 'x)
   (clgc-set-font-size
    (pcase (system-name)
-     ("reason" 16.0)
-     ("nocturnal" 16.0)
+     ("reason" 13.0)
+     ("nocturnal" 13.0)
      ("anathem" 16.0)
      (_ 16.0))))
 ;;; clgc-init.el ends here
