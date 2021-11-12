@@ -149,7 +149,7 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl --output clj.sh -O https://download.clojure.org/install/linux-install-1.10.3.986.sh &&
+curl --output clj.sh -O https://download.clojure.org/install/linux-install-1.10.3.1020.sh &&
     chmod +x clj.sh && sudo ./clj.sh && rm -vf clj.sh
 
 curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo &&
