@@ -159,6 +159,7 @@
 (load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
 
 ;; Experiment with Cascadia from https://github.com/microsoft/cascadia-code/releases
+;; sudo apt install fonts-cascadia-code
 
 ;; https://idiocy.org/emacs-fonts-and-fontsets.html
 ;; (list-fontsets t)
