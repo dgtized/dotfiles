@@ -40,10 +40,11 @@
   (clj-refactor-mode t)
   (cljr-add-keybindings-with-prefix "C-c r")
   (define-clojure-indent
-    (match 1)
-    (loop/c-for 1)
-    (c-for 1))
-  (add-to-list 'prettify-symbols-alist '("Math/PI" . ?π)))
+   (match 1)
+   (loop/c-for 1)
+   (c-for 1))
+  (add-to-list 'prettify-symbols-alist '("Math/PI" . ?π))
+  (add-to-list 'prettify-symbols-alist '("eq/TAU" . ?𝜏)))
 
 (defun clgc-cider-repl-mode-hook ()
   (subword-mode +1))
