@@ -111,9 +111,8 @@
 ;; set c/c++ indent width and compile modes
 ;;
 (defun my-c-mode-hook ()
-  (c-set-style "K&R")
-  (local-set-key "\C-cc" 'compile)
-)
+  (c-set-style "gnu")
+  (local-set-key "\C-cc" 'compile))
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
 (defun clgc-text-mode-hook ()
