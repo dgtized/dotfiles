@@ -102,6 +102,8 @@
 
 ;; Scheme
 (depends-on "geiser")
+(depends-on "geiser-guile")
+(depends-on "geiser-racket")
 (depends-on "racket-mode")
 ;; (depends-on "quack")
 
