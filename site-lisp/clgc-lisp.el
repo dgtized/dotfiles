@@ -21,9 +21,13 @@
   (progn (add-hook 'sly-mode-hook 'smartparens-strict-mode)
          (add-hook 'sly-mrepl-mode-hook 'smartparens-strict-mode)))
 
-
 (with-eval-after-load 'geiser
   (progn (add-hook 'geiser-repl-mode-hook 'smartparens-strict-mode)))
+
+(with-eval-after-load 'racket
+  (progn
+    (require 'racket-xp)
+    (add-hook 'racket-mode-hook #'racket-xp-mode)))
 
 ;; Aggressive indent in buffer, but not repl
 (dolist (mode '(scheme emacs-lisp lisp clojure racket racket-repl))
