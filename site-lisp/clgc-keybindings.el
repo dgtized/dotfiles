@@ -114,7 +114,8 @@
 (global-set-key (kbd "C-c F") 'crux-sudo-edit)
 
 (define-key prog-mode-map (kbd "<f5>") 'compile)
-(define-key c-mode-map (kbd "C-c c") 'compile)
+(with-eval-after-load 'c-mode
+ (define-key c-mode-map (kbd "C-c c") 'compile))
 (with-eval-after-load 'compile
   (let ((map compilation-mode-map))
     (define-key map (kbd "v") 'compilation-display-error)
