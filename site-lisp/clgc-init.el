@@ -25,7 +25,6 @@
 ;; https://emacs.stackexchange.com/questions/61386/package-refresh-hangs
 (setq gnutls-algorithm-priority "normal:-vers-tls1.3")
 
-(setq autoload-file (expand-file-name "loaddefs.el" dotc-elisp))
 (setq custom-file (expand-file-name "custom.el" dotc-elisp))
 (setq eshell-aliases-file (expand-file-name "aliases" dotc-elisp))
 
@@ -39,7 +38,7 @@
 (require 'cl-lib)
 
 (require 'clgc-elpa)
-(regen-autoloads)
+(regen-autoloads dotc-elisp (expand-file-name "loaddefs.el" dotc-elisp))
 
 (setq inhibit-startup-screen t
       line-number-mode t
