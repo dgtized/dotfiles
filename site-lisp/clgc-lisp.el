@@ -44,6 +44,8 @@
   (require 'smartparens-clojure)
   (require 'flycheck-clj-kondo)
   (require 'clojure-mode-extra-font-locking)
+  (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (subword-mode +1)
   (clj-refactor-mode t)
   (cljr-add-keybindings-with-prefix "C-c r")
