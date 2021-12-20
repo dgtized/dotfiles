@@ -33,8 +33,8 @@ fi
 ./autogen.sh &&
     ./configure --build=x86_64-linux-gnu \
      --prefix="$HOME/usr" --program-transform-name='s/^emacs/gccmacs/' \
-     --disable-silent-rules --with-modules=yes --with-x=yes --with-x-toolkit=gtk3 --with-xwidgets=yes \
-     --with-native-compilation --with-mailutils \
+     --disable-silent-rules --with-modules=yes \
+     --with-native-compilation --with-pgtk --with-mailutils \
      'CFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
