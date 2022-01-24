@@ -70,3 +70,7 @@ alias stats='Rscript -e "summary(as.numeric(readLines(\"stdin\")))"'
 alias boxplot='Rscript -e "boxplot(as.numeric(readLines(\"stdin\")))"'
 alias histogram='Rscript -e "hist(as.numeric(readLines(\"stdin\")))"'
 alias vrplot='evince Rplots.pdf'
+
+# wordle helpers
+alias wordles='egrep "^[[:lower:]]{5}$" /usr/share/dict/words | egrep -v "[êóé]"'
+alias charfreqs='bb -io "(->> *input* (mapcat seq) frequencies (sort-by second) (map (partial str/join \" \")))"'
