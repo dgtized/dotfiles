@@ -1,4 +1,8 @@
 ;;; clgc-keybindings -- keybindings for clgc
+
+;; TODO: make sue of context-menu-functions for mouse actions as described in:
+;; https://ruzkuku.com/texts/emacs-mouse.html
+
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
