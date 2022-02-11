@@ -194,6 +194,7 @@ sudo apt update
 sudo apt install gh
 
 # [optional] Linux Audio Setup
+# see https://help.ubuntu.com/community/DigitalAC-3Pulseaudio for 5.1
 sudo apt install pavucontrol
 
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
