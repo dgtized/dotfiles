@@ -197,4 +197,9 @@ sudo apt install gh
 # see https://help.ubuntu.com/community/DigitalAC-3Pulseaudio for 5.1
 sudo apt install pavucontrol
 
+# inkscape / plotter
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt update
+sudo apt install inkscape
+
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
