@@ -202,4 +202,12 @@ sudo add-apt-repository ppa:inkscape.dev/stable
 sudo apt update
 sudo apt install inkscape
 
+# protontricks
+# https://simpler-website.pages.dev/html/2021/1/protontricks/
+sudo apt install -y python3-pip python3-setuptools python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+pipx install protontricks
+
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
