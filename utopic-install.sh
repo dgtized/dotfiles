@@ -158,7 +158,7 @@ curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/ins
 
 # babashka
 # download and unpack from https://github.com/borkdude/babashka/releases
-wget https://github.com/babashka/babashka/releases/download/v0.7.7/babashka-0.7.7-linux-amd64.tar.gz -O babashka.tgz &&
+wget https://github.com/babashka/babashka/releases/download/v0.7.8/babashka-0.7.8-linux-amd64.tar.gz -O babashka.tgz &&
     tar -zxf babashka.tgz && mv -vf bb ~/usr/bin && rm -vf babashka.tgz
 
 # LaTeX
