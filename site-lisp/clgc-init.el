@@ -93,11 +93,13 @@
       tramp-ssh-controlmaster-options t)
 
 ;; make the backup gods obey ME! no more ~ sprinkles all over the place
-(let ((backup-dir (expand-file-name "backups" user-emacs-directory)))
+(let ((backup-dir (expand-file-name "backups" user-emacs-directory))
+      (undo-dir (expand-file-name "undo" user-emacs-directory)))
   (setq version-control nil
         delete-by-moving-to-trash t
         backup-directory-alist `(("." . ,backup-dir))
-        auto-save-file-name-transforms `((".*" ,backup-dir t))))
+        auto-save-file-name-transforms `((".*" ,backup-dir t))
+        undo-tree-history-directory-alist `(("." . ,undo-dir))))
 
 (setq initial-scratch-message ";; What are you doing in there?\n\n")
 
