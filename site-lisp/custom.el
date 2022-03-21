@@ -27,7 +27,8 @@
      (ruby-compilation-executable . "ruby1.8")
      (ruby-compilation-executable . "ruby1.9")
      (ruby-compilation-executable . "rbx")
-     (ruby-compilation-executable . "jruby"))))
+     (ruby-compilation-executable . "jruby")))
+ '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
