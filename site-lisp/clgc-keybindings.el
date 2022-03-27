@@ -8,7 +8,6 @@
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
 (global-set-key (kbd "C-x p") 'proced)
 (global-set-key (kbd "C-x P") 'prodigy)
-(global-set-key (kbd "C-S") 'swiper)
 
 (global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
 
@@ -205,6 +204,8 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
+(define-key isearch-mode-map (kbd "M-s t") 'swiper-isearch-toggle)
+(define-key swiper-map (kbd "M-s t") 'swiper-isearch-toggle)
 
 ;; Multiple Cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
