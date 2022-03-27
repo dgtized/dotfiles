@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
 (global-set-key (kbd "C-x p") 'proced)
 (global-set-key (kbd "C-x P") 'prodigy)
+(global-set-key (kbd "C-S") 'swiper)
 
 (global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
 
