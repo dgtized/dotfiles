@@ -3,7 +3,16 @@
 ;;; Code:
 
 ;; Set this first to speed up startup 5.5s -> 2.5s
-(setq gc-cons-threshold (expt 2 24)) ;; 16mb instead of 800k
+(setq gc-cons-threshold (expt 2 25)) ;; 32mb instead of 800k
+
+(defun display-startup-time ()
+  (message "emacs loaded after %s with %d GC."
+           (format "%.2f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'display-startup-time)
 
 ;; Enable native compilation if available
 (when (and (fboundp 'native-comp-available-p)
@@ -187,8 +196,8 @@
 (when (eq window-system 'x)
   (clgc-set-font-size
    (pcase (system-name)
-     ("reason" 13.0)
-     ("nocturnal" 13.0)
+     ("reason" 14.0)
+     ("nocturnal" 14.0)
      ("anathem" 16.0)
      (_ 16.0))))
 ;;; clgc-init.el ends here
