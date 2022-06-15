@@ -5,15 +5,6 @@
 ;; Set this first to speed up startup 5.5s -> 2.5s
 (setq gc-cons-threshold (expt 2 25)) ;; 32mb instead of 800k
 
-(defun display-startup-time ()
-  (message "emacs loaded after %s with %d GC."
-           (format "%.2f seconds"
-                   (float-time
-                    (time-subtract after-init-time before-init-time)))
-           gcs-done))
-
-(add-hook 'emacs-startup-hook #'display-startup-time)
-
 ;; Enable native compilation if available
 (when (and (fboundp 'native-comp-available-p)
            (native-comp-available-p))
@@ -112,12 +103,6 @@
 
 (setq initial-scratch-message ";; What are you doing in there?\n\n")
 
-(defun clgc-after-init-hook ()
-  (require 'clgc-editor)
-  (toggle-frame-maximized))
-
-(add-hook 'after-init-hook #'clgc-after-init-hook)
-
 ;; setup audo modes
 (dolist (mode '(("\\.C$"          . c++-mode)
                 ("\\.cc$"         . c++-mode)
@@ -193,11 +178,29 @@
 ;; Just force the font size manually
 ;; (set-face-attribute 'default nil :height 160)
 
-(when (eq window-system 'x)
-  (clgc-set-font-size
-   (pcase (system-name)
-     ("reason" 14.0)
-     ("nocturnal" 14.0)
-     ("anathem" 16.0)
-     (_ 16.0))))
+(defun clgc-after-init-hook ()
+  (message "emacs loaded after %s with %d GC passes."
+           (format "%.2f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done)
+
+  (let ((before-package-time (current-time)))
+    (require 'clgc-editor)
+    (toggle-frame-maximized)
+    (when (display-graphic-p)
+      (clgc-set-font-size
+       (pcase (system-name)
+         ("reason" 14.0)
+         ("nocturnal" 14.0)
+         ("anathem" 16.0)
+         (_ 16.0))))
+
+    (message "emacs packages loaded after %s with %d GC passes."
+             (format "%.2f seconds"
+                     (float-time
+                      (time-subtract (current-time) before-package-time)))
+             gcs-done)))
+
+(add-hook 'after-init-hook #'clgc-after-init-hook)
 ;;; clgc-init.el ends here
