@@ -139,18 +139,25 @@
 (unless (server-running-p)
   (server-start))
 
-(require 'diminish)
-(with-eval-after-load "abbrev" (diminish 'abbrev-mode))
-(with-eval-after-load "eldoc" (diminish 'eldoc-mode))
-(with-eval-after-load "projectile" (diminish 'projectile-mode))
-(with-eval-after-load "company" (diminish 'company-mode))
-(with-eval-after-load "undo-tree" (diminish 'undo-tree-mode))
-(with-eval-after-load "yasnippet" (diminish 'yas-minor-mode "ys"))
-(with-eval-after-load "counsel" (diminish 'counsel-mode "Co"))
-
 (load custom-file 'noerror)
+
+(condition-case nil
+    (progn
+      (require 'diminish)
+      (with-eval-after-load "abbrev" (diminish 'abbrev-mode))
+      (with-eval-after-load "eldoc" (diminish 'eldoc-mode))
+      (with-eval-after-load "projectile" (diminish 'projectile-mode))
+      (with-eval-after-load "company" (diminish 'company-mode))
+      (with-eval-after-load "undo-tree" (diminish 'undo-tree-mode))
+      (with-eval-after-load "yasnippet" (diminish 'yas-minor-mode "ys"))
+      (with-eval-after-load "counsel" (diminish 'counsel-mode "Co")))
+  (message "warning: diminish not installed"))
+
+;; theme setup
 (setq custom-theme-directory user-emacs-directory) ;; fix error in custom-theme--load-path
-(load-theme 'zenburn t) ;; use disable-theme / load-theme to switch
+(condition-case nil
+    (load-theme 'zenburn t)  ;; use disable-theme / load-theme to switch
+  (message "warning: theme package not installed"))
 
 ;; Experiment with Cascadia from https://github.com/microsoft/cascadia-code/releases
 ;; sudo apt install fonts-cascadia-code
