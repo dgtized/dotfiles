@@ -18,9 +18,8 @@
 (defvar dotc-elisp (concat dotc-dir "/site-lisp/")
   "Directory root for dotc managed elisp files.")
 
-(require 'cask (expand-file-name "cask/cask.el" dotc-dir))
-(cask-initialize)
-(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;; https://emacs.stackexchange.com/questions/61386/package-refresh-hangs
 (setq gnutls-algorithm-priority "normal:-vers-tls1.3")
