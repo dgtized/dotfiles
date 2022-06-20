@@ -210,4 +210,8 @@ python3 -m pipx ensurepath
 
 pipx install protontricks
 
+# ESP32
+# install vs-code + platformio
+# https://docs.platformio.org/en/latest/core/installation/udev-rules.html
+
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
