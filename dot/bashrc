@@ -84,7 +84,7 @@ export GOPATH=$HOME/gocode
 pathmunge ${GOPATH}/bin
 
 # esp32 dev
-if [[ -f "$HOME/.platformio/penv/bin" ]]; then
+if [[ -d "$HOME/.platformio/penv/bin" ]]; then
     pathmunge "$HOME/.platformio/penv/bin"
 fi
 
