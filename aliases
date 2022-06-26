@@ -74,3 +74,5 @@ alias vrplot='evince Rplots.pdf'
 # wordle helpers
 alias wordles='egrep "^[[:lower:]]{5}$" /usr/share/dict/words | egrep -v "[êóé]"'
 alias charfreqs='bb -io "(->> *input* (mapcat seq) frequencies (sort-by second) (map (partial str/join \" \")))"'
+
+alias esp-idf="source ~/code/upstream/esp/esp-idf/export.sh"

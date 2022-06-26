@@ -83,6 +83,11 @@ export EDITOR=emacsclient
 export GOPATH=$HOME/gocode
 pathmunge ${GOPATH}/bin
 
+# esp32 dev
+if [[ -f "$HOME/.platformio/penv/bin" ]]; then
+    pathmunge "$HOME/.platformio/penv/bin"
+fi
+
 set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 

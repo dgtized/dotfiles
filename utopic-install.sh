@@ -213,5 +213,6 @@ pipx install protontricks
 # ESP32
 # install vs-code + platformio
 # https://docs.platformio.org/en/latest/core/installation/udev-rules.html
+# https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html
 
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
