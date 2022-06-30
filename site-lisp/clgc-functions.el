@@ -18,8 +18,8 @@
   (insert (format "ASCII characters up to number %d.\n" 254))
   (cl-loop for i from 0 to 254 do
            (progn
-             (insert (format "%5d %-4c" i i))
-             (if (= (mod (1+ i) 6) 0) (insert "\n"))))
+             (insert (format "%4d %x %-4c" i i i))
+             (if (= (mod (1+ i) 4) 0) (insert "\n"))))
   (goto-line 0)
   (view-mode t))
 
