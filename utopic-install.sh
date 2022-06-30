@@ -214,5 +214,9 @@ pipx install protontricks
 # install vs-code + platformio
 # https://docs.platformio.org/en/latest/core/installation/udev-rules.html
 # https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html
+# on conflict with brltty
+# https://unix.stackexchange.com/questions/696001/dev-ttyusb0-is-available-but-after-try-to-call-its-gone
+# sudo apt remove brltty
+# test that /dev/ttyUSB0 exists after plugging in device
 
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
