@@ -20,7 +20,7 @@
            (progn
              (insert (format "%4d %x %-4c" i i i))
              (if (= (mod (1+ i) 4) 0) (insert "\n"))))
-  (goto-line 0)
+  (goto-char (point-min))
   (view-mode t))
 
 (defun unfill-paragraph ()
