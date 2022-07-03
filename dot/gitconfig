@@ -42,3 +42,5 @@
   rebase = true
 [tag]
   sort = version:refname
+[init]
+	defaultBranch = main
