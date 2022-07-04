@@ -16,17 +16,19 @@ git checkout master
 git pull --rebase
 
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
-sudo apt install -y gcc-10 libgccjit0 libgccjit-10-dev
+sudo apt install -y libgccjit0 libgccjit-11-dev
 sudo apt install -y libjansson4 libjansson-dev
 sudo apt build-dep -y emacs-snapshot
 
-export CC="gcc-10"
+# export CC="gcc-10"
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
 JOBS=$((JOBS>2 ? JOBS : 2))
 
 if [[ "$1" == '--clean' ]]; then
     make clean extraclean distclean
 fi
+
+set -exuo pipefail
 
 # Flags trimmed from ppa/emacs-snapshot `system-configuration-options` variable
 # TODO: remove debug & try -O3 ?
@@ -39,7 +41,8 @@ fi
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
 
-/usr/bin/time make -j "$JOBS" && /usr/bin/time make install
+/usr/bin/time make -j "$JOBS"
+/usr/bin/time make install prefix="$HOME/usr" infodir="$HOME/usr/share/info"
 
 ln -sfv ~/usr/bin/gccmacs ~/usr/bin/emacs
 ln -sfv ~/usr/bin/gccmacsclient ~/usr/bin/emacsclient
