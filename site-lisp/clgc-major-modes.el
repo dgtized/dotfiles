@@ -142,9 +142,8 @@
 
 (defun auctex ()
   (interactive)
-  (add-to-list 'load-path "/usr/share/emacs/site-lisp/auctex/")
   (load "auctex.el" nil t t)
-  (load "preview-latex.el" nil t t)
+  (load "preview.el" nil t t)
   (setq-default TeX-master nil)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t))
