@@ -53,8 +53,7 @@
    (match 1)
    (loop/c-for 1)
    (c-for 1)
-   (async 1)
-   (w/scope 1))
+   (async 1))
   (add-to-list 'prettify-symbols-alist '("Math/PI" . ?π))
   (add-to-list 'prettify-symbols-alist '("eq/TAU" . ?𝜏)))
 
