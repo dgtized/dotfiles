@@ -48,6 +48,8 @@
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (subword-mode +1)
   (clj-refactor-mode t)
+  ;; still not merged
+  (setq cljr-magic-require-prompts-includes-context t)
   (cljr-add-keybindings-with-prefix "C-c r")
   (define-clojure-indent
    (match 1)
