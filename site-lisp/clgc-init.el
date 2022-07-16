@@ -68,10 +68,11 @@
               fill-column 80)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t) ;; see kill-buffer--possibly-save
 ;; Stop confirming process kill
 (setq kill-buffer-query-functions
-  (remq 'process-kill-buffer-query-function
-         kill-buffer-query-functions))
+      (remq 'process-kill-buffer-query-function
+            kill-buffer-query-functions))
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
