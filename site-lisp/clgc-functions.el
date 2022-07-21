@@ -239,7 +239,7 @@ regular expression."
                         :test 'string=)))
     (dolist (ff font-families)
       (insert (propertize str 'font-lock-face `(:family ,ff)) ff "\n")))
-  (goto-line 0)
+  (goto-char (point-min))
   (view-mode t))
 
 (provide 'clgc-functions)
