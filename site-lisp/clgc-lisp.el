@@ -49,7 +49,10 @@
   (subword-mode +1)
   (clj-refactor-mode t)
   ;; still not merged
-  (setq cljr-magic-require-prompts-includes-context t)
+  (let ((test-decl "[clojure.test :as t :refer [deftest is] :include-macros true]"))
+    (setq cljr-clojure-test-declaration "[clojure.test :as t :refer [deftest is]]"
+          cljr-cljs-clojure-test-declaration test-decl
+          cljr-cljc-clojure-test-declaration test-decl))
   (cljr-add-keybindings-with-prefix "C-c r")
   (define-clojure-indent
    (match 1)
