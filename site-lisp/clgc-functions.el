@@ -190,6 +190,13 @@ regular expression."
       (sp-splice-sexp)
       (insert ":"))))
 
+;; https://emacs.stackexchange.com/questions/13080/reloading-directory-local-variables
+(defun clgc-reload-dir-locals-for-current-buffer ()
+  "reload dir locals for the current buffer"
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
+
 (defun nri-insert-date ()
   "Insert a timestamp according to locale's date and time format."
   (interactive)
