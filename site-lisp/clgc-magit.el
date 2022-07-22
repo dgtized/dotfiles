@@ -8,13 +8,11 @@
                               with-editor-usage-message)
       git-commit-summary-max-length 60)
 
-(setq global-magit-file-mode t
-      magit-refresh-verbose t
+(setq magit-define-global-key-bindings t
+      magit-refresh-verbose nil ;; enable for time profile on magit-status
       magit-auto-revert-immediately t
       magit-auto-revert-mode t
       magit-completing-read-function 'ivy-completing-read
-      magit-push-always-verify nil
-      magit-push-arguments (quote ("--set-upstream"))
       magit-save-repository-buffers (quote dontask))
 
 ;; disable magit-insert-tags as it's a performance hog for magit-refs
