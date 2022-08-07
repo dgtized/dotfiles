@@ -220,4 +220,7 @@ pipx install protontricks
 # sudo apt remove brltty
 # test that /dev/ttyUSB0 exists after plugging in device
 
+# wat2wasm + friends
+sudo apt install wabt
+
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
