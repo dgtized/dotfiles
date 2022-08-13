@@ -15,20 +15,29 @@ pushd emacs
 git checkout master
 git pull --rebase
 
+focal=0
+if grep -c focal /etc/lsb-release; then
+    focal=1
+    export CC="gcc-10"
+fi
+
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
-sudo apt install -y libgccjit0 libgccjit-11-dev
+
+if [[ $focal == 1 ]]; then
+    sudo apt install -y gcc-10 libgccjit0 libgccjit-10-dev
+else
+    sudo apt install -y libgccjit0 libgccjit-11-dev
+fi
+
 sudo apt install -y libjansson4 libjansson-dev
 sudo apt build-dep -y emacs-snapshot
 
-# export CC="gcc-10"
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
 JOBS=$((JOBS>2 ? JOBS : 2))
 
 if [[ "$1" == '--clean' ]]; then
     make clean extraclean distclean
 fi
-
-set -exuo pipefail
 
 # Flags trimmed from ppa/emacs-snapshot `system-configuration-options` variable
 # TODO: remove debug & try -O3 ?
@@ -41,8 +50,13 @@ set -exuo pipefail
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
 
-/usr/bin/time make -j "$JOBS"
-/usr/bin/time make install prefix="$HOME/usr" infodir="$HOME/usr/share/info"
+if [[ $focal == 1 ]]; then
+    /usr/bin/time make -j "$JOBS" &&
+        /usr/bin/time make install prefix="$HOME/usr" infodir="$HOME/usr/share/info"
+else
+    /usr/bin/time make -j "$JOBS" &&
+        /usr/bin/time make install
+fi
 
 ln -sfv ~/usr/bin/gccmacs ~/usr/bin/emacs
 ln -sfv ~/usr/bin/gccmacsclient ~/usr/bin/emacsclient
