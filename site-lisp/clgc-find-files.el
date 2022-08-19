@@ -1,5 +1,3 @@
-(eval-when-compile (require 'cl))
-
 (require 'ivy)
 (setq ivy-use-virtual-buffers t
       ivy-height 16
