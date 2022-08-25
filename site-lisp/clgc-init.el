@@ -131,6 +131,8 @@
 
                 ("\\.rkt$"        . racket-mode)
 
+                ("\\.wasm"        . hexl-mode)
+
                 ("\\.js$"         . js2-mode)
                 ("Cask"           . emacs-lisp-mode)
                 ("gitconfig"      . conf-mode)))
