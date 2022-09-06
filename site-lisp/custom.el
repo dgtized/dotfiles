@@ -13,6 +13,18 @@
       (lambda nil
         (when
             (not
+             (featurep 'lemniscate))
+          (let
+              ((lemniscate-file
+                (expand-file-name "lemniscate.el" default-directory)))
+            (when
+                (file-exists-p lemniscate-file)
+              (load lemniscate-file)
+              (require 'lemniscate))))))
+     (eval
+      (lambda nil
+        (when
+            (not
              (featurep 'shimmers))
           (let
               ((shimmers-file
