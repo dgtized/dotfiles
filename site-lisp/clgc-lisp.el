@@ -1,3 +1,4 @@
+;; TODO clj-refactor and clgc-clojure should only trigger on hook load?
 (require 'clj-refactor)
 (require 'clgc-clojure)
 
