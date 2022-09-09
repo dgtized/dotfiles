@@ -1,5 +1,4 @@
-;; TODO clj-refactor and clgc-clojure should only trigger on hook load?
-(require 'clj-refactor)
+;; TODO clgc-clojure should only trigger on hook load?
 (require 'clgc-clojure)
 
 (add-hook 'emacs-lisp-mode-hook 'auto-recompile-el-buffer)

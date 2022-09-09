@@ -5,6 +5,8 @@
 (require 'cider-eval)
 (require 'cider-format)
 
+(require 'clj-refactor)
+
 (defun clj-import-profiling ()
   (interactive)
   (cider-interactive-eval
