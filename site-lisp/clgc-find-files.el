@@ -47,6 +47,7 @@
 (setq projectile-enable-caching t
       projectile-switch-project-action 'projectile-dired
       projectile-use-git-grep t
+      projectile-create-missing-test-files t
       projectile-tags-command
       "ctags-exuberant --exclude='*.min.js' --exclude='vendor/assets' -Re -f \"%s\" %s")
 
