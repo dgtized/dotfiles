@@ -26,6 +26,8 @@
 #   cmd = difftastic "$LOCAL" "$REMOTE"
 [github]
   user = dgtized
+[commit]
+#  gpgsign = true
 [include]
   path = ~/.gitconfig.private
 [log]
