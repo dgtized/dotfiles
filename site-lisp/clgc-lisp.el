@@ -44,6 +44,7 @@
   (require 'smartparens-clojure)
   (require 'flycheck-clj-kondo)
   (require 'clojure-mode-extra-font-locking)
+  (setq cljr-slash-uses-suggest-libspec t)
   (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (subword-mode +1)
