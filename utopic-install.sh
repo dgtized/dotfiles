@@ -158,7 +158,7 @@ curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/ins
 
 # babashka
 # download and unpack from https://github.com/borkdude/babashka/releases
-(export BV="0.9.161" &&
+(export BV="1.0.164" &&
      wget https://github.com/babashka/babashka/releases/download/v${BV}/babashka-${BV}-linux-amd64.tar.gz -O babashka.tgz) &&
     tar -zxf babashka.tgz && mv -vf bb ~/usr/bin && rm -vf babashka.tgz
 
