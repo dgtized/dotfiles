@@ -74,9 +74,9 @@
 (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
-(eval-after-load 'flycheck
-  '(progn (flycheck-credo-setup)
-          (flycheck-dialyxir-setup)))
+(with-eval-after-load 'flycheck
+  (flycheck-credo-setup)
+  (flycheck-dialyxir-setup))
 
 (setq-default prolog-system 'swi
               prolog-program-switches '((swi ("-G128M" "-T128M" "-L128M" "-O"))
