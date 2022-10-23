@@ -87,11 +87,6 @@
 (add-hook 'cider-mode-hook 'clgc-cider-mode-hook)
 ;;(with-eval-after-load 'clojure-mode (flycheck-clojure-setup))
 
-;; (eval-after-load 'clojure-mode
-;;   '(sayid-setup-package))
-;; Disable sayid
-;; (setq sayid-inject-dependencies-at-jack-in nil)
-
 (setq inferior-lisp-program "sbcl")
 
 (provide 'clgc-lisp)
