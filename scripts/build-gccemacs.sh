@@ -32,7 +32,7 @@ fi
     ./configure --build=x86_64-linux-gnu \
      --prefix="$HOME/usr" --program-transform-name='s/^emacs/gccmacs/' \
      --disable-silent-rules --with-modules=yes \
-     --with-native-compilation --with-pgtk --with-mailutils --with-xwidgets \
+     --with-native-compilation --with-mailutils --with-xwidgets \
      'CFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
