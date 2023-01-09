@@ -70,8 +70,6 @@
 
 (add-hook 'compilation-mode-hook 'winnow-mode)
 
-(require 'helm-config)
-
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;; (add-to-list 'ido-ignore-directories "target")
