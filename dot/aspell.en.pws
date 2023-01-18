@@ -1,4 +1,5 @@
-personal_ws-1.1 en 17 
+personal_ws-1.1 en 19 
+Comstock
 HSL
 Luminance
 RGB
@@ -14,5 +15,6 @@ middleware
 performant
 programmatically
 sharding
+strobing
 struct
 unassociated
