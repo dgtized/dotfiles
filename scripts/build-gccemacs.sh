@@ -16,7 +16,9 @@ git pull --rebase
 
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
 
-sudo apt install -y libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev
+# libtool-bin is for vterm support
+sudo apt install -y libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
+     libtool-bin
 sudo apt build-dep -y emacs-snapshot
 
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
