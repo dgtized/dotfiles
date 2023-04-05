@@ -93,7 +93,9 @@ channel."
 (setq-default org-download-image-dir "~/org/downloads")
 (require 'org-download)
 
-(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.9.2")
+(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.4.0")
+
+;; (define-key org-mode-map (kbd "<f5>") #'org-reveal-export-to-html)
 
 (require 'ox-reveal)
 ;; ox-reveal is adding notes to org-structure-template-alist and it breaks things
