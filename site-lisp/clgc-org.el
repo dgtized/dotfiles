@@ -93,7 +93,7 @@ channel."
 (setq-default org-download-image-dir "~/org/downloads")
 (require 'org-download)
 
-(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0")
+(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.9.2")
 
 (require 'ox-reveal)
 ;; ox-reveal is adding notes to org-structure-template-alist and it breaks things
