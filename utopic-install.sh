@@ -45,11 +45,12 @@ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash - &&
     sudo apt install --yes nodejs nodejs-doc yarn
 
 # install chruby
-wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz &&
-    tar -xzvf ruby-install-0.7.0.tar.gz &&
-    pushd ruby-install-0.7.0/ &&
+wget -O ruby-install.tar.gz https://github.com/postmodern/ruby-install/archive/v0.9.0.tar.gz &&
+    tar -xzvf ruby-install.tar.gz &&
+    pushd ruby-install-0.9.0/ &&
     sudo make install &&
-    popd
+    popd &&
+    rm -rvf ruby-install.tar.gz ruby-install-0.9.0
 
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz &&
     tar -xzvf chruby-0.3.9.tar.gz &&
