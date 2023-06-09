@@ -1,4 +1,6 @@
-set bell-style none
+# To reload with changes:
+# bind -f ~/.inputrc
+set bell-style visible
 set show-all-if-ambiguous on
 set visible-stats on
 set keymap emacs-meta
