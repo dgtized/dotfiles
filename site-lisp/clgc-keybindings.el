@@ -190,7 +190,7 @@
 (with-eval-after-load 'cider-mode
   (let ((map cider-mode-map))
     (define-key map (kbd "C-c T") 'cider-auto-test-mode)
-    (define-key map (kbd "M-.") #'cider-find-dwim)
+    (define-key map (kbd "M-.") 'cider-find-var)
     (define-key map (kbd "M-,") #'cider-pop-back)
     (define-key map (kbd "C-c .") 'cider-pprint-eval-last-sexp)
     (define-key map (kbd "C-x 4 M-.") 'cider-find-dwim-other-window)
