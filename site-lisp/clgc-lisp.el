@@ -1,4 +1,6 @@
 ;; TODO clgc-clojure should only trigger on hook load?
+(setq cider-use-xref nil)
+
 (require 'clgc-clojure)
 
 (add-hook 'emacs-lisp-mode-hook 'auto-recompile-el-buffer)
@@ -73,7 +75,6 @@
 (with-eval-after-load 'cider
   (setq cider-show-error-buffer t
         cider-prompt-for-symbol nil
-        cider-use-xref nil
         cider-use-tooltips nil
         cider-repl-pop-to-buffer-on-connect 'display-only
         cider-repl-history-file (expand-file-name "clojure_repl_history" user-emacs-directory)

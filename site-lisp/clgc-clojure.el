@@ -2,6 +2,9 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'cider))
+(eval-when-compile (require 'nrepl-client))
+
 (require 'cider-eval)
 (require 'cider-format)
 
