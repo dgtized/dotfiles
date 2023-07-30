@@ -27,6 +27,7 @@
 (global-set-key (kbd "C-x C-\\") 'align-regexp)
 (global-set-key (kbd "C-x \\") 'align)
 (global-set-key (kbd "C-c g") 'aggressive-indent-mode)
+;; TODO: switch to duplicate-dwim from 29.1?
 (global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c W") 'whitespace-mode)
@@ -282,8 +283,6 @@
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'crux-move-beginning-of-line)
-
-(global-set-key (kbd "M-SPC") 'cycle-spacing)
 
 (with-eval-after-load 'company
   (global-set-key (kbd "C-c y") 'company-yasnippet))
