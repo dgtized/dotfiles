@@ -39,13 +39,8 @@ fi
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
 
-if [[ $focal == 1 ]]; then
-    /usr/bin/time make -j "$JOBS" &&
-        /usr/bin/time make install prefix="$HOME/usr" infodir="$HOME/usr/share/info"
-else
-    /usr/bin/time make -j "$JOBS" &&
-        /usr/bin/time make install
-fi
+/usr/bin/time make -j "$JOBS" &&
+    /usr/bin/time make install
 
 ln -sfv ~/usr/bin/gccmacs ~/usr/bin/emacs
 ln -sfv ~/usr/bin/gccmacsclient ~/usr/bin/emacsclient
