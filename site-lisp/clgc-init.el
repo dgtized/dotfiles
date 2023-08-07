@@ -22,7 +22,9 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;; https://emacs.stackexchange.com/questions/61386/package-refresh-hangs
-(setq gnutls-algorithm-priority "normal:-vers-tls1.3")
+(setq gnutls-algorithm-priority "normal:-vers-tls1.3"
+      ;; otherwise x would toggle package install
+      package-menu-use-current-if-no-marks nil)
 
 (setq custom-file (expand-file-name "custom.el" dotc-elisp))
 (setq eshell-aliases-file (expand-file-name "aliases" dotc-elisp))
