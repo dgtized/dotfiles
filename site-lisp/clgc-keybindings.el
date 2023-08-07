@@ -43,7 +43,7 @@
 (global-set-key (kbd "C-M-j") 'join-line)
 
 ;; Projectile
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(keymap-set projectile-mode-map "C-c p" 'projectile-command-map)
 (global-set-key (kbd "C-.") 'counsel-projectile)
 (global-set-key (kbd "C-,") 'counsel-projectile-ag)
 
@@ -54,15 +54,15 @@
 (with-eval-after-load 'projectile
   (progn
     (set-keymap-parent 'menu-map 'projectile-command-map)
-    (define-key 'projectile-command-map (kbd "s f") 'projectile-ag-files)))
+    (keymap-set 'projectile-command-map "s f" 'projectile-ag-files)))
 
 (global-set-key (kbd "<menu>") 'menu-map)
 
 (let ((map menu-map))
-  (define-key map (kbd "y") 'helm-show-kill-ring)
-  (define-key map (kbd "x") 'helm-M-x)
-  (define-key map (kbd "TAB") 'ace-window)
-  (define-key map (kbd "<menu>") 'helm-M-x))
+  (keymap-set map "y" 'helm-show-kill-ring)
+  (keymap-set map "x" 'helm-M-x)
+  (keymap-set map "TAB" 'ace-window)
+  (keymap-set map "<menu>" 'helm-M-x))
 
 (global-set-key (kbd "C-x C-m") 'counsel-M-x)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -75,42 +75,42 @@
 (global-set-key (kbd "C-c b") 'org-switchb)
 
 (with-eval-after-load 'graphviz-dot-mode
-  (define-key graphviz-dot-mode-map (kbd "<f5>") 'graphviz-dot-preview))
+  (keymap-set graphviz-dot-mode-map "<f5>" 'graphviz-dot-preview))
 
 (eval-when-compile (require 'org))
 (with-eval-after-load 'org
   (let ((map org-mode-map))
-    (define-key map (kbd "C-'") nil) ;; overlaps ace-jump-mode
-    (define-key map (kbd "<f9>") 'epresent-run)
-    (define-key map (kbd "C-<f9>") 'org-tree-slide-mode)
-    (define-key map (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
-    (define-key map (kbd "C-<f9>") 'org-reveal-export-to-html-and-browse)
-    (define-key map (kbd "M-n") 'outline-next-visible-heading)
-    (define-key map (kbd "M-p") 'outline-previous-visible-heading)))
+    (keymap-set map "C-'" nil) ;; overlaps ace-jump-mode
+    (keymap-set map "<f9>" 'epresent-run)
+    (keymap-set map "C-<f9>" 'org-tree-slide-mode)
+    (keymap-set map "S-<f9>" 'org-tree-slide-skip-done-toggle)
+    (keymap-set map "C-<f9>" 'org-reveal-export-to-html-and-browse)
+    (keymap-set map "M-n" 'outline-next-visible-heading)
+    (keymap-set map "M-p" 'outline-previous-visible-heading)))
 
 ;; Git related
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 (with-eval-after-load 'git-commit-mode
-  (define-key git-commit-mode-map (kbd "C-c k") 'markdown-insert-gfm-code-block))
+  (keymap-set git-commit-mode-map "C-c k" 'markdown-insert-gfm-code-block))
 
 (let ((map vc-prefix-map))
-  (define-key map (kbd "S") 'vc-switch-backend) ; rebind from b
-  (define-key map (kbd "b") 'magit-blame)
-  (define-key map (kbd "B") 'github-browse-file-blame)
-  (define-key map (kbd "f") 'magit-log-buffer-file)
-  (define-key map (kbd "F") 'github-browse-file)
-  (define-key map (kbd "C") 'github-browse-commit)
-  (define-key map (kbd "j") 'jenkins-visit-branch))
+  (keymap-set map "S" 'vc-switch-backend) ; rebind from b
+  (keymap-set map "b" 'magit-blame)
+  (keymap-set map "B" 'github-browse-file-blame)
+  (keymap-set map "f" 'magit-log-buffer-file)
+  (keymap-set map "F" 'github-browse-file)
+  (keymap-set map "C" 'github-browse-commit)
+  (keymap-set map "j" 'jenkins-visit-branch))
 
 (global-set-key (kbd "C-c Q") 'clgc-gist-region)
 (eval-when-compile (require 'magit))
 (with-eval-after-load 'magit
-  (define-key magit-mode-map "#" #'endless/visit-pull-request-url))
+  (keymap-set magit-mode-map "#" #'endless/visit-pull-request-url))
 
 (with-eval-after-load 'gist
-  (define-key gist-list-menu-mode-map (kbd "b") 'clgc-gist-browse))
+  (keymap-set gist-list-menu-mode-map "b" 'clgc-gist-browse))
 
 (global-set-key (kbd "C-c B") 'browse-url)
 (global-set-key (kbd "C-c J") 'webjump)
@@ -119,83 +119,83 @@
 (global-set-key (kbd "C-c V") 'crux-view-url)
 (global-set-key (kbd "C-c F") 'crux-sudo-edit)
 
-(define-key prog-mode-map (kbd "<f5>") 'compile)
+(keymap-set prog-mode-map "<f5>" 'compile)
 (with-eval-after-load 'c-mode
- (define-key c-mode-map (kbd "C-c c") 'compile))
+  (keymap-set c-mode-map "C-c c" 'compile))
 (with-eval-after-load 'compile
   (let ((map compilation-mode-map))
-    (define-key map (kbd "v") 'compilation-display-error)
-    (define-key map (kbd "n") 'compilation-next-error)
-    (define-key map (kbd "p") 'compilation-previous-error)))
+    (keymap-set map "v" 'compilation-display-error)
+    (keymap-set map "n" 'compilation-next-error)
+    (keymap-set map "p" 'compilation-previous-error)))
 
 (let ((map occur-mode-map))
-  (define-key map (kbd "v") 'occur-mode-display-occurrence))
+  (keymap-set map "v" 'occur-mode-display-occurrence))
 
 (global-set-key (kbd "C-M-g") 'abort-recursive-edit) ; C-] overriden below
 (let ((map smartparens-mode-map))
-  (define-key map (kbd "C-(") 'sp-backward-slurp-sexp)
-  (define-key map (kbd "C-)") 'sp-forward-slurp-sexp)
-  (define-key map (kbd "C-{") 'sp-backward-barf-sexp)
-  (define-key map (kbd "C-}") 'sp-forward-barf-sexp)
-  (define-key map (kbd "C-M-<up>") 'sp-backward-up-sexp)
-  (define-key map (kbd "C-M-<down>") 'sp-down-sexp)
-  (define-key map (kbd "M-<delete>") 'sp-kill-symbol)
-  (define-key map (kbd "M-<backspace>") 'sp-backward-kill-symbol)
-  (define-key map (kbd "<delete>") 'sp-delete-char)
-  (define-key map (kbd "ESC <backspace>") 'sp-splice-sexp-killing-backward)
-  (define-key map (kbd "ESC <delete>") 'sp-splice-sexp-killing-forward)
-  (define-key map (kbd "M-s <backspace>") 'sp-backward-unwrap-sexp)
-  (define-key map (kbd "M-s <delete>") 'sp-unwrap-sexp)
-  (define-key map (kbd "C-M-t") 'sp-transpose-sexp)
-  (define-key map (kbd "M-s r") 'sp-rewrap-sexp)
-  (define-key map (kbd "M-s a") 'sp-absorb-sexp)
-  (define-key map (kbd "M-s e") 'sp-emit-sexp)
-  (define-key map (kbd "M-s s") 'sp-split-sexp)
-  (define-key map (kbd "M-s j") 'sp-join-sexp)
-  (define-key map (kbd "M-s c") 'sp-convolute-sexp)
-  (define-key map (kbd "M-s [") 'sp-add-to-previous-sexp)
-  (define-key map (kbd "M-s ]") 'sp-add-to-next-sexp))
+  (keymap-set map "C-(" 'sp-backward-slurp-sexp)
+  (keymap-set map "C-)" 'sp-forward-slurp-sexp)
+  (keymap-set map "C-{" 'sp-backward-barf-sexp)
+  (keymap-set map "C-}" 'sp-forward-barf-sexp)
+  (keymap-set map "C-M-<up>" 'sp-backward-up-sexp)
+  (keymap-set map "C-M-<down>" 'sp-down-sexp)
+  (keymap-set map "M-<delete>" 'sp-kill-symbol)
+  (keymap-set map "M-<backspace>" 'sp-backward-kill-symbol)
+  (keymap-set map "<delete>" 'sp-delete-char)
+  (keymap-set map "ESC <backspace>" 'sp-splice-sexp-killing-backward)
+  (keymap-set map "ESC <delete>" 'sp-splice-sexp-killing-forward)
+  (keymap-set map "M-s <backspace>" 'sp-backward-unwrap-sexp)
+  (keymap-set map "M-s <delete>" 'sp-unwrap-sexp)
+  (keymap-set map "C-M-t" 'sp-transpose-sexp)
+  (keymap-set map "M-s r" 'sp-rewrap-sexp)
+  (keymap-set map "M-s a" 'sp-absorb-sexp)
+  (keymap-set map "M-s e" 'sp-emit-sexp)
+  (keymap-set map "M-s s" 'sp-split-sexp)
+  (keymap-set map "M-s j" 'sp-join-sexp)
+  (keymap-set map "M-s c" 'sp-convolute-sexp)
+  (keymap-set map "M-s [" 'sp-add-to-previous-sexp)
+  (keymap-set map "M-s ]" 'sp-add-to-next-sexp))
 
 (let ((map help-map))
-  (define-key map (kbd "C-l") 'find-library)
-  (define-key map (kbd "f") 'helpful-callable) ;; counsel-describe-function
-  (define-key map (kbd "v") 'helpful-variable) ;; counsel-describe-variable
-  (define-key map (kbd "k") 'helpful-key) ;; describe-key
-  (define-key map (kbd "y") 'helpful-at-point))
+  (keymap-set map "C-l" 'find-library)
+  (keymap-set map "f" 'helpful-callable) ;; counsel-describe-function
+  (keymap-set map "v" 'helpful-variable) ;; counsel-describe-variable
+  (keymap-set map "k" 'helpful-key) ;; describe-key
+  (keymap-set map "y" 'helpful-at-point))
 
 ;; https://www.emacswiki.org/emacs/EvaluatingExpressions
 (let ((map emacs-lisp-mode-map))
-  (define-key map (kbd "C-c C-k") 'eval-buffer)
-  (define-key map (kbd "C-c C-p") 'pp-eval-last-sexp)
-  (define-key map (kbd "C-c :") 'pp-eval-expression)
-  (define-key map (kbd "C-c C-z") 'visit-ielm)
-  (define-key map (kbd "<f5>") 'ert-silently))
+  (keymap-set map "C-c C-k" 'eval-buffer)
+  (keymap-set map "C-c C-p" 'pp-eval-last-sexp)
+  (keymap-set map "C-c :" 'pp-eval-expression)
+  (keymap-set map "C-c C-z" 'visit-ielm)
+  (keymap-set map "<f5>" 'ert-silently))
 
-(define-key lisp-interaction-mode-map (kbd "<f5>") 'ert-silently)
+(keymap-set lisp-interaction-mode-map "<f5>" 'ert-silently)
 
 (setq alchemist-key-command-prefix (kbd "C-c ."))
 (with-eval-after-load 'alchemist-mode
-  (define-key alchemist-mode-map (kbd "C-c C-c") 'alchemist-compile-this-buffer)
-  (define-key alchemist-mode-map (kbd "C-x C-e") 'alchemist-iex-send-last-sexp))
+  (keymap-set alchemist-mode-map "C-c C-c" 'alchemist-compile-this-buffer)
+  (keymap-set alchemist-mode-map "C-x C-e" 'alchemist-iex-send-last-sexp))
 
 (with-eval-after-load 'clojure-mode
   (let ((map clojure-mode-map))
-    (define-key map (kbd "C-c M-h") 'clojure-cheatsheet)
-    (define-key map (kbd "<f5>") 'cider-test-run-ns-tests)
-    (define-key map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
-    (define-key map (kbd "C-c k r") 'kaocha-runner-run-tests)
-    (define-key map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
-    (define-key map (kbd "C-c k w") 'kaocha-runner-show-warnings)
-    (define-key map (kbd "C-c k h") 'kaocha-runner-hide-windows)))
+    (keymap-set map "C-c M-h" 'clojure-cheatsheet)
+    (keymap-set map "<f5>" 'cider-test-run-ns-tests)
+    (keymap-set map "C-c k t" 'kaocha-runner-run-test-at-point)
+    (keymap-set map "C-c k r" 'kaocha-runner-run-tests)
+    (keymap-set map "C-c k a" 'kaocha-runner-run-all-tests)
+    (keymap-set map "C-c k w" 'kaocha-runner-show-warnings)
+    (keymap-set map "C-c k h" 'kaocha-runner-hide-windows)))
 
 (with-eval-after-load 'cider-mode
   (let ((map cider-mode-map))
-    (define-key map (kbd "C-c T") 'cider-auto-test-mode)
-    (define-key map (kbd "M-.") 'cider-find-var)
-    (define-key map (kbd "M-,") #'cider-pop-back)
-    (define-key map (kbd "C-c .") 'cider-pprint-eval-last-sexp)
-    (define-key map (kbd "C-x 4 M-.") 'cider-find-dwim-other-window)
-    (define-key map (kbd "C-c , g") 'cider-eval-to-test-example)))
+    (keymap-set map "C-c T" 'cider-auto-test-mode)
+    (keymap-set map "M-." 'cider-find-var)
+    (keymap-set map "M-," 'cider-pop-back)
+    (keymap-set map "C-c ." 'cider-pprint-eval-last-sexp)
+    (keymap-set map "C-x 4 M-." 'cider-find-dwim-other-window)
+    (keymap-set map "C-c , g" 'cider-eval-to-test-example)))
 
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 (global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
@@ -207,49 +207,49 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
-(define-key isearch-mode-map (kbd "M-s t") 'swiper-isearch-toggle)
-(define-key swiper-map (kbd "M-s t") 'swiper-isearch-toggle)
+(keymap-set isearch-mode-map "M-s t" 'swiper-isearch-toggle)
+(keymap-set swiper-map "M-s t" 'swiper-isearch-toggle)
 
 ;; Multiple Cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (let ((map search-map))
-  (define-key map (kbd "ml") 'mc/edit-lines)
-  (define-key map (kbd "mr") 'mc/mark-all-in-region)
-  (define-key map (kbd "mA") 'mc/mark-all-like-this)
-  (define-key map (kbd "m SPC") 'mc/mark-all-like-this-dwim)
-  (define-key map (kbd "mx") 'mc/mark-more-like-this-extended)
-  (define-key map (kbd "ms") 'mc/mark-all-symbols-like-this)
-  (define-key map (kbd "md") 'mc/mark-all-symbols-like-this-in-defun)
-  (define-key map (kbd "mp") 'mc/mark-sgml-tag-pair)
-  (define-key map (kbd "M-s") 'mc/sort-regions)
-  (define-key map (kbd "M-r") 'mc/reverse-regions)
-  (define-key map (kbd "#") 'mc/insert-numbers))
+  (keymap-set map "m l" 'mc/edit-lines)
+  (keymap-set map "m r" 'mc/mark-all-in-region)
+  (keymap-set map "m A" 'mc/mark-all-like-this)
+  (keymap-set map "m SPC" 'mc/mark-all-like-this-dwim)
+  (keymap-set map "m x" 'mc/mark-more-like-this-extended)
+  (keymap-set map "m s" 'mc/mark-all-symbols-like-this)
+  (keymap-set map "m d" 'mc/mark-all-symbols-like-this-in-defun)
+  (keymap-set map "m p" 'mc/mark-sgml-tag-pair)
+  (keymap-set map "M-s" 'mc/sort-regions)
+  (keymap-set map "M-r" 'mc/reverse-regions)
+  (keymap-set map "#" 'mc/insert-numbers))
 
 (let ((map ctl-x-4-map))
-  (define-key map (kbd "t") 'crux-transpose-windows)
-  (define-key map (kbd "e") 'ediff-other-window)
-  (define-key map (kbd "s") 'isearch-other-window)
-  (define-key map (kbd "i") 'projectile-find-implementation-or-test-other-window)
-  (define-key map (kbd "M-.") 'xref-find-definitions-other-window))
+  (keymap-set map "t" 'crux-transpose-windows)
+  (keymap-set map "e" 'ediff-other-window)
+  (keymap-set map "s" 'isearch-other-window)
+  (keymap-set map "i" 'projectile-find-implementation-or-test-other-window)
+  (keymap-set map "M-." 'xref-find-definitions-other-window))
 
 (with-eval-after-load 'ruby-mode
   (let ((map ruby-mode-map))
-    (define-key map (kbd "<f5>") 'rspec-verify)
-    (define-key map (kbd "<f6>") 'clgc-ruby-compile-this-buffer)
-    (define-key map (kbd "<f7>") 'rubocop-check-current-file)
-    (define-key map (kbd "C-c C-c") 'clgc-ruby-compile-this-buffer)
-    (define-key map (kbd "C-c v") 'chruby-use-corresponding)
-    (define-key map (kbd "S-<f6>") 'coverage-mode)
-    (define-key map (kbd "C-c :") 'clgc-ruby-string->symbol)
-    (define-key map (kbd "C-c #") 'ruby-toggle-hash-syntax)
-    (define-key map (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
+    (keymap-set map "<f5>" 'rspec-verify)
+    (keymap-set map "<f6>" 'clgc-ruby-compile-this-buffer)
+    (keymap-set map "<f7>" 'rubocop-check-current-file)
+    (keymap-set map "C-c C-c" 'clgc-ruby-compile-this-buffer)
+    (keymap-set map "C-c v" 'chruby-use-corresponding)
+    (keymap-set map "S-<f6>" 'coverage-mode)
+    (keymap-set map "C-c :" 'clgc-ruby-string->symbol)
+    (keymap-set map "C-c #" 'ruby-toggle-hash-syntax)
+    (keymap-set map "C-c C-u" 'string-inflection-ruby-style-cycle)))
 
 (with-eval-after-load 'rspec-dired-mode
-  (define-key rspec-dired-mode-map (kbd "<f5>") 'rspec-dired-verify))
+  (keymap-set rspec-dired-mode-map "<f5>" 'rspec-dired-verify))
 
 (with-eval-after-load 'feature-mode
-  (define-key feature-mode-map (kbd "<f5>") 'feature-verify-all-scenarios-in-buffer))
+  (keymap-set feature-mode-map "<f5>" 'feature-verify-all-scenarios-in-buffer))
 
 (global-set-key (kbd "M-N") 'smartscan-symbol-go-forward)
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
@@ -257,12 +257,12 @@
 
 (require 'symbol-overlay)
 (let ((map symbol-overlay-map))
-  (define-key map (kbd "o") 'symbol-overlay-remove-all)
-  (define-key map (kbd "f") 'symbol-overlay-switch-forward)
-  (define-key map (kbd "b") 'symbol-overlay-switch-backward)
+  (keymap-set map "o" 'symbol-overlay-remove-all)
+  (keymap-set map "f" 'symbol-overlay-switch-forward)
+  (keymap-set map "b" 'symbol-overlay-switch-backward)
   (fset 'symbol-overlay-map map))
 
-(define-key symbol-overlay-mode-map (kbd "C-c o") 'symbol-overlay-map)
+(keymap-set symbol-overlay-mode-map "C-c o" 'symbol-overlay-map)
 (global-set-key (kbd "C-O") 'symbol-overlay-mode)
 
 (windmove-default-keybindings)
@@ -287,17 +287,17 @@
 (with-eval-after-load 'company
   (global-set-key (kbd "C-c y") 'company-yasnippet))
 
-(define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
+(keymap-set isearch-mode-map "C-o" 'isearch-occur)
 
 (with-eval-after-load 'haskell-mode
   (let ((map haskell-mode-map))
-    (define-key map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-    (define-key map (kbd "C-`") 'haskell-interactive-bring)
-    (define-key map (kbd "C-c C-t") 'haskell-process-do-type)
-    (define-key map (kbd "C-c C-i") 'haskell-process-do-info)
-    (define-key map (kbd "C-c C-c") 'haskell-process-cabal-build)
-    (define-key map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-    (define-key map (kbd "C-c c") 'haskell-process-cabal)
-    (define-key map (kbd "C-c C-z") 'haskell-interactive-switch)))
+    (keymap-set map "C-c C-l" 'hask-process-load-or-reload)
+    (keymap-set map "C-`" 'haskell-interactive-bring)
+    (keymap-set map "C-c C-t" 'haskell-process-do-type)
+    (keymap-set map "C-c C-i" 'haskell-process-do-info)
+    (keymap-set map "C-c C-c" 'haskell-process-cabal-build)
+    (keymap-set map "C-c C-k" 'haskell-interactive-mode-clear)
+    (keymap-set map "C-c c" 'haskell-process-cabal)
+    (keymap-set map "C-c C-z" 'haskell-interactive-switch)))
 
 (provide 'clgc-keybindings)
