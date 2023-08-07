@@ -3,52 +3,52 @@
 ;; TODO: make sue of context-menu-functions for mouse actions as described in:
 ;; https://ruzkuku.com/texts/emacs-mouse.html
 
-(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
+(keymap-global-set "C-x O" (lambda () (interactive) (other-window -1)))
 
-(global-set-key (kbd "C-x E") 'apply-macro-to-region-lines)
-(global-set-key (kbd "C-x p") 'proced)
-(global-set-key (kbd "C-x P") 'prodigy)
+(keymap-global-set "C-x E" 'apply-macro-to-region-lines)
+(keymap-global-set "C-x p" 'proced)
+(keymap-global-set "C-x P" 'prodigy)
 
-(global-set-key (kbd "C-z") 'repeat) ;; use C-x C-z for suspend
+(keymap-global-set "C-z" 'repeat) ;; use C-x C-z for suspend
 
 ;;so now Control-c 7 prompts for a Unicode hex code, will then insert the glyph
-(global-set-key (kbd "C-c 7") 'insert-char)
+(keymap-global-set "C-c 7" 'insert-char)
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x B") 'bury-buffer)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
-(global-set-key (kbd "C-\\") 'ace-window)
-(global-set-key (kbd "M-/") 'hippie-expand)
+(keymap-global-set "C-x C-b" 'ibuffer)
+(keymap-global-set "C-x B" 'bury-buffer)
+(keymap-global-set "C-x k" 'kill-this-buffer)
+(keymap-global-set "C-\\" 'ace-window)
+(keymap-global-set "M-/" 'hippie-expand)
 
-(global-set-key (kbd "S-<f5>") 'revert-this-buffer)
-(global-set-key (kbd "C-<f5>") 'ansi-color-apply-buffer)
-(global-set-key (kbd "C-c 6") 'evil-mode)
+(keymap-global-set "S-<f5>" 'revert-this-buffer)
+(keymap-global-set "C-<f5>" 'ansi-color-apply-buffer)
+(keymap-global-set "C-c 6" 'evil-mode)
 
-(global-set-key (kbd "C-x C-\\") 'align-regexp)
-(global-set-key (kbd "C-x \\") 'align)
-(global-set-key (kbd "C-c g") 'aggressive-indent-mode)
+(keymap-global-set "C-x C-\\" 'align-regexp)
+(keymap-global-set "C-x \\" 'align)
+(keymap-global-set "C-c g" 'aggressive-indent-mode)
 ;; TODO: switch to duplicate-dwim from 29.1?
-(global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
-(global-set-key (kbd "C-c w") 'whitespace-cleanup)
-(global-set-key (kbd "C-c W") 'whitespace-mode)
-(global-set-key (kbd "C-c n") 'crux-cleanup-buffer-or-region)
-(global-set-key (kbd "C-c $") 'crux-ispell-word-then-abbrev)
-(global-set-key (kbd "C-c V") 'visual-line-mode)
-(global-set-key (kbd "C-c I") 'color-identifiers-mode)
-(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
-(global-set-key (kbd "C-c L") 'global-display-line-numbers-mode)
+(keymap-global-set "C-c d" 'crux-duplicate-current-line-or-region)
+(keymap-global-set "C-c w" 'whitespace-cleanup)
+(keymap-global-set "C-c W" 'whitespace-mode)
+(keymap-global-set "C-c n" 'crux-cleanup-buffer-or-region)
+(keymap-global-set "C-c $" 'crux-ispell-word-then-abbrev)
+(keymap-global-set "C-c V" 'visual-line-mode)
+(keymap-global-set "C-c I" 'color-identifiers-mode)
+(keymap-global-set "C-c C-u" 'string-inflection-all-cycle)
+(keymap-global-set "C-c L" 'global-display-line-numbers-mode)
 (crux-with-region-or-line comment-or-uncomment-region)
-(global-set-key (kbd "C-M-;") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "C-M-j") 'join-line)
+(keymap-global-set "C-M-;" 'comment-or-uncomment-region)
+(keymap-global-set "C-S-k" 'kill-whole-line)
+(keymap-global-set "C-M-j" 'join-line)
 
 ;; Projectile
 (keymap-set projectile-mode-map "C-c p" 'projectile-command-map)
-(global-set-key (kbd "C-.") 'counsel-projectile)
-(global-set-key (kbd "C-,") 'counsel-projectile-ag)
+(keymap-global-set "C-." 'counsel-projectile)
+(keymap-global-set "C-," 'counsel-projectile-ag)
 
-(global-set-key (kbd "ESC ESC g") 'projectile-rails-mode-goto-map)
-(global-set-key (kbd "ESC ESC r") 'projectile-rails-mode-run-map)
+(keymap-global-set "ESC ESC g" 'projectile-rails-mode-goto-map)
+(keymap-global-set "ESC ESC r" 'projectile-rails-mode-run-map)
 
 (define-prefix-command 'menu-map)
 (with-eval-after-load 'projectile
@@ -56,7 +56,7 @@
     (set-keymap-parent 'menu-map 'projectile-command-map)
     (keymap-set 'projectile-command-map "s f" 'projectile-ag-files)))
 
-(global-set-key (kbd "<menu>") 'menu-map)
+(keymap-global-set "<menu>" 'menu-map)
 
 (let ((map menu-map))
   (keymap-set map "y" 'helm-show-kill-ring)
@@ -64,15 +64,15 @@
   (keymap-set map "TAB" 'ace-window)
   (keymap-set map "<menu>" 'helm-M-x))
 
-(global-set-key (kbd "C-x C-m") 'counsel-M-x)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c m") 'ivy-resume)
+(keymap-global-set "C-x C-m" 'counsel-M-x)
+(keymap-global-set "M-X" 'smex-major-mode-commands)
+(keymap-global-set "C-c m" 'ivy-resume)
 
 ;; Org Related
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c A") 'org-agenda)
-(global-set-key (kbd "C-c C") 'org-capture)
-(global-set-key (kbd "C-c b") 'org-switchb)
+(keymap-global-set "C-c l" 'org-store-link)
+(keymap-global-set "C-c A" 'org-agenda)
+(keymap-global-set "C-c C" 'org-capture)
+(keymap-global-set "C-c b" 'org-switchb)
 
 (with-eval-after-load 'graphviz-dot-mode
   (keymap-set graphviz-dot-mode-map "<f5>" 'graphviz-dot-preview))
@@ -89,8 +89,8 @@
     (keymap-set map "M-p" 'outline-previous-visible-heading)))
 
 ;; Git related
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(keymap-global-set "C-x g" 'magit-status)
+(keymap-global-set "C-x M-g" 'magit-dispatch-popup)
 
 (with-eval-after-load 'git-commit-mode
   (keymap-set git-commit-mode-map "C-c k" 'markdown-insert-gfm-code-block))
@@ -104,7 +104,7 @@
   (keymap-set map "C" 'github-browse-commit)
   (keymap-set map "j" 'jenkins-visit-branch))
 
-(global-set-key (kbd "C-c Q") 'clgc-gist-region)
+(keymap-global-set "C-c Q" 'clgc-gist-region)
 (eval-when-compile (require 'magit))
 (with-eval-after-load 'magit
   (keymap-set magit-mode-map "#" #'endless/visit-pull-request-url))
@@ -112,12 +112,12 @@
 (with-eval-after-load 'gist
   (keymap-set gist-list-menu-mode-map "b" 'clgc-gist-browse))
 
-(global-set-key (kbd "C-c B") 'browse-url)
-(global-set-key (kbd "C-c J") 'webjump)
-(global-set-key (kbd "C-c R") 'crux-rename-buffer-and-file)
-(global-set-key (kbd "C-c D") 'crux-delete-buffer-and-file)
-(global-set-key (kbd "C-c V") 'crux-view-url)
-(global-set-key (kbd "C-c F") 'crux-sudo-edit)
+(keymap-global-set "C-c B" 'browse-url)
+(keymap-global-set "C-c J" 'webjump)
+(keymap-global-set "C-c R" 'crux-rename-buffer-and-file)
+(keymap-global-set "C-c D" 'crux-delete-buffer-and-file)
+(keymap-global-set "C-c V" 'crux-view-url)
+(keymap-global-set "C-c F" 'crux-sudo-edit)
 
 (keymap-set prog-mode-map "<f5>" 'compile)
 (with-eval-after-load 'c-mode
@@ -131,7 +131,7 @@
 (let ((map occur-mode-map))
   (keymap-set map "v" 'occur-mode-display-occurrence))
 
-(global-set-key (kbd "C-M-g") 'abort-recursive-edit) ; C-] overriden below
+(keymap-global-set "C-M-g" 'abort-recursive-edit) ; C-] overriden below
 (let ((map smartparens-mode-map))
   (keymap-set map "C-(" 'sp-backward-slurp-sexp)
   (keymap-set map "C-)" 'sp-forward-slurp-sexp)
@@ -197,22 +197,22 @@
     (keymap-set map "C-x 4 M-." 'cider-find-dwim-other-window)
     (keymap-set map "C-c , g" 'cider-eval-to-test-example)))
 
-(global-set-key (kbd "C-<f10>") 'menu-bar-mode)
-(global-set-key (kbd "C-<f11>") 'clgc-toggle-monitor)
+(keymap-global-set "C-<f10>" 'menu-bar-mode)
+(keymap-global-set "C-<f11>" 'clgc-toggle-monitor)
 
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "M-+") 'er/expand-region)
+(keymap-global-set "C-=" 'er/expand-region)
+(keymap-global-set "M-+" 'er/expand-region)
 
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+(keymap-global-set "C-s" 'isearch-forward-regexp)
+(keymap-global-set "C-r" 'isearch-backward-regexp)
+(keymap-global-set "C-M-s" 'isearch-forward)
+(keymap-global-set "C-M-r" 'isearch-backward)
 (keymap-set isearch-mode-map "M-s t" 'swiper-isearch-toggle)
 (keymap-set swiper-map "M-s t" 'swiper-isearch-toggle)
 
 ;; Multiple Cursors
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(keymap-global-set "C->" 'mc/mark-next-like-this)
+(keymap-global-set "C-<" 'mc/mark-previous-like-this)
 (let ((map search-map))
   (keymap-set map "m l" 'mc/edit-lines)
   (keymap-set map "m r" 'mc/mark-all-in-region)
@@ -251,9 +251,9 @@
 (with-eval-after-load 'feature-mode
   (keymap-set feature-mode-map "<f5>" 'feature-verify-all-scenarios-in-buffer))
 
-(global-set-key (kbd "M-N") 'smartscan-symbol-go-forward)
-(global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)
-(global-set-key (kbd "M-s %") 'smartscan-symbol-replace)
+(keymap-global-set "M-N" 'smartscan-symbol-go-forward)
+(keymap-global-set "M-P" 'smartscan-symbol-go-backward)
+(keymap-global-set "M-s %" 'smartscan-symbol-replace)
 
 (require 'symbol-overlay)
 (let ((map symbol-overlay-map))
@@ -263,29 +263,29 @@
   (fset 'symbol-overlay-map map))
 
 (keymap-set symbol-overlay-mode-map "C-c o" 'symbol-overlay-map)
-(global-set-key (kbd "C-O") 'symbol-overlay-mode)
+(keymap-global-set "C-O" 'symbol-overlay-mode)
 
 (windmove-default-keybindings)
 
-(global-set-key (kbd "<f12>") 'ace-window)
-(global-set-key (kbd "C-c j") 'avy-goto-char)
-(global-set-key (kbd "C-c h") 'avy-pop-mark)
-(global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
-(global-set-key (kbd "C-M-'") 'avy-pop-mark)
+(keymap-global-set "<f12>" 'ace-window)
+(keymap-global-set "C-c j" 'avy-goto-char)
+(keymap-global-set "C-c h" 'avy-pop-mark)
+(keymap-global-set "C-'" 'avy-goto-word-or-subword-1)
+(keymap-global-set "C-M-'" 'avy-pop-mark)
 
 (require 'multiple-cursors)
 ;; (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
-;; (global-set-key (kbd "M-m") 'iy-go-up-to-char)
-;; (global-set-key (kbd "M-M") 'iy-go-up-to-char-backward)
+;; (keymap-global-set "M-m" 'iy-go-up-to-char)
+;; (keymap-global-set "M-M" 'iy-go-up-to-char-backward)
 
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+(keymap-global-set "M-z" 'zap-up-to-char)
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'crux-move-beginning-of-line)
 
 (with-eval-after-load 'company
-  (global-set-key (kbd "C-c y") 'company-yasnippet))
+  (keymap-global-set "C-c y" 'company-yasnippet))
 
 (keymap-set isearch-mode-map "C-o" 'isearch-occur)
 
