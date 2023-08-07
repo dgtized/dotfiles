@@ -25,8 +25,8 @@
 
 \\{bundle-outdated-mode-map\}"
   :keymap (let ((map (make-sparse-keymap)))
-            (define-key map (kbd "C-c u") 'bundle-outdated-update)
-            (define-key map (kbd "C-c i") 'bundle-outdated-toggle-strike)
+            (keymap-set map "C-c u" 'bundle-outdated-update)
+            (keymap-set map "C-c i" 'bundle-outdated-toggle-strike)
             map))
 
 (provide 'bundle-outdated)

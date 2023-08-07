@@ -48,7 +48,7 @@
 (eval-when-compile (require 'sql))
 (with-eval-after-load 'sql
   (progn
-    (define-key sql-interactive-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)
-    (define-key sql-mode-map (kbd "C-c C-e") 'clgc-mysql-explain-statement)))
+    (keymap-set sql-interactive-mode-map "C-c C-e" 'clgc-mysql-explain-statement)
+    (keymap-set sql-mode-map "C-c C-e" 'clgc-mysql-explain-statement)))
 
 (provide 'clgc-sql)

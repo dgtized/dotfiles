@@ -95,7 +95,7 @@ channel."
 
 (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.4.0")
 
-;; (define-key org-mode-map (kbd "<f5>") #'org-reveal-export-to-html)
+;; (keymap-set org-mode-map "<f5>" 'org-reveal-export-to-html)
 
 (require 'ox-reveal)
 ;; ox-reveal is adding notes to org-structure-template-alist and it breaks things

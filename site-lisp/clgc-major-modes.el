@@ -100,9 +100,9 @@
 (defun my-cperl-mode-hook ()
   (setq cperl-hairy t)
   (setq cperl-electric-keywords nil)
-  ;(define-key cperl-mode-map "\C-cp" 'cperl-perldoc)
-  ;(make-variable-buffer-local 'compile-command)
-  ;(setq compile-command (concat "perl -w " (buffer-file-name) " "))
+  ;; (keymap-set cperl-mode-map "C-c p" 'cperl-perldoc)
+  ;; (make-variable-buffer-local 'compile-command)
+  ;; (setq compile-command (concat "perl -w " (buffer-file-name) " "))
   )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
