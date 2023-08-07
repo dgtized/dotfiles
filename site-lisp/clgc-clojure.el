@@ -117,6 +117,11 @@ This is used to generate mode specific popups."
   (in-clj-root
    (compile "clojure -Moutdated --every --write")))
 
+(defun antq-outdated ()
+  (interactive)
+  (in-clj-root
+   (compile "clojure -Mantq --error-format=\"{{name}} - {{version}} -> {{latest-version}}\n  {{changes-url}}\"")))
+
 (defun clj-deps-tree ()
   "List dependency tree from deps.edn"
   (interactive)

@@ -13,8 +13,15 @@
   :specs
   {:extra-deps {spec-provider/spec-provider {:mvn/version "0.4.14"}
                 metosin/spec-tools {:mvn/version "0.10.5"}}}
-  :outdated {:extra-deps {olical/depot {:mvn/version "2.3.0"}}
-             :main-opts ["-m" "depot.outdated.main"]}
+
+  :outdated
+  {:extra-deps {olical/depot {:mvn/version "2.3.0"}}
+   :main-opts ["-m" "depot.outdated.main"]}
+
+  :antq
+  {:deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "antq.core"]}
+
   :find-deps {:extra-deps
               {find-deps/find-deps
                {:git/url "https://github.com/hagmonk/find-deps",
