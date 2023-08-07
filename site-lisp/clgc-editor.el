@@ -109,6 +109,8 @@
 
 (add-hook 'occur-mode-hook 'occur-context-resize-mode)
 
+(setq show-paren-context-when-offscreen 'overlay)
+
 (require 'avy)
 (setq avy-background t
       avy-style 'at-full)
