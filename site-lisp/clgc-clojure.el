@@ -123,6 +123,12 @@ This is used to generate mode specific popups."
   (in-clj-root
    (compile "clojure -Stree")))
 
+(defun clj-kondo ()
+  "Invoke default clj-kondo linting in directory."
+  (interactive)
+  (in-clj-root
+   (compile "clj-kondo --lint src test")))
+
 ;; WIP, need to generalize better
 (defun cider-eval-to-test-handler (sexp copy-to-kill buffer)
   "Make a handler for evaluating and printing result in BUFFER along with evaluated SEXP in test form."
