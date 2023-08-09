@@ -280,6 +280,7 @@
 
 (keymap-global-set "M-z" 'zap-up-to-char)
 
+;; FIXME: what is keymap equivalent for remap?
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'crux-move-beginning-of-line)
