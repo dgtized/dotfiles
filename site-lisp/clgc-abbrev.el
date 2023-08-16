@@ -2,7 +2,7 @@
   '(("jurisdction" "jurisdiction" nil 0)
     ("recieve" "receive" nil 0)
     ("reponse" "response" nil 0)
-    ("resp" "response" nil 0)
+    ("respo" "response" nil 0)
     ("requ" "request" nil 0)
     ("respone" "response" nil 0)
     ("teh" "the" nil 0)
