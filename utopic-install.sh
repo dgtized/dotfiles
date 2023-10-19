@@ -150,7 +150,7 @@ sudo aptitude install peek silentcast
 # wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz
 #
 
-curl --output clj.sh -O https://download.clojure.org/install/linux-install-1.11.1.1273.sh &&
+curl --output clj.sh -O https://download.clojure.org/install/linux-install-1.11.1.1413.sh &&
     chmod +x clj.sh && sudo ./clj.sh && rm -vf clj.sh
 
 curl -L -O https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh && chmod +x linux-install.sh && sudo ./linux-install.sh && clj --version
