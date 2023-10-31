@@ -1,4 +1,4 @@
-sudo apt-get install aptitude git openssh-server tmux build-essential xterm
+sudo apt install aptitude git openssh-server tmux build-essential xterm
 
 sudo apt-add-repository ppa:ubuntu-elisp/ppa
 sudo aptitude update
@@ -33,7 +33,7 @@ sudo apt install mysql-client mysql-server libmysqlclient-dev \
 # uncomment listen_address=localhost for postgres in postgresql.conf
 sudo service postgresql restart
 
-sudo apt-get install libxss1 libappindicator1 libindicator7
+sudo apt install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 
@@ -79,7 +79,7 @@ wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.17.4/terrag
 
 # chamber
 # curl -s https://packagecloud.io/install/repositories/segment/chamber/script.deb.sh | sudo bash
-# sudo apt-get install -y chamber
+# sudo apt install -y chamber
 version=v2.3.2
 curl -LOs https://github.com/segmentio/chamber/releases/download/${version}/chamber-${version}-linux-amd64 &&
     mv chamber-${version}-linux-amd64 ~/usr/bin/chamber && chmod +x ~/usr/bin/chamber
@@ -96,13 +96,13 @@ curl -LOs https://github.com/segmentio/chamber/releases/download/${version}/cham
 # mix local.hex
 # mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 
-# apt-get install apt-transport-https ca-certificates
+# apt install apt-transport-https ca-certificates
 # sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 # echo "deb https://apt.dockerproject.org/repo ubuntu-wily main" | \
 #    sudo tee /etc/apt/sources.list.d/docker.list
-# sudo apt-get update
-# sudo apt-get install linux-image-extra-$(uname -r)
-# sudo apt-get install docker-engine
+# sudo apt update
+# sudo apt install linux-image-extra-$(uname -r)
+# sudo apt install docker-engine
 # sudo service docker start
 
 sudo apt install docker.io &&
@@ -130,16 +130,16 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
      export FIREFOX=https://github.com/mozilla/geckodriver/releases/download/${V}/geckodriver-${V}-linux64.tar.gz &&
      curl -sLO $FIREFOX && tar zxf ${FIREFOX##*/} && mv -vf geckodriver ~/usr/bin && rm -vf ${FIREFOX##*/})
 
-# sudo add-apt-repository ppa:supercollider/ppa && sudo apt-get update
-# sudo apt-get install supercollider
+# sudo add-apt-repository ppa:supercollider/ppa && sudo apt update
+# sudo apt install supercollider
 
-# sudo apt-get install haskell-platform haskell-stack
+# sudo apt install haskell-platform haskell-stack
 
-# sudo apt-get install gnuplot-x11
+# sudo apt install gnuplot-x11
 
 # sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
 # gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 &&  gpg -a --export E084DAB9 | sudo apt-key add -
-# sudo aptitude update && sudo apt-get install r-base r-base-dev
+# sudo aptitude update && sudo apt install r-base r-base-dev
 
 # screencast to gif tools
 sudo add-apt-repository ppa:sethj/silentcast
