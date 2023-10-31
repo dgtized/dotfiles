@@ -3,7 +3,7 @@ sudo apt install aptitude git openssh-server tmux build-essential xterm
 sudo apt-add-repository ppa:ubuntu-elisp/ppa
 sudo aptitude update
 sudo apt install emacs-snapshot emacs-snapshot-el vim \
-     fonts-inconsolata fonts-dejavu \
+     fonts-inconsolata fonts-dejavu fonts-cascadia-code \
      silversearcher-ag ack exuberant-ctags \
      git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
      dconf-cli gnome-tweak-tool \
