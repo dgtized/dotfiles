@@ -176,6 +176,9 @@ curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/ins
      wget https://github.com/babashka/babashka/releases/download/v${BV}/babashka-${BV}-linux-amd64.tar.gz -O babashka.tgz) &&
     tar -zxf babashka.tgz && mv -vf bb ~/usr/bin && rm -vf babashka.tgz
 
+# boot
+bash -c "cd $HOME/usr/bin && curl -fsSLo boot https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh && chmod 755 boot" && boot
+
 # LaTeX
 # apt install texlive-full
 
