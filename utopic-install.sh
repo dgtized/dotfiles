@@ -6,7 +6,7 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
      fonts-inconsolata fonts-dejavu fonts-cascadia-code \
      silversearcher-ag ack exuberant-ctags \
      git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
-     dconf-cli gnome-tweak-tool \
+     dconf-cli \
      p7zip-full tree parallel pv netcat-openbsd jq \
      wordnet \
      lm-sensors htop iotop mytop linux-tools-common linux-tools-generic valgrind \
