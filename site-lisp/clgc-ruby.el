@@ -40,7 +40,7 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (chruby-use-corresponding))
 
-(defun clgc-chruby-default () (chruby "ruby-2.6.6"))
+(defun clgc-chruby-default () (chruby "ruby-3.2.2"))
 
 ;; chruby
 (defalias 'rvm-activate-corresponding-ruby 'chruby-use-corresponding)
