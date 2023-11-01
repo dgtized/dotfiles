@@ -1,11 +1,19 @@
 A collection of dotfiles that I have accumulated over many years.
 
-### Install
+## Install
 
     $ git clone git@github.com:dgtized/dotfiles.git ~/.home-config
     $ ~/.home-config/setup.sh debian
 
-### Secrets
+## SSH Keys
+
+Follow [ssh-keygen](https://www.ssh.com/academy/ssh/keygen) or [github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to generate a new ssh key, but the following should be sufficient:
+
+    $ ssh-keygen -t ed25519
+
+And then add to github to enable checkout & `echo` into `~/.ssh/authorized_keys` on other hosts.
+
+## Secrets
 
 <dl>
 
