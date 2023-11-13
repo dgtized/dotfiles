@@ -181,6 +181,10 @@ curl -sLO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/ins
 # boot
 bash -c "cd $HOME/usr/bin && curl -fsSLo boot https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh && chmod 755 boot" && boot
 
+# Emacs Eldev
+
+curl -fsSL https://raw.github.com/emacs-eldev/eldev/master/bin/eldev > ~/usr/bin/eldev && chmod a+x ~/usr/bin/eldev
+
 # LaTeX
 # apt install texlive-full
 
