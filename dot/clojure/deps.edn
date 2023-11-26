@@ -35,7 +35,7 @@
 
   ;; clojure -Meastwood
   :eastwood
-  {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
+  {:extra-deps {jonase/eastwood {:mvn/version "1.4.2"}}
    :main-opts ["-m" "eastwood.lint" {}]}
 
   ;; clj -Mkaocha -m kaocha.runner
