@@ -1,5 +1,7 @@
-personal_ws-1.1 en 20 
+personal_ws-1.1 en 23 
+ClojureScript
 Comstock
+Figwheel
 HSL
 Luminance
 RGB
@@ -15,6 +17,7 @@ liminal
 middleware
 performant
 programmatically
+recompiles
 sharding
 strobing
 struct
