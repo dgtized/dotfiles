@@ -247,3 +247,9 @@ pipx install protontricks
 sudo apt install wabt
 
 # use gnome-session-properties to add script/gnome-xinit.sh at startup
+
+# journalctl
+# https://unix.stackexchange.com/questions/139513/how-to-clear-journalctl
+# sudo vim /etc/systemd/journald.conf
+# set SystemMaxUse=100M in
+# sudo systemctl restart systemd-journald
