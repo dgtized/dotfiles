@@ -17,7 +17,7 @@ git pull --rebase
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
 
 # libtool-bin is for vterm support
-sudo apt install -y libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
+sudo apt install -y libgccjit0 libgccjit-13-dev libjansson4 libjansson-dev \
      libtool-bin libtree-sitter-dev
 sudo apt build-dep -y emacs-snapshot
 
