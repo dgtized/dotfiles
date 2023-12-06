@@ -143,8 +143,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # use the snap version:
 ln -sfv /snap/bin/firefox.geckodriver geckodriver
 
-# sudo add-apt-repository ppa:supercollider/ppa && sudo apt update
-# sudo apt install supercollider
+# sudo apt install supercollider supercollider-language pipewire-audio-client-libraries
+# sudo apt install patchance python3-qt5 python3-qt5.qtsvg
 
 # sudo apt install haskell-platform haskell-stack
 
