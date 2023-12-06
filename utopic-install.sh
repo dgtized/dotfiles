@@ -130,11 +130,13 @@ go get https://github.com/ericchiang/pup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # chromedriver
-
-(export CHROME=https://chromedriver.storage.googleapis.com/94.0.4606.41/chromedriver_linux64.zip &&
+# https://googlechromelabs.github.io/chrome-for-testing/
+(export CHROME=https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.62/linux64/chromedriver-linux64.zip &&
      export ZIP="$HOME/Downloads/chromedriver.zip"
      mkdir -p "$HOME/usr/bin" && curl "${CHROME}" -o "${ZIP}" &&
-     unzip "${ZIP}" && mv -vf chromedriver "$HOME/usr/bin/chromedriver" && rm -vf "${ZIP}")
+     unzip "${ZIP}" &&
+     mv -vf chromedriver-linux64/chromedriver "$HOME/usr/bin/chromedriver" &&
+     rm -vf "${ZIP}" && rm -rf chromedriver-linux64)
 
 # firefox driver
 # (export V='v0.33.0' &&
