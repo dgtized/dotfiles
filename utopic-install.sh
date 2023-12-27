@@ -131,7 +131,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # chromedriver
 # https://googlechromelabs.github.io/chrome-for-testing/
-(export CHROME=https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.62/linux64/chromedriver-linux64.zip &&
+(export CHROME=https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip &&
      export ZIP="$HOME/Downloads/chromedriver.zip"
      mkdir -p "$HOME/usr/bin" && curl "${CHROME}" -o "${ZIP}" &&
      unzip "${ZIP}" &&
