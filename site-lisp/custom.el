@@ -132,7 +132,8 @@
                   clojure-snippets clojure-mode-extra-font-locking clj-refactor
                   chruby bundler browse-kill-ring ag ace-window 4clojure))
  '(safe-local-variable-values
-   '((elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)
+   '((cider-repl-display-help-banner)
+     (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)
                               (nrepl-dbind-response . 2) (cider-save-marker . 1)
                               (cider-propertize-region . 1)
                               (cider-map-repls . 1) (cider--jack-in . 1)
