@@ -18,7 +18,7 @@
   excludesfile = ~/.gitignore
 [diff]
   rename = copy
-  algorithm = patience
+  algorithm = histogram
 #   tool = difftastic # https://github.com/Wilfred/difftastic
 # [difftool]
 #   prompt = false
