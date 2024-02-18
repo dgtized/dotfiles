@@ -36,6 +36,7 @@
 [log]
   abbrevCommit = true
   follow = true
+  date = iso
 [merge]
   conflictstyle = diff3
 [user]
