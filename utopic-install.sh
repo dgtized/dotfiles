@@ -251,3 +251,6 @@ sudo apt install wabt
 # sudo vim /etc/systemd/journald.conf
 # set SystemMaxUse=100M in
 # sudo systemctl restart systemd-journald
+
+# av codecs + ffmpeg
+sudo apt install gstreamer1.0-libav ffmpeg
