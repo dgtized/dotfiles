@@ -24,6 +24,9 @@
 #   prompt = false
 # [difftool "difftastic"]
 #   cmd = difftastic "$LOCAL" "$REMOTE"
+[fetch]
+  prune = true
+  prunetags = true
 [github]
   user = dgtized
 [commit]
