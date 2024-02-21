@@ -88,6 +88,11 @@ if [[ -d "$HOME/.platformio/penv/bin" ]]; then
     pathmunge "$HOME/.platformio/penv/bin"
 fi
 
+# rust
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source "${HOME}/.cargo/env"
+fi
+
 set -o emacs
 shopt -s extglob cdspell checkwinsize cmdhist histverify hostcomplete >& /dev/null
 
