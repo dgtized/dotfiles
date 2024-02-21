@@ -254,3 +254,10 @@ sudo apt install wabt
 
 # av codecs + ffmpeg
 sudo apt install gstreamer1.0-libav ffmpeg
+
+# rust
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rust-src rustfmt-preview rust-analysis
+
+# nannou
+sudo apt-get install vulkan-tools
