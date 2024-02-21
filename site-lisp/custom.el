@@ -101,36 +101,35 @@
      "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default))
  '(erc-nick "dgtized")
  '(package-selected-packages
-   '(clojure-mode f multiple-cursors swiper occur-context-resize magit-section
-                  magit vterm list-environment jsonian helm-core buttercup
-                  undo-tree ob-sml web-mode counsel-projectile ivy-hydra counsel
-                  ivy crux geiser-guile geiser-racket org-contrib glsl-mode
-                  flycheck-clj-kondo csharp-mode elmacro sly-asdf ripgrep
-                  go-mode ruby-hash-syntax kaocha-runner symbol-overlay jetpack
-                  racket-mode cov tuareg plan9-theme anti-zenburn-theme
-                  espresso-theme flatui-theme leuven-theme org-tree-slide
-                  flycheck-credo flycheck-dialyxir helpful processing-mode
-                  rust-mode rg auctex sbt-mode scala-mode geiser plantuml-mode
-                  sly sly-macrostep sly-quicklisp slime pcre2el material-theme
-                  hc-zenburn-theme dockerfile-mode ox-reveal org-download
-                  yard-mode package-lint winnow json-mode json-navigator
-                  lua-mode string-inflection aggressive-indent kibit-helper
-                  camcorder gnuplot gnuplot-mode helm-unicode terraform-mode
-                  atomic-chrome redis coverage request ob-elixir
-                  flycheck-dialyzer flycheck-elixir command-log-mode
-                  visual-fill-column zenburn-theme yari yaml-mode wgrep-ag
-                  web-server starter-kit-eshell solarized-theme smex smartscan
-                  smartparens slamhound simple-httpd sass-mode ruby-tools
-                  rubocop rspec-mode rinari rainbow-delimiters projectile-rails
-                  prodigy ob-http markdown-mode less-css-mode js2-mode
-                  iy-go-to-char ido-completing-read+ ibuffer-projectile
-                  helm-projectile helm-ag graphviz-dot-mode gitignore-mode
-                  github-clone github-browse-file gitconfig-mode gist fuzzy
-                  free-keys flycheck-elm flycheck-clojure flx-ido flash-region
-                  feature-mode expand-region evil epresent elm-mode diminish
-                  company-inf-ruby color-identifiers-mode coffee-mode
-                  clojure-snippets clojure-mode-extra-font-locking clj-refactor
-                  chruby bundler browse-kill-ring ag ace-window 4clojure))
+   '(4clojure ace-window ag aggressive-indent anti-zenburn-theme atomic-chrome
+              auctex browse-kill-ring bundler buttercup camcorder chruby
+              clj-refactor clojure-mode clojure-mode-extra-font-locking
+              clojure-snippets coffee-mode color-identifiers-mode
+              command-log-mode company-inf-ruby counsel counsel-projectile cov
+              coverage crux csharp-mode diminish dockerfile-mode elm-mode
+              elmacro epresent espresso-theme evil expand-region f feature-mode
+              flash-region flatui-theme flx-ido flycheck-clj-kondo
+              flycheck-clojure flycheck-credo flycheck-dialyxir
+              flycheck-dialyzer flycheck-elixir flycheck-elm free-keys fuzzy
+              geiser geiser-guile geiser-racket gist gitconfig-mode
+              github-browse-file github-clone gitignore-mode glsl-mode gnuplot
+              gnuplot-mode go-mode graphviz-dot-mode hc-zenburn-theme helm-ag
+              helm-core helm-projectile helm-unicode helpful ibuffer-projectile
+              ido-completing-read+ ivy ivy-hydra iy-go-to-char jetpack js2-mode
+              json-mode json-navigator jsonian kaocha-runner kibit-helper
+              less-css-mode leuven-theme list-environment lua-mode magit
+              magit-section markdown-mode material-theme multiple-cursors
+              ob-elixir ob-http ob-sml occur-context-resize org-contrib
+              org-download org-tree-slide ox-reveal package-lint pcre2el
+              plan9-theme plantuml-mode processing-mode prodigy projectile-rails
+              racket-mode rainbow-delimiters redis request rg rinari ripgrep
+              rspec-mode rubocop ruby-hash-syntax ruby-tools rust-mode sass-mode
+              sbt-mode scala-mode simple-httpd slamhound slime sly sly-asdf
+              sly-macrostep sly-quicklisp smartparens smartscan smex
+              solarized-theme starter-kit-eshell string-inflection swiper
+              symbol-overlay terraform-mode tuareg undo-tree visual-fill-column
+              vterm web-mode web-server wgrep-ag winnow yaml-mode yard-mode yari
+              zenburn-theme))
  '(safe-local-variable-values
    '((cider-repl-display-help-banner)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)

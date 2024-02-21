@@ -107,6 +107,11 @@
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
 
+(require 'rust-mode)
+(setq rust-format-on-save t)
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+
 ;;
 ;; set c/c++ indent width and compile modes
 ;;
