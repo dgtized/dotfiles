@@ -128,8 +128,8 @@
               sly-macrostep sly-quicklisp smartparens smartscan smex
               solarized-theme starter-kit-eshell string-inflection swiper
               symbol-overlay terraform-mode tuareg undo-tree visual-fill-column
-              vterm web-mode web-server wgrep-ag winnow yaml-mode yard-mode yari
-              zenburn-theme))
+              vterm web-mode web-server wgrep-ag wgsl-mode winnow yaml-mode
+              yard-mode yari zenburn-theme))
  '(safe-local-variable-values
    '((cider-repl-display-help-banner)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)
