@@ -29,11 +29,11 @@ This is used to generate mode specific popups."
      (cider-emit-into-popup-buffer buffer value nil t))
    (lambda (buffer value)
      (cider-emit-into-popup-buffer buffer value nil t))
-   (lexical-let ((complete-handler complete-handler))
+   (let ((chandler complete-handler))
      (lambda (buffer)
        (with-current-buffer buffer
          (setq buffer-read-only nil)
-         (funcall complete-handler)
+         (funcall chandler)
          (setq buffer-read-only t))))
    nil
    nil
