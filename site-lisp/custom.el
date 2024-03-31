@@ -102,7 +102,7 @@
  '(erc-nick "dgtized")
  '(package-selected-packages
    '(4clojure ace-window ag aggressive-indent anti-zenburn-theme atomic-chrome
-              auctex browse-kill-ring bundler buttercup camcorder chruby
+              auctex browse-kill-ring bundler buttercup camcorder chruby cider
               clj-refactor clojure-mode clojure-mode-extra-font-locking
               clojure-snippets coffee-mode color-identifiers-mode
               command-log-mode company-inf-ruby counsel counsel-projectile cov
