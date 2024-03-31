@@ -23,7 +23,7 @@
         magit-insert-head-branch-header
         magit-insert-upstream-branch-header
         magit-insert-push-branch-header
-        ;; magit-insert-tags-header
+        magit-insert-tags-header
         ))
 
 (setq magit-refs-sections-hook
@@ -31,7 +31,7 @@
         magit-insert-branch-description
         magit-insert-local-branches
         magit-insert-remote-branches
-        ;; magit-insert-tags
+        magit-insert-tags
         ))
 
 ;; modified from https://github.com/kyleam/emacs.d/blob/master/lisp/km-hydra.el
