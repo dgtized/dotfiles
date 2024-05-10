@@ -63,6 +63,7 @@
    (c-for 1)
    (async 1))
   (add-to-list 'prettify-symbols-alist '("Math/PI" . ?π))
+  (add-to-list 'prettify-symbols-alist '("math/PI" . ?π))
   (add-to-list 'prettify-symbols-alist '("eq/TAU" . ?𝜏)))
 
 (defun clgc-cider-repl-mode-hook ()
