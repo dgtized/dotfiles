@@ -16,7 +16,7 @@
 
 (keymap-global-set "C-x C-b" 'ibuffer)
 (keymap-global-set "C-x B" 'bury-buffer)
-(keymap-global-set "C-x k" 'kill-this-buffer)
+(keymap-global-set "C-x k" 'kill-current-buffer)
 (keymap-global-set "C-\\" 'ace-window)
 (keymap-global-set "M-/" 'hippie-expand)
 
