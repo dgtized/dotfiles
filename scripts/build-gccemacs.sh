@@ -29,12 +29,13 @@ if [[ "$1" == '--clean' ]]; then
 fi
 
 # Flags trimmed from ppa/emacs-snapshot `system-configuration-options` variable
+# removed:  --with-xwidgets (context: https://www.reddit.com/r/emacs/comments/1fpd3dk/problem_compiling_latest_git_version/)
 # TODO: remove debug & try -O3 ?
 ./autogen.sh &&
     ./configure --build=x86_64-linux-gnu \
      --prefix="$HOME/usr" --program-transform-name='s/^emacs/gccmacs/' \
      --disable-silent-rules --with-modules \
-     --with-tree-sitter --with-native-compilation=aot --with-mailutils --with-xwidgets \
+     --with-tree-sitter --with-native-compilation=aot --with-mailutils \
      'CFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
      'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' \
      'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro'
