@@ -115,10 +115,10 @@
               github-browse-file github-clone gitignore-mode glsl-mode gnuplot
               gnuplot-mode go-mode graphviz-dot-mode hc-zenburn-theme helm-ag
               helm-core helm-projectile helm-unicode helpful ibuffer-projectile
-              ido-completing-read+ ivy ivy-hydra iy-go-to-char jetpack js2-mode
-              json-mode json-navigator jsonian kaocha-runner kibit-helper
-              less-css-mode leuven-theme list-environment lua-mode magit
-              magit-section markdown-mode material-theme multiple-cursors
+              ido-completing-read+ ivy ivy-hydra iy-go-to-char javap-mode
+              jetpack js2-mode json-mode json-navigator jsonian kaocha-runner
+              kibit-helper less-css-mode leuven-theme list-environment lua-mode
+              magit magit-section markdown-mode material-theme multiple-cursors
               ob-elixir ob-http ob-sml occur-context-resize org-contrib
               org-download org-tree-slide ox-reveal package-lint pcre2el
               plan9-theme plantuml-mode processing-mode prodigy projectile-rails
