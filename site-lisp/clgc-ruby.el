@@ -94,7 +94,7 @@ The command will be prefixed with `bundle exec` if RuboCop is bundled."
   (concat
    (if (and (not rubocop-prefer-system-executable) (rubocop-bundled-p)) "bundle exec " "")
    command
-   (if-let ((config-file (rubocop-detect-config)))
+   (if-let* ((config-file (rubocop-detect-config)))
        (concat " --config " config-file " ")
      "")
    (rubocop-build-requires)
