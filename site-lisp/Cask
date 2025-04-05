@@ -147,6 +147,7 @@
 (depends-on "bundler")
 (depends-on "projectile-rails")
 (depends-on "rspec-mode")
+;; curl https://raw.githubusercontent.com/freesteph/cucumber.el/refs/heads/master/gherkin-languages.json > ~/.emacs.d/elpa/feature-mode-20250401.1008/gherkin-languages.json
 (depends-on "feature-mode")
 (depends-on "ruby-tools")
 (depends-on "robe")
