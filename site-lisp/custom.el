@@ -131,7 +131,15 @@
               vterm web-mode web-server wgrep-ag wgsl-mode winnow yaml-mode
               yard-mode yari zenburn-theme))
  '(safe-local-variable-values
-   '((cider-repl-display-help-banner)
+   '((eval
+      (lambda nil
+        (when (not (featurep 'recursive-reveries))
+          (let
+              ((recursive-reveries-file
+                (expand-file-name "recursive-reveries.el" default-directory)))
+            (when (file-exists-p recursive-reveries-file)
+              (load recursive-reveries-file) (require 'recursive-reveries))))))
+     (cider-repl-display-help-banner)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)
                               (nrepl-dbind-response . 2) (cider-save-marker . 1)
                               (cider-propertize-region . 1)
