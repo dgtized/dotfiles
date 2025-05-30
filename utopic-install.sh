@@ -184,7 +184,7 @@ bash -c "cd $HOME/usr/bin && curl -fsSLo boot https://github.com/boot-clj/boot-b
 curl -fsSL https://raw.github.com/emacs-eldev/eldev/master/bin/eldev > ~/usr/bin/eldev && chmod a+x ~/usr/bin/eldev
 
 # LaTeX
-# apt install texlive-full
+# sudo apt install texlive-full
 
 # ripgrep
 (export v='13.0.0' && export d="ripgrep_${v}_amd64.deb" &&
