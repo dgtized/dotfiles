@@ -80,11 +80,7 @@
         cider-use-tooltips nil
         cider-repl-pop-to-buffer-on-connect 'display-only
         cider-repl-history-file (expand-file-name "clojure_repl_history" user-emacs-directory)
-        cider-repl-history-size 1000
-        cider-cljs-lein-repl
-        "(do (require 'figwheel-sidecar.repl-api)
-           (figwheel-sidecar.repl-api/start-figwheel!)
-           (figwheel-sidecar.repl-api/cljs-repl))"))
+        cider-repl-history-size 1000))
 
 (add-hook 'clojure-mode-hook 'clgc-clojure-mode-hook)
 (add-hook 'cider-repl-mode-hook 'clgc-cider-repl-mode-hook)
