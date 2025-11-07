@@ -21,13 +21,13 @@ sudo apt install emacs-snapshot emacs-snapshot-el vim \
 # languages & documentation
 sudo apt install rlwrap shellcheck graphviz \
      racket guile-3.0 guile-3.0-doc sbcl sbcl-doc swi-prolog \
-     default-jdk openjdk-8-jdk openjdk-17-jdk \
+     default-jdk openjdk-8-jdk openjdk-17-jdk openjdk-21-jdk openjdk-25-jdk\
      visualvm scala scala-doc \
      golang-go perl-doc gawk gawk-doc \
      python-pip python3-venv python3-doc
 
 # select java version
-sudo update-java-alternatives -s java-1.17.0-openjdk-amd64
+sudo update-java-alternatives -s java-1.25.0-openjdk-amd64
 
 # install quicklisp after sbcl: https://www.quicklisp.org/beta/
 
