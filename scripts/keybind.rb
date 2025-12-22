@@ -27,6 +27,9 @@ puts "sudo udevadm hwdb --update"
 # https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04
 puts "gsettings set org.gnome.mutter experimental-features \"['x11-randr-fractional-scaling']\""
 
+# disable sticky edges between monitors
+puts "gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false"
+
 __END__
 org.gnome.desktop.input-sources xkb-options ['caps:ctrl_modifier']
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Super>space']
