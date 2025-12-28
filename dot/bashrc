@@ -94,6 +94,7 @@ if [[ -f "$HOME/.cargo/env" ]]; then
 fi
 
 # rack sdk development
+# see https://vcvrack.com/manual/Building#Building-Rack
 if [[ -d "$HOME/sound/Rack-SDK/" ]]; then
     export RACK_DIR=$HOME/sound/Rack-SDK
 fi
