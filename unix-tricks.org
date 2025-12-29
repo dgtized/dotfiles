@@ -29,3 +29,13 @@ Show top 5 processes created by me with pid < 4000 pid, and started.
   #+begin_src js
     document.getElementById("modal-portal-regiwall").remove(); document.getElementsByTagName("body")[0].classList = ""
   #+end_src
+
+* RSync
+
+** Checksum diff two directories
+
+#+begin_src bash
+rsync -rvnic --delete /source/ /destination/
+#+end_src
+
+Note that ~-n~ is the same as ~--dry-run~.
