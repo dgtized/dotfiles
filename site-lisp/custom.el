@@ -125,9 +125,9 @@
               org-download org-tree-slide ox-reveal package-lint pcre2el
               plan9-theme plantuml-mode processing-mode prodigy projectile-rails
               racket-mode rainbow-delimiters redis request rg rinari ripgrep
-              rspec-mode rubocop ruby-hash-syntax ruby-tools rust-mode sass-mode
-              sbt-mode scala-mode simple-httpd slamhound slime sly sly-asdf
-              sly-macrostep sly-quicklisp smartparens smartscan smex
+              robe rspec-mode rubocop ruby-hash-syntax ruby-tools rust-mode
+              sass-mode sbt-mode scala-mode simple-httpd slamhound slime sly
+              sly-asdf sly-macrostep sly-quicklisp smartparens smartscan smex
               solarized-theme starter-kit-eshell string-inflection swiper
               symbol-overlay terraform-mode tuareg undo-tree visual-fill-column
               vterm web-mode web-server wgrep-ag wgsl-mode winnow yaml-mode
