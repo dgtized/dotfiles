@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -83,7 +84,8 @@
      (tramp-connection-local-default-shell-profile (shell-file-name . "/bin/sh")
                                                    (shell-command-switch . "-c"))
      (tramp-connection-local-default-system-profile (path-separator . ":")
-                                                    (null-device . "/dev/null"))))
+                                                    (null-device . "/dev/null")
+                                                    (exec-suffixes ""))))
  '(custom-safe-themes
    '("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f"
      "1a1cdd9b407ceb299b73e4afd1b63d01bbf2e056ec47a9d95901f4198a0d2428"
