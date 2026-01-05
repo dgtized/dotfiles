@@ -39,3 +39,13 @@ rsync -rvnic --delete /source/ /destination/
 #+end_src
 
 Note that ~-n~ is the same as ~--dry-run~.
+
+* ffmpeg
+
+** Convert wav to mp3
+
+From: https://stackoverflow.com/a/12952172/34450
+
+#+begin_src bash
+ffmpeg -i $input.wav -vn -ar 44100 -ac 2 -b:a 192k $output.mp3
+#+end_src
