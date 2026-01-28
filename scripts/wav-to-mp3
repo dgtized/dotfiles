@@ -1,0 +1,41 @@
+#!/usr/bin/env bb
+;; -*- mode: clojure-mode *-*
+(ns wav-to-mp3
+  (:require [babashka.fs :as fs]
+            [babashka.process :as bp]
+            [clojure.string :as str]
+            [clojure.tools.cli :as cli]))
+
+(defn ffmpeg [in out]
+  (format "ffmpeg -i %s -vn -ar 44100 -ac 2 -b:a 192k %s"
+          in out))
+
+(defn convert [filename]
+  (let [f (fs/file filename)]
+    (if (fs/exists? f)
+      (let [cmd (ffmpeg (str f) (str (fs/strip-ext f ".wav") ".mp3"))]
+        (println "Running: " cmd)
+        (bp/shell cmd))
+      (println "what is" filename))))
+
+(def usage "Usage: wav-to-mp3 filename.wav\nConvert wav to mp3 with ffmpeg.")
+
+(def cli-opts
+  [["-h" "--help" "Show help"]])
+
+(when (= *file* (System/getProperty "babashka.file"))
+  (let [{:keys [options errors arguments summary]}
+        (cli/parse-opts *command-line-args* cli-opts)
+        {:keys [help]} options]
+    (cond
+      (or help (empty? arguments))
+      (println usage "\n" summary)
+
+      errors
+      (do (println "Error:\n"
+                   (str/join "\n" errors)
+                   "\n" summary)
+          (System/exit 1))
+
+      :else
+      (convert (first arguments)))))
