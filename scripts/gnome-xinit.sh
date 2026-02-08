@@ -16,5 +16,5 @@ else
     google-chrome-stable &
 fi
 
-slack &
+which slack && slack &
 
