@@ -18,7 +18,10 @@ git pull --rebase
 
 # libtool-bin is for vterm support
 sudo apt install -y libgccjit0 libgccjit-14-dev libjansson4 libjansson-dev \
-     libtool-bin libtree-sitter-dev
+     libtool-bin libtree-sitter-dev \
+     libgtk-3-dev libgnutls28-dev \
+     libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo
+
 sudo apt build-dep -y emacs-snapshot
 
 JOBS=$(($(grep -c processor /proc/cpuinfo) - 2))
