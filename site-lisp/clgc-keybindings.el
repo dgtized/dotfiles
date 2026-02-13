@@ -22,6 +22,8 @@
 
 (keymap-global-set "S-<f5>" 'revert-this-buffer)
 (keymap-global-set "C-<f5>" 'ansi-color-apply-buffer)
+(keymap-global-set "C-<f7>" 'redraw-display) ;; fix for wayland sticky update
+
 (keymap-global-set "C-c 6" 'evil-mode)
 
 (keymap-global-set "C-x C-\\" 'align-regexp)
