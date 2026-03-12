@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (completing-read ";) "
                  (list (propertize "vim" 'display "there is evil-mode...")
                        (propertize "emacs" 'display "the best")))

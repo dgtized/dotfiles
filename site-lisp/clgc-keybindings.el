@@ -1,4 +1,4 @@
-;;; clgc-keybindings -- keybindings for clgc
+;;; clgc-keybindings -- keybindings for clgc  -*- lexical-binding: t; -*-
 
 ;; TODO: make sue of context-menu-functions for mouse actions as described in:
 ;; https://ruzkuku.com/texts/emacs-mouse.html

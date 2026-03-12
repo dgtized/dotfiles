@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (define-abbrev-table 'global-abbrev-table
   '(("jurisdction" "jurisdiction" nil 0)
     ("recieve" "receive" nil 0)

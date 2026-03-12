@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'prodigy)
 
 (prodigy-define-tag :name 'rails

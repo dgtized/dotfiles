@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun regen-autoloads (autoload-dir autoload-file)
   "Regenerate the autoload definitions file and load it."
   (interactive "P")

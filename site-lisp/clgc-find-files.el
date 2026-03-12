@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'ivy)
 (setq ivy-use-virtual-buffers t
       ivy-height 16

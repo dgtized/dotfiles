@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun ruby-eval-buffer () (interactive)
    "Evaluate the buffer with ruby."
    (shell-command-on-region (point-min) (point-max) "ruby -w "))

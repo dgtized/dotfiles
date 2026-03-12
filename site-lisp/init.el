@@ -1,4 +1,4 @@
-;;; .emacs --- initialization
+;;; .emacs --- initialization  -*- lexical-binding: t; -*-
 ;; Please be -*- emacs-lisp -*-
 ;;; Code:
 

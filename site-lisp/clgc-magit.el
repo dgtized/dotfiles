@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'magit)
 
 (setq git-commit-setup-hook '(git-commit-save-message

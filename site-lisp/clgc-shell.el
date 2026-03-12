@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'eshell)
 (require 'em-term)
 (require 'em-smart)

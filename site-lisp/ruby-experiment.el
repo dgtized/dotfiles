@@ -1,4 +1,4 @@
-
+;; -*- lexical-binding: t; -*-
 (defun ruby-symbol-string (location)
   (save-excursion (goto-char location)
                   (cond ((looking-at ":") 'symbol)

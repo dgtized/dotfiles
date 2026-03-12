@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; TODO clgc-clojure should only trigger on hook load?
 (setq cider-use-xref nil)
 

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; On startup this is run in after-init-hook by default
 
 (require 'clgc-functions)

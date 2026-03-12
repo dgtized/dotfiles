@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'crux)
 
 (defmacro when-emacs-version (vers &rest body)

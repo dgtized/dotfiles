@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (autoload 'js2-mode "js2-mode" "Steve Yegge's Javascript Major Mode" t)
 
 (defun my-js2-mode-hook ()

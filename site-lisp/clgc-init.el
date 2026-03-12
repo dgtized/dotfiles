@@ -1,4 +1,4 @@
-;;; clgc-init.el --- Summary
+;;; clgc-init.el --- Summary  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun clgc-prog-mode-hook ()
   (add-to-list 'prettify-symbols-alist '("<=" . ?≤))
   (add-to-list 'prettify-symbols-alist '(">=" . ?≥))

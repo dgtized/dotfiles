@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun clgc-sql-save-history ()
   (let ((lval 'sql-input-ring-file-name)
         (rval 'sql-product))
