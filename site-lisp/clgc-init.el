@@ -47,11 +47,9 @@
       visible-bell t
       require-final-newline t
       debug-on-error nil
-      apropos-do-all t
       confirm-nonexistent-file-or-buffer nil
       sentence-end-double-space nil
-      split-height-threshold 140
-      idle-update-delay 0.25)
+      split-height-threshold 140)
 
 ;; Clipboard and Selection
 (setq x-select-enable-clipboard t
@@ -68,6 +66,12 @@
               smie-indent-basic 2
               web-mode-markup-indent-offset 2
               fill-column 80)
+
+(eval-after-load 'which-func
+  (setq which-func-update-delay 0.2))
+
+(eval-after-load 'apropos
+  (setq apropos-do-all t))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq use-short-answers t) ;; see kill-buffer--possibly-save
