@@ -54,8 +54,8 @@
       split-height-threshold 160)
 
 ;; Clipboard and Selection
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t
+(setq select-enable-clipboard t
+      select-enable-primary t
       save-interprogram-paste-before-kill t
       mouse-yank-at-point t)
 
