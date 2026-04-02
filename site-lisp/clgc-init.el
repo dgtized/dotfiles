@@ -49,6 +49,8 @@
       debug-on-error nil
       confirm-nonexistent-file-or-buffer nil
       sentence-end-double-space nil
+      ;; originally 'tty, but should force C-l to fix display issues
+      recenter-redisplay t
       split-height-threshold 140)
 
 ;; Clipboard and Selection
