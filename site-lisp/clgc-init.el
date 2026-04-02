@@ -51,7 +51,7 @@
       sentence-end-double-space nil
       ;; originally 'tty, but should force C-l to fix display issues
       recenter-redisplay t
-      split-height-threshold 140)
+      split-height-threshold 160)
 
 ;; Clipboard and Selection
 (setq x-select-enable-clipboard t
