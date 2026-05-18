@@ -17,7 +17,7 @@ git pull --rebase
 # alternative use versions from add-apt-repository ppa:ubuntu-toolchain-r/ppa
 
 # libtool-bin is for vterm support
-sudo apt install -y libgccjit0 libgccjit-14-dev libjansson4 libjansson-dev \
+sudo apt install -y libgccjit0 libgccjit-15-dev libjansson4 libjansson-dev \
      libtool-bin libtree-sitter-dev \
      libgtk-3-dev libgnutls28-dev \
      libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo
