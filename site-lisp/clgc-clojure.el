@@ -7,6 +7,7 @@
 
 (require 'cider-eval)
 (require 'cider-format)
+(require 'cider-util)
 
 (require 'clj-refactor)
 
@@ -171,7 +172,8 @@ This is used to generate mode specific popups."
   evaluation completes."
   (interactive "P")
   (let* ((sexp (cider-last-sexp))
-         (result-buffer (cider-popup-buffer "*cider-test-example*" nil 'clojure-mode 'ancillary))
+         (result-buffer (cider-popup-buffer "*cider-test-example*"
+                                            nil 'clojure-mode 'ancillary))
          ;; the evaluated result is quoted to ensure paren pairs are interpreted as lists
          (leader "(is (= '")
          (suffix (concat "\n       " sexp "))")))
