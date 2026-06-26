@@ -2,12 +2,11 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cider))
-(eval-when-compile (require 'nrepl-client))
-
+(require 'nrepl-client)
 (require 'cider-eval)
 (require 'cider-format)
 (require 'cider-util)
+(require 'cider-popup)
 
 (require 'clj-refactor)
 
@@ -20,7 +19,8 @@
 
 ;; TODO: add helper for popup view image from clojure?
 (defun clj-combined-popup-eval-handler (buffer complete-handler)
-  "Make a handler for combining evaluation, stdout, and stderr results in popup BUFFER.
+  "Response handler for combining eval, stdout, and stderr results in popup BUFFER.
+
 This is used to generate mode specific popups."
   (nrepl-make-response-handler
    buffer
@@ -138,7 +138,8 @@ This is used to generate mode specific popups."
 
 ;; WIP, need to generalize better
 (defun cider-eval-to-test-handler (sexp copy-to-kill buffer)
-  "Make a handler for evaluating and printing result in BUFFER along with evaluated SEXP in test form."
+  "Make a handler for evaluating and printing result in BUFFER along with
+evaluated SEXP in test form."
   (nrepl-make-response-handler
    buffer
    (lambda (buffer value)
